@@ -305,3 +305,33 @@ if(options&&options.data){
 
 
 
+## How to...
+
+### Open BTC address for each user \(chat\)?
+
+possible BJS for command:
+
+```javascript
+Libs.BlockIO.Bitcoin.getAddressByLabel(
+    { 
+      label: "chat" + chat.chatid
+      onSuccess: "/onNewAddress",
+      onError: "/onError",
+} );
+```
+
+command /onNewAddress:
+
+```javascript
+Bot.sendMessage(inspect(options));
+Bot.sendMessage("Created: " + options.address);
+```
+
+command /onError:
+
+```javascript
+Bot.sendMessage("Error happens");
+```
+
+
+
