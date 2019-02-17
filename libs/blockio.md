@@ -314,7 +314,7 @@ possible BJS for command:
 ```javascript
 Libs.BlockIO.Bitcoin.getAddressByLabel(
     { 
-      label: "chat" + chat.chatid
+      label: "chat" + chat.chatid,
       onSuccess: "/onNewAddress",
       onError: "/onError",
 } );
