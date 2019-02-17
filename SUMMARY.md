@@ -18,6 +18,7 @@
   * [Variables](scenarios-and-bjs/variables.md)
   * [Api functions](scenarios-and-bjs/api-functions.md)
 * [Integration with Segment.com](integration-with-segment.com.md)
+* [Iterations. How to reduce theys?](iterations.-how-to-reduce-theys.md)
 * [How to...](howto.md)
 
 ## Libs
