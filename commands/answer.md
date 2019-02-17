@@ -4,7 +4,7 @@
 Answer - it is simple text message from bot on command execition.
 {% endhint %}
 
-![Answer can be modified on command editing ](../.gitbook/assets/image%20%2821%29.png)
+![Answer can be modified on command editing ](../.gitbook/assets/image%20%2822%29.png)
 
 ### How to format command's answer?
 

@@ -12,7 +12,7 @@ The **token** is a string along the lines of _`110201543:AAHdqTcvCH1vGWJxfSeofSA
 
 Now go to app and fill this token in bot creation form.
 
-![](.gitbook/assets/image%20%2819%29.png)
+![](.gitbook/assets/image%20%2820%29.png)
 
 
 
