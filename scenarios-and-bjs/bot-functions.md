@@ -99,6 +99,12 @@
         </p>
       </td>
     </tr>
+    <tr>
+      <td style="text-align:left"><code>Bot.importCSV()</code>
+      </td>
+      <td style="text-align:left">CSV import. More info <a href="https://help.bots.business/create-bot-from-google-table">here</a>
+      </td>
+    </tr>
   </tbody>
 </table>
 
