@@ -307,12 +307,12 @@ if(options&&options.data){
 
 ## How to...
 
-### Open BTC address for each user \(chat\)?
+### Open new BTC address for each user \(chat\)?
 
-possible BJS for command:
+possible BJS for command /newAddress:
 
 ```javascript
-Libs.BlockIO.Bitcoin.getAddressByLabel(
+Libs.BlockIO.Bitcoin.getNewAddress(
     { 
       label: "chat" + chat.chatid,
       onSuccess: "/onNewAddress",
@@ -330,7 +330,7 @@ Bot.sendMessage("Created: " + options.address);
 command /onError:
 
 ```javascript
-Bot.sendMessage("Error happens");
+Bot.sendMessage("Error happens on wallet creation");
 ```
 
 
