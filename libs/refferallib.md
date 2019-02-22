@@ -60,7 +60,7 @@ See @[DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=F
 
 ### Get attractor for current user
 
-`Libs.ReferralLib.currentUser.AttractedByUser()` 
+`Libs.ReferralLib.currentUser.attractedByUser()` 
 
 return user data \(with chatId\) 
 
