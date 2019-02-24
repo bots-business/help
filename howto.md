@@ -265,5 +265,24 @@ Then on group chat:
 Bot.sendMessageToChatWithId(user.telegramid, "BOT ANSWER")
 ```
 
-Also it is possible show alert message for user in group chat with [answerCallbackQuery](https://core.telegram.org/bots/api#answercallbackquery) after inline button pressing. 
+Also it is possible show alert message for user in group chat with [answerCallbackQuery](https://core.telegram.org/bots/api#answercallbackquery) after inline button pressing.
+
+## Q: What is the bjs to get total members count?
+
+It is not "total members count". You can get chats count. Because one user can have several chats with bot: private and several group chats.
+
+This BJS return all bot statistics:
+
+```javascript
+Bot.sendMessage(
+  "Total chats: " + bot.statistics.total +
+  "\n group chats: " + bot.statistics.group_chats_count +
+  "\n super group chats: " + bot.statistics.super_group_chats_count +
+  "\n private chats: " + bot.statistics.user_chats_count +
+  "\n active during last day chats: " + bot.statistics.active_during_last_day +
+  "\n active during last week chats: " + bot.statistics.active_during_last_week +
+)
+```
+
+
 
