@@ -21,7 +21,7 @@
         </p>
         <p>
           <br />in second command /contact:</p>
-        <p>Bot.sendMessage("Phone is:" + options.phone);</p>
+        <p>Bot.sendMessage(&quot;Phone is:&quot; + options.phone);</p>
       </td>
     </tr>
     <tr>

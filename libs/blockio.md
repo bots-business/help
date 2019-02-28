@@ -105,7 +105,7 @@ You can also use Testnet: Libs.BlockIO.testNet.XXXcoin
           <br />
         </p>
         <p>Can be used to query balances for external (non-account) addresses. If
-          an external address' balance is returned, its <em>user_id</em> and <em>label</em> fields
+          an external address&apos; balance is returned, its <em>user_id</em> and <em>label</em> fields
           will be <em>null</em>.</p>
       </td>
     </tr>
