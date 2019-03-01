@@ -1,5 +1,11 @@
 # Repository structure
 
+{% hint style="success" %}
+You can make export for any free bot in the Store. Just install it. 
+
+It is good for practice.
+{% endhint %}
+
 ### bot.json file
 
 Please see [this](https://help.bots.business/git/file-bot.json)
