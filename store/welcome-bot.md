@@ -14,7 +14,7 @@ We have 50 minutes - so we iterate every hour without repeating.
 
 Set 3000 to Auto Retry:
 
-![](../.gitbook/assets/image%20%286%29.png)
+![](../.gitbook/assets/image%20%287%29.png)
 
 #### Users can not run this command.
 
@@ -111,7 +111,7 @@ if(request.left_chat_member){
 
 ```
 
-![](../.gitbook/assets/image%20%2816%29.png)
+![](../.gitbook/assets/image%20%2819%29.png)
 
 
 

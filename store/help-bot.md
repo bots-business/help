@@ -1,6 +1,6 @@
 # Help bot
 
-![](../.gitbook/assets/image%20%2811%29.png)
+![](../.gitbook/assets/image%20%2813%29.png)
 
 In Bots.Business chat we have many generic questions. [This bot](https://telegram.me/BBHelpBot) can answer for thems.
 

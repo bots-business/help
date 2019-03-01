@@ -32,7 +32,7 @@ Command can have:
 
 **You can edit command directly from application.**
 
-![Screen from App for command creation](../.gitbook/assets/image%20%288%29.png)
+![Screen from App for command creation](../.gitbook/assets/image%20%289%29.png)
 
 ### Commands importing
 
