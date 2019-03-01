@@ -16,7 +16,7 @@ This bot is demo for integration with [Block.io](https://block.io).
 
 Main menu on /start command:
 
-![](../.gitbook/assets/image%20%2830%29.png)
+![](../.gitbook/assets/image%20%2831%29.png)
 
 Bot addresses menu on aliase "Bot addresses":
 
