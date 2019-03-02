@@ -50,6 +50,8 @@ See [more](https://help.bots.business/scenarios-and-bjs)
 
 You can store common code in the libs folder
 
+See [more](https://help.bots.business/git/library)
+
 
 
 

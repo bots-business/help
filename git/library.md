@@ -1,8 +1,14 @@
 # Library
 
+You can store common code in the library.
 
+{% hint style="success" %}
+See libraries in the Library Store. You can copy any free library and modify it.
+{% endhint %}
 
-For example code in myLib.js:
+## Basic
+
+For example: code in file libs\myLib.js:
 
 ```javascript
 function hello(){
@@ -26,7 +32,7 @@ Libs.myLib.hello()
 Libs.myLib.sayGoodbyeTo("Alice") 
 ```
 
-#### Lib - capture command
+## Commands capturing
 
 It is possible to capture command with lib.
 
@@ -56,4 +62,34 @@ on('*', onMasterCommand );
 {% hint style="info" %}
 You can use all BJS functions in the Libs 
 {% endhint %}
+
+## Using HTTP
+
+Lib can perform web requests. For example: get page from eample.com and send its content to user.
+
+```javascript
+libPrefix = "myLib"
+
+function load(){
+  HTTP.get( {
+    url: "http://example.com",
+    success: libPrefix + 'onLoading '
+    // headers: headers - if you need headers
+  } )
+}
+
+function onLoading(){
+   Bot.sendMessage(content);
+}
+
+on(libPrefix + 'onLoading', onLoading );
+```
+
+on Bot command:
+
+```javascript
+Libs.myLib.load();
+```
+
+
 
