@@ -8,7 +8,7 @@ It is good for practice.
 
 ### bot.json file
 
-Please see [this](https://help.bots.business/git/file-bot.json)
+Please see [this](https://help.bots.business/git/file-bot-json)
 
 ### Commands - in commands folder
 

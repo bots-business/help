@@ -17,6 +17,10 @@ Go to Bot-&gt;Edit-&gt; show Advanced
 
 #### 2. Need set Deploy Key on external repository
 
+{% hint style="success" %}
+You do not need Deploy Key for read access of public repository 
+{% endhint %}
+
 Go to Bot-&gt; Sync in menu, then Git Sync -&gt; Deploy Key show
 
 ![](../.gitbook/assets/image%20%2827%29.png)
