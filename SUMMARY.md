@@ -21,6 +21,7 @@
   * [Import bot from Git repository](git/import-bot-from-git-repository.md)
   * [Export bot to Git repository](git/export-bot-to-git-repository.md)
   * [Repository structure](git/repository-structure.md)
+  * [Library](git/library.md)
   * [File: bot.json](git/file-bot-json.md)
 * [Integration with Segment.com](integration-with-segment-com.md)
 * [Iterations. How to reduce theys?](iterations.-how-to-reduce-theys.md)
