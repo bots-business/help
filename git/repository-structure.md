@@ -18,7 +18,7 @@ Command can have: `name`, `help`, `aliases` \(second names\), `answer`, `keyboar
 
 #### Command description
 
-It is file header:
+It is optional file header:
 
 ```javascript
 /*CMD
@@ -31,6 +31,26 @@ It is file header:
   aliases: /test2, /test3
 CMD*/
 ```
+
+{% hint style="info" %}
+Command description - it is optional block.
+{% endhint %}
+
+multiline also supported. For example for answer:
+
+```javascript
+/*CMD
+    <<ANSWER
+test answer
+with several
+lines
+  ANSWER
+CMD*/
+```
+
+{% hint style="info" %}
+You can have only answer \(or others\) key in the command description. All keys - optional
+{% endhint %}
 
 See [more](https://help.bots.business/commands)
 
