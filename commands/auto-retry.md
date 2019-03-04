@@ -1,9 +1,13 @@
-# Auto Retry
+# Auto Retry \(AR\)
 
 Command can be run periodically. For example:
 
 * bot send [message "Hello" ](https://help.bots.business/store/welcome-bot#good-morning-every-day)every 24 hours
 * bot download web page every 1 hour and parse it. See our [PlayMarketNewsBot](https://telegram.me/PlayMarketNewsBot)
+
+{% hint style="danger" %}
+Auto Retry spent 1 iteration on each run. Thus, if you put AR for once a minute \(60 secs\), it will be 1440 iterations per day.
+{% endhint %}
 
 So it is need set auto retry time:
 

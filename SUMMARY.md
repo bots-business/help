@@ -9,7 +9,7 @@
   * [Keyboard](commands/keyboard.md)
   * [Groups](commands/groups.md)
   * [Wait for answer](commands/wait-for-answer.md)
-  * [Auto Retry](commands/auto-retry.md)
+  * [Auto Retry \(AR\)](commands/auto-retry.md)
 * [Scenarios and BJS](scenarios-and-bjs/README.md)
   * [Bot functions](scenarios-and-bjs/bot-functions.md)
   * [Message broadcasting and editing](scenarios-and-bjs/message-broadcasting.md)
