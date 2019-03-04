@@ -2,7 +2,7 @@
 
 This Lib make integration with [block.io](blockio.md) in easy way.
 
-![](../.gitbook/assets/image%20%2826%29.png)
+![](../.gitbook/assets/image%20%2827%29.png)
 
 ## With Block.io you can
 
@@ -233,7 +233,7 @@ For example: "Actions for Handling Addresses"
 
 From block.io [help](https://block.io/api/): 
 
-![from Block.io help - https://block.io/api](../.gitbook/assets/image%20%2824%29.png)
+![from Block.io help - https://block.io/api](../.gitbook/assets/image%20%2825%29.png)
 
 So we have API method "Get New Address":
 
