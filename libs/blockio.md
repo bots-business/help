@@ -335,3 +335,33 @@ Bot.sendMessage("Error happens on wallet creation");
 
 
 
+### How can I check any payment by user on [block.io](http://block.io/) if I know him bitcoin address and payment will be 0,0001 Bitcoin?
+
+Looks like you need to receive payments on one own wallet from several users. 
+
+It is bad practice:
+
+1. User must say his wallet before payment. Because after payment anybody can see any addresses in blockchain
+2. User can do mistake with his address wallet
+3. User can do mistake with amount
+
+{% hint style="danger" %}
+Thus, users will have incorrect operations. You should check them in manual mode. It will be very difficult for you to verify incorrect transactions in the blockchain.
+{% endhint %}
+
+More good practice it is generate new income address for each payment. It is more secure. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
