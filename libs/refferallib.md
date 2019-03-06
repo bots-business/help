@@ -102,6 +102,28 @@ return first 45 users ordering by referrals count
 
 ## How to
 
+**Q: How to give bonus to user for attracted friend?**
+
+**Answer:**
+
+We can use [ResourcesLib](https://help.bots.business/libs/resourceslib) for this.
+
+on /start
+
+```javascript
+function doAttracted(refUser){
+  // access to Bonus Res of refUser
+  let refUserBonus = Libs.ResourcesLib.anotherUserRes("money", refUser.telegramid);
+  refUserBonus.add(100);  // add 100 bonus for friend
+}
+
+Libs.ReferralLib.currentUser.track({
+   doAtractedByUser: doAttracted
+});
+```
+
+
+
 **Q: how to give to referrer 5% of referral user deposit?**
 
 **Answer:**
