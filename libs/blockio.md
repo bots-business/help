@@ -26,7 +26,7 @@ Need to set Api key and secret pin in first. You can create command `/init` with
 
 ```javascript
 // set secret PIN
-Libs.setSecretPin("YOURS SECRET PIN");
+Libs.BlockIO.setSecretPin("YOURS SECRET PIN");
 
 Libs.BlockIO.Bitcoin.setApiKey("YOURS_API_KEY for Bitcoin");
 Libs.BlockIO.Dogecoin.setApiKey("YOURS_API_KEY for Dogecoin");
