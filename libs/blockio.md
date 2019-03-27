@@ -30,7 +30,7 @@ Libs.BlockIO.setSecretPin("YOURS SECRET PIN");
 
 Libs.BlockIO.Bitcoin.setApiKey("YOURS_API_KEY for Bitcoin");
 Libs.BlockIO.Dogecoin.setApiKey("YOURS_API_KEY for Dogecoin");
-Libs.BlockIO.Litecoin.setApiKey("YOURS_API_KEY for Dogecoin");
+Libs.BlockIO.Litecoin.setApiKey("YOURS_API_KEY for Litecoin");
 
 // Testnet
 Libs.BlockIO.testNet.Bitcoin.setApiKey("YOURS_API_KEY for Bitcoin");
