@@ -35,7 +35,7 @@ Libs.BlockIO.Litecoin.setApiKey("YOURS_API_KEY for Dogecoin");
 // Testnet
 Libs.BlockIO.testNet.Bitcoin.setApiKey("YOURS_API_KEY for Bitcoin");
 Libs.BlockIO.testNet.Dogecoin.setApiKey("YOURS_API_KEY for Dogecoin");
-Libs.BlockIO.testNet.Litecoin.setApiKey("YOURS_API_KEY for Dogecoin");
+Libs.BlockIO.testNet.Litecoin.setApiKey("YOURS_API_KEY for Litecoin");
 ```
 
 Just run bot and execute this command `/init`. Then you can remove it.
