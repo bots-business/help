@@ -25,6 +25,7 @@
   * [File: bot.json](git/file-bot-json.md)
 * [Integration with Segment.com](integration-with-segment-com.md)
 * [Iterations. How to reduce theys?](iterations.-how-to-reduce-theys.md)
+* [Deep Linking - pass any params on Bot starting](deep-linking-pass-any-params-on-bot-starting.md)
 * [How to...](howto.md)
 
 ## Libs
