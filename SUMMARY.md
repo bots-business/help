@@ -39,6 +39,7 @@
 * [Lang](libs/lang.md)
 * [QiwiPayments](libs/qiwipayments.md)
 * [BlockIO](libs/blockio.md)
+* [CoinPayments \(CP\) - in progress..](libs/coinpayments.md)
 
 ## Store
 
