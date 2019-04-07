@@ -1,43 +1,25 @@
-# Iterations. How to reduce theys?
+# Итерации. Как уменьшить их количество?
 
-All iterations on Bots.Business are paid. You can choose payment plan with different iterations count.
+ Все итерации в Bots.Business платные. Вы можете выбрать определенный тариф с разным количеством итераций.
 
-### What it is - "iteration"?
+### Что это такое - "итерация"?
 
-1 iteration it is:
+1 Итерация это:
 
-* income message to bot
-* [Bot.runCommand](https://help.bots.business/scenarios-and-bjs/bot-functions)\(command\) in the BJS spend 1 iteration
-* Pressing the keyboard button
-* Pressing the inline keyboard button
-* 1 Auto Retry - it is 1 iteration
+* входящие сообщения в бот
+* [Bot.runCommand](https://help.bots.business/scenarios-and-bjs/bot-functions)\(command\) на этот BJS тратится 1 итерация
+* 1 [Авто-действие](https://help.bots.business/commands/auto-retry) - это 1 итерация
 
-{% hint style="info" %}
-Single command execution - 1 iteration
-{% endhint %}
+## Как уменьшить количество итераций?
 
-## How to reduce iterations count?
+Уменьшите количество входящих сообщений:
 
-Reduce income messages to bot:
+* удалитесь из супергрупп
+* уберите ненужные команды
 
-* remove it from super groups
-* remove un useful commands
+Уменьшите Bot.runCommand в BJS
 
-Reduce Bot.runCommand in BJS
-
-Reduce [Auto Retry](https://help.bots.business/commands/auto-retry) calls
-
-## How to get more iterations?
-
-You can upgrade your Plan.
-
-You can change your BB Points to Iterations.
-
-
-
-
-
-
+Уменьшите воспроизведение [авто-действия](https://help.bots.business/commands/auto-retry)
 
 
 

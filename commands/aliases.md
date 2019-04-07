@@ -1,13 +1,13 @@
-# Aliases
+# Псевдонимы
 
-### What it is aliases?
+### Что это такое - псевдонимы?
 
-Sometimes it is convenient to set aliases. For example, include aliases `/phone, /email` to command `/contacts`.  
-Then `/contacts` - it is command name. Others - it's aliases.
+Иногда удобнее пользоваться псевдонимами. Например, можно вписать псевдонимы `/phone (телефон), /email (эл. почта)` к команду `/contacts (контакты) `.  
+`/contacts` - название команды. Остальное - это псевдонимы.
 
-![Aliases can be modified on command editing ](../.gitbook/assets/image%20%281%29.png)
+![Псевдонимы могут быть модифицированы на изменение команды ](../.gitbook/assets/image%20%281%29.png)
 
-A much more useful case: set aliases for **keyboard** keys. Quite pleasant "contact" on the button, than "/contacts"
+Более полезный способ: установите псевдонимы в виде **кнопок**. Ведь приятнее пользоваться кнопкой "contact", чем "/contacts"
 
 ![](../.gitbook/assets/image%20%284%29.png)
 

@@ -1,18 +1,18 @@
-# Command
+# Command(команда)
 
-| Function | Description | Example |
+| Функция | Описание | Пример |
 | :--- | :--- | :--- |
-| `Command.setValue(name, value)` | set value to command | `Command.setValue("url", "http://example.com")` |
+| `Command.setValue(name, value)` | установить переменную в команде | `Command.setValue("url", "http://example.com")` |
 
 
 
-**You can pass a variable to the URL of the previous script.** This is useful if you need to generate a URL.
+**Вы можете передать переменную в URL предыдущего скрипта. ** Это полезно, если вам нужно сгенерировать URL.
 
 ```text
 ->(<my_url>)
 ```
 
-The variable `my_url` needs to be set in the previous script of this command:
+Переменная `my_url` должна быть установлена в предыдущем скрипте этой команды:
 
 ```javascript
 Command.setValue("my_url", "http://example.com");
@@ -20,7 +20,7 @@ Command.setValue("my_url", "http://example.com");
 ->(<my_url>)
 ```
 
-Here in the first scenario, the variable `my_url` is set. In the second scenario, the page is loaded from [http://example.com](http://example.com/).
+ Здесь в первом сценарии установлена переменная `my_url`. Во втором сценарии страница загружается из[http://example.com](http://example.com/).
 
-> You can set `my_url` in any other command with function `Command.setValue`
-
+> Вы можете установить `my_url` в любой другой команде с помощью функции 
+     `Command.setValue`

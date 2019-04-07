@@ -1,10 +1,10 @@
-# User functions
+# Функции пользователей
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Function</th>
-      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Функция</th>
+      <th style="text-align:left">Описание</th>
     </tr>
   </thead>
   <tbody>
@@ -12,7 +12,7 @@
       <td style="text-align:left"><code>User.setProperty(name, value, type)</code>
       </td>
       <td style="text-align:left">
-        <p>Set property with name for user</p>
+        <p>Установить свойство с названием для пользователя</p>
         <p></p>
         <p><code>User.setProperty(&quot;city&quot;, &quot;London&quot;, &quot;string&quot;)</code>
         </p>
@@ -22,7 +22,7 @@
       <td style="text-align:left"><code>User.getProperty(name)</code>
       </td>
       <td style="text-align:left">
-        <p>Read property with name</p>
+        <p>Прочесть свойство, с названием, пользователя</p>
         <p></p>
         <p><code>User.getProperty(&quot;city&quot;)</code>
         </p>
@@ -32,18 +32,18 @@
       <td style="text-align:left"><code>User.addToGroup(group_name)</code>
       </td>
       <td style="text-align:left">
-        <p>Add user to group with group_name</p>
+        <p>Добавить пользователя в определенную группу с названием_группы</p>
         <p></p>
         <p><code>User.addToGroup(&quot;guests&quot;)</code>
         </p>
       </td>
     </tr>
   </tbody>
-</table>**Access to property** in answer:
+</table>**Доступ к свойствам** в ответе:
 
-> You can also use the properties in the command's answer. For example, you can do this with the / hello command:`Hello, <UserRole>!`
+> Вы также можете использовать свойства в ответе команды. Например, вы можете сделать это с помощью команды / hello: `Hello, <UserRole>!`
 
-in BJS:
+в BJS:
 
-> And you can use it in `Bot.sendMessage("Hello, <UserRole>")`
+> И вы можете использовать его в виде `Bot.sendMessage("Hello, <UserRole>")`
 

@@ -1,55 +1,55 @@
-# Scenarios and BJS
+# Скрипты и BJS
 
-### What are these scenarios in the command?
+### Что это за сценарии в команде??
 
-Command can have some scenarios with BJS code. 
+Команда может иметь несколько сценариев с кодом BJS.
 
 {% hint style="info" %}
-BJS - it is "Bot Java Script" code.
+BJS - это "Bot Java Script" код.
 
-It is Java Script!
+Это Java Script!
 {% endhint %}
 
-Example. Calculating `2+2` and send result to the chat:
+Например. Просчитывает `2+2` и отправляет результат в чат:
 
 ```javascript
 Bot.sendMessage(2+2);
 ```
 
-On command executing, its scenarios are executed sequentially and isolated.
+При выполнении команды ее сценарии выполняются последовательно и изолированно.
 
 
 
 {% hint style="success" %}
-In BJS, you can use all the usual JS functions except setTimeout, setInterval
+В BJS вы можете использовать все обычные функции JS, кроме setTimeout, setInterval
 {% endhint %}
 
 
 
-### Why can there be several BJS scenarios in one command?
+### Почему в одной команде может быть несколько сценариев BJS?
 
-In one command, you can download multiple http addresses. Each such download requires a separate scenario.
+В одной команде вы можете скачать несколько http адресов. Каждая такая загрузка требует отдельного сценария.
 
-**In the BJS scenario, you can specify the URL to download.** In this case, the rest of the code will be executed after the download:
+**В сценарии BJS вы можете указать URL для загрузки.** В этом случае остальная часть кода будет выполнена после загрузки:
 
 ```javascript
 ->(http://example.com)
-Bot.sendMessage("Content from example.com:\n" + data.content);
+Bot.sendMessage("Контент из example.com:\n" + data.content);
 ```
 
-Here the page loads from example.com and sends its html content to the chat.
+Здесь страница загружается с example.com и отправляет html-контент в чат.
 
 
 
-### How can I set the url address
+### Как я могу установить ссылку?
 
-**You can pass a variable to the URL of the previous script.** This is useful if you need to generate a URL.
+**Вы можете передать переменную в URL предыдущего скрипта. ** Это удобно, если вам нужно сгенерировать URL.
 
 ```text
 ->(<my_url>)
 ```
 
-The variable `my_url` needs to be set in the previous script of this command:
+Переменная `my_url` должна быть установлена в предыдущем скрипте этой команды:
 
 ```javascript
 Command.setValue("my_url", "http://example.com");
@@ -57,13 +57,13 @@ Command.setValue("my_url", "http://example.com");
 ->(<my_url>)
 ```
 
-Here in the first scenario, the variable `my_url` is set. In the second scenario, the page is loaded from [http://example.com](http://example.com/).
+ Здесь в первом сценарии установлена переменная `my_url`. Во втором сценарии страница загружается из [http://example.com](http://example.com/).
 
-> You can set `my_url` in any other command with function `Command.setValue`
+> Вы можете установить `my_url` в любую другую команду с помощью функции `Command.setValue`
 
 ### 
 
-### How to create multiple scripts in a command?
+### Как создать несколько скриптов в команде?
 
-Scenarios are separated with `-> (url)` If substring `->(url)` is not found - then only one scenario is created for the command.
+Сценарии разделяются символом `-> (url)`. Если подстрока `-> (url)` не найдена, то для команды создается только один сценарий..
 

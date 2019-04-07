@@ -1,22 +1,22 @@
 ---
-description: Get bot Token with @BotFather
+description: Получение токена с помощью @BotFather
 ---
 
-# Getting started
+# Начинания
 
-##  How do I create a bot?
+##  Как мне создать бота?
 
-There's a… bot for that. Just talk to [@BotFather](https://telegram.me/BotFather) and follow a few simple steps. You need your authorization token.
+Существует специальный бот для этого. Просто напишите в [@BotFather](https://telegram.me/BotFather) и следуйте простой инструкции. Нам нужен ваш авторизационный токен.
 
-The **token** is a string along the lines of _`110201543:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw`_ that is required to authorize the bot
+**Токен** это строчка содержащая буквы и цифры, например: _`110201543:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw`_ , необходимая для авторизации бота
 
-Now go to app and fill this token in bot creation form.
+Теперь, перейдя в приложение, вставьте токен в форму для создания бота.
 
-![](.gitbook/assets/image%20%2825%29.png)
+![](.gitbook/assets/image%20%2824%29.png)
 
-## Help video
+## Видео для помощи
 
-See [video](https://youtu.be/MZixi8oIdaA)
+Смотреть [видео](https://youtu.be/MZixi8oIdaA)
 
-![](.gitbook/assets/image%20%2834%29.png)
+![](.gitbook/assets/image%20%2832%29.png)
 

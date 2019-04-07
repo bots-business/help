@@ -1,42 +1,42 @@
 ---
-description: Lib for multi language support
+description: Библиотека для поддержки мультиязычности
 ---
 
-# Lang
+# Язык
 
-## Getting started
+## Начало
 
-First - need to setup languages. For example with **/setup** command:
+Сначала - нужно настроить языки. Например, с помощью команды / setup:
 
 ```javascript
 enLang = { user: { whatIsYourName: "What is your name?", }, hello: "Hello!" }
 ruLang = { user: { whatIsYourName: "Как тебя зовут?", }, hello: "Привет!" }
 
-// first language is default language
+// начальный язык стоит по умолчанию
 Libs.Lang.setup("en", enLang);
 Libs.Lang.setup("ru", ruLang);
 ```
 
-Now default language is "english".
+Теперь языком по умолчанию является «английский».
 
-You can use lib now:
+Вы можете использовать библиотеку сейчас:
 
 ```javascript
 Bot.sendMessage(Libs.Lang.get().hello)
 Bot.sendMessage(Libs.Lang.get().user.whatIsYourName)
 ```
 
-## Functions
+## Функции
 
-### Change user lang
+### Изменить язык пользователя
 
 `Libs.Lang.user.setLang("ru")`
 
-### Get cur lang
+### Получить недавний язык
 
 `var lang = Libs.Lang.user.getLang()`
 
-### Change default lang
+### Изменить язык по умолчанию
 
 ```javascript
 Libs.Lang.default.setLang("en")
@@ -44,23 +44,23 @@ var default = Libs.Lang.default.getCurLang()
 ```
 
 {% hint style="info" %}
-Tips. Also you can use multi lang command.
+Подсказки. Также вы можете использовать мултиязычные команды.
 
-For example: /hello\_en and /hello\_ru
+Например: / hello \ _en и / hello \ _ru
 {% endhint %}
 
 
 
-**In BJS for command /hello:**
+**Команда для /hello в BJS:**
 
 `Bot.runCommand("/hello_" + Libs.Lang.user.getLang())`
 
 {% hint style="success" %}
-Also you can use 
+Также вы можете использовать
 
 `Libs.Lang.get("ru")` 
 
-for non user actions: in webhooks and etc
+не для пользовательских действий: в webhooks(вебхуках) и т.д.
 {% endhint %}
 
 

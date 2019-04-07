@@ -1,80 +1,80 @@
-# Repository structure
+# Структура хранилища
 
 {% hint style="success" %}
-You can make export for any free bot in the Store. Just install it. 
+Вы можете сделать экспорт любого бесплатного бота в магазине. Просто установите это. 
 
-It is good for practice.
+Это хорошо для практики.
 {% endhint %}
 
 ### bot.json file
 
-Please see [this](https://help.bots.business/git/file-bot-json)
+Пожалуйста смотрите [это](https://help.bots.business/git/file-bot-json)
 
-### Commands - in commands folder
+### Команды - в папке команд
 
-File name - it is command name \(But it can be rewritten in command description\)
+Название файла - Это название команды \(Но оно может быть изменено в описании команды\)
 
 {% hint style="warning" %}
-For commands with "/" \(for example command "/start"\) file name is "\_start"
+Для команд с "/" \(например команда "/start"\) названием файла является "\_start"
 {% endhint %}
 
-Command can have: `name`, `help`, `aliases` \(second names\), `answer`, `keyboard`, `scnarios` \(for simple logic\) and other options.
+Команда может иметь: `name`\(название\), `help`\(помощь\), `aliases`\(псевдоним\), `answer`\(ответ\), `keyboard`\(клавиатура\), `scnarios` \(для обычной логики\) и другие опции.
 
-#### Command description
+#### Описание команды
 
-It is optional file header:
+Заголовок файла не обязателен:
 
 ```javascript
 /*CMD
   command: /test
-  help: this is help for ccommand
-  need_reply: [ true or false here ]
-  auto_retry_time: [ time in sec ]
-  answer: it is example answer for /test command
-  keyboard: button1, button2
+  help: это помощь команды
+  need_reply: [ здесь true или false ]
+  auto_retry_time: [ время в секундах ]
+  answer: это пример ответа на команду /test command
+  keyboard: Кнопка1, Кнопка2
   aliases: /test2, /test3
 CMD*/
 ```
 
 {% hint style="info" %}
-Command description - it is optional block.
+Описание команды - необязательный пункт.
 {% endhint %}
 
-multiline also supported. For example for answer:
+мультисрока также возможна. Например для ответов:
 
 ```javascript
 /*CMD
     <<ANSWER
-test answer
-with several
-lines
+тестовый ответ
+с несколькими
+строками
   ANSWER
 CMD*/
 ```
 
 {% hint style="info" %}
-You can have only answer \(or others\) key in the command description. All keys - optional
+Вы можете иметь только ответные \(или другие\) ключи в описании команд. Все ключи - необязательны
 {% endhint %}
 
-See [more](https://help.bots.business/commands)
+Смотрите [больше](https://help.bots.business/commands)
 
-#### Command body
+#### Тело команды
 
-It is command code in JavaScript. Use Bot Java Script for logic in command.
+Это код команды на JavaScript. Используйте Bot Java Script для логики в командах.
 
-For example:
+Например:
 
 `Bot.sendMessage(2+2);`
 
-See [more](https://help.bots.business/scenarios-and-bjs)
+Смотрите [больше](https://help.bots.business/scenarios-and-bjs)
 
 
 
-### Libraries - in libs folder
+### Библиотеки - в папке библиотек
 
-You can store common code in the libs folder
+Вы можете записать общий код в папке библиотек
 
-See [more](https://help.bots.business/git/library)
+Смотрите [больше](https://help.bots.business/git/library)
 
 
 

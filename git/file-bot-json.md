@@ -1,8 +1,8 @@
-# File: bot.json
+# Файл: bot.json
 
-bot.json - it is file with bot description. It is required for bot import.
+bot.json - это файл с описанием бота. Он необходим при импортировании бота.
 
-bot.json example:
+bot.json пример:
 
 ```text
 {

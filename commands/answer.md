@@ -1,34 +1,34 @@
-# Answer
+# Answer(ответ)
 
 {% hint style="info" %}
-Answer - it is simple text message from bot on command execition.
+Answer(ответ) - это обычный текст выводимый ботом на определенную команду.
 {% endhint %}
 
-![Answer can be modified on command editing ](../.gitbook/assets/image%20%2828%29.png)
+![Answer может быть использован для модификации команды ](../.gitbook/assets/image%20%2826%29.png)
 
-### How to format command's answer?
+### Как форматировать answer(ответ) команды?
 
-Use markdown text:
+Используйте markdown форматирование:
 
 ```text
-\n - new line (multi-line text also allowed)
-*bold text*
-_ italics _
-[text](URL)
-`inline fixed-width code`
+\n - новый абзац (многострочный текст также допускается)
+*жирный текст*
+_ кривой _
+[текст](ссылка)
+`встроенный код фиксированной ширины`
 ```text
-pre-formatted fixed-width code block
+предварительно отформатированный кодовый блок фиксированной ширины
 ```
 
 
 
-### How to insert a link to the answer?
+### Как вставить ссылку в answer(ответ)?
 
 ```text
-[link text](url)
+[Название](ссылка)
 ```
 
-Example:
+Например:
 
 ```text
 [Google](http://google.com)
@@ -36,33 +36,33 @@ Example:
 
 
 
-### How to insert a picture to the answer?
+### Как вставить картинку в answer(ответ)?
 
 ```text
-[picture title](url)
+[Название картинки](ссылка)
 ```
 
-Example:
+Например:
 
 ```text
-[Dog](http://example.com/images/dog.jpg)
+[Собака](http://example.com/images/dog.jpg)
 ```
 
-Also you can send picture file directly with BJS.
+Также вы можете отправить файл картинки с помощью BJS.
 
 
 
-### How to insert a other command to the answer?
+### Как вставить другие команды в answer(ответ)?
 
-Just use such text `/command`
+Просто пользуйтесь текстом команды: `/command`
 
-Example:
+Например:
 
 ```text
-Hello! You can now /register or read /help
+Привет! Вы можете /register (зарегистрироваться) или прочитать /help (помощь)
 ```
 
-### How to insert a link to other command on the answer?
+### Как вписать ссылку в answer(ответ) других команд?
 
-It can be with "/", e.g.: `/help`. Otherwise, unfortunately, no.
+Это может быть с помощью "/", например: `/help`. По другому, к сожалению, нельзя.
 

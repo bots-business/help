@@ -1,10 +1,10 @@
-# Api functions
+# Функции Api
 
-Api functions it all functions from [https://core.telegram.org/bots/api](https://core.telegram.org/bots/api)
+Функции Api это все функции с [https://core.telegram.org/bots/api](https://core.telegram.org/bots/api)
 
-You can use it with BJS. 
+Вы можете использовать их в BJS. 
 
-For example: send audio to current chat:
+Например: отправить аудио в текущий чат:
 
 ```javascript
 Api.sendAudio({
@@ -13,7 +13,7 @@ Api.sendAudio({
 
 ```
 
-send audio to other chat: 
+отправить аудио в другой чат: 
 
 ```javascript
 Api.sendAudio({
@@ -25,12 +25,12 @@ Api.sendAudio({
 
 
 
-You can pass allowed parameters. For example for [sendAudio](https://core.telegram.org/bots/api#sendaudio) it can be title and disable\_notification
+Вы можете передать разрешенные параметры. Например для [sendAudio](https://core.telegram.org/bots/api#sendaudio) Это могут быть заголовок и disable\_notification(отключение уведомления)
 
 ```javascript
 Api.sendAudio({
   audio: "https://www.bensound.org/bensound-music/bensound-funnysong.mp3"
-  title: "test audio",
+  title: "Тестовое аудио",
   disable_notification: true
 });
 ```
@@ -38,11 +38,11 @@ Api.sendAudio({
 
 
 {% hint style="info" %}
-You can use all methods now except GET methods
+Вы можете использовать все методы, кроме методов GET
 {% endhint %}
 
 {% hint style="warning" %}
-Get methods in progress
+Get методы в прогрессе
 {% endhint %}
 
 

@@ -1,120 +1,120 @@
 ---
-description: Use this Lib for referral tracking.
+description: Используйте эту библиотеку для отслеживания рефералов.
 ---
 
 # RefferalLib
 
-Demo bot: [https://telegram.me/DemoReferalTrackingBot?start=FromLibPage](https://telegram.me/DemoReferalTrackingBot?start=FromLibPage)
+Демо бот: [https://telegram.me/DemoReferalTrackingBot?start=FromLibPage](https://telegram.me/DemoReferalTrackingBot?start=FromLibPage)
 
-## Getting started
+## Введение
 
-Basic function is **track**. Prefer to call it on /start:
+Основная функция - **отслежка**. Предпочитается вызывать на /start:
 
 `Libs.ReferralLib.currentUser.track(trackOptions);`
 
-params `trackOptions` - it is object with callback functions for:
+params(параметр) `trackOptions` - это оbject(объект) с функциями обратного вызова для:
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">callback function</th>
-      <th style="text-align:left">description</th>
+      <th style="text-align:left">функция обратного вызова</th>
+      <th style="text-align:left">описание</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">onTouchOwnLink()</td>
-      <td style="text-align:left">user touch own link</td>
+      <td style="text-align:left">юзер пришел нажал на свою ссылку</td>
     </tr>
     <tr>
       <td style="text-align:left">onAlreadyAttracted()</td>
-      <td style="text-align:left">user already attracted</td>
+      <td style="text-align:left">пользователь уже был привлечен</td>
     </tr>
     <tr>
       <td style="text-align:left">onAttracted()</td>
-      <td style="text-align:left">user was attracted via chanell</td>
+      <td style="text-align:left">пользователь был привлечен с канала</td>
     </tr>
     <tr>
       <td style="text-align:left">onAtractedByUser(refUser)</td>
       <td style="text-align:left">
-        <p>user was attracted by other user refUser - it is common user data (fields:
-          nickname, first_name and etc)</p>
+        <p> пользователь был привлечен другим пользователем refUser - это общие данные пользователя (поля:
+          nickname, first_name и др.)</p>
         <p></p>
-        <p>Also have field chatId with chat id for this user.</p>
+        <p>Также есть поле chatId с идентификатором чата для этого пользователя.</p>
       </td>
     </tr>
   </tbody>
 </table>{% hint style="info" %}
-See @[DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=FromLibPage) for details
+Смотрите детали в @[DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=FromLibPage)
 {% endhint %}
 
-## Functions
+## Функции
 
 
 
-## Get Referral link for current user
+## Получить реферальную ссылку для текущего пользователя
 
 `Libs.ReferralLib.currentUser.getRefLink(bot.name);` 
 
 ### 
 
-### Get attractor for current user
+### Получить пригласителя для текущего пользователя
 
 `Libs.ReferralLib.currentUser.attractedByUser()` 
 
-return user data \(with chatId\) 
+возвращает информацию пользователя \(с chatId\) 
 
 
 
-### Get attracted channel for current user
+### Получить привлеченный канал для текущего пользователя
 
 `Libs.ReferralLib.currentUser.attractedByChannel()` 
 
-return Channel wich current user was attracted
+выводит канал, который привлек текущего пользователя
 
 
 
-### Get refList
+### Получить refList(лист рефералов)
 
 `Libs.ReferralLib.currentUser.refList.get();` 
 
-return list with attracted users
+возвращает лист с привлеченными пользователями
 
 
 
-### Clear refList
+### Очистить refList
 
 `Libs.ReferralLib.currentUser.refList.clear();`
 
 ### 
 
-### Get Top Refferal List
+### Получить топ лист рефералов
 
 `Libs.ReferralLib.topList.get(45)`
 
-return first 45 users ordering by referrals count
+
+выводит первых 45 пользователей, сортируя по количеству рефералов
 
 
-
-### Clear Top Refferal List
+### Очистить топ лист рефералов
 
 `Libs.ReferralLib.topList.clear()`
 
-## How to
+## Как...	
 
-**Q: How to give bonus to user for attracted friend?**
+**Q: Как дать бонус пользователю за привлеченного друга? **
 
-**Answer:**
+**Ответ:**
 
-We can use [ResourcesLib](https://help.bots.business/libs/resourceslib) for this.
+Вы можете использовать [ResourcesLib](https://help.bots.business/libs/resourceslib) для этого.
 
-on /start
+при /start
 
 ```javascript
 function doAttracted(refUser){
-  // access to Bonus Res of refUser
+  // доступ к Бонус Ресурсу refUser
   let refUserBonus = Libs.ResourcesLib.anotherUserRes("money", refUser.telegramid);
-  refUserBonus.add(100);  // add 100 bonus for friend
+  refUserBonus.add(100);  // добавить 100 бонуса за друга
 }
 
 Libs.ReferralLib.currentUser.track({
@@ -124,19 +124,19 @@ Libs.ReferralLib.currentUser.track({
 
 
 
-**Q: how to give to referrer 5% of referral user deposit?**
+**Q: Как дать рефереру 5% от депозита реферального пользователя?**
 
-**Answer:**
+**Ответ:**
 
-1. You need setup [track](https://help.bots.business/libs/refferallib#getting-started) in first
-2. Seems you need use [ResourcesLib](https://help.bots.business/libs/resourceslib)
-3. On user set balance:
+1. Вам, для начала, надо установить [отслеживание](https://help.bots.business/libs/refferallib#getting-started)
+2. Теперь нужно воспользоваться [ResourcesLib](https://help.bots.business/libs/resourceslib)
+3. На установленос счете пользователя:
 
 ```javascript
 let res = Libs.ResourcesLib.userRes("money");
 let referrer = Libs.ReferralLib.currentUser.AttractedByUser();
 
-// if current user was attracted by referrer
+// если недавний пользователь был привлеченным рефералом
 if(referrer){
    let referrerRes = Libs.ResourcesLib.anotherUserRes(
        "money", referrer.telegramid);
@@ -147,6 +147,6 @@ if(referrer){
 ```
 
 {% hint style="info" %}
-In this example we use userRes. Also it is possible use chatRes. See [ResourcesLib](https://help.bots.business/libs/resourceslib) for details
+В этом примере мы используем userRes. Также возможно использование chatRes. См. [ResourcesLib] (https://help.bots.business/libs/resourceslib) для получения подробной информации.
 {% endhint %}
 

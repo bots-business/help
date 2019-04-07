@@ -1,20 +1,20 @@
-# Export bot to Git repository
+# Экспорт бота в Git хранилище
 
 {% hint style="success" %}
-You can make export for any free bot in the Store. Just install it.
+Вы можете экспортировать любого бота в магазин. Просто установите его.
 {% endhint %}
 
-## Preconditions
+## Предпосылки
 
-Please see [this](https://help.bots.business/git#requirements) before. \(Need set repository and Deploy Key in external repository\)
+Пожалуйста, для начала смотрите [это](https://help.bots.business/git#requirements). \(Нужно установить хранилище и  ключ развертывания(Deploy Key) в дополнительное хранилище.\)
 
-## Exporting
+## Экспортирование
 
-Go to bot -&gt; Sync
+Идите в бот -&gt; Синхронизируйте
 
-![](../.gitbook/assets/image%20%2833%29.png)
+![](../.gitbook/assets/image%20%2831%29.png)
 
-Press on button "Export to git rep" and wait.
+Нажмите на кнопку "Export to git rep" и ждите.
 
-After some minutes new branch with name "BB\_Export\_TIME" will be created on your external repository. 
+Несколько минут спустя, на вашем дополнительном хранилище будет создана новая ветвь с названием "BB\_Export\_TIME". 
 

@@ -1,18 +1,18 @@
 ---
-description: Send random message to user with this lib and get random values!
+description: Отправьте случайное сообщение пользователю с этой библиотекой или получить случайные значения!
 ---
 
-# Random
+# Случайность
 
-## Example BJS code:
+## Пример BJS кода:
 
-`Libs.Random.sendMessage(["hello", "Hi", "Good day!", "Welcome!"]);`
+`Libs.Random.sendMessage(["Привет!", "Здравствуй!", "Добрый день!", "Добро пожаловать!"]);`
 
-## Get random integer value beetwen 0 and 10:
+## Получите случайное значение с плавающей запятой между 0 и 10:
 
 `Libs.Random.randomInt(0, 10);`
 
-## Get random float value beetwen 200 and 400
+## Получить случайное значение с плавающей запятой между 200 и 400
 
 `Libs.Random.randomFloat(200, 400);`
 

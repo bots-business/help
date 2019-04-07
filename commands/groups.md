@@ -1,15 +1,15 @@
-# Groups
+# Группы
 
-## What it is: "allowed only for group"?
+## Что это такое: "доступно только для группы"?
 
-Users can be members of the group. 
+Пользователь может быть участником группы. 
 
-For example, there may be a group of "customers" and "guests." Then you can make sure that guests can not execute client commands.
+Например, могут быть группы "гостей" и "потребителей". Затем вы можете быть уверены, что командами клиентов, не могут пользоваться гости.
 
-![Group can be modified on command editing](../.gitbook/assets/image%20%2823%29.png)
+![Группы могут быть модифицированы в поле изменения команды](../.gitbook/assets/image%20%2822%29.png)
 
 {% hint style="info" %}
-You can use BJS code for adding user to group:`User.addToGroup(group_name)` 
+Вы можете использовать BJS код, чтобы добавить потребителя в определенную группу:`User.addToGroup(group_name)` 
 {% endhint %}
 
 

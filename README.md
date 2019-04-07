@@ -1,56 +1,55 @@
-# Welcome
+# Добро пожаловать
 
-## Bots.business Help
+## Помощь Bots.business
 
-Download from [Play Market](https://play.google.com/store/apps/details?id=bb_app.com.bots.business)
+Загрузите с [Play Market](https://play.google.com/store/apps/details?id=bb_app.com.bots.business)
 
-## Create your own bot for Telegram from new app Bots.Business.
+## Создайте своего собственного бота для Telegram с помощью приложения Bots.Business.
 
-### How to create bot
+### Как создать бота...
 
-1. Create bot with @BotFather
-2. Now create bot in app: add secret token
-3. Create commands 
+1. Создайте бота с помощью @BotFather
+2. Дальше создайте бота в приложении: вставьте секретный token
+3. Создайте команды 
 
-See [more](https://help.bots.business/getting-started)
+[Подробнее](https://help.bots.business/getting-started)
 
-### Install bots from the Store
+### Загрузка бота с магазина
 
 {% hint style="info" %}
-In the store are available various bots. Do you need referal tracking? Or chat with yours users via bot? This and the other is in the Bots Store!
+В магазине вы сможете найти разнообразные боты. Вам нужен бот для отслеживания рефералов или переписка с пользователями через бот? Эти и другие боты вы сможете найти в магазине!
 {% endhint %}
 
-In the store are available various bots. Do you need referal tracking? Or chat with yours users via bot? This and the other is in the Bots Store!
+В магазине вы сможете найти разнообразные боты. Вам нужен бот для отслеживания рефералов или переписка с пользователями через бот? Эти и другие боты вы сможете найти в магазине!
 
-### Commands
+### Команды
 
-Command can have: `name`, `help`, `aliases` \(second names\), `answer`, `keyboard`, `scnarios` \(for simple logic\) and other options.
+Команды могут состоять из: `name`(название), `help`(о команде), `aliases` \(вторые названия\), `answer`(ответное сообщение), `keyboard`(кнопка), `scnarios`(скрипт) \(для простой логики\) и другие функции.
 
 #### 
 
-#### CSV import with Google Table
+#### CSV импорт из Google таблиц
 
-Do you have much commands? Use Google Table and make import! Generate commands with formulas and do more with Google Table.
+У вас много команд? Используйте Google таблицы и импортируйте в бот! Генерируйте команды и формулами и делайте больше с помощью Google таблиц.
 
-**Template table** [http://bit.ly/bb\_table\_template](http://bit.ly/bb_table_template)
+**Шаблон таблицы** [http://bit.ly/bb\_table\_template](http://bit.ly/bb_table_template)
 
-**Demo bot @DemoFromTableBot from this table** [http://bit.ly/DemoFromTableBot](http://bit.ly/DemoFromTableBot)
+**Демо бот @DemoFromTableBot созданный с помощью этой таблицы** [http://bit.ly/DemoFromTableBot](http://bit.ly/DemoFromTableBot)
 
-#### How to import CSV file
+#### Как интегрировать CSV файл
 
-1. Create Google Table with commands for bot \(You can use template\)
-2. Do publich this Table in CSV format via File menu
-3. Paste CSV url in application and do upload command
+1. Создайте Google таблицу с командами бота \(Вы можете испрользовать шаблон\)
+2. Опубликуйте таблицу в формате CSV в меню "Файл"
+3. Вставьте CSV ссылку в приложение и загрузите команды
 
-Now you can talk with yours new Telegram Bot
+Теперь вы можете пользоваться вашим новым Telegram ботом
+[Подробнее](https://help.bots.business/create-bot-from-google-table)
 
-See [more](https://help.bots.business/create-bot-from-google-table)
+## BJS для команд
 
-## BJS for command
+Используйте Bot Java Script для построения логики в командах.
 
-Use Bot Java Script for logic in command.
-
-See [more](https://help.bots.business/scenarios-and-bjs)
+[Подробнее](https://help.bots.business/scenarios-and-bjs)
 
 ## FAQ
 
@@ -60,11 +59,11 @@ See [more](https://help.bots.business/scenarios-and-bjs)
 
 [https://api.bots.business/docs](https://api.bots.business/docs)
 
-## Issues
+## Недоразумения
 
 [https://github.com/bots-business/help/issues](https://github.com/bots-business/help/issues)
 
-## Beta version
+## Бета версия
 
-Bots.business under active development. App very unstable. Sorry :\(
+Bots.business находится в стадии активной разработки. Приложение работает с перебоями. Просим понять и простить :\(
 

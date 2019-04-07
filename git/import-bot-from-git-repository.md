@@ -1,24 +1,20 @@
-# Import bot from Git repository
+# Импортирование бота из Git хранилища
 
-## Preconditions
+## Предпосылки
 
-Please see [this](https://help.bots.business/git#requirements) before. \(Need set repository and Deploy Key in external repository\)
+Пожалуйстя, для начала посмотрите [это](https://help.bots.business/git#requirements). \(Нужно установить хранилище и ключ развертывания в дополнительное хранилище\)
 
-## Importing
-
-{% hint style="danger" %}
-All existing bot's commands will be deleted
-{% endhint %}
+## Импортирование
 
 {% hint style="danger" %}
-All existing bot's libs will be uninstalled
+Все выполнимые ботом команды будут удалены
 {% endhint %}
 
-Go to bot -&gt; Sync
+Идите в бот -&gt; Синхронизируйте
 
-![](../.gitbook/assets/image%20%2833%29.png)
+![](../.gitbook/assets/image%20%2831%29.png)
 
-Press button "Import from Git rep"
+Нажмите на кнопку "Import from Git rep"
 
 
 

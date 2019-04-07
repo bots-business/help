@@ -1,46 +1,46 @@
 ---
-description: What it is "bot command"?
+description: Что это "команда бота"?
 ---
 
-# Commands
+# Команды
 
-Command - it is text from user. Bot can sent answer for command or do something. Usually command start with `"/"`, e.g. `/hello`. But it is not always required.
+Команда - это текст от пользователя. Бот может ответить или делать что другое. Обычно команда начинается  с `"/"`, например `/hello`. Но это, не всегда, обязательно.
 
-### How to execute command with any text from user? \(Master command\)
+### ? Как выполнить команду с любым текстом от пользователя\(Master команда\)
 
-Just use `*` in command name. 
+Просто используйте `*` в поле названия команды. 
 
 
 
-### Command's fields
+### Поля команды
 
-Command can have:
+Команда может иметь:
 
-| Field | Description | Example |
+| Поле | Описание | Пример |
 | :--- | :--- | :--- |
-| `command` | use for command call | `"/start"`, `"/run"`. For any text use `"*"` |
-| `help` | command's description | `"Welcome to RentBot. See /help or /order now"` |
-| `answer` | text answer | `"Hello. You need /register before continue"` |
-| `aliases` | use for alternative command call | `"/welcome, /hello, ?, help"` |
-| `keyboard` | send keyboard to user on command call | `"order, about"` |
-| `scenarios` | `BJS` code for execution | `2+2` |
-| `group` | command allowed only for this user's group | `guests`, `clients` |
-| `need_reply` | command wait for answer from user. Can be true, false or blank. If `true` BJS code execute after users'answer | `true`, `false` |
-| `auto_retry` | command can be runs with interval in secs | `600` - repeated once at 10 minutes |
+| `command(команда)` | используйте чтобы вызвать команду | `"/start"`, `"/run"`. Для любого текста используется `"*"` |
+| `help(помощь)` | описание команды | `"Добро пожаловать в RentBot. Смотрите /help или /order сейчас"` |
+| `answer(ответ)` | текст ответа | `"Привет. Тебе сначало надо /register чтобы продолжить "` |
+| `aliases(псевдонимы)` | используется как альтернатва вызова команды | `"/welcome, /hello, ?, help"` |
+| `keyboard(клавиатур)` | отправляет клавиатуру пользователю после вызова команды | `"order, about"` |
+| `scenarios(скрипты)` | `BJS` код для вывода | `2+2` |
+| `group(группы)` | к командам допускаются только участники определенной группы | `guests`, `clients` |
+| `need_reply(необходимость ответа)` | функция ожидания ответа пользователя. Может быть true(правдой), false(ложью) или пустым. Если `true` BJS код выводитя после ответа пользователя | `true`, `false` |
+| `auto_retry(автовоспроизведение)` | команда может запускаться в определенном интервале в секундах | `600` - повторяется каждые 10 минут |
 
-### How to create and edit commands?
+### Как создавать и изменять команды?
 
-**You can edit command directly from application.**
+**Вы можете редактировать команды прямо через приложение.**
 
-![Screen from App for command creation](../.gitbook/assets/image%20%289%29.png)
+![Экран приложения для создания команды](../.gitbook/assets/image%20%289%29.png)
 
-### Commands importing
+### Импорт команд
 
-Make all commands with [Google Table. ](https://help.bots.business/create-bot-from-google-table)
+Сделайте все команды с помощью [Google Таблиц. ](https://help.bots.business/create-bot-from-google-table)
 
-Also you can copy Template table from [http://bit.ly/bb\_table\_template](http://bit.ly/bb_table_template) into your own table. 
+Также вы можете скопировать шаблон таблицы с [http://bit.ly/bb\_table\_template](http://bit.ly/bb_table_template) в свою собественную таблицу. 
 
-This is an ideal option: everything is quite simple. Go to `Main menu > File > Make a copy`. You will need a separate sheet for the commands that will contain the commands. Then you can add commands in rows and do the CSV import from application.
+Это идеальная опция: все довольно просто. Идете в `Главное меню > Файл > Сделать копию`.Вам надо будет разделить листы для команд, которые будут содержать команды. Затем вы можете вписать команды в каждую строку и сделать CSV импорт из приложения.
 
 
 

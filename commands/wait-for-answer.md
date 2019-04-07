@@ -1,32 +1,31 @@
-# Wait for answer
+# Ожидание ответа
 
-## What it is "Wait for answer"?
+## Что это такое, "Ожидание ответа"?
 
-It is need the `Wait for answer` flag if need a response from the user.
+Необходимо отмечать галочкой этот пункт, если вам нужен отклик пользователя.
 
-![Can be modified on command editing](../.gitbook/assets/image%20%283%29.png)
+![Может быть модифицирован в поле для редактирования команды](../.gitbook/assets/image%20%283%29.png)
 
-Example of execution of one command:
+Пример вывода одной команды:
 
-Bot:
+Бот:
 
-> What is your name?
+> Как вас зовет?
 
-User:
+Юзер:
 
-> Jon
+> Джон
 
-Bot:
+Бот:
 
-> Hello, Jon
+> Привет, Джон!
 
-command:
+команда:
 
 ```javascript
-answer: What is your name?
-need_reply: true
-BJS: Bot.sendMessage( "Hello, " + message );
+answer(поле ответа): Как вас зовут?
+need_reply(необходимость ожидания): true (включен)
+BJS: Bot.sendMessage( "Привет, " + message+"!" );
 ```
 
-So BJS code execute only after user's answer
-
+Следовательно BJS код может выводиться только после отклика пользователя.

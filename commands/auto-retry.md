@@ -1,71 +1,71 @@
-# Auto Retry \(AR\)
+# Автовоспроизведение \(АВ\)
 
-Command can be run periodically. For example:
+Команда может периодически автовоспроизводиться. Например:
 
-* bot send [message "Hello" ](https://help.bots.business/store/welcome-bot#good-morning-every-day)every 24 hours
-* bot download web page every 1 hour and parse it. See our [PlayMarketNewsBot](https://telegram.me/PlayMarketNewsBot)
+* Бот [отправляет сообщение "Привет" ](https://help.bots.business/store/welcome-bot#good-morning-every-day)every 24 hours
+* Бот загружает веб-страницу каждый час и разбирает ее. Смотрите наш [PlayMarketNewsBot](https://telegram.me/PlayMarketNewsBot)
 
 {% hint style="danger" %}
-Auto Retry spent 1 iteration on each run. Thus, if you put AR for once a minute \(60 secs\), it will be 1440 iterations per day.
+Автовоспроизведение расходует 1 итерацию за каждое воспроизведение. Таким образом, если вы ставите АВ на каждую минуту \(60 secs\), то получим 1440 итераций в день.
 {% endhint %}
 
-So it is need set auto retry time:
+Как нужно ставить АВ:
 
-* for 10 minutes: 60\*10 = **600** secs
-* for 1 hour: 60\*60 = **3600** secs
-* for 24 hours: 60\*60\*24 = **86400** secs.
-* for 1 year: 86400 \* 365 = **24966000** secs
+* на 10 минут: 60\*10 = **600** сек.
+* на 1 час: 60\*60 = **3600** сек.
+* на 24 часа: 60\*60\*24 = **86400** сек.
+* на 1 год: 86400 \* 365 = **24966000** сек.
 
-#### Modify Auto Retry in app on command editing:
+#### Модификация команды автовоспроизведением в поле изменения:
 
-![Auto retry time can be modified on command editing](../.gitbook/assets/image%20%2836%29.png)
+![Команда может быть модифицирована АВ в поле для изменения](../.gitbook/assets/image%20%2834%29.png)
 
 
 
 {% hint style="warning" %}
-Auto retry works only with [BJS](https://help.bots.business/scenarios-and-bjs). There are now [Variables](https://help.bots.business/scenarios-and-bjs/variables): chat, user, request.
+АВ работает только с помощью [BJS](https://help.bots.business/scenarios-and-bjs). Переменные на [данный момент](https://help.bots.business/scenarios-and-bjs/variables): chat, user, request.
 {% endhint %}
 
-### Handled only on BJS!
+### Обрабатывается только на BJS!
 
-Because Auto Retry initialized by automatic there are no current chat, user and request. 
+Из-за того, что АВ  инициализируется автоматически current chat, user и request не существуют. 
 
-So we can not use:
-
-```javascript
-Bot.sendMessage("Hello");  //not works with Auto Retry
-```
-
-Why? Bot do not know chat for sending message! No current chat.
-
-So it is need define chat:
+Следовательно мы не можем пользоваться:
 
 ```javascript
-Bot.sendMessage({text: "Hello", chat_id: YOUR_CHAT_ID});
+Bot.sendMessage("Привет");  //не работает в автовоспроизведении
 ```
 
-#### How I can know chat id?
+Почему? Бот не имеет данных о чате для отправки сообщений! Ни недавних chat (чатов).
 
-Create simple command \(without Aoto Retry\): `/chat` with BJS:
+Так, что нужно чтобы определить чат:
+
+```javascript
+Bot.sendMessage({text: "Привет", chat_id: ВАШ_ЧAT_ID});
+```
+
+#### Как могу узнать чат ID?
+
+Сделайте простую команду \(без автовоспроизведения\): `/chat` включающий BJS:
 
 ```javascript
 Bot.sendMessage(chat.chatid);
 ```
 
-And run it on that chat where you need Auto Retry later. This command return YOUR\_CHAT\_ID
+И запустите это на том чате, в котором, позже, надо будет включить автовоспроизведение. Он и покажет ВАШ\_ЧAT\_ID
 
-Fill it in previous command with Auto Retry.
+Заполни это в предыдущей команде с автовоспроизведением.
 
 
 
 {% hint style="info" %}
-You can use Bot.getProperty and Bot.setProperty. So you can save chat\_id in one command and then get it on Auto Retry command 
+Вы также можете использовать команды Bot.getProperty и Bot.setProperty. Так что вы можете сохранить чат\_id в одной команде и затем получить его в команде автовоспроизведения 
 {% endhint %}
 
 {% hint style="warning" %}
-You can not use User.getProperty and User.setProperty. 
+Вы не можете использовать User.getProperty и User.setProperty. 
 
-No user on Auto Retry!
+Пользователи не учавствуют в автовоспроизведении!
 {% endhint %}
 
 

@@ -1,44 +1,44 @@
-# Welcome bot
+# Бот приветствия
 
-This bot greeting all new members in chat and say "Good morning" every day.
+Этот бот приветствует всех новых участников в чате и произносит «Доброе утро» каждый день.
 
-### Good morning every day
+### «Доброе утро» каждый день.
 
-We use [Auto Retry](https://help.bots.business/commands/auto-retry) for this. Every 50 minutes we check time. If current hour is 6 AM - bot send greeting message to all chat.
+Мы используем [Автовоспроизведение](https://help.bots.business/commands/auto-retry) for . Каждые 50 мин. проверяем время. Если текущее время 6 утра - бот отправляет приветственное сообщение во все чаты.
 
 {% hint style="info" %}
-Auto retry run periodically.
+Автовоспроизведение запускается периодически.
 
-We have 50 minutes - so we iterate every hour without repeating.
+Мы имеем 50 мин. - поэтому мы повторяем каждый час без повторения.
 {% endhint %}
 
-Set 3000 to Auto Retry:
+Установить 3000 на автовоспроизведение Retry:
 
 ![](../.gitbook/assets/image%20%287%29.png)
 
-#### Users can not run this command.
+#### Пользователи не могут запустить эту команду.
 
-Bot send message to ALL chats. If user run this command at 6 AM - bot send message too! 
+Бот отправляет сообщения во ВСЕ чаты. Если пользователь запусти эту команду в 6 утра - бот тоже отправит сообщение! 
 
-We need check for auto retry only. Auto Retry do not have chat variable. Execution breaks if chat exist.
+Нам нужна проверка только для автоматической повторной попытки. Автовоспроизведение не имеет чата. Выполнение прерывается, если чат существует.
 
 ```javascript
-// can be runned with Auto Retry only!
+// может быть запущен только с помощью автовоспроизведения!
 if(chat){ return }
 ```
 
-Then other code:
+Затем другой код:
 
 ```javascript
 let time = new Date()
 let hours = time.getHours();
 let minutes = time.getMinutes();
 
-curTime = "Time: " + hours + ":" + minutes + " GMT-0";
+curTime = "Время: " + hours + ":" + minutes + " GMT-0";
 msg = "";
 
 if(hours==6){
-  msg = "Good morning!\n" + curTime;
+  msg = "Доброе утро!\n" + curTime;
 }
 
 Bot.sendMessageToAllChats(msg);
@@ -46,17 +46,17 @@ Bot.sendMessageToAllChats(msg);
 
 
 
-### Greeting all new member
+### Приветствие всех пользователей
 
-We use Master commad "\*" for this. it capture all messages.
+Для этого мы используем мастер команду "\*". Это захватит все сообщения .
 
-Request can have information about new members:
+Запрос может содержать информацию о новых участниках:
 
 ```javascript
 let new_members = request.new_chat_members;
 ```
 
-We need build greetings for all users:
+Нам нужны поздравления для всех пользователей:
 
 ```javascript
 if(new_members.length > 0){
@@ -68,7 +68,7 @@ if(new_members.length > 0){
 }
 ```
 
-User can have username or first name. Or have not:
+Пользователь может иметь юзернейм или имя. Или не иметь:
 
 ```javascript
 function getNameFor(member){
@@ -81,11 +81,11 @@ function getNameFor(member){
 
 
 
-#### All code: 
+#### Все коды: 
 
 ```javascript
 let new_members = request.new_chat_members;
-let msg = "Hello, ";
+let msg = "Привет, ";
 let comma = "";
 
 function getNameFor(member){
@@ -105,13 +105,13 @@ if(new_members.length > 0){
 
 if(request.left_chat_member){
   Bot.sendMessage(
-    "Goodbye, " + getNameFor(request.left_chat_member)
+    "Прощай, " + getNameFor(request.left_chat_member)
   );
 }
 
 ```
 
-![](../.gitbook/assets/image%20%2821%29.png)
+![](../.gitbook/assets/image%20%2820%29.png)
 
 
 

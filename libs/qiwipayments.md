@@ -1,45 +1,45 @@
 ---
-description: Track payment with Qiwi.com
+description: Отслеживайте платежи с помощью Qiwi.com
 ---
 
-# QiwiPayments
+# QiwiПлатежи
 
-## Getting started
+## Введение
 
 {% hint style="warning" %}
-Need Api token from [https://qiwi.com/api](https://qiwi.com/api)
+Необходим Api token с [https://qiwi.com/api](https://qiwi.com/api)
 {% endhint %}
 
-### Set Api Token to lib:
+### Установите Api Token в библиотеку:
 
 `Libs.QiwiPayment.setQiwiApiTokent(API_KEY);`
 
-### Get payment link
+### Получите ссылку платежа
 
 ```javascript
 let link = Libs.QiwiPayment.getPaymentLink({
-    account: "+7XXXXXXXXXX", // Qiwi wallet
-    amount: 250, // amount in RUB
-    comment: "u" + String(user.id) // track transaction with label for user or order 
+    account: "+7XXXXXXXXXX", // Qiwi кошелек
+    amount: 250, // количество в рублях
+    comment: "u" + String(user.id) // отследите транзакцию благодаря метке для пользователя или заказа 
 });
 ```
 
-User can make payment via this link.
+Пользователь может оплатить через эту ссылку.
 
-### Bot need check payments
+### Боту нужно проверить оплату
 
 ```javascript
 Libs.QiwiPayment.acceptPayment({
-      account: "+7XXXXXXXXXX", // Qiwi wallet
+      account: "+7XXXXXXXXXX", // Qiwi кошелек
       onSuccess: "/onacceptpayment",
       onNoPaymentYet: "/onnopaymentyet",
-      comment: "u" + user.id // track transaction with label for user or order
+      comment: "u" + user.id // отследите транзакцию благодаря метке дя пользователя или заказа
 })
 ```
 
-If payment recived command `/onacceptpayment` executed.
+Если платеж получен то команда `/onacceptpayment` выводитсяя.
 
-Params contain amount in RUB:
+Параметры содержат количество в рублях:
 
 `let amount = parseFloat(params);`
 

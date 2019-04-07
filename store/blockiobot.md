@@ -1,41 +1,41 @@
 # BlockIOBot
 
-This bot is demo for integration with [Block.io](https://block.io). 
+Это демо бот для интеграции с [Block.io](https://block.io). 
 
-### See also related [Lib](https://help.bots.business/libs/blockio)
+### Смотрите также на связанную [библиотеку](https://help.bots.business/libs/blockio)
 
-### With Block.io you can:
+### С помощью Block.io вы можете:
 
-* create new wallets: Bitcoin, Dogecoin, Litecoin
-* look transactions
-* accept payments
-* make withdraws
-* etc
+* Создавать новые кошельки: Bitcoin, Dogecoin, Litecoin
+* посмотреть транзакции
+* принимать платежи
+* сделать вывод
+* и др.
 
-### Bot menus
+### Меню бота
 
-Main menu on /start command:
+Главное меню на команде /start :
 
-![](../.gitbook/assets/image%20%2835%29.png)
+![](../.gitbook/assets/image%20%2833%29.png)
 
-Bot addresses menu on aliase "Bot addresses":
+ Меню адресов бота под псевдонимом "Bot addresses":
 
 ![](../.gitbook/assets/image%20%2812%29.png)
 
   
-Withdrawals menu:
+Меню вывода:
 
-![](../.gitbook/assets/image%20%2832%29.png)
+![](../.gitbook/assets/image%20%2830%29.png)
 
-Tools menu:
+Меню инструментов:
 
-![](../.gitbook/assets/image%20%2818%29.png)
+![](../.gitbook/assets/image%20%2817%29.png)
 
-### How it is works?
+### Как это работает?
 
-Bot use BlockIo lib. 
+Бот использует библиотеку BlockIo. 
 
-Typical code for command `/getXXX` is:
+ Типичный код для команды `/getXXX`:
 
 ```java
 Libs.BlockIO.Bitcoin.getXXX(
@@ -43,29 +43,29 @@ Libs.BlockIO.Bitcoin.getXXX(
 );
 ```
 
-`getXXX` - it is API methods from [https://block.io/api/simple](https://block.io/api/simple/)
+`getXXX` - это API методы из [https://block.io/api/simple](https://block.io/api/simple/)
 
-Also we have `onSuccess` and `onError` commands.
+Также мы имеем команды `onSuccess` и `onError`.
 
-All `onSuccess` command have name`/onGetXXX`
+Все команды `onSuccess` имеют названия `/onGetXXX`
 
-Bot have only one `onError` command: `/onerror`:
+Бот имеет только одну `onError` команду: `/onerror`:
 
 ```javascript
-Bot.sendMessage("Error");
+Bot.sendMessage("Ошибка");
 
 if(options&&options.data){
-  // in options we have error message from Block.io
-  // just send it
+  // в настройках у нас есть сообщение об ошибке от Block.io
+  // просто отправь это
   Bot.sendMessage(options.data.error_message);
 }
 ```
 
 
 
-#### For example - command for address validation
+#### Например - команда для проверки адреса
 
-Command name is:
+Название команды:
 
 ```javascript
 Libs.BlockIO.Bitcoin.isValidAddress(
@@ -75,22 +75,22 @@ Libs.BlockIO.Bitcoin.isValidAddress(
 );
 ```
 
-We also have address in message variables: command have value "wait for answer" from user.
+У нас также есть адрес в переменных сообщения: команда имеет значение «ждать ответа» от пользователя.
 
-Command: /onvalidate
+Команда: /onvalidate
 
-We just send response:
+Мы просто отправляем ответ:
 
 ```javascript
-// we have json response from Block.io in options 
+//  у нас есть ответ JSON от Block.io в настройках
 Bot.sendMessage(inspect(options));
 ```
 
 
 
-### Getting addresses
+### Получение адресов
 
-Command: `/getMyAddresses`
+Команда: `/getMyAddresses`
 
 ```javascript
 Libs.BlockIO.Bitcoin.getMyAddresses(
@@ -98,30 +98,30 @@ Libs.BlockIO.Bitcoin.getMyAddresses(
 );
 ```
 
-Command: `"/onGetMyAdresses"`
+Команда: `"/onGetMyAdresses"`
 
 ```javascript
-// Block.io response in options 
+// Block.io отвечает в options (опциях)
 let wallets = options;
-Bot.sendMessage("Network: " + wallets.network);
+Bot.sendMessage("Сеть: " + wallets.network);
 
 let addresses = wallets.addresses;
-let answer = "*Yours wallets:*\n"
+let answer = "*Ваш кошелек:*\n"
 
 let counter = 0;
-// we have several addresses.
+// у нас есть несколько адресов.
 for(let ind in addresses){
-  if(counter>10){ break } // no more then 10 addresses
+  if(counter>10){ break } // не больше 10 адресов
 
   counter+=1;
   answer= answer + "#️⃣ `" +  addresses[ind].address + "`" +
-      "\n  🏷️Label: `" + 
+      "\n  🏷️Метка: `" + 
                addresses[ind].label.split("_").join("") + "`" +
-      "\n  💰balance: `" + 
+      "\n  💰баланс: `" + 
                addresses[ind].available_balance + "`" +
-      "\n  ⏳pending received balance: " + 
+      "\n  ⏳ожидающий полученный баланс: " + 
                addresses[ind].pending_received_balance +
-      "\n  ❌Archive: /archive" + 
+      "\n  ❌Архив: /archive" + 
                addresses[ind].label +
       "\n\n"
 }
@@ -129,9 +129,9 @@ for(let ind in addresses){
 Bot.sendMessage(answer);
 ```
 
-### Transactions. Income and outgoing transactions
+### Транзакции. Входящие и исходящие транзакции
 
-For outgoing transactions:
+Для исходящих транзакций:
 
 ```javascript
 Libs.BlockIO.Bitcoin.getTransactions(
@@ -140,7 +140,7 @@ Libs.BlockIO.Bitcoin.getTransactions(
 );
 ```
 
-For income transactions:
+Для входящих транзакций:
 
 ```javascript
 Libs.BlockIO.Bitcoin.getTransactions(
@@ -149,7 +149,7 @@ Libs.BlockIO.Bitcoin.getTransactions(
 );
 ```
 
-`/onGetOutTransactions` and `/onGetTransactions` command - is simular:
+Команды `/onGetOutTransactions` и `/onGetTransactions` - одинаковы:
 
 {% code-tabs %}
 {% code-tabs-item title="/onGetOutTransactions" %}
@@ -157,7 +157,7 @@ Libs.BlockIO.Bitcoin.getTransactions(
 let transactions = options;
 let answer = "";
 
-answer+= "Network: " + transactions.network;
+answer+= "Сеть: " + transactions.network;
 
 function parseOutcoming(tx){
   let sended = tx.amounts_sent;
@@ -165,8 +165,8 @@ function parseOutcoming(tx){
   if(!sended){ return "" }
   let result = ""
   for(let ind in sended){
-    result+= "\n  📥recipient: `" + sended[ind].recipient + "`" +
-             "\n  💰amount: `" + sended[ind].amount + "`";
+    result+= "\n  📥получатель: `" + sended[ind].recipient + "`" +
+             "\n  💰количество: `" + sended[ind].amount + "`";
   }
   if(result==""){ return "" }
   
@@ -185,8 +185,8 @@ for(let ind in transactions.txs){
   time = time.toLocaleString()
   
   answer+= "\n\nTXID:`" + tx.txid + "`";
-  answer+= "\n  ⌚time: `" + time + "`";
-  answer+= "\n  🔢confirmations: " + tx.confirmations;
+  answer+= "\n  ⌚время: `" + time + "`";
+  answer+= "\n  🔢подтверждения: " + tx.confirmations;
   
   answer+= parseOutcoming(tx)
 }
@@ -203,7 +203,7 @@ Bot.sendMessage(answer);
 let transactions = options;
 let answer = "";
 
-answer+= "Network: " + transactions.network;
+answer+= "Сеть: " + transactions.network;
 
 function parseIncoming(tx){
   let received = tx.amounts_received;
@@ -211,8 +211,8 @@ function parseIncoming(tx){
   if(!received){ return "" }
   let result = ""
   for(let ind in received){
-    result+= "\n  📥recipient: `" + received[ind].recipient + "`" +
-             "\n  💰amount: `" + received[ind].amount + "`";
+    result+= "\n  📥получатель: `" + received[ind].recipient + "`" +
+             "\n  💰количество: `" + received[ind].amount + "`";
   }
   if(result==""){ return "" }
   
@@ -231,8 +231,8 @@ for(let ind in transactions.txs){
   time = time.toLocaleString()
   
   answer+= "\n\nTXID:`" + tx.txid + "`";
-  answer+= "\n  ⌚time: `" + time + "`";
-  answer+= "\n  🔢confirmations: " + tx.confirmations;
+  answer+= "\n  ⌚время: `" + time + "`";
+  answer+= "\n  🔢подтверждения: " + tx.confirmations;
   
   answer+= parseIncoming(tx)
 }
@@ -247,15 +247,15 @@ Bot.sendMessage(answer);
 
 
 
-### Master command "\*" for address actions
+### Мастер команда "\ *" для адресных действий
 
-Bot need command for addresses archiving.
+Боту нужна команда для архивации адресов.
 
-![](../.gitbook/assets/image%20%2819%29.png)
+![](../.gitbook/assets/image%20%2818%29.png)
 
-We need command /archiveLabel, where Label is label for address
+Нам нужна команда /archiveLabel, где метка это метка для адреса
 
-So we have master command "\*" with BJS. It process all "/archiveXXX" commands:
+Следовательно мы имеем мастер команду "\*" с BJS. Это обрабатывает все команды "/archiveXXX":
 
 ```javascript
 if(message.substring(0, 8)=="/archive"){

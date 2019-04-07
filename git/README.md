@@ -2,36 +2,36 @@
 
 ![](../.gitbook/assets/image%20%2814%29.png)
 
-## Git support
+## Git поддержка
 
-* bot exporting to external Git repository \(for Github, for example\)
-* bot importing from external Git repository
+* экспорт бота в внешнее Git хранилище(repository) \(в Github, например\)
+* импорт бота из внешнего Git хранилища
 
-## Requirements
+## Требования
 
-#### 1. Need set Git repository on bot
+#### 1. Нужно установить Git хранилище на бот
 
-Go to Bot-&gt;Edit-&gt; show Advanced 
+Идете в Бот-&gt;Edit-&gt; открываете пункт "Продвинутые"(Advanced)
 
 ![](../.gitbook/assets/image%20%286%29.png)
 
-#### 2. Need set Deploy Key on external repository
+#### 2. Нужно установить ключ развертывания (Deploy Key) на внешнее хранилище
 
 {% hint style="success" %}
-You do not need Deploy Key for read access of public repository 
+Вам не нужен Deploy Key для чтения доступа внешнего хранилища 
 {% endhint %}
 
-Go to Bot-&gt; Sync in menu, then Git Sync -&gt; Deploy Key show
+Идете в Бот-&gt; Синхронизируете меню, затем Git синхронизация -&gt; покажите Deploy Key
 
-![](../.gitbook/assets/image%20%2830%29.png)
+![](../.gitbook/assets/image%20%2828%29.png)
 
-**Copy Deploy Key**
+**Скопируйте Deploy Key**
 
-Now you need set this Deploy Key on external repository.
+Теперь вам нужно установить этот Deploy Key на внешнее хранилище.
 
 **Github**
 
-Please see [this](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys). For Git exporting also need "write" access.
+Пожалуйста смотрите [это](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys). Для Git экспортирования также нужно "записать" доступ.
 
-#### 3. Now you can make exporting or importing with Git
+#### 3. Теперь вы можете сделать экспорт и импорт с помощью Git
 

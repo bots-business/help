@@ -1,28 +1,28 @@
-# What it is - Libs?
+# Что же это - библиотеки?
 
-Libs - it is common functionality. You can use it for any your tasks.
+Библиотеки - это общий функционал. .
 
-For example Bots.Business have such Libs:
+Например Bots.Business имеет такие библиотеки:
 
-* Random Lib - for random messages from bot
-* Referral Lib - for referral tracking
-* ResourcesLib - for chat resources with growth and etc
-* Lang Lib - for multi language
-* etc
+* Random Lib - для получение случайных сообщений с бота
+* Referral Lib - для отслеживания реферралов
+* ResourcesLib - для чат ресурсов с ростом и т.д.
+* Lang Lib - для мультиязычности
+* и др.
 
-### How to install Lib to bot?
+### Как установить библиотеку в бота?
 
-1.Go to Libs Tab in the App
+1. Идите в таблицу библиотек в приложении
 
 ![](../.gitbook/assets/image%20%2815%29.png)
 
-2. Click on Install button
+2. Нажмите на кнопку установки
 
-3. Select your bot
+3. Выберите ваш бот
 
-### How to use Lib?
+### Как использовать библиотеку?
 
-Please see help article for this Lib.
+Пожалуйста см. статью справки на эту библиотеку.
 
  
 

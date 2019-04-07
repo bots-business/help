@@ -1,66 +1,66 @@
-# Help bot
+# Бот помощник
 
 ![](../.gitbook/assets/image%20%2813%29.png)
 
-In Bots.Business chat we have many generic questions. [This bot](https://telegram.me/BBHelpBot) can answer for thems.
+В чате Bots.Business мы много общих вопросов. [Этот бот](https://telegram.me/BBHelpBot) может ответить на них.
 
-Bot have only one command. This command is [Master command](https://help.bots.business/commands#how-to-execute-command-with-any-text-from-user-master-command) - \*.
+Бот имеет только одну команду. Это [Мастер команда](https://help.bots.business/commands#how-to-execute-command-with-any-text-from-user-master-command) - \*.
 
-### Code description
+### Описание кода
 
-Bot receive all messages from chat with Master command.
+Бот получает все сообщения из чата с помощью Мастер команды.
 
-So we do not need any notifications about new chat members and etc:
+Следовательно нам не нужны иные уведомления о новых участниках чата и т.д.:
 
 ```javascript
 if(!message){ return }
 ```
 
 {% hint style="info" %}
-Do you have big case for command execution? You can use return.  
+У вас есть большой случай для выполнения команды? Вы можете использовать возврат.
 {% endhint %}
 
-Bot have keywords for searching in user's messages. Bot show answer and url on keywoard in message:
+У бота есть ключевые слова для поиска в сообщениях пользователя. Бот показывает ответ и URL на клавиатуре в сообщении:
 
 ```javascript
 list = [
-   { url: "status.bots.business", keywords: [ 'status' ],
-       answer: 'Seems do you need to know uptime status?' },
-   { keywords: [ '/start' ], answer: 'Please do not touch it here' },
-   { keywords: [ 'php ', ' php' ], answer: 'PHP? Really? I love BJS only' },
-   { keywords: [ 'hi!', 'hello' ], answer: 'Hey!' }
+   { url: "status.bots.business", keywords: [ 'статус' ],
+       answer: 'Похоже вам нужно узнать о возобновлении?' },
+   { keywords: [ '/start' ], answer: 'Пожалуйста, не трогайте это здесь' },
+   { keywords: [ 'php ', ' php' ], answer: 'PHP? Серьезно? Я люблю только BJS' },
+   { keywords: [ 'Привет!', 'Здравствуй' ], answer: 'Хэй!' }
 ]
 ```
 
-Also admin can write anything and do not need any help. So we have key - answerToAdmin:
+Также админ может написать что угодно и не нуждаться в помощи. Итак, у нас есть ключ - answerToAdmin:
 
 ```javascript
 let admin_tg_id = 519829299;
 ...
-{ url: "status.bots.business", keywords: [ 'status' ], answerToAdmin: true }
+{ url: "status.bots.business", keywords: [ 'статус' ], answerToAdmin: true }
 ```
 
-Sometimes we need exact searhing:
+Иногда нам нужен точный поиск:
 
 ```javascript
-{ url: "help.bots.business", keywords: [ 'help' ], exact:true}
+{ url: "help.bots.business", keywords: [ 'Помощь' ], exact:true}
 ```
 
-Message can be in aNyCAse. We need it only in lowercase:
+Сообщение может быть в лЮбОмРеГисТРе. Нам это нужно только в нижнем регистре:
 
 ```javascript
 let stext = message.toLowerCase();
 ```
 
-We use functions in the code. So code more simple:
+Мы используем функции в коде. Так что код проще:
 
 ```javascript
-// search keyword in the message (stext)
+// поиск ключевых слов в тексте (stext)
 function haveAnyKeyword(item){
   for(var ind in item.keywords){
-    // exact searhing
+    // точный поиск
     if(item.exact){
-      // exact searching
+      // точный поиск
       if(stext==item.keywords[ind]){ return true }
       continue;
     }
@@ -69,10 +69,10 @@ function haveAnyKeyword(item){
   }
 }
 
-// build answer
+// построить ответ
 function getAnswerFor(item){
   if((user.telegramid==admin_tg_id)&&(!item.answerToAdmin)){
-     // no any answer for admin
+     // нет никакого ответа для администратора
      return;
   }
   
@@ -85,7 +85,7 @@ function getAnswerFor(item){
   return answer;
 }
 
-// just bust all keywords list 
+//  просто перебрать весь список ключевых слов
 function doSearch(){
   let item;
   let answer;
@@ -100,10 +100,10 @@ function doSearch(){
 ```
 
 {% hint style="info" %}
-Functions create your code more simple. It is good for it rewriting and improvement.
+Функции делают ваш код более простым. Это хорошо для переписывания и улучшения.
 {% endhint %}
 
-Perform searching. And if we get answer - send message:
+Выполнить поиск. И если мы получили ответ - отправить сообщение:
 
 ```javascript
 
@@ -115,8 +115,8 @@ if(answer){
 ```
 
 {% hint style="info" %}
-In this command - we have only one Bot.sendMessage function!
+В этой команде - у нас есть только одна функция Bot.sendMessage!
 
-It is good - code more simple.
+Это хорошо - код проще.
 {% endhint %}
 

@@ -1,34 +1,34 @@
 ---
-description: Conversion is as easy as a few lines of code!
+description: Преобразование так же просто, как несколько строк кода!
 ---
 
-# CurrencyConverter
+# Конвертер валют
 
-Currency values are refreshed every 60 minutes.
+Значения валют обновляются каждые 60 минут.
 
-## FREE
+## БЕСПЛТАНО
 
-* Maximum of 100 requests/hr
-* Shared with all users who are acccessing it for free.
-* Downtime when there's a need to restart the server for bug fixes and enhancements
+* Максимум 100 запросов/час
+* Поделиться со всеми пользователями, которые получают доступ к нему бесплатно.
+* Время застоя, когда необходимо перезапустить сервер для исправления ошибок и улучшения
 
-## Example bot @DemoCurrencyConverterBot
+## Пример бота @DemoCurrencyConverterBot
 
-## Example code
+## Пример кода
 
-In any command:
+В любой команде:
 
 ```javascript
 let amount = 1;
 let onSucces = '/onconvert';
-let conversation = 'USD_EUR' // others: USD_BTC, BTC_USD, CNY_BTC and etc...
+let conversation = 'USD_EUR' // другие: USD_BTC, BTC_USD, CNY_BTC и т.д....
 Libs.CurrencyConverter.convert(conversation, amount, onSucces);
 ```
 
-### In command '/onconvert':
+### В команде '/onconvert':
 
 ```javascript
-// result stored in params
+// результат записывается в параметрах
 Bot.sendMessage(params);
 ```
 

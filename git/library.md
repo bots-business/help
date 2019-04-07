@@ -1,22 +1,22 @@
-# Library
+# Библиотека
 
-You can store common code in the library.
+Вы можете хранить общий код в библиотеке.
 
 {% hint style="success" %}
-See libraries in the Library Store. You can copy any free library and modify it.
+Смотрите библиотеки в магазине библиотек. Вы можете скопировать любую бесплатную библиотеку и пользоваться ею.
 {% endhint %}
 
-## Basic
+## Основы
 
-For example: code in file libs\myLib.js:
+Например: код файле libs\myLib.js:
 
 ```javascript
 function hello(){
-  Bot.sendMessage("Hello from lib!")
+  Bot.sendMessage("Привет от библиотеки!")
 }
 
 function goodbye(name){
-  Bot.sendMessage("Goodbye, " + name)
+  Bot.sendMessage("Досвидание, " + name)
 }
 
 publish({
@@ -25,47 +25,47 @@ publish({
 })
 ```
 
-then you can use Lib in any bot's command:
+затем вы можете использовать библиотеку в любой команде бота:
 
 ```javascript
 Libs.myLib.hello()
-Libs.myLib.sayGoodbyeTo("Alice") 
+Libs.myLib.sayGoodbyeTo("Алиса") 
 ```
 
-## Commands capturing
+## Запись команд
 
-It is possible to capture command with lib.
+Можно записывать команды с помощью библиотеки.
 
-For example:
+Например:
 
-* user type "Hi"
-* bot answer "Hello" 
+* пользователь пишет "Привет"
+* бот отвечает "Привет" 
 
 ```javascript
 function onHiCommand(){
-    Bot.sendMessage("Hello");
+    Bot.sendMessage("Привет");
 }
 
-on('Hi', onHiCommand );
+on('Привет', onHiCommand );
 ```
 
-Master command "\*" - for capture any text from user with lib
+Мастер команда "\*" - для записи любого текста пользователя с помощью библиотеки
 
 ```javascript
 function onMasterCommand(){
-    /// input your code here
+    /// запишите сюда ваш код
 }
 
 on('*', onMasterCommand );
 ```
 
 {% hint style="info" %}
-You can use all BJS functions in the Libs 
+Вы можете использовать все функции BJS в библиотеках 
 {% endhint %}
 
-## Using HTTP
+## Использование HTTP
 
-Lib can perform web requests. For example: get page from eample.com and send its content to user.
+Библиотека может выполнять веб запросы. Например: получить страницу из eample.com и отправить ее контент пользователю.
 
 ```javascript
 libPrefix = "myLib"
@@ -85,7 +85,7 @@ function onLoading(){
 on(libPrefix + 'onLoading', onLoading );
 ```
 
-on Bot command:
+как это будет выглядеть в команде бота:
 
 ```javascript
 Libs.myLib.load();

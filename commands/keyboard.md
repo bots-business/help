@@ -1,24 +1,24 @@
-# Keyboard
+# Клавиатура
 
-Fill the keyboard field for command. Keyboard has buttons in the rows. Each button is separated by a comma. Use `\n` for a new row.
+Заполните поле клавиатуры для команд. Клавиатура имеет кнопки в строку. Каждая кнопка разделяется запятой. Используйте `\n` для новой строки.
 
-![Keyboard in bot](../.gitbook/assets/image.png)
+![Клавиатура в боте](../.gitbook/assets/image.png)
 
-Example:
+Например:
 
 ```text
-register, about, \n contacts
+Регистрация, О нас, \n Контакты
 ```
 
 \*\*\*\*
 
-**The text of the button will be placed in the chat after touching this button.** Use commands aliase on button. Quite pleasant "contact" on the button, than "/contacts"
+**Текст кнопки будет отправлен как сообщение, после нажатия на нее.** Используйте псевдонимы н для кнопки. Приятнее нажать на кнопку "contact", чем "/contacts"
 
-Emoji also possible. Then the alias should also be with Emoji.
+Смайликами тоже можно пользоваться. Следовательно, псевдоним(поле aliases), так же, должен содержать тот же смайлик.
 
-![ Keyboard can be modified on command editing ](../.gitbook/assets/image%20%2822%29.png)
+![ Клавиатуру можно добавить в поле для редактирования команды ](../.gitbook/assets/image%20%2821%29.png)
 
 {% hint style="info" %}
-The keyboard does not disappear after the user's answers. Bot can send a new keyboard on a new command.
+Клавиатура не исчезает после ответов пользователя. Бот может отправить новую клавиатуру по новой команде.
 {% endhint %}
 

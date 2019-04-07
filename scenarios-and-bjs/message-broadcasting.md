@@ -1,12 +1,12 @@
-# Message broadcasting and editing
+# Обработка и редактирование сообщений
 
 
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Function</th>
-      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Функция</th>
+      <th style="text-align:left">Описание</th>
     </tr>
   </thead>
   <tbody>
@@ -14,9 +14,9 @@
       <td style="text-align:left"><code>Bot.sendMessage(text)</code>
       </td>
       <td style="text-align:left">
-        <p>Send message to current chat</p>
+        <p>Отправить сообщение в текущий чат</p>
         <p></p>
-        <p><code>Bot.sendMessage(&quot;Hello from bot&quot;)</code>
+        <p><code>Bot.sendMessage(&quot;Привет от бота&quot;)</code>
         </p>
       </td>
     </tr>
@@ -24,10 +24,9 @@
       <td style="text-align:left"><code>Bot.sendMessageToChatWithId(chatid, text)</code>
       </td>
       <td style="text-align:left">
-        <p>Send message to chat with id. Current chatid for chat is contained in
-          data.chat.chatid</p>
+        <p>Отправить сообщение в чат с id. Текущий chatid для чата содержится в          data.chat.chatid</p>
         <p></p>
-        <p><code>Bot.sendMessageToChatWithId(&quot;45445454521&quot;, &quot;Hello users!&quot;)</code>
+        <p><code>Bot.sendMessageToChatWithId(&quot;45445454521&quot;, &quot;Привет юзер!&quot;)</code>
         </p>
       </td>
     </tr>
@@ -35,10 +34,10 @@
       <td style="text-align:left"><code>Bot.sendMessageToChat(chat_name, text)</code>
       </td>
       <td style="text-align:left">
-        <p>Send message to other chat. The bot must be installed in another chat
-          room</p>
+        <p>Отправить сообщение в другой чат. Бот должен быть установлен в том, пользовательском,чате 
+          </p>
         <p></p>
-        <p><code>sendMessageToChat(&quot;OtherTestChat&quot;, &quot;Hello to all!&quot;)</code>
+        <p><code>sendMessageToChat(&quot;OtherTestChat&quot;, &quot;Привет всем!&quot;)</code>
         </p>
       </td>
     </tr>
@@ -46,9 +45,9 @@
       <td style="text-align:left"><code>Bot.sendMessageToAllPrivateChats(text)</code>
       </td>
       <td style="text-align:left">
-        <p>Send message to all private chats</p>
+        <p>Отправить сообщение во все личные чаты</p>
         <p></p>
-        <p><code>Bot.sendMessageToAllPrivateChats(&quot;Hello user&quot;)</code>
+        <p><code>Bot.sendMessageToAllPrivateChats(&quot;Привет пользователь&quot;)</code>
         </p>
       </td>
     </tr>
@@ -56,9 +55,9 @@
       <td style="text-align:left"><code>Bot.sendMessageToAllGroupChats(text)</code>
       </td>
       <td style="text-align:left">
-        <p>Send message to all group chats</p>
+        <p>Отправить сообщение во все групповые чаты</p>
         <p></p>
-        <p><code>Bot.sendMessageToAllGroupChats(&quot;this is the group chat&quot;)</code>
+        <p><code>Bot.sendMessageToAllGroupChats(&quot;Это групповой чат &quot;)</code>
         </p>
       </td>
     </tr>
@@ -66,9 +65,9 @@
       <td style="text-align:left"><code>Bot.sendMessageToAllSuperGroupChats(text)</code>
       </td>
       <td style="text-align:left">
-        <p>Send message to all super group chat</p>
+        <p>Отправить сообщение во все супер группы chat</p>
         <p></p>
-        <p><code>Bot.sendMessageToAllSuperGroupChats(&quot;You in super group!&quot;)</code>
+        <p><code>Bot.sendMessageToAllSuperGroupChats(&quot;Вы находитесь в супер группе!&quot;)</code>
         </p>
       </td>
     </tr>
@@ -76,125 +75,126 @@
       <td style="text-align:left"><code>Bot.sendMessageToAllChats(text)</code>
       </td>
       <td style="text-align:left">
-        <p>Send message to all chat</p>
+        <p>Отправить сообщение во все чаты</p>
         <p></p>
-        <p><code>Bot.sendMessageToAllChats(&quot;This message for all users&quot;)</code>
+        <p><code>Bot.sendMessageToAllChats(&quot;Это сообщение для всех пользователей&quot;)</code>
         </p>
       </td>
     </tr>
   </tbody>
-</table>**Security**
+</table>**Безопасность**
 
 {% hint style="danger" %}
-Please note that the user can create a chat with any name and add to it your bot.
+Обратите внимание, что пользователь может создать чат с любым именем и добавить в него своего бота.
 
-Therefore, the function `Bot.sendMessageToChatWithId` is more preferable than the function `Bot.sendMessageToChat`.
+Поэтому функция `Bot.sendMessageToChatWithId` более предпочтительна, чем функция
+ `Bot.sendMessageToChat`.
 {% endhint %}
 
-## **Message editing**
+## **Редактирование сообщений**
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left"><b>Function</b>
+      <th style="text-align:left"><b>Функция</b>
       </th>
-      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Описание</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">editMessage(value, message_id, options)</td>
       <td style="text-align:left">
-        <p>edit message with value and message_id</p>
+        <p>Редактирует сообщение с помощью переменной и message_id(id сообщения)</p>
         <p></p>
-        <p><code>Bot.editMessage(&quot;new text&quot;, 20)</code>
+        <p><code>Bot.editMessage(&quot;Новый текст&quot;, 20)</code>
         </p>
       </td>
     </tr>
     <tr>
       <td style="text-align:left">editMessageInChat(chat_id, value, message_id)</td>
       <td style="text-align:left">
-        <p>edit message with value and message_id in chat</p>
+        <p>Редактирует сообщение с переменной и message_id в чате</p>
         <p></p>
-        <p><code>Bot.editMessageInChat(10512154, &quot;new text&quot;, 25)</code>
+        <p><code>Bot.editMessageInChat(10512154, &quot;Новый текст&quot;, 25)</code>
         </p>
       </td>
     </tr>
   </tbody>
 </table>{% hint style="info" %}
-message\_id - it is unique identificator for all chats of this bot.
+message\_id - это уникальный идентификатор для всех чатов этого бота.
 {% endhint %}
 
-### **Message\_id for income messages to bot**
+### **Message\_id входящего сообщения**
 
-For income messages to bot: use `request.message_id`
+Для входящего сообщения в бот: используйте `request.message_id`
 
-#### Example
+#### Например
 
 ```javascript
 let msg_id = request.message_id;
-Bot.editMessage("new text", msg_id)
+Bot.editMessage("Новый текст", msg_id)
 
-// also you can store message_id for future editing:
+// также вы можете сохранить message_id для дальнейшего изменения:
 User.setProperty("msg_id", msg_id, "integer");
-// or if you want to edit message from others chats:
+// или если вы хотите редактировать сообщение других чатов:
 Bot.setProperty("msg_id" + chat.chatid, msg_id, "integer");
 ```
 
 {% hint style="warning" %}
-Message\_id - have unique value for all chats of bot. So we have only one message\_id with value "2" and only in one chat.
+Message\_id - имеет уникальную переменную для всех чатов бота. Значит мы можем иметь только один message\_id со значение "2" и только в одном чате.
 {% endhint %}
 
-### **Message\_id for** messages from bot
+### **Message\_id для** сообщений бота
 
-use `result_to_bot_property` in options - see [this](https://help.bots.business/scenarios-and-bjs/message-broadcasting#options-for-sendmessage-editmessage-and-sendkeyboard-functionals-reply-disable-notification-disable-web-page-preview)
+используйте `result_to_bot_property` в опциях - См. [здесь](https://help.bots.business/scenarios-and-bjs/message-broadcasting#options-for-sendmessage-editmessage-and-sendkeyboard-functionals-reply-disable-notification-disable-web-page-preview)
 
-#### Example
+#### Например
 
-in first command:
+в первой команде:
 
 ```javascript
-Bot.sendMessage("hello",
+Bot.sendMessage("Привет",
    {result_to_bot_property: "MSG-for-edit" + chat.chatid }
 )
 ```
 
-in other command:
+в другой команде:
 
 ```javascript
 let msg_id = Bot.getProperty( "MSG-for-edit" + chat.chatid);
-Bot.editMessage("new text", msg_id)
+Bot.editMessage("новый текст", msg_id)
 ```
 
 
 
-### **Options for sendMessage, editMessage and sendKeyboard functionals: Reply, Disable Notification, Disable web page preview**
+### **Опции(options) для функций sendMessage, editMessage и sendKeyboard: Ответить, Отключить уведомление, Отключить предварительный просмотр веб-страницы**
 
-You can pass options parameter to any `sendMessageXXX`, `sendKeyboard`, `editMesage`, `editMessageInChat` and`sendInlineKeyboard` functions:
+ Вы можете передать параметр options любому из функций`sendMessageXXX`, `sendKeyboard`, `editMesage`, `editMessageInChat` и`sendInlineKeyboard`:
 
 ```javascript
   let options = { disable_notification: true, reply_to_message_id: request.message_id };
-  Bot.sendMessage("Hello from bot", options);
-  Bot.sendMessageToChatWithId("45445454521", "Hello users!", options);
-  Bot.sendKeyboard("about, help,\ncontacts", "send keyboard now", options)
+  Bot.sendMessage("Привет от бота", options);
+  Bot.sendMessageToChatWithId("45445454521", "Привет пользователь!", options);
+  Bot.sendKeyboard("О нас, Помощь,\nКонтакты", "Отправьте клавиатуру", options)
 ```
 
-| Parameter | Type | Description |
+| Parameter(параметр) | Тип | Описание |
 | :--- | :--- | :--- |
-| disable\_web\_page\_preview | Boolean | Disables link previews for links in this message |
-| disable\_notification | Boolean | Sends the message silently. Users will receive a notification with no sound. |
-| reply\_to\_message\_id | Integer | If the message is a reply, ID of the original message |
-| is\_reply | Boolean | If the message is a reply for previous message |
-| parse\_mode | String | Send `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. Default `Markdown`. Can be `Markdown`, `HTML` or `null` |
-| result\_to\_bot\_property | String | Store result of message sending in bot property with this name.  You can read this result later in other commands by Bot.getProperty |
+| disable\_web\_page\_preview | Логический | Отключает предварительный просмотр ссылок в этом сообщении |
+| disable\_notification | Логический | Отправляет сообщение молча. Пользователи получат уведомление без звука. |
+| reply\_to\_message\_id | Целое число | Если сообщение является ответом, ID исходного сообщения |
+| is\_reply | Логический | Если сообщение является ответом на предыдущее сообщение |
+| parse\_mode | Строка | Отправляет `Markdown` или `HTML`, если вы хотите чтобы Telegram печатал жирным, кривым,текстом фиксированной ширины или inline ссылка в сообщении вашего бота. По умолчанию `Markdown`. Возможны `Markdown`, `HTML` или `null(пустое значение)` |
+| result\_to\_bot\_property | Строка | Сохранить результат отправки сообщения в свойстве бота с таким именем. Вы можете прочитать этот результат позже в других командах с помощью Bot.getProperty |
 
-## `New functions in progress`
+## `Новый функционал в разработке..`
 
-This function is in progress
+Данная функция в прогрессе
 
 `Bot.sendMessage(options)`
 
-options can be `{text: 'MESSAGE', result_to_bot_property: 'PropertyName'}`
+опциями могут быть `{text: 'MESSAGE', result_to_bot_property: 'PropertyName'}`
 
-`result_to_bot_property` - can read result for message sending \(with status, message\_id\)
+`result_to_bot_property` - может прочитать результат отправляемого сообщения \(со статусом, message\_id\)
 

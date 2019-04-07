@@ -1,55 +1,51 @@
-# How to...
+# Кодирование в BJS. Как...
 
-## Q: What it is "BJS"?
+## В: Что такое "BJS"?
+Это Bot JavaScript. Это обычный Java с некоторыми новшествами.
 
-It is Bot JavaScript. It's an ordinary Java with some inserts.
+## В: Я не знаю JavaScript. Что мне делать?
+Обычно, для создания ботов, ничего сложного или сверхестественного не нужно.
+Вы можете прочесть пару статей о JS:
+https://www.w3schools.com/js/js_syntax.asp или https://en.wikipedia.org/wiki/JavaScript_syntax
 
-## Q: I do not know the JavaScript. What should I do?
+## В: Как получить два ответа с помощью одной команды?
+Вы одновременно можете использовать bot answer и `Bot.sendMessage("ЛЮБОЙ текст").`
 
-Usually do not need something complicated for developing bots. You can read a couple of articles about JS: [https://www.w3schools.com/js/js\_syntax.asp](https://www.w3schools.com/js/js_syntax.asp) or [https://en.wikipedia.org/wiki/JavaScript\_syntax](https://en.wikipedia.org/wiki/JavaScript_syntax)
-
-## Q: How can I get two answers from one command?
-
-You can use bot answer and `Bot.sendMessage("ANY message").`
-
-or use two functions: BJS code:
-
-```javascript
-   Bot.sendMessage("ANY message");
-   Bot.sendMessage("Other any message");
+или две функции:
+BJS код:
+```js
+   Bot.sendMessage("ЛЮБОЕ сообщение");
+   Bot.sendMessage("Следущее сообщение");
 ```
 
-## Q: I have Markdown warning for message in Errors. What it is?
+## В: У меня Markdown предупреждение на сообщение в отделе "Ошибки". Что это значит?
+Telegram использует markdown для форматирования текста.
 
-Telegram have markdown for text formating.
+образцы:
+```
+\n - абзац (многострочный текст также допускается)
+*Жирный текст*
+_ кривой _
+[текст](ссылка)
+`встроенный код фиксированной ширины`
+```текст
+предварительно отформатированный кодовый блок фиксированной ширины
 
-samples:
-
-```text
-\n - new line (multi-line text also allowed)
-*bold text*
-_ italics _
-[text](URL)
-`inline fixed-width code`
-```text
-pre-formatted fixed-width code block
 ```
 
-So if you have incorrect markdown - you have this warning. Sample text with incorrect markdown:
-
-```text
-  bot_name
-  price 1*
-  "user`s" - wrong. Use "user's"!
+Если у вас неправильное markdown форматирование - у вас эти предупреждения.
+Образцы с неправильным форматированием:
+```
+  назвние_бота
+  цена 1*
+  "user`s" - неправильно. Печатайте "user's"!
 ```
 
-## Q: How I can use inline keyboard?
+## В: Как использовать inline клавиатуру?
+Пожалуйста смотрите в [демо боте](https://telegram.me/DemoInlineKeyboardBot). Он доступен в магазине.
 
-Please see [demo bot](https://telegram.me/DemoInlineKeyboardBot). It avaible in the Store.
-
-BJS code:
-
-```javascript
+BJS код:
+```js
 var buttons = [
     {title: "Go to Google", url: "https://google.com"},
     {title: "Call command for Button1", command: "/touch Button1" },
@@ -59,56 +55,52 @@ var buttons = [
 Bot.sendInlineKeyboard(buttons, "Please make a choice. After that, another command `/touch` will be started with parameters");
 ```
 
-`buttons` - it is array. It contains buttons. Each button is object with `title` \(required\), `url` or `command`.
+`buttons` - это массив. Содержит кнопки. Каждая кнопка это объект с `title` ("название"; объязательно), `url`("ссылка") или `command`("команда").
 
-Button must have `url` or `command`. `url` - any link.
+Кнопка должна иметь `url`(ссылку) или `command`(команду).
+`url` - любая ссылка.
 
-`command` - this command will be executed after button pressing. Can contain parameters through a space. `Command` can not be more then 64 bytes.
+`command` - это команда будет произведена после нажатия на кнопку. Может иметь param (параметр) через пробел. `Command` (команда) не может превышать 64 битов.
 
-## Q: How to bot can send reply for users message
+## В: Как бот может отвечать на сообщения пользователей?
+Вам нужно будет воспользоваться параметром `is_reply`
 
-You need pass options parameter with `is_reply`
-
-```javascript
-  Bot.sendMessage("It is reply message", {is_reply: true} );
+```js
+  Bot.sendMessage("Этот ответ на сообщение", {is_reply: true} );
 ```
 
-For any message in chat use: `reply_to_message_id`
+Чтобы ответить на любое сообщение в чате, используйте: `reply_to_message_id`
 
-```javascript
-  Bot.sendMessage("It is reply message", {reply_to_message_id: request.message_id } );
+```js
+  Bot.sendMessage("Ответ на сообщение", {reply_to_message_id: request.message_id } );
 ```
 
-Also you can retry with keyboard or inline keyboard too
 
-```javascript
-  // retry for last message
-  Bot.sendMessage("It is reply message", {is_reply: true } );
-  // or for any message
-  Bot.sendMessage("It is reply message", {reply_to_message_id: request.message_id } );
-
+А также вы можете воспользоваться, как обычными, так и inline кнопками
+```js
+  // ответ на последнее сообщение
+  Bot.sendMessage("Ответ на сообщение", {is_reply: true } );
+  // или же на любое другое
+  Bot.sendMessage("Ответ на сообщение", {reply_to_message_id: request.message_id } );
+  
   Bot.sendInlineKeyboard(
       [ {title: "google", url: "http://google.com" }, {title: "other command", commnad: "/othercommand"} ],
       "Please make a choice.",
       {reply_to_message_id: request.message_id }
  )
 ```
+Вы можете попробовать с любым другим сообщением из чата.
 
-You can retry for any message from chat.
-
-## Q: I do not undestand variables: `request`, `user`, `chat`, and etc.
-
-You can see it with `inspect` function:
-
-```javascript
+## В: Я не понял переменные: `request`, `user`, `chat`, и т.д.
+Вы можете посмотреть с помощью фунции`inspect`:
+```js
   Bot.sendMessage( inspect(request) );
 ```
 
-## Q: I would like to create bjs for time limit! Example in a bot you can only use the command every 24hrs!
 
-BJS code:
-
-```javascript
+## В: Я хотел бы создать bjs с временным ограничением! В примере, команду можно использовать только каждые 24 часа!
+BJS код:
+```js
 var last_run_at = User.getProperty("last_run_at");
 if(last_run_at){
    duration_in_hours = ((new Date) - last_run_at) / 1000/60/60;
@@ -121,65 +113,61 @@ if(duration_in_hours>=24){
    Bot.sendMessage("You run command now!");
    // add your code
    ...
-
+   
 }else{
-   Bot.sendMessage("Please return later. ")
+   Bot.sendMessage("Пожалуйста вернитесь позже. ")
 }
 ```
 
-## Q: How i can create bjs that if you click button it directs to open a link in web?
-
-Unfortunately, this is not supported by the Telegram API. But you can send link to chat: answer:
-
-```text
-[Open](http://example.com)
+## В: Как создать BJS, где, при нажатии на кнопку, открывается ссылка в веб странице?
+К сожалению, Telegram API не поддерживает эту функцию.
+Но вы можете просто отправить ссылку:
+answer:
+```
+[Открыть](http://example.com)
 ```
 
-## Q: How i can create password access to bot?
+## В: Как создать пароль для доступа к боту?
+Вы можете воспользоваться групповым разделением для команды. Эти команды могут быть воспроизведены только теми, кто находится в определенной группе. Вы можете назначать пользователям определенную группу, создав BJS с использованием верификации с паролем.
 
-You can use a group for commands. Then such commands can be started only by those users who are in this group. You can assign users to a group through BJS with password verification.
+*Пример*
+Бот:
+> пароль?
 
-_Example_ Bot:
-
-> password?
-
-User:
-
+Пользователь:
 > 12345
 
-Bot:
+Бот:
+> Добро пожаловать, member!
 
-> Welcome, member!
+Здесь показано, что юзер должен ввести пароль. После чего, зачисляется в группу `Members` и дальше может использовать команды этой группы. Если пароль окажется неверным, то появится сообщение об ошибке.
 
-In this example, the user must enter the correct password. After that, the group `Members` is setted and user can execute all commands of this group. If the password is not correct, a error message is displayed.
+**Бот:**
+answer: `пароль?`
+need_reply: `true`
 
-**Bot:** answer: `password?` need\_reply: `true`
-
-BJS code:
-
-```javascript
+BJS код:
+```js
 if(data.message=="12345"){
   User.addToGroup('Members');
-  Bot.sendMessage("Welcome, member!");
+  Bot.sendMessage("Добро пожаловать, member!");
 }else{
-  Bot.sendMessage("Password incorrect");
+  Bot.sendMessage("Пароль неверный");
 }
 ```
 
-## Q: Do you know BJS code that bot will automatically message user if they don't do any activity in the bot in a given time?
+## В: А вы знали что бот может авмтоматически написать юзерам, если те не были активны в определенное время?
 
-**1. You can store Last Active time** for user in bot's property:
+**1. Вы можете записать Последнее Активное Время** пользозателей в property(база данных) бота :
 
-command `tracking`
+команда `отслеживание`
+> Это невидимая команда для пользователя. Запускается вместе с другой командой
 
-> this is an invisible command for users. It is run from other commands only
-
-BJS code:
-
-```javascript
+BJS код:
+```js
    if(data.chat.chat_type=="private"){
       // track only private chats
-
+   
       total_users = Bot.getProperty("total_users");
       if(!total_users){ total_users = 0 }
       Bot.setProperty("total_users", total_users+1, "integer");
@@ -192,20 +180,20 @@ BJS code:
    }
 ```
 
-**2. In** _**others commands**_ **you need call** `tracking` **command** Bjs code:
-
-```javascript
+**2. Вам нужно всего лишь запустить `отслеживание` вместе с *другими командами*.**
+Bjs код:
+```js
    Bot.runCommand("tracking");
-   // your any code here
+   // ваш код
 ```
 
-> Please note. This code is needed in all commands of your bot.
+> Помните. Этот код нужен в каждой команде вашего бота.
 
-**3. Automatically message command.** Set auto retry time for it: 24 hours
+**3. Команда автоматического сообщения.**
+Установите для него время автоматического повтора: 24 часа
 
 BJS:
-
-```javascript
+```js
    total_users = Bot.getProperty("total_users");
    for(var i=0; i<total_users; i++){
       var propLastActiveName = "user" + String(i) + "_last_active_at";
@@ -216,73 +204,35 @@ BJS:
          // not active more than 24 hours
          var propChatIdName = "chat" + String(i) + "_id";
          var chatId = Bot.getProperty(propChatIdName);
-         Bot.sendMessageToChatWithId(chatId, "Hello! How are you?");
+         Bot.sendMessageToChatWithId(chatId, "Привет! Как ты?");
       }
    }
+   
 ```
 
-## Q: Is it possible to put some BJS code in our bot that notify user for cryptocurrency price?
-
-You can use [Coinmarketcap API](https://coinmarketcap.com/api/). For example page [https://api.coinmarketcap.com/v2/ticker/1/](https://api.coinmarketcap.com/v2/ticker/1/) have information about Bitcoin. We need load it with BJS.
+## В: Возможно ли создать BJS код в нашем боте, который оповещает юзеров о ценах криптовалют?
+Вы можете использовать [Coinmarketcap API](https://coinmarketcap.com/api/). 
+Напримен эта страница https://api.coinmarketcap.com/v2/ticker/1/ имеет информацию о Биткоине.
+Вам нужно всего лишь загругить этот BJS.
 
 BJS:
-
-```javascript
+```js
   ->(https://api.coinmarketcap.com/v2/ticker/1/)
   var result = JSON.parse(data.content);
   var BTC_USD_Price = result.data.quotes.USD.price;
-  Bot.sendMessage("Current Bitcoin price: " + String(BTC_USD_Price) + " $");
+  Bot.sendMessage("Недавняя цена Bitcoin : " + String(BTC_USD_Price) + " $");
 ```
 
-## Q: Is it posible that bot button can have value? How to create like on the screenshot below:
-
+## В: Может ли кнопка иметь переменную? Как создать кнопку похожую на фото:
 ![](https://i.imgur.com/6bA89pW.png)
 
-You must update the keyboard every time the value changes. To do this, send the keyboard with the command. Most likely, this should be done in several commands.
+Вы должны, каждый раз, обновлять кнопку, чтобы увидеть изменения переменной. Для этого, отправьте кнопку с командой. Лучше всего совершать это в нескольких командах.
 
-**BJS**:
-
-```javascript
-var balance = User.getProperty("balance"); // or your code here
-Bot.sendKeyboard(String(balance) + ",\nHelp, Contacts" );
+BJS:
+```js
+var balance = User.getProperty("balance"); // или ваш код здесь
+Bot.sendKeyboard(String(balance) + ",\nПомощь, Контакты" );
 ```
 
-{% hint style="info" %}
-**Use ResLib for any resources**
-{% endhint %}
-
-**Important**
-
-> Now you can not set command to this button!
-
-## Q: How to set the bot which it result to, when one of the telegram group members click the bot command in telegram bot, the message from the bot only seen by the clickers it self & unseen by another members.
-
-Bot can send message to this user in private. So user need to start this bot in private chat in first.
-
-Then on group chat:
-
-```javascript
-Bot.sendMessageToChatWithId(user.telegramid, "BOT ANSWER")
-```
-
-Also it is possible show alert message for user in group chat with [answerCallbackQuery](https://core.telegram.org/bots/api#answercallbackquery) after inline button pressing.
-
-## Q: What is the bjs to get total members count?
-
-It is not "total members count". You can get chats count. Because one user can have several chats with bot: private and several group chats.
-
-This BJS return all bot statistics:
-
-```javascript
-Bot.sendMessage(
-  "Total chats: " + bot.statistics.total +
-  "\n group chats: " + bot.statistics.group_chats_count +
-  "\n super group chats: " + bot.statistics.super_group_chats_count +
-  "\n private chats: " + bot.statistics.user_chats_count +
-  "\n active during last day chats: " + bot.statistics.active_during_last_day +
-  "\n active during last week chats: " + bot.statistics.active_during_last_week +
-)
-```
-
-
-
+**Важно**
+> Вы не можете установить команду на эту кнопку!

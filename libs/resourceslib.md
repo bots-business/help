@@ -1,31 +1,31 @@
 ---
-description: With lib we can manage any resources in bot.
+description: С помощью библиотеки мы можем управлять любыми ресурсами в боте.
 ---
 
 # ResourcesLib
 
-## Resource can be
+## Ресурсы могут быть
 
-* balance \(in USD, BTC or any other\)
-* any game resources: gold, woods, stone, etc
-* etc, any float values
+* в виде баланса \(в USD, BTC или других\)
+* любые игровые ресурсы: золото, древесина, камень, и т.д.
+* или, любые цифровые значения
 
-## User's resource
+## Ресурс пользователя
 
 ```javascript
 let res = Libs.ResourcesLib.userRes("money");
-Bot.sendMessage("Cur your money: " + res.value());
+Bot.sendMessage("Недавний ваш счет: " + res.value());
 ```
 
 {% hint style="info" %}
-One user can have same chats with bot. 
+Пользователь может иметь такие же чаты с ботом. 
 
-**For example:** private and group chat. 
+**Например:** личный и групповой чат. 
 
-But anywhere he have **simular** resources
+Но везде он имеет **одинаковые** ресурсы
 {% endhint %}
 
-## Chat's resource
+## Ресурсы чатов
 
 ```javascript
 let res = Libs.ResourcesLib.chatRes("money");
@@ -33,91 +33,91 @@ Bot.sendMessage("Cur your money: " + res.value());
 ```
 
 {% hint style="info" %}
-One user can have same chats with bot. 
+Пользователь может иметь такие же чаты с ботом. 
 
-**For example**: private and group chat.
+**Например:** личный и групповой чат. 
 
-But he have **diffent** resources for each chats.
+Но, он имеет **одинаковые** ресурсы для каждого чата.
 {% endhint %}
 
 
 
-## Methots for user's and chat resources
+## Методы для ресурсов пользователя и чата
 
-All methods can be for user's or chat's resources.
+Все методы могут быть для пользователя или чата.
 
 ```javascript
 // get res
 let res = Libs.ResourcesLib.userRes("money");
 ```
 
-`res.name` - current res name. For example: 
+`res.name` - недавнее название ресурса. Например: 
 
 ```javascript
 Libs.ResourcesLib.chatRes("BTC").name // is "BTC"
 ```
 
-## Basic functions
+## Основные функции
 
-### Current res amount
+### Недавнее количество ресурсов
 
 `res.value()` 
 
-### Set amount for this res 
+### Установить количество для этого ресурса 
 
 `res.set(amount)` 
 
-for example: `Libs.ResourcesLib.userRes("wood").set(10);`
+например: `Libs.ResourcesLib.userRes("wood").set(10);`
 
-### Add amount for this res
+### Добавить количество для этого ресурса
 
 `res.add(amount)` 
 
-### Res have such amount?
+### Ресурс имеет такую сумму?
 
-`res.have(amount)`- if res value equal amount or more return true
+`res.have(amount)`- если значение ресурса равно или больше, возвращается true
 
-### Take away amount from resource
+### Забрать сумму с ресурса
 
-`res.remove(amount)` -  if have it res.removeAnyway\(amount\) - take away amount anyway.
+`res.remove(amount)` -  если имеет это res.removeAnyway\(количество\) - забирает сумму в любом случае.
 
-## Access to another resources
+## Доступ к другому ресурсу
 
-### Access to another user's resources
+### Доступ к ресурсам другого пользователя
 
 ```javascript
-// telegramid - it is telegram id for another user
+// telegramid - это идентификатор телеграма для другого пользователя
 let res = Libs.ResourcesLib.anotherUserRes("money", telegramid);
-Bot.sendMessage("Cur your money: " + res.value());
+Bot.sendMessage("Недавний ваш счет: " + res.value());
 ```
 
-### Access to another chat's resources
+### Доступ к ресурсам другого чата
 
 ```javascript
-// another chat's resources
-// chatid - it is telegram id for another chat
+// ресурсы другого чата
+// chatid - это телеграм идентификатор для другого чата
 let res = Libs.ResourcesLib.anotherChatRes("money", chatid);
-Bot.sendMessage("Cur your money: " + res.value());
+Bot.sendMessage("Недавний ваш счет: " + res.value());
 ```
 
 
 
-## Resource transfering 
+##  Передача ресурсов
 
 ```javascript
 let res = Libs.ResourcesLib.userRes("gold");
-// telegramid - it is telegram id for another user
+// telegramid - это телеграм идентификатор другого пользователя
 let anotherRes = Libs.ResourcesLib.anotherUserRes("gold", telegramid);
 ```
 
-### If have resource...
+### Если есть ресурс...
 
 ```javascript
 res.takeFromAnother(anotherRes, amount);
 res.transferTo(anotherRes, amount)
 ```
 
-### ...or anyway, even resource is not enough
+### ...или в любом случае, даже ресурса недостаточно
 
 ```javascript
 res.takeFromAnotherAnyway(anotherRes, amount)
@@ -126,22 +126,22 @@ res.transferToAnyway(anotherRes, amount)
 
 
 
-### Can exchange different resources
+### Можно обменять разные ресурсы
 
-For example "gold" for "wood":
+Например "золото" на "древесину":
 
 `res.exchangeTo(anotherRes, { remove_amount: 10, add_amount:23 } )`
 
 \`\`
 
-## Growht for resource.
+## Рост ресурса.
 
-Resource can have growht.
+Ресурс может иметь рост.
 
 {% hint style="info" %}
-For example simple growht:
+Например простой рост:
 
-**add 5 every 10 secs to res**
+**добавить 5 к ресурсу каждые 10 секунд**
 {% endhint %}
 
 ```javascript
@@ -150,12 +150,12 @@ health.set(1);
 health.growth.add({value: 5, interval:10 });
 ```
 
-Interval - it is value in seconds. Value is added every interval
+Interval(интервал) - это значение в секундах. Значение добавляется каждый определенный интервал
 
-### Add 5 every hour with max value 100.
+### добавить 5 к ресурсу каждый час с максимальным значение 100.
 
 ```javascript
-//Max value: 100
+//максимальное значение: 100
 let secs_in_hour = 1 * 60 * 60;
 health.growth.add({
   value: 5,
@@ -164,10 +164,10 @@ health.growth.add({
 });
 ```
 
-### Value can be negative. Remove 5 every 30 hours. 
+### Значение может быть отрицательным. Отнимать 5 каждые 30 часов. 
 
 ```javascript
-//Min value: -20
+//мин. значение: -20
 let secs_in_30hours = 1 * 60 * 60 * 30;
 health.growth.add({
   value: 5,
@@ -178,7 +178,7 @@ health.growth.add({
 
 
 
-### Can limit max iteration count
+### Можно ограничивать максимальное количество итераций
 
 ```javascript
 health.growth.add(
@@ -188,9 +188,9 @@ health.growth.add(
 });
 ```
 
-### Can growh by percent. 
+### Возможно увеличение в процентах. 
 
-For example add 15% every month for 100 USD
+Например добавить 15% каждый месяц на 100 USD
 
 ```javascript
 let usd = Libs.ResourcesLib.userRes("usd");
@@ -204,9 +204,9 @@ usd.growth.addPercent({
 
 
 
-### Can grow by compound interest.
+### Может расти на сложный процент.
 
-For example add 0.8% every day for 0.5 BTC with reinvest
+Например добавить 0.8% каждый день на 0.5 BTC с реинвестицией
 
 ```javascript
 let btc = Libs.ResourcesLib.userRes("BTC");
@@ -219,35 +219,35 @@ usd.growth.addCompoundInterest({
 ```
 
 {% hint style="info" %}
-You can get initial res value by: `res.baseValue()`
+Вы можете получить начальное значение res с помощью: 
+`res.baseValue ()`
 {% endhint %}
 
-### Other methods for res.growth: 
+### Другие методы для res.growth: 
 
-`res.growth.info()` - get info for current growth
+`res.growth.info()` - получить инфо. за недавний рост
+`res.growth.title()` - получить оглавление. Например "добавить 5 раз в 15 секунд" 
 
-`res.growth.title()` - get title. For example "add 5 once at 15 secs" 
+`res.growth.isEnabled()` - возвращает true если включен 
 
-`res.growth.isEnabled()` - return true if is enabled 
+`res.growth.stop()` - остановить авторост 
 
-`res.growth.stop()` - stop growth 
+`res.growth.progress()` - недавний прогресс для следующей итерации
 
-`res.growth.progress()` - current progress for next iteration 
-
-`res.growth.willCompletedAfter()` - will completed iteration after this time in seconds
+`res.growth.willCompletedAfter()` - будет завершена итерация после этого времени в секундах
 
 ### 
 
-### How to add growth to another resources?
+### Как добавить рост к другим ресурсам?
 
-For example we have:
+Например, у нас есть:
 
-* bank deposit 100$ with yearly growth 10%
-* and simple wallet - 500$
+* банковский депозит 100 $ с годовым ростом 10%
+* и простой кошелек - 500 $
 
-Every year we add bank growth to wallet.
+Каждый год мы добавляем баковский рост в кошелек.
 
-#### **Init:** on `/start` command \(or any other command\)
+#### **Начало:** при команде `/start` \(или любая другая команда\)
 
 ```javascript
 let wallet = Libs.ResourcesLib.userRes("wallet");
@@ -263,27 +263,27 @@ bankDeposit.growth.addPercent({
 });
 ```
 
-#### **On** `/wallet` command or etc
+#### **При** команде `/wallet` или др.
 
 {% hint style="info" %}
-We can run this command every 1 year. It is possible for example, with [Auto Retry](https://help.bots.business/commands/auto-retry)
+Мы можем запустить эту команду каждый год. Это возможно например, с помощью [Автовоспроизведения](https://help.bots.business/commands/auto-retry)
 
-Or user can run it manually in anytime.
+Или другой пользователь может запустить это вручную в любое время.
 {% endhint %}
 
 ```javascript
 let wallet = Libs.ResourcesLib.userRes("wallet");
 let bankDeposit = Libs.ResourcesLib.userRes("deposit");
 
-// it is initial res value
+// это начальное значение ресурса
 let baseValue = bankDeposit.baseValue();
 
-// total income by percent
+// общий доход по процентам
 let delta = bankDeposit.value() - baseValue;
 
-// add all income to wallet
+// перевести весь доход в кошелек
 wallet.add(delta);
-// and remove it from bank deposit
+// и убрать это с банковского депозита
 bankDeposit.set(baseValue);
 ```
 
@@ -291,9 +291,9 @@ bankDeposit.set(baseValue);
 
 
 
-## How to
+## Как...
 
-**Q: how to give to referrer 5% of referral user deposit?**
+**Q: Как дать пригласителю 5% от депозита реферального пользователя?**
 
-Please see [https://help.bots.business/libs/refferallib\#how-to](https://help.bots.business/libs/refferallib#how-to)
+Пожалуйста см. [https://help.bots.business/libs/refferallib\#how-to](https://help.bots.business/libs/refferallib#how-to)
 
