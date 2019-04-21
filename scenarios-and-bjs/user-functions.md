@@ -38,6 +38,16 @@
         </p>
       </td>
     </tr>
+    <tr>
+      <td style="text-align:left"><code>User.getGroup()</code>
+      </td>
+      <td style="text-align:left">Get current user&apos;s group</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>User.removeGroup()</code>
+      </td>
+      <td style="text-align:left">Remove user from current group</td>
+    </tr>
   </tbody>
 </table>**Access to property** in answer:
 
