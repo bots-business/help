@@ -62,30 +62,27 @@ Please see [https://www.coinpayments.net/apidoc-create-transaction](https://www.
 ```javascript
 let orders = User.getProperty("orders");
 if(!orders){ orders = { count: 0, list:{} } };
-orders.count = orders.count + 1;
+let order_index = orders.count + 1
+orders.count = order_index;
 orders.list[orders.count] = { status: "new" }
 User.setProperty("orders", orders, "json")
 
 Libs.CoinPayments.apiCall({
   fields: {
      cmd: "create_transaction",
-     // see fields description in
-     // https://www.coinpayments.net/apidoc-create-transaction
-     amount: 0.001,
+     amount: 0.000157,
      currency1: "BTC",
-     currency2: "BTC",
+     currency2: "WAVES",
      buyer_name: user.telegramid,
      item_name: "ItemName001",
      ipn_url: Libs.CoinPayments.getIpnUrl("/onIPN"),
      
      // it is not necessary
      item_number: "001",
-     invoice: orders.count,
-     custom: "custom - field",
-     
+     invoice: user.telegramid + "-" + order_index,
+     custom: "custom - field"
   },
-  onSuccess: '/onCreateOrder'
-});
+  onSuccess: '/onCreateOrder ' + order_index
 ```
 
 {% hint style="danger" %}
@@ -114,14 +111,22 @@ if(err!="ok"){
 }
 
 let result = options.body.result;
+let order_index = params;
 
 let msg = "*Need pay:*\n `" + result.amount + "`" + 
  "\n\n*to address:*\n" +
  "`" + result.address + "`" +
- "\n\n [Checkout](" + result.checkout_url + ") | [Status](" + result.status_url + ")";
+ "\n\n [Checkout](" + result.checkout_url + ") | [Status](" + result.status_url + ")" + 
+ "\n\nCheck status manually: /check" + order_index
 
 Bot.sendMessage(msg);
-Api.sendPhoto({ photo: result.qrcode_url });
+Api.sendPhoto({ photo: result.qrcode_url }); 
+
+let orders = User.getProperty("orders");
+orders.list[order_index] = result.txid;
+
+User.setProperty("orders", orders, "json");
+
 ```
 
 ### Command `/onIPN`
