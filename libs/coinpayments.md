@@ -76,7 +76,7 @@ Libs.CoinPayments.apiCall({
      currency2: "BTC",
      buyer_name: user.telegramid,
      item_name: "ItemName001",
-     ipn_url: Libs.CoinPayments.getIpnUrl("/onIPN")
+     ipn_url: Libs.CoinPayments.getIpnUrl("/onIPN"),
      
      // it is not necessary
      item_number: "001",
