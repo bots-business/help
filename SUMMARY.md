@@ -17,6 +17,7 @@
   * [Command](scenarios-and-bjs/command.md)
   * [Variables](scenarios-and-bjs/variables.md)
   * [Api functions](scenarios-and-bjs/api-functions.md)
+  * [BB Admin functions](scenarios-and-bjs/bb-admin-functions.md)
 * [Git](git/README.md)
   * [Import bot from Git repository](git/import-bot-from-git-repository.md)
   * [Export bot to Git repository](git/export-bot-to-git-repository.md)
@@ -39,7 +40,7 @@
 * [Lang](libs/lang.md)
 * [QiwiPayments](libs/qiwipayments.md)
 * [BlockIO](libs/blockio.md)
-* [CoinPayments \(CP\) - in progress..](libs/coinpayments.md)
+* [CoinPayments \(CP\)](libs/coinpayments.md)
 
 ## Store
 
