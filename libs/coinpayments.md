@@ -1,7 +1,5 @@
 # CoinPayments \(CP\)
 
-## Lib in progress...
-
 This Lib make integration with [https://www.coinpayments.net](https://www.coinpayments.net/index.php?ref=5418303a5fc165090ee8a9177a3982de) in easy way.
 
 ## Initial setup
@@ -11,7 +9,13 @@ Need to setup public and private key:
 1. [Register](https://www.coinpayments.net/index.php?ref=5418303a5fc165090ee8a9177a3982de)
 2. Go to this [page](https://www.coinpayments.net/acct-api-keys) and generate new key.
 
-Then on /setup command:
+![](../.gitbook/assets/image%20%2833%29.png)
+
+Press on button "Edit Permissions" and add API Key Permissions:
+
+![Check all options what you need](../.gitbook/assets/image%20%2815%29.png)
+
+Then on bot `/setup` command:
 
 ```javascript
 // Get your keys in https://www.coinpayments.net/index.php?cmd=acct_api_keys
@@ -22,8 +26,6 @@ Libs.CoinPayments.setPublicKey('YOUR KEY');
 // Get your BB Api Key from Bots.Business App in Profile
 Libs.CoinPayments.setBBApiKey('YOUR API KEY');
 ```
-
-
 
 ## Call API methods
 
@@ -53,85 +55,137 @@ Bot.sendMessage("CoinPayments owner email:" + options.body.result.email);
 
 ## Receiving Payments
 
-We use command "create\_transaction" with IPN
+{% hint style="success" %}
+See [demo bot](https://telegram.me/BBDemoStoreBot). Available in the Store.
+{% endhint %}
+
+We use command "create\_transaction" with IPN.
 
 Please see [https://www.coinpayments.net/apidoc-create-transaction](https://www.coinpayments.net/apidoc-create-transaction) for details.
 
-### Command `/order`
+Yes, you can write it via `Libs.CoinPayments.apiCall`method too. But there is an easier way.
+
+### Command `/pay`
 
 ```javascript
-let orders = User.getProperty("orders");
-if(!orders){ orders = { count: 0, list:{} } };
-let order_index = orders.count + 1
-orders.count = order_index;
-orders.list[orders.count] = { status: "new" }
-User.setProperty("orders", orders, "json")
+let amount = 0.0001; // amount in BTC
 
-Libs.CoinPayments.apiCall({
+options = {
   fields: {
-     cmd: "create_transaction",
-     amount: 0.000157,
-     currency1: "BTC",
-     currency2: "WAVES",
-     buyer_name: user.telegramid,
-     item_name: "ItemName001",
-     ipn_url: Libs.CoinPayments.getIpnUrl("/onIPN"),
-     
-     // it is not necessary
-     item_number: "001",
-     invoice: user.telegramid + "-" + order_index,
-     custom: "custom - field"
+     amount: amount,   // amount in BTC
+     currency: "BTC",  // currency1 = currency2 = BTC
+     // currency1: "BTC",   // The original currency of the transaction
+     // currency2: "LTC"  //The currency the buyer will be sending
+     // you can use another fields also
+     // except custom and ipn_url (it used by Lib)
+     // See https://www.coinpayments.net/apidoc-create-transaction
   },
-  onSuccess: '/onCreateOrder ' + order_index
+  // generated wallet, QR code, payment page
+  // will be available in this command
+  onSuccess: '/onCreatePayment',
+  
+  // on successful payment this command
+  // will be executed
+  onPaymentCompleted: "/onPaymentCompleted",
+  
+  // it is not necessary
+  // onIPN: "/onIPN"
+}
+
+Libs.CoinPayments.createTransaction(options);
 ```
 
-{% hint style="danger" %}
+{% hint style="success" %}
+#### Automatically with Library:
+
 #### CoinPayments: [IPN Retries / Duplicate IPNs](https://www.coinpayments.net/merchant-tools-ipn)
-
-If there is an error sending your server an IPN, we will retry up to 10 times.
-
-Because of this you are not guaranteed to receive every IPN \(if all 10 tries fail\) or that your server will receive them in order.
-
-  
-Your IPN handler must always check to see if a payment has already been handled before to avoid double-crediting users, etc. in the case of duplicate IPNs.
-
-So we **must pass unique** item\_name, item\_number, invoice, or custom field. 
 {% endhint %}
 
-### Command `/onCreateOrder`
+
+
+### Command `/onCreatePayment`
 
 ```javascript
 // You can inspect all options:
 // Bot.sendMessage(inspect(options));
 
-let err = options.body.error;
-if(err!="ok"){
-  Bot.sendMessage("CoinPayments error:\n\n" + err);
-  return
-}
-
-let result = options.body.result;
-let order_index = params;
+let result = options.result;
 
 let msg = "*Need pay:*\n `" + result.amount + "`" + 
  "\n\n*to address:*\n" +
  "`" + result.address + "`" +
- "\n\n [Checkout](" + result.checkout_url + ") | [Status](" + result.status_url + ")" + 
- "\n\nCheck status manually: /check" + order_index
+ "\n\n [Checkout](" + result.checkout_url +
+    ") | [Status](" + result.status_url + 
+ ")" // you can uncomment this for manual status checking
+ // + "\n\nCheck status manually: /check" + options.payment_index;
 
 Bot.sendMessage(msg);
 Api.sendPhoto({ photo: result.qrcode_url }); 
 
-let orders = User.getProperty("orders");
-orders.list[order_index] = result.txid;
-
-User.setProperty("orders", orders, "json");
-
 ```
 
-### Command `/onIPN`
+### Command `onPaymentCompleted`
 
-Doc in progress
+This command will be executed on successful payment
 
+{% hint style="info" %}
+Need install ResourcesLib
+{% endhint %}
 
+```javascript
+// you can inspect all options
+// Bot.sendMessage(inspect(options));
+
+Bot.sendMessage("Payment completed");
+
+let amount = options.amount1;
+
+let res = Libs.ResourcesLib.userRes("balance");
+res.add(amount)
+
+Bot.sendMessage("added to balance, BTC: " + amount);
+```
+
+### Finished!
+
+Now you can  receive payments
+
+### Additional Information
+
+You can check payment status
+
+```javascript
+Libs.CoinPayments.getTxInfo({
+  payment_index: payment_index,  // see /onCreatePayment command.
+                                    // Need pass this payment_index to this command
+  onSuccess: '/on_txn_id'
+})
+```
+
+#### `command: /on_txn_id:` 
+
+```javascript
+// You can inspect all options:
+// Bot.sendMessage(inspect(options));
+
+Bot.sendMessage(options.result.status_text);
+
+// Do not finish payment here.
+// Use /onPaymentCompleted for this
+```
+
+#### `command /onIPN`
+
+You can get info from IPN. Really it is not needed in simple. Just use onPaymentCompleted option on createTransaction.
+
+```javascript
+// You can inspect all fields:
+// Bot.sendMessage(inspect(options))
+
+// IPN is not needed
+// Use - onPaymentCompleted
+
+Bot.sendMessage("IPN: Payment status: " + options.status_text );
+
+```
 
