@@ -9,11 +9,11 @@ Need to setup public and private key:
 1. [Register](https://www.coinpayments.net/index.php?ref=5418303a5fc165090ee8a9177a3982de)
 2. Go to this [page](https://www.coinpayments.net/acct-api-keys) and generate new key.
 
-![](../.gitbook/assets/image%20%2833%29.png)
+![](../.gitbook/assets/image%20%2836%29.png)
 
 Press on button "Edit Permissions" and add API Key Permissions:
 
-![Check all options what you need](../.gitbook/assets/image%20%2815%29.png)
+![Check all options what you need](../.gitbook/assets/image%20%2817%29.png)
 
 Then on bot `/setup` command:
 

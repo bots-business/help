@@ -2,7 +2,7 @@
 
 This Lib make integration with [block.io](blockio.md) in easy way.
 
-![](../.gitbook/assets/image%20%2830%29.png)
+![](../.gitbook/assets/image%20%2833%29.png)
 
 ## With Block.io you can
 
@@ -233,7 +233,7 @@ For example: "Actions for Handling Addresses"
 
 From block.io [help](https://block.io/api/): 
 
-![from Block.io help - https://block.io/api](../.gitbook/assets/image%20%2827%29.png)
+![from Block.io help - https://block.io/api](../.gitbook/assets/image%20%2830%29.png)
 
 So we have API method "Get New Address":
 
@@ -265,7 +265,7 @@ Bot.sendMessage(
 
 ### Example for making Withdraw
 
-![from Block.io help - https://block.io/api](../.gitbook/assets/image%20%288%29.png)
+![from Block.io help - https://block.io/api](../.gitbook/assets/image%20%2810%29.png)
 
 {% hint style="success" %}
 We know about params: `to_addresses` and `from_labels` from block.io [help](https://block.io/api/). See "Withdraw From Labels" method there

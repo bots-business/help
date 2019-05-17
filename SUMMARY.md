@@ -41,6 +41,7 @@
 * [QiwiPayments](libs/qiwipayments.md)
 * [BlockIO](libs/blockio.md)
 * [CoinPayments \(CP\)](libs/coinpayments.md)
+* [GoogleSpreadSheet](libs/googlespreadsheet.md)
 
 ## Store
 
