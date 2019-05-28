@@ -101,7 +101,11 @@ Libs.CoinPayments.createTransaction(options);
 #### CoinPayments: [IPN Retries / Duplicate IPNs](https://www.coinpayments.net/merchant-tools-ipn)
 {% endhint %}
 
+{% hint style="info" %}
+It is preferable to use method  **`onPaymentCompleted`** and not method **`onIPN`**. 
 
+Since the method **`onPaymentCompleted`** completely covers the IPN and solves the problem with [IPN Retries / Duplicate IPNs](https://www.coinpayments.net/merchant-tools-ipn)
+{% endhint %}
 
 ### Command `/onCreatePayment`
 
