@@ -14,7 +14,7 @@ For example Bots.Business have such Libs:
 
 1.Go to Libs Tab in the App
 
-![](../.gitbook/assets/image%20%2818%29.png)
+![](../.gitbook/assets/image%20%2819%29.png)
 
 2. Click on Install button
 

@@ -42,6 +42,7 @@
 * [BlockIO](libs/blockio.md)
 * [CoinPayments \(CP\)](libs/coinpayments.md)
 * [GoogleSpreadSheet](libs/googlespreadsheet.md)
+* [Webhooks lib](libs/webhooks-lib.md)
 
 ## Store
 

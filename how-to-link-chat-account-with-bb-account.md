@@ -4,11 +4,11 @@ Linked account is needed for integration. For example, you can transfer BB Point
 
 For linking go to Side Menu &gt; Account options:
 
-![](.gitbook/assets/image%20%2820%29.png)
+![](.gitbook/assets/image%20%2821%29.png)
 
 Go to block Linked accounts:
 
-![](.gitbook/assets/image%20%2831%29.png)
+![](.gitbook/assets/image%20%2832%29.png)
 
 Press on button "Add account" and go to BotsBusinessAdminBot.
 

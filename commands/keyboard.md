@@ -2,7 +2,7 @@
 
 Fill the keyboard field for command. Keyboard has buttons in the rows. Each button is separated by a comma. Use `\n` for a new row.
 
-![Keyboard in bot](../.gitbook/assets/image%20%282%29.png)
+![Keyboard in bot](../.gitbook/assets/image%20%283%29.png)
 
 Example:
 
@@ -16,7 +16,7 @@ register, about, \n contacts
 
 Emoji also possible. Then the alias should also be with Emoji.
 
-![ Keyboard can be modified on command editing ](../.gitbook/assets/image%20%2826%29.png)
+![ Keyboard can be modified on command editing ](../.gitbook/assets/image%20%2827%29.png)
 
 {% hint style="info" %}
 The keyboard does not disappear after the user's answers. Bot can send a new keyboard on a new command.
