@@ -70,12 +70,16 @@ Yes, you can write it via `Libs.CoinPayments.apiCall`method too. But there is an
 {% hint style="warning" %}
 The first step is to go to the [My Settings](https://www.coinpayments.net/index.php?cmd=acct_settings) page &gt; **Merchant Settings**  and set a IPN Secret.
 
-Your IPN Secret is a string of your choosing. Recommended to be a random string of letters, numbers, and special characters.
+Your IPN Secret is a string of **your choosing**. Recommended to be a random string of letters, numbers, and special characters.
 
 CoinPayments **will not send** any IPNs unless you have an IPN Secret set. 
 
 See [more](https://www.coinpayments.net/merchant-tools-ipn)
 {% endhint %}
+
+**Once more!** You need input **any text \(random text\)** as IPN secret in Merchant Settings page
+
+
 
 ### Command `/pay`
 
