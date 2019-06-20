@@ -56,6 +56,14 @@ See @[DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=F
 
 `Libs.ReferralLib.currentUser.getRefLink(bot.name);` 
 
+will generate link kind **http://t.me/botname?start=userUSER\_ID**
+
+Also you can change prefix. For example remove "user"
+
+`Libs.ReferralLib.currentUser.getRefLink(bot.name, "");` 
+
+will generate link kind **http://t.me/botname?start=USER\_ID**
+
 ### 
 
 ### Get attractor for current user
