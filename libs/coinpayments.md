@@ -219,6 +219,16 @@ You can view IPN History by link [https://www.coinpayments.net/acct-ipn-history]
 
 Also you can resend IPN by checkin "Resend" checkbox and button "Re-send checked IPN\(s\)"
 
+Also it is possible **make test onPaymentCompleted** event. It is good if you do not want make test payment.
+
+```javascript
+options = {
+  onPaymentCompleted: "/onPaymentCompleted 0.75"
+}
+
+Libs.CoinPayments.callTestPaymentCompleted(options);
+```
+
 ### Troubleshooting
 
 * Do not use same CoinPayment account for receiving payments.
