@@ -158,7 +158,7 @@ In this example, the user must enter the correct password. After that, the group
 BJS code:
 
 ```javascript
-if(data.message=="12345"){
+if(message=="12345"){
   User.addToGroup('Members');
   Bot.sendMessage("Welcome, member!");
 }else{
@@ -177,7 +177,7 @@ command `tracking`
 BJS code:
 
 ```javascript
-   if(data.chat.chat_type=="private"){
+   if(chat.chat_type=="private"){
       // track only private chats
 
       total_users = Bot.getProperty("total_users");
@@ -188,7 +188,7 @@ BJS code:
       var propChatIdName =  "chat" + String(i) + "_id";
 
       Bot.setProperty(propLastActiveName, (new Date), "datetime");
-      Bot.setProperty(propChatIdName, data.chat.chatid, "string");  
+      Bot.setProperty(propChatIdName, chat.chatid, "string");  
    }
 ```
 
@@ -229,8 +229,8 @@ BJS:
 
 ```javascript
   ->(https://api.coinmarketcap.com/v2/ticker/1/)
-  var result = JSON.parse(data.content);
-  var BTC_USD_Price = result.data.quotes.USD.price;
+  var result = JSON.parse(content);
+  var BTC_USD_Price = result.quotes.USD.price;
   Bot.sendMessage("Current Bitcoin price: " + String(BTC_USD_Price) + " $");
 ```
 
@@ -251,9 +251,15 @@ Bot.sendKeyboard(String(balance) + ",\nHelp, Contacts" );
 **Use ResLib for any resources**
 {% endhint %}
 
-**Important**
+#### Command `⚡Balance:`
 
-> Now you can not set command to this button!
+You need create command "⚡Balance:" \(without space\) or `"⚡"` if you have space beetween "⚡" and "Balance"
+
+**So after button pressing:**
+
+* text "⚡Balance: X BTC⚡" will be sended to chat
+* command "Balance:" will be executed
+* params "X BTC⚡" will be passed to BJS
 
 ## Q: How to set the bot which it result to, when one of the telegram group members click the bot command in telegram bot, the message from the bot only seen by the clickers it self & unseen by another members.
 
