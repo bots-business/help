@@ -59,13 +59,23 @@ Bot.sendMessage("CoinPayments owner email:" + options.body.result.email);
 See [demo bot](https://telegram.me/BBDemoStoreBot). Available in the Store.
 {% endhint %}
 
-We use command "create\_transaction" with IPN.
+It is possible to receive payment for a temporary or permanent wallet.
 
-Please see [https://www.coinpayments.net/apidoc-create-transaction](https://www.coinpayments.net/apidoc-create-transaction) for details.
+**Temporary wallet benefits:**
 
-Yes, you can write it via `Libs.CoinPayments.apiCall`method too. But there is an easier way.
+* Fixed amount
+* Can bind the payment to the ordered product
+* Status and checkout page
+* QR code for payment
+* one address for one payment
 
-### Set IPN Secret
+**Permanent wallet benefits:**
+
+* Any amount
+* One address for several payments
+* User can transfer funds at any time
+
+### Setup: set IPN Secret
 
 {% hint style="warning" %}
 The first step is to go to the [My Settings](https://www.coinpayments.net/index.php?cmd=acct_settings) page &gt; **Merchant Settings**  and set a IPN Secret.
@@ -79,7 +89,15 @@ See [more](https://www.coinpayments.net/merchant-tools-ipn)
 
 **Once more!** You need input **any text \(random text\)** as IPN secret in Merchant Settings page
 
+## Temporary wallet
 
+We use command "create\_transaction" with IPN.
+
+Please see [https://www.coinpayments.net/apidoc-create-transaction](https://www.coinpayments.net/apidoc-create-transaction) for details.
+
+Yes, you can write it via `Libs.CoinPayments.apiCall`method too. But there is an easier way.
+
+### 
 
 ### Command `/pay`
 
@@ -106,6 +124,9 @@ options = {
   
   // it is not necessary
   // onIPN: "/onIPN"
+  
+  // if you want customize error messages
+  // onError: "/onError"
 }
 
 Libs.CoinPayments.createTransaction(options);
@@ -209,15 +230,127 @@ Bot.sendMessage("IPN: Payment status: " + options.status_text );
 
 ```
 
+#### `command onError`
+
+```javascript
+// You can inspect all fields:
+Bot.sendMessage(inspect(options))
+```
+
 ### 
 
-### Debuging
+## Permanent wallet
+
+We use command "get\_callback\_address" with IPN.
+
+Please see [https://www.coinpayments.net/apidoc-get-callback-address](https://www.coinpayments.net/apidoc-get-callback-address) for details.
+
+Yes, you can write it via `Libs.CoinPayments.apiCall`method too. But there is an easier way.
+
+
+
+### Command `/createWallet`
+
+```javascript
+Libs.CoinPayments.createPermanentWallet({
+  currency: "BTC",
+  //label: "myLabel",
+  onSuccess: "/onWalletCreate",
+  
+  // onIPN - not necessary
+  //onIPN: "/onPermanentWalletIPN",
+  
+  onIncome: "/onIncome"
+  
+  // if you want customize error messages
+  // onError: "/onError"
+});
+```
+
+{% hint style="success" %}
+#### Automatically with Library:
+
+#### CoinPayments: [IPN Retries / Duplicate IPNs](https://www.coinpayments.net/merchant-tools-ipn)
+{% endhint %}
+
+{% hint style="info" %}
+It is preferable to use method  **`onIncome`** and not method **`onIPN`**. 
+
+Since the method **`onIncome`** completely covers the IPN and solves the problem with [IPN Retries / Duplicate IPNs](https://www.coinpayments.net/merchant-tools-ipn)
+{% endhint %}
+
+### Command `/onWalletCreate`
+
+```javascript
+//Bot.sendMessage(inspect(options));
+
+let wallet = options.result.address;
+Bot.sendMessage("Your permanent wallet address is:\n`" + wallet + "`")
+
+// You can save wallet
+//User.setProperty("wallet", wallet, "string");
+```
+
+### Command `/onIncome`
+
+```javascript
+
+let wallet = options.address;
+let currency = options.currency;
+let amount = options.amount;
+
+let fiat_amount = options.fiat_amount;
+let fiat_currency = options.fiat_coin;
+
+let fee = options.fee;
+
+let txn_id = options.txn_id
+
+// see another fields by
+// Bot.sendMessage(inspect(options));
+
+Bot.sendMessage(
+   "*Income to wallet:*" +
+   "\n`"+ wallet + "`" +
+   "\n\n*Amount*:\n" +
+amount + " " + currency + " (" + fiat_amount + " " + fiat_currency + ")" +
+   "\n*Fee*: " + fee +
+   "\n\nTXN: `" + txn_id + "`"
+);
+
+```
+
+
+
+#### `command onError`
+
+```javascript
+// You can inspect all fields:
+Bot.sendMessage(inspect(options))
+```
+
+
+
+
+
+## Troubleshooting & Debuging
+
+* Do not use same CoinPayment account for receiving and transfering funds.
+* Go to [page](https://www.coinpayments.net/index.php?cmd=acct_balances&action=deposits). This list must have history with completed income transaction\(s\)
+* Try to resend IPN - see Debuging
+* Verify that you have [set IPN secret](https://help.bots.business/libs/coinpayments#set-ipn-secret)
+
+### IPN History
 
 You can view IPN History by link [https://www.coinpayments.net/acct-ipn-history](https://www.coinpayments.net/acct-ipn-history)
 
 ![](../.gitbook/assets/image%20%2836%29.png)
 
 Also you can resend IPN by checkin "Resend" checkbox and button "Re-send checked IPN\(s\)"
+
+### Test methods
+
+#### Temporary wallet:
 
 Also it is possible **make test onPaymentCompleted** event. It is good if you do not want make test payment.
 
@@ -229,12 +362,25 @@ options = {
 Libs.CoinPayments.callTestPaymentCompleted(options);
 ```
 
-### Troubleshooting
+#### 
 
-* Do not use same CoinPayment account for receiving payments.
-* Go to [page](https://www.coinpayments.net/index.php?cmd=acct_balances&action=deposits). This list must have history with completed income transaction\(s\)
-* Try to resend IPN - see Debuging
-* Verify that you have [set IPN secret](https://help.bots.business/libs/coinpayments#set-ipn-secret)
+#### Permanent wallet:
+
+Also it is possible **make test** callTestPermanentWalletIncome event. It is good if you do not want make test payment.
+
+```javascript
+options = {
+  // onIPN: "/onPermanentWalletIPN",  // if you need IPN also
+  onIncome: "/onIncome",
+  
+  // not necessary options
+  // you can pass amount
+  //amount: 0.5
+  // txn_id: YOUR_TXN_ID
+}
+
+Libs.CoinPayments.callTestPermanentWalletIncome(options);
+```
 
 
 
