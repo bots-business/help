@@ -149,7 +149,7 @@ Bot.run(params)
 | `user_id` | user\_id for passing. By default this is current user.id |
 | `chat_id` | chat\_id for passing. By default this is current chat.id |
 
-**Example 1**. Run another command `/balance` with delay 1 hour for another user
+**Example 1**. Run another command `/balance` with delay 1 hour for current user
 
 ```javascript
 Bot.run( {
