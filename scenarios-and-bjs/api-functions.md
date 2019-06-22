@@ -37,17 +37,45 @@ Api.sendAudio({
 
 
 
-{% hint style="info" %}
-You can use all methods now except GET methods
-{% endhint %}
+### Get methods
 
-{% hint style="warning" %}
-Get methods in progress
-{% endhint %}
+You can call Api get methods. Need pass `on_result` key. 
 
+For example get all user's profile photos:
 
+#### Command `/get`
 
+```javascript
+Api.getUserProfilePhotos({
+    user_id: user.telegramid,
+    
+    // this command will be executed after getting photos
+    on_result: "onGetProfilePhotos"
+});
+```
 
+#### 
+
+#### Command `onGetProfilePhotos`
+
+```javascript
+// you can inspect result:
+// Bot.inspect(options) 
+
+if(!options.ok){
+   return Bot.sendMessage("Error!");
+}
+
+if(options.result.total_count==0){
+   return Bot.sendMessage("You have no photos in profile")
+}
+
+let photos = options.result.photos;
+for(let i in photos){
+   Api.sendPhoto( { photo: photos[i][0].file_id } );
+}
+
+```
 
 
 
