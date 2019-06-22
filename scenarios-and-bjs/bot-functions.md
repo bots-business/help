@@ -30,7 +30,8 @@
         <p>Run other command</p>
         <p>Bot.run({ command: &quot;/contact&quot; })</p>
         <p></p>
-        <p>see more</p>
+        <p><a href="https://help.bots.business/scenarios-and-bjs/bot-functions#bot-run-options">see more</a>
+        </p>
       </td>
     </tr>
     <tr>
