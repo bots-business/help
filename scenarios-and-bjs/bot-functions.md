@@ -12,7 +12,7 @@
       <td style="text-align:left"><code>Bot.runCommand(command, options)</code>
       </td>
       <td style="text-align:left">
-        <p>Run other command</p>
+        <p><b>DEPRECATED</b> Run other command</p>
         <p><code>Bot.runCommand(&quot;/contact&quot;)</code>
         </p>
         <p>
@@ -22,6 +22,15 @@
         <p>
           <br />in second command /contact:</p>
         <p>Bot.sendMessage(&quot;Phone is:&quot; + options.phone);</p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left">Bot.run(options)</td>
+      <td style="text-align:left">
+        <p>Run other command</p>
+        <p>Bot.run({ command: &quot;/contact&quot; })</p>
+        <p></p>
+        <p>see more</p>
       </td>
     </tr>
     <tr>
@@ -105,6 +114,11 @@
       <td style="text-align:left">CSV import. More info <a href="https://help.bots.business/create-bot-from-google-table">here</a>
       </td>
     </tr>
+    <tr>
+      <td style="text-align:left"><code>Bot.inspect(value)</code>
+      </td>
+      <td style="text-align:left">Send inspected value to chat. Good for debug</td>
+    </tr>
   </tbody>
 </table>
 
@@ -115,4 +129,45 @@
 in BJS:
 
 > And you can use it in `Bot.sendMessage("<TotalScore>")`
+
+
+
+## Bot.run\(options\)
+
+Run other command
+
+```javascript
+Bot.run(params)
+```
+
+| Field | Description |
+| :--- | :--- |
+| `command` | **Required**. Command for run. For example "/start". Can pass params  |
+| `options` | json for passing to command. Available through options in this command |
+| `run_after` | delay in seconds before command calling |
+| `user_id` | user\_id for passing. By default this is current user.id |
+| `chat_id` | chat\_id for passing. By default this is current chat.id |
+
+**Example 1**. Run another command `/balance` with delay 1 hour for another user
+
+```javascript
+Bot.run( {
+    command: "/balance",
+    run_after: 1*60*60,  // 1 hour delay
+} )
+```
+
+**Example 2**. Run another command `/balance` with delay 5 days for another user
+
+```javascript
+Bot.run( {
+    command: "/balance",
+    run_after: 60*60*24*5,  // 5 days delay
+    // options: { amount: 5, currency: "BTC" }  // you can pass data
+    chat_id: ANOTHER_CHAT_ID
+    user_id: ANOTHER_USER_ID
+} )
+```
+
+
 
