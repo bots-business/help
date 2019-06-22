@@ -59,6 +59,8 @@ CoinPayments API do not have some methods. For example get balance by address, v
 
 Use Block.io [Lib](https://help.bots.business/libs/blockio) with CP Lib together!
 
+Block.io is free if you do not use wallets there.
+
 
 
 ## Receiving Payments
