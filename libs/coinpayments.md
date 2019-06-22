@@ -53,6 +53,14 @@ Bot.sendMessage(inspect(options));
 Bot.sendMessage("CoinPayments owner email:" + options.body.result.email);
 ```
 
+## Combine libs!
+
+CoinPayments API do not have some methods. For example get balance by address, validate address, get transactions for address and etc.
+
+Use Block.io [Lib](https://help.bots.business/libs/blockio) with CP Lib together!
+
+
+
 ## Receiving Payments
 
 {% hint style="success" %}
