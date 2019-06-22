@@ -147,7 +147,7 @@ Message\_id - have unique value for all chats of bot. So we have only one messag
 
 ### **Message\_id for** messages from bot
 
-use `result_to_bot_property` in options - see [this](https://help.bots.business/scenarios-and-bjs/message-broadcasting#options-for-sendmessage-editmessage-and-sendkeyboard-functionals-reply-disable-notification-disable-web-page-preview)
+use `on_result` in options - see [this](https://help.bots.business/scenarios-and-bjs/message-broadcasting#options-for-sendmessage-editmessage-and-sendkeyboard-functionals-reply-disable-notification-disable-web-page-preview)
 
 #### Example
 
@@ -155,15 +155,21 @@ in first command:
 
 ```javascript
 Bot.sendMessage("hello",
-   {result_to_bot_property: "MSG-for-edit" + chat.chatid }
+   {on_result: "onMessageSending" }
 )
 ```
 
-in other command:
+in command `onMessageSending`:
 
 ```javascript
-let msg_id = Bot.getProperty( "MSG-for-edit" + chat.chatid);
-Bot.editMessage("new text", msg_id)
+// You can inspect all result:
+// Bot.inspect(options)
+
+let msg_id = options.result.message_id;
+Bot.editMessage("new text", msg_id);
+
+// Also you can save message_id for future:
+// Bot.setProperty( "MSG-for-edit" + chat.chatid, msg_id, "integer");
 ```
 
 
@@ -186,15 +192,8 @@ You can pass options parameter to any `sendMessageXXX`, `sendKeyboard`, `editMes
 | reply\_to\_message\_id | Integer | If the message is a reply, ID of the original message |
 | is\_reply | Boolean | If the message is a reply for previous message |
 | parse\_mode | String | Send `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. Default `Markdown`. Can be `Markdown`, `HTML` or `null` |
-| result\_to\_bot\_property | String | Store result of message sending in bot property with this name.  You can read this result later in other commands by Bot.getProperty |
+| result\_to\_bot\_property | String | It is preferable to use "on\_result". Store result of message sending in bot property with this name.  You can read this result later in other commands by Bot.getProperty |
+| on\_result | String | Call this command after method with result  |
 
-## `New functions in progress`
-
-This function is in progress
-
-`Bot.sendMessage(options)`
-
-options can be `{text: 'MESSAGE', result_to_bot_property: 'PropertyName'}`
-
-`result_to_bot_property` - can read result for message sending \(with status, message\_id\)
+\`\`
 
