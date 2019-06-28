@@ -18,11 +18,11 @@
   * [Variables](scenarios-and-bjs/variables.md)
   * [Api functions](scenarios-and-bjs/api-functions.md)
   * [BB Admin functions](scenarios-and-bjs/bb-admin-functions.md)
+  * [Send HTTP request](scenarios-and-bjs/send-http-request.md)
 * [Git](git/README.md)
   * [Import bot from Git repository](git/import-bot-from-git-repository.md)
   * [Export bot to Git repository](git/export-bot-to-git-repository.md)
   * [Repository structure](git/repository-structure.md)
-  * [Library](git/library.md)
   * [File: bot.json](git/file-bot-json.md)
 * [Integration with Segment.com](integration-with-segment-com.md)
 * [Iterations. How to reduce theys?](iterations.-how-to-reduce-theys.md)
@@ -33,6 +33,7 @@
 ## Libs
 
 * [What it is - Libs?](libs/what-it-is-libs.md)
+* [Libs development](libs/libs-development.md)
 * [RefferalLib](libs/refferallib.md)
 * [Random](libs/random.md)
 * [CurrencyConverter](libs/currencyconverter.md)

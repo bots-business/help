@@ -1,4 +1,8 @@
-# Library
+# Libs development
+
+You can create own Lib. Now it is possible create lib only with Git [importing](https://help.bots.business/git/import-bot-from-git-repository).
+
+Official Bots.Business repository available [here](https://github.com/bots-business/store-libs)
 
 You can store common code in the library.
 
@@ -90,6 +94,4 @@ on Bot command:
 ```javascript
 Libs.myLib.load();
 ```
-
-
 
