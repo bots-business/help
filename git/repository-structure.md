@@ -20,6 +20,10 @@ For commands with "/" \(for example command "/start"\) file name is "\_start"
 
 Command can have: `name`, `help`, `aliases` \(second names\), `answer`, `keyboard`, `scnarios` \(for simple logic\) and other options.
 
+{% hint style="success" %}
+If the command has a folder - it is located in a folder on the disk with the same name
+{% endhint %}
+
 #### Command description
 
 It is optional file header:
@@ -30,6 +34,7 @@ It is optional file header:
   help: this is help for ccommand
   need_reply: [ true or false here ]
   auto_retry_time: [ time in sec ]
+  folder: MyFolder
   answer: it is example answer for /test command
   keyboard: button1, button2
   aliases: /test2, /test3

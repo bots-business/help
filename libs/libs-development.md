@@ -95,3 +95,7 @@ on Bot command:
 Libs.myLib.load();
 ```
 
+See [more](https://help.bots.business/scenarios-and-bjs/send-http-request)
+
+
+
