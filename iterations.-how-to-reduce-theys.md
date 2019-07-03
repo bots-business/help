@@ -9,10 +9,11 @@ Each payment plan has its own iteration limit.
 1 iteration it is:
 
 * income message to bot
-* [Bot.runCommand](https://help.bots.business/scenarios-and-bjs/bot-functions)\(command\) in the BJS spend 1 iteration
+* [Bot.runCommand](https://help.bots.business/scenarios-and-bjs/bot-functions)\(command\) or Bot.run in the BJS spend 1 iteration
 * Pressing the keyboard button
 * Pressing the inline keyboard button
 * 1 Auto Retry - it is 1 iteration
+* 1 received webhook - it is 1 iteration
 
 {% hint style="info" %}
 Single command execution - 1 iteration
