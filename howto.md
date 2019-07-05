@@ -292,3 +292,29 @@ Bot.sendMessage(
 
 
 
+## Q: How to get location from user?
+
+User must attach his location to chat.
+
+Need command with "Wait for answer" option \(or you can use Master command and catch location\)
+
+BJS:
+
+```javascript
+// you can inspect all data
+// Bot.inspect(request);
+
+let location = request.location
+if(!location){
+   Bot.sendMessage("Please send location");
+   return
+}
+
+Bot.sendMessage(
+   "Your location is:\n longitude " +
+       location.longitude +
+       "\n latitude: " +
+       location.latitude
+ )
+```
+
