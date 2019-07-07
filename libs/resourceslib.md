@@ -134,12 +134,12 @@ For example "gold" for "wood":
 
 \`\`
 
-## Growht for resource.
+## Growth for resource.
 
-Resource can have growht.
+Resource can have growth.
 
 {% hint style="info" %}
-For example simple growht:
+For example simple growth:
 
 **add 5 every 10 secs to res**
 {% endhint %}
