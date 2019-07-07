@@ -19,6 +19,7 @@
   * [Api functions](scenarios-and-bjs/api-functions.md)
   * [BB Admin functions](scenarios-and-bjs/bb-admin-functions.md)
   * [Send HTTP request](scenarios-and-bjs/send-http-request.md)
+  * [Inline Bot](scenarios-and-bjs/inline-bot.md)
 * [Git](git/README.md)
   * [Import bot from Git repository](git/import-bot-from-git-repository.md)
   * [Export bot to Git repository](git/export-bot-to-git-repository.md)
