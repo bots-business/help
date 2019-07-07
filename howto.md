@@ -102,6 +102,8 @@ You can see it with `inspect` function:
 
 ```javascript
   Bot.sendMessage( inspect(request) );
+  // or 
+  Bot.inspect(request)   // if have issue with markdown
 ```
 
 ## Q: I would like to create bjs for time limit! Example in a bot you can only use the command every 24hrs!
@@ -317,4 +319,28 @@ Bot.sendMessage(
        location.latitude
  )
 ```
+
+## Q: I have command with wait fo reply. How to cancel Wait for reply?
+
+Example - command `/askName` have wait for reply. Need to cancel it.
+
+Add keyboard to this command: keyboard "Cancel" \(also can be "Back"\)
+
+BJS:
+
+```javascript
+// exit on Cancel or Back button
+if((message=="Cancel")||(message=="Back")){
+  return // exit
+}
+
+// get name here
+name = message;
+Bot.sendMessage("Hello, " + name);
+
+```
+
+
+
+
 
