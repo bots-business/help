@@ -170,7 +170,7 @@ health.growth.add({
 //Min value: -20
 let secs_in_30hours = 1 * 60 * 60 * 30;
 health.growth.add({
-  value: 5,
+  value: -5,  // just add negative value
   interval: secs_in_30hours,
   min: -20
 });
