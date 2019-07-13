@@ -293,13 +293,13 @@ bankDeposit.set(baseValue);
 
 ## How to
 
-**Q: How to give to referrer 5% of referral user deposit?**
+### **Q: How to give to referrer 5% of referral user deposit?**
 
 Please see [https://help.bots.business/libs/refferallib\#how-to](https://help.bots.business/libs/refferallib#how-to)
 
 
 
-**Q: How to give a bonus to all users every day?**
+### **Q: How to give a bonus to all users every day?**
 
 For example add 10 to user's balance every day
 
