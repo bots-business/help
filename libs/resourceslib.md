@@ -325,7 +325,7 @@ if(request){
 }
 
 let balance = Libs.ResourcesLib.userRes("balance");
-balance.set(10);
+balance.add(10);
 
 // and repeat this command again after 1 day 
 Bot.run( {
