@@ -293,7 +293,54 @@ bankDeposit.set(baseValue);
 
 ## How to
 
-**Q: how to give to referrer 5% of referral user deposit?**
+**Q: How to give to referrer 5% of referral user deposit?**
 
 Please see [https://help.bots.business/libs/refferallib\#how-to](https://help.bots.business/libs/refferallib#how-to)
+
+
+
+**Q: How to give a bonus to all users every day?**
+
+For example add 10 to user's balance every day
+
+Command `/start`
+
+```javascript
+let balance = Libs.ResourcesLib.userRes("balance");
+balance.set(0);
+
+Bot.run( {
+    command: "/addBonus",
+    run_after: 1*60*60*24,  // add bonus after 1 day
+} )
+```
+
+ Command `/addBonus`
+
+```javascript
+if(request){
+  // user can not run this command manually
+  Bot.sendMessage("Restricted!")
+  return
+}
+
+let balance = Libs.ResourcesLib.userRes("balance");
+balance.set(10);
+
+// and repeat this command again after 1 day 
+Bot.run( {
+    command: "/addBonus",
+    run_after: 1*60*60*24,  // after one day
+} )
+
+Bot.sendMessage("Bonus for you: 10")
+```
+
+{% hint style="warning" %}
+Command /addBonus will be executed for each user. It spend 1 iteration every day for each user.
+
+For example, for 100 user - it will be 100 iterations per day.
+{% endhint %}
+
+
 
