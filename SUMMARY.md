@@ -26,6 +26,7 @@
   * [Repository structure](git/repository-structure.md)
   * [File: bot.json](git/file-bot-json.md)
 * [Integration with Segment.com](integration-with-segment-com.md)
+* [Bot information](bot-information.md)
 * [Iterations. How to reduce theys?](iterations.-how-to-reduce-theys.md)
 * [Deep Linking - pass any params on Bot starting](deep-linking-pass-any-params-on-bot-starting.md)
 * [How to link chat account with BB account?](how-to-link-chat-account-with-bb-account.md)
