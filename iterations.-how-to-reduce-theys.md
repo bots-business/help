@@ -14,7 +14,7 @@ Each payment plan has its own iteration limit.
 * Pressing the inline keyboard button
 * 1 Auto Retry - it is 1 iteration
 * 1 received webhook - it is 1 iteration
-* 5 chats on Information refreshing \(Bot dashboard\) - spend 1 iterations
+* 5 chats on [Information refreshing](https://help.bots.business/bot-information) \(in Bot dashboard\) - spend 1 iterations
 
 {% hint style="info" %}
 Single command execution - 1 iteration
