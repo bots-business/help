@@ -342,5 +342,15 @@ Bot.sendMessage("Hello, " + name);
 
 
 
+## Q: How to show alert on Inline button pressing?
 
+BJS:
+
+```javascript
+Api.answerCallbaclQuery({
+  callback_query_id: request.id,
+  text: "My alert",
+  show_alert: true // or false - for alert on top
+})
+```
 
