@@ -43,7 +43,7 @@ Api.answerInlineQuery({
   // core.telegram.org/bots/api#answerinlinequery
   inline_query_id: request.id,
   results: results,
-  cache_time: 30
+  cache_time: 30000 // cache time in sec
 })
 ```
 
