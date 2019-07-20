@@ -23,7 +23,7 @@ You do not need Deploy Key for read access of public repository
 
 Go to Bot-&gt; Sync in menu, then Git Sync -&gt; Deploy Key show
 
-![](../.gitbook/assets/image%20%2836%29.png)
+![](../.gitbook/assets/image%20%2837%29.png)
 
 **Copy Deploy Key**
 

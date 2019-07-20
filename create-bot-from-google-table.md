@@ -16,7 +16,7 @@ See [demo bot](https://telegram.me/DemoFromTableBot) from this Demo Table
 
 Publish list \(prefer to use computer\) with commands in the web as CSV file: 
 
-![](.gitbook/assets/image%20%2838%29.png)
+![](.gitbook/assets/image%20%2839%29.png)
 
 ### 
 
