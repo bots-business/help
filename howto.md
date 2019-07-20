@@ -375,7 +375,13 @@ Command `/onCheckJoin`
 ```javascript
 let status = options.result.status;
 
-if((status=="member")||(status =="administrator")||(status=="creator")){
+var isJoined = (
+   (status == "member")||
+   (status == "administrator")||
+   (status == "creator")
+)
+
+if(isJoined){
    Bot.sendMessage("You are chanell member!");
 }else{
    Bot.sendMessage("You are NOT chanell member!");
