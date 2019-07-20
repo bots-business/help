@@ -151,7 +151,11 @@ Bot token and BB API Key - are is very vulnerability data. Do not share theys an
 
 Hacker can brute force such command names and try to execute it
 
+### **Remove /test command**
 
+If you have any /test command with non security BJS - remove it.
+
+Hacker can execute /test too
 
 ## Do not use any non official libs now.
 
