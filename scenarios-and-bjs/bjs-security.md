@@ -153,5 +153,14 @@ Hacker can brute force such command names and try to execute it
 
 
 
+## Do not use any non official libs now.
 
+{% hint style="danger" %}
+Do not use any non official libs now. 
+
+* Any lib can run command with options.
+* Any libs can read properties \(and read your API Keys from other lib\)
+
+We have not way to protect this now. Just **not use NON official libs** with CP lib. Well, that now there are no such libraries
+{% endhint %}
 
