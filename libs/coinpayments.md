@@ -175,7 +175,7 @@ Api.sendPhoto({ photo: result.qrcode_url });
 
 ```
 
-### Command `onPaymentCompleted`
+### Command `/onPaymentCompleted`
 
 This command will be executed on successful payment
 
@@ -186,6 +186,12 @@ Need install ResourcesLib
 ```javascript
 // you can inspect all options
 // Bot.sendMessage(inspect(options));
+
+if(!options){
+   // for security we need to check that this command runned only by lib
+   // user can not run command with options
+   return
+}
 
 Bot.sendMessage("Payment completed");
 
@@ -304,6 +310,13 @@ Bot.sendMessage("Your permanent wallet address is:\n`" + wallet + "`")
 ### Command `/onIncome`
 
 ```javascript
+// anybody can run /onIncome command!
+
+if(!options){
+   // for security we need to check that this command runned only by lib
+   // user can not run command with options
+   return
+}
 
 let wallet = options.address;
 let currency = options.currency;
@@ -391,6 +404,36 @@ options = {
 
 Libs.CoinPayments.callTestPermanentWalletIncome(options);
 ```
+
+
+
+## Security
+
+**Do not use default names** for secure commands such as `/onIncome`, `/onPaymentCompleted`
+
+Anybody can run any command by names. So need to check that security command runned by CoinPayment Lib only!
+
+```javascript
+if(!options){
+   // for security we need to check that this command runned only by lib
+   // user can not run command with options
+   return
+}
+
+// your secure code
+...
+```
+
+{% hint style="danger" %}
+Do not use any non official libs now. 
+
+* Any lib can run command with options.
+* Any libs can read properties \(and read your API Keys from other lib\)
+
+We have not way to protect this now. Just **not use NON official libs** with CP lib. Well, that now there are no such libraries
+{% endhint %}
+
+
 
 
 
