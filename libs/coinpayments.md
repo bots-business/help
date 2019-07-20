@@ -435,5 +435,9 @@ We have not way to protect this now. Just **not use NON official libs** with CP 
 
 
 
+**Grant only the really necessary permissions for the Api key.** If yor bot do not need "create\_withdrawal" or etc methods - turn theys off. 
+
+![Check all options what you need](../.gitbook/assets/image%20%2818%29.png)
+
 
 
