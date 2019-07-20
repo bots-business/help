@@ -409,6 +409,10 @@ Libs.CoinPayments.callTestPermanentWalletIncome(options);
 
 ## Security
 
+{% hint style="warning" %}
+It is strongly recommended to pay attention to safety when using this library.
+{% endhint %}
+
 **Do not use default names** for secure commands such as `/onIncome`, `/onPaymentCompleted`
 
 Anybody can run any command by names. So need to check that security command runned by CoinPayment Lib only!
@@ -439,5 +443,5 @@ We have not way to protect this now. Just **not use NON official libs** with CP 
 
 ![Check all options what you need](../.gitbook/assets/image%20%2818%29.png)
 
-
+Read more about security [here](https://help.bots.business/scenarios-and-bjs/bjs-security)
 
