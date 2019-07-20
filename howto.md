@@ -354,3 +354,31 @@ Api.answerCallbaclQuery({
 })
 ```
 
+
+
+## Q: How to check if a user joins a channel?
+
+Command: `/isJoined`
+
+```javascript
+chanell = "@MyChanell"
+
+Api.getChatMember({
+  chat_id: chanell,
+  user_id: user.telegramid,
+  on_result :"/check"
+})
+```
+
+Command `/onCheckJoin`
+
+```javascript
+let status = options.result.status;
+
+if((status=="member")||(status =="administrator")||(status=="creator")){
+   Bot.sendMessage("You are chanell member!");
+}else{
+   Bot.sendMessage("You are NOT chanell member!");
+}
+```
+
