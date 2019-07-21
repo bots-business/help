@@ -1,13 +1,12 @@
 # Aliases
 
-### What it is aliases?
+### Aliases అంటే మారుపేర్ల
 
-Sometimes it is convenient to set aliases. For example, include aliases `/phone, /email` to command `/contacts`.  
-Then `/contacts` - it is command name. Others - it's aliases.
+కొన్నిసార్లు మారుపేర్లను సెట్ చేయడం సౌకర్యంగా ఉంటుంది. ఉదాహరణకు, `/contacts` ఆదేశించడానికి మారుపేర్లు` /phone, /email` చేర్చండి.
+ఇప్పుడు `/contacts` - ఇది ఆదేశం పేరు. మిగిలినది - ఇది మారుపేర్లు.
 
-![Aliases can be modified on command editing ](../.gitbook/assets/image%20%284%29.png)
+![కమాండ్ ఎడిటింగ్‌లో మారుపేర్లను సవరించవచ్చు](../.gitbook/assets/image%20%284%29.png)
 
-A much more useful case: set aliases for **keyboard** keys. Quite pleasant "contact" on the button, than "/contacts"
+మరింత ఉపయోగకరమైన సందర్భం: ** కీబోర్డ్ ** కీల కోసం మారుపేర్లను సెట్ చేయండి. "/contacts" కంటే, బటన్పై చాలా ఆహ్లాదకరమైన "పరిచయం"
 
 ![](../.gitbook/assets/image%20%287%29.png)
-

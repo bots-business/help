@@ -1,24 +1,22 @@
 # Keyboard
 
-Fill the keyboard field for command. Keyboard has buttons in the rows. Each button is separated by a comma. Use `\n` for a new row.
+కమాండ్ కోసం కీబోర్డ్ ఫీల్డ్ నింపండి. కీబోర్డ్‌లో వరుసలలో బటన్లు ఉన్నాయి. ప్రతి బటన్ కామాతో వేరు చేయబడుతుంది. క్రొత్త అడ్డు వరుస కోసం `\ n` ఉపయోగించండి.
 
-![Keyboard in bot](../.gitbook/assets/image%20%283%29.png)
+![బోట్‌లో కీబోర్డ్](../.gitbook/assets/image%20%283%29.png)
 
-Example:
+ఉదాహరణ: 
 
-```text
-register, about, \n contacts
-```
+`` `టెక్స్ట్ contact n పరిచయాలను నమోదు చేయండి
+ `` `
 
 \*\*\*\*
 
-**The text of the button will be placed in the chat after touching this button.** Use commands aliase on button. Quite pleasant "contact" on the button, than "/contacts"
+**ఈ బటన్‌ను తాకిన తర్వాత బటన్ యొక్క వచనం చాట్‌లో ఉంచబడుతుంది. ** బటన్పై ఆదేశాలను మారుపేరు ఉపయోగించండి. "/ పరిచయాలు" కంటే, బటన్పై చాలా ఆహ్లాదకరమైన "పరిచయం"
 
-Emoji also possible. Then the alias should also be with Emoji.
+ఎమోజి కూడా సాధ్యమే. అప్పుడు అలియాస్ కూడా ఎమోజీతో ఉండాలి.
 
-![ Keyboard can be modified on command editing ](../.gitbook/assets/image%20%2829%29.png)
+![కమాండ్ ఎడిటింగ్‌లో కీబోర్డ్‌ను సవరించవచ్చు](../.gitbook/assets/image%20%2828%29.png)
 
 {% hint style="info" %}
-The keyboard does not disappear after the user's answers. Bot can send a new keyboard on a new command.
+వినియోగదారు సమాధానాల తర్వాత కీబోర్డ్ కనిపించదు. బోట్ క్రొత్త ఆదేశంలో క్రొత్త కీబోర్డ్‌ను పంపగలదు.
 {% endhint %}
-

@@ -1,32 +1,34 @@
-# Wait for answer
+# Wait for answer (సమాధానం కోసం వేచి ఉండండి
+)
 
-## What it is "Wait for answer"?
+## "సమాధానం కోసం వేచి ఉండండి" అంటే ఏమిటి?
 
-It is need the `Wait for answer` flag if need a response from the user.
+వినియోగదారు నుండి ప్రతిస్పందన అవసరమైతే దీనికి `సమాధానం కోసం వేచి ఉండండి 'ఫ్లాగ్ అవసరం.
 
-![Can be modified on command editing](../.gitbook/assets/image%20%286%29.png)
+![కమాండ్ ఎడిటింగ్‌లో సవరించవచ్చు](../.gitbook/assets/image%20%286%29.png)
 
-Example of execution of one command:
+ఒక ఆదేశం అమలుకు ఉదాహరణ:
 
-Bot:
+బొట్:
 
-> What is your name?
+> మీ పేరు ఏమిటి?
 
-User:
+వాడుకరి:
 
-> Jon
+> జోన్
 
-Bot:
+బొట్:
 
-> Hello, Jon
+> హలో, జోన్
 
-command:
+కమాండ్:
 
-```javascript
-answer: What is your name?
-need_reply: true
-BJS: Bot.sendMessage( "Hello, " + message );
-```
+`` `Javascript
+సమాధానం: మీ పేరు ఏమిటి?
+అవసరం
+command_reply: true
+BJS: Bot.sendMessage ("హలో," + సందేశం);
+`` `
 
-So BJS code execute only after user's answer
+కాబట్టి BJS కోడ్ యూజర్ యొక్క సమాధానం తర్వాత మాత్రమే అమలు అవుతుంది
 

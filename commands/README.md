@@ -1,47 +1,47 @@
 ---
-description: What it is "bot command"?
+వివరణ: ఇది "బోట్ కమాండ్" అంటే ఏమిటి?
 ---
 
 # Commands
 
-Command - it is text from user. Bot can sent answer for command or do something. Usually command start with `"/"`, e.g. `/hello`. But it is not always required.
+ఆదేశం - ఇది వినియోగదారు నుండి వచనం. బొట్ కమాండ్ కోసం సమాధానం పంపవచ్చు లేదా ఏదైనా చేయవచ్చు. సాధారణంగా ఆదేశం `" / "` తో ప్రారంభించండి, ఉదా. `/ Hello`. కానీ ఇది ఎల్లప్పుడూ అవసరం లేదు.
 
-### How to execute command with any text from user? \(Master command\)
+### వినియోగదారు నుండి ఏదైనా వచనంతో ఆదేశాన్ని ఎలా అమలు చేయాలి? \ (మాస్టర్ కమాండ్ \)
 
-Just use `*` in command name. 
+కమాండ్ పేరులో `*` ఉపయోగించండి.
 
 
 
-### Command's fields
+### కమాండ్ ఫీల్డ్‌లు
 
-Command can have:
+కమాండ్ కలిగి ఉండవచ్చు:
 
-| Field | Description | Example |
-| :--- | :--- | :--- |
-| `command` | use for command call | `"/start"`, `"/run"`. For any text use `"*"` |
-| `help` | command's description | `"Welcome to RentBot. See /help or /order now"` |
-| `answer` | text answer | `"Hello. You need /register before continue"` |
-| `aliases` | use for alternative command call | `"/welcome, /hello, ?, help"` |
-| `keyboard` | send keyboard to user on command call | `"order, about"` |
-| `scenarios` | `BJS` code for execution | `2+2` |
-| `group` | command allowed only for this user's group | `guests`, `clients` |
-| `need_reply` | command wait for answer from user. Can be true, false or blank. If `true` BJS code execute after users'answer | `true`, `false` |
-| `auto_retry` | command can be runs with interval in secs | `600` - repeated once at 10 minutes |
 
-### How to create and edit commands?
+| ఫీల్డ్ | వివరణ | ఉదాహరణ |
+| : --- | : --- | : --- |
+| `ఆదేశం` | కమాండ్ కాల్ కోసం ఉపయోగించండి | `" / ప్రారంభం "`, `" / రన్ "`. ఏదైనా టెక్స్ట్ ఉపయోగం కోసం `" * "` |
+| `సహాయం` | ఆదేశం యొక్క వివరణ | `" రెంట్‌బాట్‌కు స్వాగతం. ఇప్పుడే చూడండి / సహాయం చేయండి లేదా ఆర్డర్ చేయండి "` |
+| `సమాధానం` | వచన సమాధానం | `" హలో. కొనసాగడానికి ముందు మీకు / నమోదు కావాలి "` |
+| `మారుపేర్లు` | ప్రత్యామ్నాయ కమాండ్ కాల్ కోసం ఉపయోగించండి | `" / స్వాగతం, / హలో,?, సహాయం "` |
+| `కీబోర్డ్` | కమాండ్ కాల్‌లో వినియోగదారుకు కీబోర్డ్ పంపండి | `" ఆర్డర్, గురించి "` |
+| `దృశ్యాలు` | అమలు కోసం `BJS` కోడ్ | `2 + 2` |
+| `సమూహం` | ఈ వినియోగదారు సమూహం | `అతిథులు`,` క్లయింట్లు` |
+| `need_reply` | కమాండ్ యూజర్ నుండి సమాధానం కోసం వేచి ఉండండి. నిజం, తప్పుడు లేదా ఖాళీగా ఉండవచ్చు. వినియోగదారుల తర్వాత `నిజమైన` BJS కోడ్ అమలు చేస్తే | `నిజం`,` తప్పుడు` |
+| `ఆటో_ రిట్రీ` | కమాండ్ సెకన్లలో విరామంతో నడుస్తుంది | `600` - 10 నిమిషాలకు ఒకసారి పునరావృతమవుతుంది |
 
-**You can edit command directly from application.**
+### ఆదేశాలను ఎలా సృష్టించాలి మరియు సవరించాలి?
 
-![Screen from App for command creation](../.gitbook/assets/image%20%2812%29.png)
+** మీరు అప్లికేషన్ నుండి నేరుగా ఆదేశాన్ని సవరించవచ్చు. **
 
-### Commands importing
+![కమాండ్ సృష్టి కోసం అనువర్తనం నుండి స్క్రీన్](../.gitbook/assets/image%20%2812%29.png)
 
-Make all commands with [Google Table. ](https://help.bots.business/create-bot-from-google-table)
+### ఆదేశాలు దిగుమతి
 
-Also you can copy Template table from [http://bit.ly/bb\_table\_template](http://bit.ly/bb_table_template) into your own table. 
+[Google టేబుల్‌తో అన్ని ఆదేశాలను చేయండి. ](https://help.bots.business/create-bot-from-google-table)
 
-This is an ideal option: everything is quite simple. Go to `Main menu > File > Make a copy`. You will need a separate sheet for the commands that will contain the commands. Then you can add commands in rows and do the CSV import from application.
+మీరు మీ స్వంత పట్టికలోకి [http://bit.ly/bb\_table\_template ](http://bit.ly/bb_table_template) నుండి మూస పట్టికను కాపీ చేయవచ్చు.
 
+ఇది ఆదర్శవంతమైన ఎంపిక: ప్రతిదీ చాలా సులభం. `ప్రధాన మెనూ> ఫైల్> కాపీ చేయండి` కు వెళ్లండి. ఆదేశాలను కలిగి ఉన్న ఆదేశాల కోసం మీకు ప్రత్యేక షీట్ అవసరం. అప్పుడు మీరు వరుసలలో ఆదేశాలను జోడించవచ్చు మరియు అనువర్తనం నుండి CSV దిగుమతి చేయవచ్చు.
 
 
 

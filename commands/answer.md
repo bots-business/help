@@ -1,68 +1,59 @@
 # Answer
 
 {% hint style="info" %}
-Answer - it is simple text message from bot on command execition.
+Answer - ఇది బోట్ ఆన్ కమాండ్ ఎగ్జిక్యూషన్ నుండి సాధారణ టెక్స్ట్ సందేశం.
 {% endhint %}
 
-![Answer can be modified on command editing ](../.gitbook/assets/image%20%2836%29.png)
+![కమాండ్ ఎడిటింగ్‌లో సమాధానం సవరించవచ్చు](../.gitbook/assets/image%20%2834%29.png)
 
-### How to format command's answer?
+###కమాండ్ యొక్క జవాబును ఎలా ఫార్మాట్ చేయాలి?
 
-Use markdown text:
+మార్క్‌డౌన్ వచనాన్ని ఉపయోగించండి:
 
-```text
-\n - new line (multi-line text also allowed)
-*bold text*
-_ italics _
-[text](URL)
-`inline fixed-width code`
-```text
-pre-formatted fixed-width code block
-```
-
-
-
-### How to insert a link to the answer?
-
-```text
-[link text](url)
-```
-
-Example:
-
-```text
-[Google](http://google.com)
-```
+```టెక్స్ట్
+\n -  క్రొత్త పంక్తి (బహుళ-లైన్ వచనం కూడా అనుమతించబడుతుంది)
+*బోల్డ్ టెక్స్ట్* 
+_ ఇటాలిక్స్ _ 
+[టెక్స్ట్] (యుఆర్ఎల్) 
+` ఇన్లైన్ స్థిర-వెడల్పు కోడ `
+``` టెక్స్ట్ 
+ముందుగా ఆకృతీకరించిన స్థిర-వెడల్పు కోడ్ బ్లాక్ ```
 
 
 
-### How to insert a picture to the answer?
 
-```text
-[picture title](url)
-```
+### సమాధానానికి లింక్‌ను ఎలా చొప్పించాలి?
 
-Example:
+`` `టెక్స్ట్ [లింక్ టెక్స్ట్](url) `` `
 
-```text
-[Dog](http://example.com/images/dog.jpg)
-```
-
-Also you can send picture file directly with BJS.
+ఉదాహరణ:
+ `` `టెక్స్ట్ [Google](http://google.com)
+ `` `
 
 
 
-### How to insert a other command to the answer?
+### సమాధానానికి చిత్రాన్ని ఎలా చొప్పించాలి?
 
-Just use such text `/command`
+`` `టెక్స్ట్ [చిత్ర శీర్షిక](url)
+ `` ` 
 
-Example:
+ఉదాహరణ: 
+`` `టెక్స్ట్ [డాగ్](http://example.com/images/dog.jpg)
+ `` `
 
-```text
-Hello! You can now /register or read /help
-```
+అలాగే మీరు పిక్చర్ ఫైల్‌ను నేరుగా బిజెఎస్‌తో పంపవచ్చు.
 
-### How to insert a link to other command on the answer?
 
-It can be with "/", e.g.: `/help`. Otherwise, unfortunately, no.
+### సమాధానానికి ఇతర ఆదేశాన్ని ఎలా చొప్పించాలి?
 
+అటువంటి వచనాన్ని `/ command` ఉపయోగించండి 
+
+ఉదాహరణ: 
+`` `టెక్స్ట్ 
+హలో! మీరు ఇప్పుడు / నమోదు చేసుకోవచ్చు లేదా చదవవచ్చు / సహాయం చేయవచ్చు 
+`` `
+
+
+### జవాబుపై ఇతర ఆదేశానికి లింక్‌ను ఎలా చొప్పించాలి?
+
+ఇది "/" తో ఉండవచ్చు, ఉదా .: `/ help`. లేకపోతే, దురదృష్టవశాత్తు, లేదు.

@@ -1,20 +1,14 @@
-# Groups
+# Groups (సమూహాలు)
 
-## What it is: "allowed only for group"?
+## అది ఏమిటి: "సమూహానికి మాత్రమే అనుమతించబడుతుంది"?
 
-Users can be members of the group. 
+వినియోగదారులు సమూహంలో సభ్యులు కావచ్చు.
 
-For example, there may be a group of "customers" and "guests." Then you can make sure that guests can not execute client commands.
+ఉదాహరణకు, "కస్టమర్లు" మరియు "అతిథులు" సమూహం ఉండవచ్చు. అతిథులు క్లయింట్ ఆదేశాలను అమలు చేయలేరని మీరు నిర్ధారించుకోవచ్చు.
 
-![Group can be modified on command editing](../.gitbook/assets/image%20%2830%29.png)
+![కమాండ్ ఎడిటింగ్‌లో సమూహాన్ని సవరించవచ్చు](../.gitbook/assets/image%20%2829%29.png)
 
 {% hint style="info" %}
-You can use BJS code for adding user to group:`User.addToGroup(group_name)` 
+సమూహానికి వినియోగదారుని జోడించడానికి మీరు BJS కోడ్‌ను ఉపయోగించవచ్చు: `User.addToGroup (group_name)`
 {% endhint %}
-
-
-
-
-
-
 

@@ -1,71 +1,70 @@
 # Auto Retry \(AR\)
 
-Command can be run periodically. For example:
+కమాండ్ క్రమానుగతంగా అమలు చేయవచ్చు. ఉదాహరణకి:
 
-* bot send [message "Hello" ](https://help.bots.business/store/welcome-bot#good-morning-every-day)every 24 hours
-* bot download web page every 1 hour and parse it. See our [PlayMarketNewsBot](https://telegram.me/PlayMarketNewsBot)
+* బోట్ పంపండి [సందేశం "హలో"](https://help.bots.business/store/welcome-bot#good-morning-every-day) ప్రతి 24 గంటలకు
+* బోట్ ప్రతి 1 గంటకు వెబ్ పేజీని డౌన్‌లోడ్ చేసి పార్స్ చేయండి. మా [PlayMarketNewsBot](https://telegram.me/PlayMarketNewsBot) చూడండి
 
 {% hint style="danger" %}
-Auto Retry spent 1 iteration on each run. Thus, if you put AR for once a minute \(60 secs\), it will be 1440 iterations per day.
+ఆటో రిట్రీ ప్రతి పరుగులో 1 పునరావృతం ఖర్చు చేసింది. అందువల్ల, మీరు AR ని నిమిషానికి ఒకసారి \ (60 సెకన్లు \) ఉంచితే, అది రోజుకు 1440 పునరావృత్తులు అవుతుంది.
 {% endhint %}
 
-So it is need set auto retry time:
+కనుక ఇది ఆటో రీట్రీ సమయం అవసరం:
 
-* for 10 minutes: 60\*10 = **600** secs
-* for 1 hour: 60\*60 = **3600** secs
-* for 24 hours: 60\*60\*24 = **86400** secs.
-* for 1 year: 86400 \* 365 = **24966000** secs
+* 10 నిమిషాలు: 60 \ * 10 = ** 600 ** సెకన్లు
+* 1 గంటకు: 60 \ * 60 = ** 3600 ** సెకన్లు
+* 24 గంటలు: 60 \ * 60 \ * 24 = ** 86400 ** సెకన్లు.
+* 1 సంవత్సరానికి: 86400 \ * 365 = ** 24966000 ** సెకన్లు
 
-#### Modify Auto Retry in app on command editing:
+#### కమాండ్ ఎడిటింగ్‌లో అనువర్తనంలో స్వయంచాలక ప్రయత్నాన్ని సవరించండి:
 
-![Auto retry time can be modified on command editing](../.gitbook/assets/image%20%2846%29.png)
-
+![కమాండ్ ఎడిటింగ్‌లో ఆటో మళ్లీ ప్రయత్నించే సమయాన్ని సవరించవచ్చు](../.gitbook/assets/image%20%2844%29.png)
 
 
 {% hint style="warning" %}
-Auto retry works only with [BJS](https://help.bots.business/scenarios-and-bjs). There are now [Variables](https://help.bots.business/scenarios-and-bjs/variables): chat, user, request.
+ఆటో పున ry ప్రయత్నం [BJS](https://help.bots.business/scenarios-and-bjs) తో మాత్రమే పనిచేస్తుంది. ఇప్పుడు ఉన్నాయి [వేరియబుల్స్](https://help.bots.business/scenarios-and-bjs/variables): చాట్, యూజర్, రిక్వెస్ట్.
 {% endhint %}
 
-### Handled only on BJS!
+### BJS లో మాత్రమే నిర్వహించబడుతుంది!
 
-Because Auto Retry initialized by automatic there are no current chat, user and request. 
+ఆటో రిట్రీ ఆటోమేటిక్ ద్వారా ప్రారంభించబడినందున ప్రస్తుత చాట్, యూజర్ మరియు అభ్యర్థన లేదు.
 
-So we can not use:
+కాబట్టి మేము ఉపయోగించలేము:
 
-```javascript
-Bot.sendMessage("Hello");  //not works with Auto Retry
-```
+`` `Javascript
+Bot.sendMessage ( "హలో"); //ఆటో మళ్లీ ప్రయత్నంతో పనిచేయదు
+`` `
 
-Why? Bot do not know chat for sending message! No current chat.
+ఎందుకు? సందేశం పంపినందుకు చాట్ చాట్ తెలియదు! ప్రస్తుత చాట్ లేదు.
 
-So it is need define chat:
+కనుక ఇది చాట్‌ను నిర్వచించాల్సిన అవసరం ఉంది:
 
-```javascript
-Bot.sendMessage({text: "Hello", chat_id: YOUR_CHAT_ID});
-```
+`` `Javascript
+Bot.sendMessage ({text: "హలో", chat_id: YOUR_CHAT_ID});
+`` `
 
-#### How I can know chat id?
+#### నేను చాట్ ఐడిని ఎలా తెలుసుకోగలను?
 
-Create simple command \(without Aoto Retry\): `/chat` with BJS:
+సాధారణ ఆదేశాన్ని సృష్టించండి \ (అటో రిట్రీ లేకుండా \): BJS తో `/ చాట్`:
 
-```javascript
-Bot.sendMessage(chat.chatid);
-```
+`` `Javascript
+Bot.sendMessage (chat.chatid);
+`` `
 
-And run it on that chat where you need Auto Retry later. This command return YOUR\_CHAT\_ID
+మీకు తర్వాత ఆటో మళ్లీ ప్రయత్నించాల్సిన చాట్‌లో దీన్ని అమలు చేయండి. ఈ ఆదేశం మీ CH _CHAT \ _ID ని అందిస్తుంది
 
-Fill it in previous command with Auto Retry.
+ఆటో కట్రీతో మునుపటి ఆదేశంలో నింపండి.
 
 
 
 {% hint style="info" %}
-You can use Bot.getProperty and Bot.setProperty. So you can save chat\_id in one command and then get it on Auto Retry command 
+మీరు Bot.getProperty మరియు Bot.setProperty ని ఉపయోగించవచ్చు. కాబట్టి మీరు ఒక ఆదేశంలో చాట్ id _id ని సేవ్ చేసి, ఆపై ఆటో రిట్రీ కమాండ్‌లో పొందవచ్చు
 {% endhint %}
 
 {% hint style="warning" %}
-You can not use User.getProperty and User.setProperty. 
+మీరు User.getProperty మరియు User.setProperty ని ఉపయోగించలేరు.
 
-No user on Auto Retry!
+ఆటో మళ్లీ ప్రయత్నంలో వినియోగదారు లేరు!
 {% endhint %}
 
 
