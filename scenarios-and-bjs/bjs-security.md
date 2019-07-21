@@ -168,3 +168,24 @@ Do not use any non official libs now.
 We have not way to protect this now. Just **not use NON official libs** with CP lib. Well, that now there are no such libraries
 {% endhint %}
 
+## Bad practice
+
+Bad BJS:
+
+```javascript
+let admin = "Jon Smith";
+
+if (user.first_name==admin){
+  // do admin action here
+  ...
+}
+```
+
+{% hint style="danger" %}
+Any user can set any first\_name, last\_name and etc 
+
+Hacker can change or create account with this field
+{% endhint %}
+
+
+
