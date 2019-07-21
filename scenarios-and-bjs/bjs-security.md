@@ -189,3 +189,7 @@ Hacker can change or create account with this field
 
 
 
+## See BB reports
+
+[Read info](https://help.bots.business/bb-inspection) about BB report. Demo report have nice recommendations. 
+
