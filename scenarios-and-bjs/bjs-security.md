@@ -30,7 +30,7 @@ So need check execute this command only for admin:
 
 **Add this command to group:**
 
-![](../.gitbook/assets/image%20%2830%29.png)
+![](../.gitbook/assets/image%20%2831%29.png)
 
 **Or you can check admin in BJS:**
 
