@@ -366,7 +366,7 @@ chanell = "@MyChanell"
 Api.getChatMember({
   chat_id: chanell,
   user_id: user.telegramid,
-  on_result :"/check"
+  on_result :"/onCheckJoin"
 })
 ```
 
