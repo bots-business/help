@@ -1,11 +1,12 @@
 # Send HTTP request
 
-Get page on example.com
+Get page on [example.com](http://example.com)
 
 ```javascript
   HTTP.get( {
     url: "http://example.com",
-    success: '/onLoading '
+    success: '/onLoading',
+    error: '/onError'
     // headers: headers - if you need headers
   } )
 
@@ -20,12 +21,16 @@ Get page on example.com
 */
 ```
 
-Command onLoading
+Command `onLoading`
 
 ```javascript
 // downloaded page stored on content field
 Bot.sendMessage(content)
 ```
 
+Command `onError`
 
+```javascript
+Bot.sendMessage("Error on downloading")
+```
 
