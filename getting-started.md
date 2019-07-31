@@ -18,5 +18,5 @@ Now go to app and fill this token in bot creation form.
 
 See [video](https://youtu.be/MZixi8oIdaA)
 
-![](.gitbook/assets/image%20%2844%29.png)
+![](.gitbook/assets/image%20%2846%29.png)
 
