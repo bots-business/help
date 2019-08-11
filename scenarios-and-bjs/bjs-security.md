@@ -28,11 +28,31 @@ Any user can run /setBalance \[telegramid\]
 
 So need check execute this command only for admin:
 
-**Add this command to group:**
+**1.Add this command to** [**group**](https://help.bots.business/commands/groups)
 
 ![](../.gitbook/assets/image%20%2831%29.png)
 
-**Or you can check admin in BJS:**
+add admin to group "admin": 
+
+```javascript
+// create any temporary command with this code
+// run it for admin
+
+// destroy command after for security
+// also you can protect this command with password
+
+User.addToGroup("admin")
+```
+
+**2. Or you can check admin in BJS**
+
+first you need get ADMIN\_TELEGRAM\_ID
+
+```javascript
+Bot.sendMessage(user.telegramid)
+```
+
+security command:
 
 ```javascript
 if(user.telegramid!=ADMIN_TELEGRAM_ID){
