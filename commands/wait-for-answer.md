@@ -30,3 +30,34 @@ BJS: Bot.sendMessage( "Hello, " + message );
 
 So BJS code execute only after user's answer
 
+## How to cancel "Wait for"?
+
+Example of canceled for command with "Wait for":
+
+Bot:
+
+> What is your name?
+
+User \(press "❌ Back" on keybord\):
+
+> ❌ Back
+
+BJS:
+
+```javascript
+if(message=="❌ Back"){
+   return  // exit from command on "Back"
+}
+```
+
+or you can run /menu command on "Back"
+
+```javascript
+if(message=="❌ Back"){
+   Bot.runCommand("/menu")
+   return // exit from command on "Back"
+}
+```
+
+
+
