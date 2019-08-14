@@ -48,6 +48,8 @@ BJS:
 if(message=="❌ Back"){
    return  // exit from command on "Back"
 }
+
+Bot.sendMessage( "Hello, " + message );
 ```
 
 or you can run /menu command on "Back"
@@ -57,6 +59,8 @@ if(message=="❌ Back"){
    Bot.runCommand("/menu")
    return // exit from command on "Back"
 }
+
+Bot.sendMessage( "Hello, " + message );
 ```
 
 
