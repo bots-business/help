@@ -25,7 +25,7 @@
       </td>
       <td style="text-align:left">
         <p>Send message to chat with id. Current chatid for chat is contained in
-          data.chat.chatid</p>
+          chat.chatid</p>
         <p></p>
         <p><code>Bot.sendMessageToChatWithId(&quot;45445454521&quot;, &quot;Hello users!&quot;)</code>
         </p>
