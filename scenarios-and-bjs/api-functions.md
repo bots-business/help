@@ -4,7 +4,7 @@ Api functions it all functions from [https://core.telegram.org/bots/api](https:/
 
 You can use it with BJS. 
 
-**Example 1.** Send audio to current chat:
+### **Example 1.** Send audio to current chat
 
 ```javascript
 Api.sendAudio({
@@ -35,7 +35,7 @@ Api.sendAudio({
 });
 ```
 
-**Example 2.** Send photo with inline keyboard.
+### **Example 2.** Send photo with inline keyboard
 
 ![](../.gitbook/assets/image%20%2823%29.png)
 
@@ -63,9 +63,9 @@ Api.sendPhoto({
 });
 ```
 
-### Get methods
+## Get methods
 
-You can call Api get methods. Need pass `on_result` key. 
+You can call Api get methods \(and others methods too\). Need pass `on_result` key. 
 
 For example get all user's profile photos:
 
