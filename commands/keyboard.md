@@ -16,7 +16,7 @@ register, about, \n contacts
 
 Emoji also possible. Then the alias should also be with Emoji.
 
-![ Keyboard can be modified on command editing ](../.gitbook/assets/image%20%2829%29.png)
+![ Keyboard can be modified on command editing ](../.gitbook/assets/image%20%2830%29.png)
 
 {% hint style="info" %}
 The keyboard does not disappear after the user's answers. Bot can send a new keyboard on a new command.

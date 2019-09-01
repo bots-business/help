@@ -9,7 +9,7 @@ Need to setup public and private key:
 1. [Register](https://www.coinpayments.net/index.php?ref=5418303a5fc165090ee8a9177a3982de)
 2. Go to this [page](https://www.coinpayments.net/acct-api-keys) and generate new key.
 
-![](../.gitbook/assets/image%20%2843%29.png)
+![](../.gitbook/assets/image%20%2844%29.png)
 
 Press on button "Edit Permissions" and add API Key Permissions:
 
@@ -367,7 +367,7 @@ Bot.sendMessage(inspect(options))
 
 You can view IPN History by link [https://www.coinpayments.net/acct-ipn-history](https://www.coinpayments.net/acct-ipn-history)
 
-![](../.gitbook/assets/image%20%2841%29.png)
+![](../.gitbook/assets/image%20%2842%29.png)
 
 Also you can resend IPN by checkin "Resend" checkbox and button "Re-send checked IPN\(s\)"
 

@@ -14,7 +14,7 @@ You can post and read data from GoogleSpreadSheet with this lib.
 
 **1.**Make new spreadsheet. 
 
-![](../.gitbook/assets/image%20%2824%29.png)
+![](../.gitbook/assets/image%20%2825%29.png)
 
 You definitely need a table header. Make it.
 
