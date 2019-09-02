@@ -35,6 +35,10 @@
       </td>
     </tr>
     <tr>
+      <td style="text-align:left">Bot.clearRunAfter(options)</td>
+      <td style="text-align:left">Clear other command with run_after by label</td>
+    </tr>
+    <tr>
       <td style="text-align:left"><code>Bot.sendKeyboard(buttons, message)</code>
       </td>
       <td style="text-align:left">
@@ -148,6 +152,7 @@ Bot.run(params)
 | `run_after` | delay in seconds before command calling |
 | `user_id` | user\_id for passing. By default this is current user.id |
 | `chat_id` | chat\_id for passing. By default this is current chat.id |
+| `label` | can be used for clearing with `Bot.clearRunAfter` |
 
 **Example 1**. Run another command `/balance` with delay 1 hour for current user
 
@@ -155,6 +160,7 @@ Bot.run(params)
 Bot.run( {
     command: "/balance",
     run_after: 1*60*60,  // 1 hour delay
+    // label: "runBalanceAfter1hour"  // label can be used for remove future calling
 } )
 ```
 
@@ -167,6 +173,43 @@ Bot.run( {
     // options: { amount: 5, currency: "BTC" }  // you can pass data
     chat_id: ANOTHER_CHAT_ID
     user_id: ANOTHER_USER_ID
+} )
+```
+
+
+
+## Bot.clearRunAfter\(options\)
+
+Can clear future command\(s\) execution setted by Bot.run
+
+{% hint style="info" %}
+Use this function if future command calling not needed already
+{% endhint %}
+
+```javascript
+Bot.clearRunAfter({ label: "myLabel"})
+```
+
+| Field | Description |
+| :--- | :--- |
+| `label` | **Required**. Command for clearing. For example "myLabel"  |
+
+**Example 1**. Run another command `/work` with delay 5 days. And remove that delay \(for example on 3th day\)
+
+```javascript
+Bot.run( {
+    command: "/balance",
+    run_after: 60*60*24*5,  // 5 days delay
+    label: "myLabel"
+} )
+```
+
+On the third day we learned that the call is no longer needed:
+
+```javascript
+// remove all future executions with label "mylabel"
+Bot.clearRunAfter( {
+    label: "myLabel"
 } )
 ```
 
