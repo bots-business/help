@@ -12,7 +12,7 @@
       <td style="text-align:left"><code>Bot.runCommand(command, options)</code>
       </td>
       <td style="text-align:left">
-        <p><b>DEPRECATED</b> Run other command</p>
+        <p>Run other command</p>
         <p><code>Bot.runCommand(&quot;/contact&quot;)</code>
         </p>
         <p>
@@ -25,7 +25,8 @@
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">Bot.run(options)</td>
+      <td style="text-align:left"><code>Bot.run(options)</code>
+      </td>
       <td style="text-align:left">
         <p>Run other command</p>
         <p>Bot.run({ command: &quot;/contact&quot; })</p>
@@ -35,8 +36,14 @@
       </td>
     </tr>
     <tr>
-      <td style="text-align:left">Bot.clearRunAfter(options)</td>
-      <td style="text-align:left">Clear other command with run_after by label</td>
+      <td style="text-align:left"><code>Bot.clearRunAfter(options)</code>
+      </td>
+      <td style="text-align:left">
+        <p>Clear other command with run_after by label</p>
+        <p></p>
+        <p><a href="https://help.bots.business/scenarios-and-bjs/bot-functions#bot-clearrunafter-options">see more</a>
+        </p>
+      </td>
     </tr>
     <tr>
       <td style="text-align:left"><code>Bot.sendKeyboard(buttons, message)</code>
