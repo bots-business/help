@@ -187,6 +187,12 @@ Use this function if future command calling not needed already
 {% endhint %}
 
 ```javascript
+// delete all future commands executions
+Bot.clearRunAfter()
+```
+
+```javascript
+// delete all future commands executions with label "myLabel"
 Bot.clearRunAfter({ label: "myLabel"})
 ```
 
