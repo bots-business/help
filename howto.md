@@ -347,7 +347,7 @@ Bot.sendMessage("Hello, " + name);
 BJS:
 
 ```javascript
-Api.answerCallbaclQuery({
+Api.answerCallbackQuery({
   callback_query_id: request.id,
   text: "My alert",
   show_alert: true // or false - for alert on top
