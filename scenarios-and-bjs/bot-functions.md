@@ -157,8 +157,8 @@ Bot.run(params)
 | `command` | **Required**. Command for run. For example "/start". Can pass params  |
 | `options` | json for passing to command. Available through options in this command |
 | `run_after` | delay in seconds before command calling |
-| `user_id` | user\_id for passing. By default this is current user.id |
-| `chat_id` | chat\_id for passing. By default this is current chat.id |
+| `user_id` | user\_id for passing. **By default** this is current user.id |
+| `chat_id` | chat\_id for passing. **By default** this is current chat.id |
 | `label` | can be used for clearing with `Bot.clearRunAfter` |
 
 **Example 1**. Run another command `/balance` with delay 1 hour for current user
@@ -167,23 +167,31 @@ Bot.run(params)
 Bot.run( {
     command: "/balance",
     run_after: 1*60*60,  // 1 hour delay
-    // label: "runBalanceAfter1hour"  // label can be used for remove future calling
+    // label: "runBalance"  // label can be used for remove future calling
 } )
 ```
 
-**Example 2**. Run another command `/balance` with delay 5 days for another user
+**Example 2**. Run another command `/balance` with delay 5 days for this user
 
 ```javascript
 Bot.run( {
     command: "/balance",
     run_after: 60*60*24*5,  // 5 days delay
     // options: { amount: 5, currency: "BTC" }  // you can pass data
-    chat_id: ANOTHER_CHAT_ID
-    user_id: ANOTHER_USER_ID
+    chat_id: chat.id  // or use another chat_id
+    user_id: user.id  // or use another user.id
 } )
 ```
 
+{% hint style="danger" %}
+You can not use chat.chatid and user.telegramid with Bot.run method.
 
+Only chat.id or user.id
+{% endhint %}
+
+{% hint style="success" %}
+Store another chat.id or user.id to propertis if you can not pass it imeditally. 
+{% endhint %}
 
 ## Bot.clearRunAfter\(options\)
 
