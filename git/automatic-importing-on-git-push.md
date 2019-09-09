@@ -2,7 +2,7 @@
 
 You can make automatic bot deploying on git push. 
 
-This possible with [Webhooks](https://help.bots.business/libs/webhooks-lib)
+This possible with [Webhooks](https://help.bots.business/libs/webhooks-lib). Make install for this lib.
 
 ## Setup
 
@@ -33,7 +33,7 @@ Bot.sendMessage("Start code importing...");
 
 // Bot.exportGit also possible
 Bot.importGit({
-  branch: "master",
+  branch: "master", // it is master branch
   success: "onGitImportCompleted"
 })
 ```
@@ -43,7 +43,7 @@ command `onGitImportCompleted`
 just put to answer: "Git import completed"
 
 {% hint style="warning" %}
-Commands `onGitPush and onGitImportCompleted` must be in repository also. Because all commands will be deleted on git importing
+Commands `onGitPush and onGitImportCompleted`must be in repository also. Because all commands will be deleted on git importing
 {% endhint %}
 
 {% hint style="danger" %}
