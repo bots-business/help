@@ -12,7 +12,7 @@
       <td style="text-align:left"><code>User.setProperty(name, value, type)</code>
       </td>
       <td style="text-align:left">
-        <p>Set property with name for user</p>
+        <p>Set property with name for user. Name is case sensitive.</p>
         <p></p>
         <p><code>User.setProperty(&quot;city&quot;, &quot;London&quot;, &quot;string&quot;)</code>
         </p>
@@ -22,7 +22,7 @@
       <td style="text-align:left"><code>User.getProperty(name)</code>
       </td>
       <td style="text-align:left">
-        <p>Read property with name</p>
+        <p>Read property with name. Name is case sensitive.</p>
         <p></p>
         <p><code>User.getProperty(&quot;city&quot;)</code>
         </p>

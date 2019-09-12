@@ -6,6 +6,10 @@ description: What it is "bot command"?
 
 Command - it is text from user. Bot can sent answer for command or do something. Usually command start with `"/"`, e.g. `/hello`. But it is not always required.
 
+{% hint style="warning" %}
+`/start` and `/START` - it is not same commands. Command is case sensitive
+{% endhint %}
+
 ### How to execute command with any text from user? \(Master command\)
 
 Just use `*` in command name. 
@@ -16,19 +20,85 @@ Just use `*` in command name.
 
 Command can have:
 
-| Field | Description | Example |
-| :--- | :--- | :--- |
-| `command` | use for command call | `"/start"`, `"/run"`. For any text use `"*"` |
-| `help` | command's description | `"Welcome to RentBot. See /help or /order now"` |
-| `answer` | text answer | `"Hello. You need /register before continue"` |
-| `aliases` | use for alternative command call | `"/welcome, /hello, ?, help"` |
-| `keyboard` | send keyboard to user on command call | `"order, about"` |
-| `scenarios` | `BJS` code for execution | `2+2` |
-| `group` | command allowed only for this user's group | `guests`, `clients` |
-| `need_reply` | command wait for answer from user. Can be true, false or blank. If `true` BJS code execute after users'answer | `true`, `false` |
-| `auto_retry` | command can be runs with interval in secs | `600` - repeated once at 10 minutes |
-
-### How to create and edit commands?
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:left">Field</th>
+      <th style="text-align:left">Description</th>
+      <th style="text-align:left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:left"><code>command</code>
+      </td>
+      <td style="text-align:left">use for command call</td>
+      <td style="text-align:left">
+        <p><code>&quot;/start&quot;</code>, <code>&quot;/run&quot;</code>. For any
+          text use <code>&quot;*&quot;</code>
+        </p>
+        <p><b>case sensitive</b>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>help</code>
+      </td>
+      <td style="text-align:left">command&apos;s description</td>
+      <td style="text-align:left"><code>&quot;Welcome to RentBot. See /help or /order now&quot;</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>answer</code>
+      </td>
+      <td style="text-align:left">text answer</td>
+      <td style="text-align:left"><code>&quot;Hello. You need /register before continue&quot;</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>aliases</code>
+      </td>
+      <td style="text-align:left">use for alternative command call</td>
+      <td style="text-align:left"><code>&quot;/welcome, /hello, ?, help&quot;</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>keyboard</code>
+      </td>
+      <td style="text-align:left">send keyboard to user on command call</td>
+      <td style="text-align:left"><code>&quot;order, about&quot;</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>scenarios</code>
+      </td>
+      <td style="text-align:left"><code>BJS</code> code for execution</td>
+      <td style="text-align:left"><code>2+2</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>group</code>
+      </td>
+      <td style="text-align:left">command allowed only for this user&apos;s group</td>
+      <td style="text-align:left"><code>guests</code>, <code>clients</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>need_reply</code>
+      </td>
+      <td style="text-align:left">command wait for answer from user. Can be true, false or blank. If <code>true</code> BJS
+        code execute after users&apos;answer</td>
+      <td style="text-align:left"><code>true</code>, <code>false</code>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>auto_retry</code>
+      </td>
+      <td style="text-align:left">command can be runs with interval in secs</td>
+      <td style="text-align:left"><code>600</code> - repeated once at 10 minutes</td>
+    </tr>
+  </tbody>
+</table>### How to create and edit commands?
 
 **You can edit command directly from application.**
 

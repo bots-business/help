@@ -1,5 +1,9 @@
 # Command
 
+{% hint style="warning" %}
+This functionality is deprecated. Please use [this](https://help.bots.business/scenarios-and-bjs/send-http-request)
+{% endhint %}
+
 | Function | Description | Example |
 | :--- | :--- | :--- |
 | `Command.setValue(name, value)` | set value to command | `Command.setValue("url", "http://example.com")` |

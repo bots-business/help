@@ -114,7 +114,7 @@
       <td style="text-align:left"><code>Bot.getProperty(name)</code>
       </td>
       <td style="text-align:left">
-        <p>Read property with name</p>
+        <p>Read property with name. Name is case sensitive. Name is case sensitive.</p>
         <p></p>
         <p><code>Bot.getProperty(&quot;TotalScore&quot;)</code>
         </p>
@@ -156,7 +156,7 @@ Bot.run(params)
 | :--- | :--- |
 | `command` | **Required**. Command for run. For example "/start". Can pass params  |
 | `options` | json for passing to command. Available through options in this command |
-| `run_after` | delay in seconds before command calling |
+| `run_after` | delay in seconds before command callingName is case sensitive. |
 | `user_id` | user\_id for passing. **By default** this is current user.id |
 | `chat_id` | chat\_id for passing. **By default** this is current chat.id |
 | `label` | can be used for clearing with `Bot.clearRunAfter` |
