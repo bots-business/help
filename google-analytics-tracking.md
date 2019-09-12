@@ -8,24 +8,24 @@ Track  events can be more usefull for bot
 
 ```javascript
 // Track an Event (all values optional)
-GoogleAnalytics.event(
+GoogleAnalytics.event({
   ua_key: "UA-XXXXXX-1",
   category: 'refferal',
   action: 'attracted by',
   label: user.id,
   value: 1
-)
+})
 ```
 
 
 
 ```javascript
 // Track exceptions (all values optional)
-GoogleAnalytics.exception(
+GoogleAnalytics.exception({
   ua_key: "UA-XXXXXX-1",
   description: 'No money',
   fatal: false
-)
+})
 ```
 
 
@@ -33,37 +33,37 @@ GoogleAnalytics.exception(
 ```javascript
 // Track timing (all values optional, but should include time)
 // time in milliseconds
-GoogleAnalytics.timing(
+GoogleAnalytics.timing({
   ua_key: "UA-XXXXXX-1",
   category: 'downloading',
   variable: 'external-api',
   label: 'coinpayments',
   time: 50
-)
+})
 ```
 
 
 
 ```javascript
 // Track a Pageview (all values optional)
-GoogleAnalytics.pageview(
+GoogleAnalytics.pageview({
   ua_key: "UA-XXXXXX-1",
   path: '/vip-area',
   hostname: 'bots.business',
   title: 'Vip Area'
-)
+})
 ```
 
 
 
 ```javascript
 // Track social activity (all values REQUIRED)
-GoogleAnalytics.social(
+GoogleAnalytics.social({
   ua_key: "UA-XXXXXX-1",
   action: 'like',
   network: 'facebook',
   target: '/article_1'
-)
+})
 ```
 
 ## Track transactions

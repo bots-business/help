@@ -27,7 +27,7 @@
   * [Repository structure](git/repository-structure.md)
   * [File: bot.json](git/file-bot-json.md)
   * [Automatic importing on Git push](git/automatic-importing-on-git-push.md)
-  * [Google Analytics tracking](git/google-analytics-tracking.md)
+* [Google Analytics tracking](google-analytics-tracking.md)
 * [Integration with Segment.com](integration-with-segment-com.md)
 * [Bot information](bot-information.md)
 * [Iterations. How to reduce theys?](iterations.-how-to-reduce-theys.md)
