@@ -17,6 +17,10 @@ let res = Libs.ResourcesLib.userRes("money");
 Bot.sendMessage("Cur your money: " + res.value());
 ```
 
+{% hint style="danger" %}
+Res name is case sensitive. The resources “money”, “Money” and “MONEY” do not match. These are 3 separate resources.
+{% endhint %}
+
 {% hint style="info" %}
 One user can have same chats with bot. 
 
