@@ -50,6 +50,7 @@
 * [CoinPayments \(CP\)](libs/coinpayments.md)
 * [GoogleSpreadSheet](libs/googlespreadsheet.md)
 * [Webhooks lib](libs/webhooks-lib.md)
+* [DateTimeFormat Lib](libs/datetimeformat-lib.md)
 
 ## Store
 
