@@ -119,14 +119,14 @@ We can use [ResourcesLib](https://help.bots.business/libs/resourceslib) for this
 on /start
 
 ```javascript
-function doAttracted(refUser){
+function onAttracted(refUser){
   // access to Bonus Res of refUser
   let refUserBonus = Libs.ResourcesLib.anotherUserRes("money", refUser.telegramid);
   refUserBonus.add(100);  // add 100 bonus for friend
 }
 
 Libs.ReferralLib.currentUser.track({
-   doAtractedByUser: doAttracted
+   onAtractedByUser: onAttracted
 });
 ```
 
