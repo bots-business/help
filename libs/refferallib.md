@@ -116,7 +116,7 @@ return first 45 users ordering by referrals count
 
 We can use [ResourcesLib](https://help.bots.business/libs/resourceslib) for this.
 
-on /start
+on `/start`
 
 ```javascript
 function onAttracted(refUser){
