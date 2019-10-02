@@ -57,7 +57,7 @@ You can pass bot properties for new bot
 BBAdmin.installBot(
   { email: 'test@example.com',
     bot_id: 15025, // see bot id in the app -> Bots -> Bot
-    bot_properties: [{ name: 'test', value:'hello world', type:'string' }]
+    // bot_properties: [{ name: 'test', value:'hello world', type:'string' }]
   }
 )
 ```
