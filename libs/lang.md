@@ -32,6 +32,16 @@ Bot.sendMessage(Libs.Lang.get().user.whatIsYourName)
 
 `Libs.Lang.user.setLang("ru")`
 
+{% hint style="info" %}
+`You can get user language code. For example in /start:`
+
+```javascript
+// in /start command
+lang_code = request.from.language_code;
+Libs.Lang.user.setLang(lang_code)
+```
+{% endhint %}
+
 ### Get cur lang
 
 `var lang = Libs.Lang.user.getLang()`
