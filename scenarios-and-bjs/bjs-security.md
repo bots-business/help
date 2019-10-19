@@ -171,11 +171,39 @@ Bot token and BB API Key - are is very vulnerability data. Do not share theys an
 
 Hacker can brute force such command names and try to execute it
 
+### \*\*\*\*
+
 ### **Remove /test command**
 
 If you have any /test command with non security BJS - remove it.
 
 Hacker can execute /test too
+
+
+
+### Use `completed_commands_count` variable
+
+Anybody can run any command. But it is possible make secured sub command.
+
+For example command `/admin`
+
+```javascript
+// make admin access here
+// ...
+
+Bot.runCommand("/secure")
+```
+
+command `/secure`
+
+```javascript
+// this command can not be runned by user
+if(completed_commands_count==0){ return }
+
+// only via Bot.runCommand, Bot.run or as "on_result"
+// your secure code here
+// ...
+```
 
 ## Do not use any non official libs now.
 
