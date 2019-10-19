@@ -16,7 +16,7 @@ url = Libs.Webhooks.getUrlFor(
 Bot.sendMessage(url);
 ```
 
-execute `/setupGit` copy url and go to Github.com &gt; your repository -&gt; Settings -&gt; Webhooks
+execute `/setupGit` copy url and go to Github.com &gt; your repository -&gt; Settings -&gt; Webhooks. Press button "Add webhook"
 
 Past copied url as Payload URL
 
