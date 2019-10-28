@@ -103,7 +103,21 @@ for(let i in photos){
 
 ```
 
+## Error handling
 
+It is possible to capture error with `on_error` param
 
+```javascript
+Api.sendAudio({
+  audio: "https://www.bensound.org/bensound-music/bensound-funnysong.mp3",
+  on_error: "/on_error"
+});
+```
 
+In command `on_error`:
+
+```javascript
+Bot.sendMessage("We have error with sending audio");
+Bot.inspect(options)
+```
 
