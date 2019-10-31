@@ -118,6 +118,10 @@
         <p></p>
         <p><code>Bot.getProperty(&quot;TotalScore&quot;)</code>
         </p>
+        <p></p>
+        <p>can get property with default value for non exist property:</p>
+        <p><code>Bot.getProperty(&quot;TotalScore&quot;, 100)</code> 
+        </p>
       </td>
     </tr>
     <tr>

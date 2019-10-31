@@ -25,6 +25,9 @@
         <p>Read property with name. Name is case sensitive.</p>
         <p></p>
         <p><code>User.getProperty(&quot;city&quot;)</code>
+          <br />
+          <br />can get property with default value for non exist property:</p>
+        <p><code>User.getProperty(&quot;city&quot;, &quot;London&quot;)</code>
         </p>
       </td>
     </tr>
