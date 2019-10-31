@@ -14,6 +14,8 @@ Command - it is text from user. Bot can sent answer for command or do something.
 
 Just use `*` in command name. 
 
+See [more](https://help.bots.business/scenarios-and-bjs/always-running-commands)
+
 
 
 ### Command's fields
