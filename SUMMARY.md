@@ -15,6 +15,7 @@
   * [Message broadcasting and editing](scenarios-and-bjs/message-broadcasting.md)
   * [User functions](scenarios-and-bjs/user-functions.md)
   * [Command](scenarios-and-bjs/command.md)
+  * [Always running commands](scenarios-and-bjs/always-running-commands.md)
   * [Variables](scenarios-and-bjs/variables.md)
   * [Api functions](scenarios-and-bjs/api-functions.md)
   * [BB Admin functions](scenarios-and-bjs/bb-admin-functions.md)
