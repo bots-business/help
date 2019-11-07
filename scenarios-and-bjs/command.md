@@ -21,9 +21,7 @@ This functionality is **deprecated**. Please use [this](https://help.bots.busine
 The variable `my_url` needs to be set in the previous script of this command:
 
 ```javascript
-Command.setValue("my_url", "http://example.com");
-
-->(<my_url>)
+Command.setValue("my_url", "http://example.com");->(<my_url>)
 ```
 
 Here in the first scenario, the variable `my_url` is set. In the second scenario, the page is loaded from [http://example.com](http://example.com/).

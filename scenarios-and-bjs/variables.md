@@ -15,7 +15,6 @@
 ### You can inspect any variable for debug
 
 ```text
-Bot.sendMessage( inspect(user) )
-Bot.sendMessage( inspect(chat) )
+Bot.sendMessage( inspect(user) )Bot.sendMessage( inspect(chat) )
 ```
 

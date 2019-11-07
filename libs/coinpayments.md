@@ -9,7 +9,7 @@ Need to setup public and private key:
 1. [Register](https://www.coinpayments.net/index.php?ref=5418303a5fc165090ee8a9177a3982de)
 2. Go to this [page](https://www.coinpayments.net/acct-api-keys) and generate new key.
 
-![](../.gitbook/assets/image%20%2844%29.png)
+![](../.gitbook/assets/image%20%2846%29.png)
 
 Press on button "Edit Permissions" and add API Key Permissions:
 
@@ -18,13 +18,7 @@ Press on button "Edit Permissions" and add API Key Permissions:
 Then on bot `/setup` command:
 
 ```javascript
-// Get your keys in https://www.coinpayments.net/index.php?cmd=acct_api_keys
-Libs.CoinPayments.setPrivateKey("YOUR KEY");
-Libs.CoinPayments.setPublicKey('YOUR KEY');
-
-// for Receiving Payments
-// Get your BB Api Key from Bots.Business App in Profile
-Libs.CoinPayments.setBBApiKey('YOUR API KEY');
+// Get your keys in https://www.coinpayments.net/index.php?cmd=acct_api_keysLibs.CoinPayments.setPrivateKey("YOUR KEY");Libs.CoinPayments.setPublicKey('YOUR KEY');// for Receiving Payments// Get your BB Api Key from Bots.Business App in ProfileLibs.CoinPayments.setBBApiKey('YOUR API KEY');
 ```
 
 ## Call API methods
@@ -36,10 +30,7 @@ For example for method [Get Basic Account Information](https://www.coinpayments.
 `/info` command:
 
 ```javascript
-Libs.CoinPayments.apiCall({
-  fields: { cmd: "get_basic_info"},
-  onSuccess: '/onInfo'
-});
+Libs.CoinPayments.apiCall({  fields: { cmd: "get_basic_info"},  onSuccess: '/onInfo'});
 ```
 
 {% hint style="info" %}
@@ -49,8 +40,7 @@ In fields you can pass all fields from CoinPayments api. Just read [help](https:
 `/onInfo` command:
 
 ```javascript
-Bot.sendMessage(inspect(options));
-Bot.sendMessage("CoinPayments owner email:" + options.body.result.email);
+Bot.sendMessage(inspect(options));Bot.sendMessage("CoinPayments owner email:" + options.body.result.email);
 ```
 
 ## Combine libs!
@@ -112,34 +102,7 @@ Yes, you can write it via `Libs.CoinPayments.apiCall`method too. But there is an
 ### Command `/pay`
 
 ```javascript
-let amount = 0.0001; // amount in BTC
-
-options = {
-  fields: {
-     amount: amount,   // amount in BTC
-     currency: "BTC",  // currency1 = currency2 = BTC
-     // currency1: "BTC",   // The original currency of the transaction
-     // currency2: "LTC"  //The currency the buyer will be sending
-     // you can use another fields also
-     // except custom and ipn_url (it used by Lib)
-     // See https://www.coinpayments.net/apidoc-create-transaction
-  },
-  // generated wallet, QR code, payment page
-  // will be available in this command
-  onSuccess: '/onCreatePayment',
-  
-  // on successful payment this command
-  // will be executed
-  onPaymentCompleted: "/onPaymentCompleted",
-  
-  // it is not necessary
-  // onIPN: "/onIPN"
-  
-  // if you want customize error messages
-  // onError: "/onError"
-}
-
-Libs.CoinPayments.createTransaction(options);
+let amount = 0.0001; // amount in BTCoptions = {  fields: {     amount: amount,   // amount in BTC     currency: "BTC",  // currency1 = currency2 = BTC     // currency1: "BTC",   // The original currency of the transaction     // currency2: "LTC"  //The currency the buyer will be sending     // you can use another fields also     // except custom and ipn_url (it used by Lib)     // See https://www.coinpayments.net/apidoc-create-transaction  },  // generated wallet, QR code, payment page  // will be available in this command  onSuccess: '/onCreatePayment',    // on successful payment this command  // will be executed  onPaymentCompleted: "/onPaymentCompleted",    // it is not necessary  // onIPN: "/onIPN"    // if you want customize error messages  // onError: "/onError"}Libs.CoinPayments.createTransaction(options);
 ```
 
 {% hint style="success" %}
@@ -157,22 +120,7 @@ Since the method **`onPaymentCompleted`** completely covers the IPN and solves t
 ### Command `/onCreatePayment`
 
 ```javascript
-// You can inspect all options:
-// Bot.sendMessage(inspect(options));
-
-let result = options.result;
-
-let msg = "*Need pay:*\n `" + result.amount + "`" + 
- "\n\n*to address:*\n" +
- "`" + result.address + "`" +
- "\n\n [Checkout](" + result.checkout_url +
-    ") | [Status](" + result.status_url + 
- ")" // you can uncomment this for manual status checking
- // + "\n\nCheck status manually: /check" + options.payment_index;
-
-Bot.sendMessage(msg);
-Api.sendPhoto({ photo: result.qrcode_url }); 
-
+// You can inspect all options:// Bot.sendMessage(inspect(options));let result = options.result;let msg = "*Need pay:*\n `" + result.amount + "`" +  "\n\n*to address:*\n" + "`" + result.address + "`" + "\n\n [Checkout](" + result.checkout_url +    ") | [Status](" + result.status_url +  ")" // you can uncomment this for manual status checking // + "\n\nCheck status manually: /check" + options.payment_index;Bot.sendMessage(msg);Api.sendPhoto({ photo: result.qrcode_url }); 
 ```
 
 ### Command `/onPaymentCompleted`
@@ -184,23 +132,7 @@ Need install ResourcesLib
 {% endhint %}
 
 ```javascript
-// you can inspect all options
-// Bot.sendMessage(inspect(options));
-
-if(!options){
-   // for security we need to check that this command runned only by lib
-   // user can not run command with options
-   return
-}
-
-Bot.sendMessage("Payment completed");
-
-let amount = options.amount1;
-
-let res = Libs.ResourcesLib.userRes("balance");
-res.add(amount)
-
-Bot.sendMessage("added to balance, BTC: " + amount);
+// you can inspect all options// Bot.sendMessage(inspect(options));if(!options){   // for security we need to check that this command runned only by lib   // user can not run command with options   return}Bot.sendMessage("Payment completed");let amount = options.amount1;let res = Libs.ResourcesLib.userRes("balance");res.add(amount)Bot.sendMessage("added to balance, BTC: " + amount);
 ```
 
 ### Finished!
@@ -212,23 +144,13 @@ Now you can  receive payments
 You can check payment status
 
 ```javascript
-Libs.CoinPayments.getTxInfo({
-  payment_index: payment_index,  // see /onCreatePayment command.
-                                    // Need pass this payment_index to this command
-  onSuccess: '/on_txn_id'
-})
+Libs.CoinPayments.getTxInfo({  payment_index: payment_index,  // see /onCreatePayment command.                                    // Need pass this payment_index to this command  onSuccess: '/on_txn_id'})
 ```
 
 #### `command: /on_txn_id:` 
 
 ```javascript
-// You can inspect all options:
-// Bot.sendMessage(inspect(options));
-
-Bot.sendMessage(options.result.status_text);
-
-// Do not finish payment here.
-// Use /onPaymentCompleted for this
+// You can inspect all options:// Bot.sendMessage(inspect(options));Bot.sendMessage(options.result.status_text);// Do not finish payment here.// Use /onPaymentCompleted for this
 ```
 
 #### `command /onIPN`
@@ -236,21 +158,13 @@ Bot.sendMessage(options.result.status_text);
 You can get info from IPN. Really it is not needed in simple. Just use onPaymentCompleted option on createTransaction.
 
 ```javascript
-// You can inspect all fields:
-// Bot.sendMessage(inspect(options))
-
-// IPN is not needed
-// Use - onPaymentCompleted
-
-Bot.sendMessage("IPN: Payment status: " + options.status_text );
-
+// You can inspect all fields:// Bot.sendMessage(inspect(options))// IPN is not needed// Use - onPaymentCompletedBot.sendMessage("IPN: Payment status: " + options.status_text );
 ```
 
 #### `command onError`
 
 ```javascript
-// You can inspect all fields:
-Bot.sendMessage(inspect(options))
+// You can inspect all fields:Bot.sendMessage(inspect(options))
 ```
 
 ### 
@@ -268,19 +182,7 @@ Yes, you can write it via `Libs.CoinPayments.apiCall`method too. But there is an
 ### Command `/createWallet`
 
 ```javascript
-Libs.CoinPayments.createPermanentWallet({
-  currency: "BTC",
-  //label: "myLabel",
-  onSuccess: "/onWalletCreate",
-  
-  // onIPN - not necessary
-  //onIPN: "/onPermanentWalletIPN",
-  
-  onIncome: "/onIncome"
-  
-  // if you want customize error messages
-  // onError: "/onError"
-});
+Libs.CoinPayments.createPermanentWallet({  currency: "BTC",  //label: "myLabel",  onSuccess: "/onWalletCreate",    // onIPN - not necessary  //onIPN: "/onPermanentWalletIPN",    onIncome: "/onIncome"    // if you want customize error messages  // onError: "/onError"});
 ```
 
 {% hint style="success" %}
@@ -298,49 +200,13 @@ Since the method **`onIncome`** completely covers the IPN and solves the problem
 ### Command `/onWalletCreate`
 
 ```javascript
-//Bot.sendMessage(inspect(options));
-
-let wallet = options.result.address;
-Bot.sendMessage("Your permanent wallet address is:\n`" + wallet + "`")
-
-// You can save wallet
-//User.setProperty("wallet", wallet, "string");
+//Bot.sendMessage(inspect(options));let wallet = options.result.address;Bot.sendMessage("Your permanent wallet address is:\n`" + wallet + "`")// You can save wallet//User.setProperty("wallet", wallet, "string");
 ```
 
 ### Command `/onIncome`
 
 ```javascript
-// anybody can run /onIncome command!
-
-if(!options){
-   // for security we need to check that this command runned only by lib
-   // user can not run command with options
-   return
-}
-
-let wallet = options.address;
-let currency = options.currency;
-let amount = options.amount;
-
-let fiat_amount = options.fiat_amount;
-let fiat_currency = options.fiat_coin;
-
-let fee = options.fee;
-
-let txn_id = options.txn_id
-
-// see another fields by
-// Bot.sendMessage(inspect(options));
-
-Bot.sendMessage(
-   "*Income to wallet:*" +
-   "\n`"+ wallet + "`" +
-   "\n\n*Amount*:\n" +
-amount + " " + currency + " (" + fiat_amount + " " + fiat_currency + ")" +
-   "\n*Fee*: " + fee +
-   "\n\nTXN: `" + txn_id + "`"
-);
-
+// anybody can run /onIncome command!if(!options){   // for security we need to check that this command runned only by lib   // user can not run command with options   return}let wallet = options.address;let currency = options.currency;let amount = options.amount;let fiat_amount = options.fiat_amount;let fiat_currency = options.fiat_coin;let fee = options.fee;let txn_id = options.txn_id// see another fields by// Bot.sendMessage(inspect(options));Bot.sendMessage(   "*Income to wallet:*" +   "\n`"+ wallet + "`" +   "\n\n*Amount*:\n" +amount + " " + currency + " (" + fiat_amount + " " + fiat_currency + ")" +   "\n*Fee*: " + fee +   "\n\nTXN: `" + txn_id + "`");
 ```
 
 
@@ -348,8 +214,7 @@ amount + " " + currency + " (" + fiat_amount + " " + fiat_currency + ")" +
 #### `command onError`
 
 ```javascript
-// You can inspect all fields:
-Bot.sendMessage(inspect(options))
+// You can inspect all fields:Bot.sendMessage(inspect(options))
 ```
 
 
@@ -367,7 +232,7 @@ Bot.sendMessage(inspect(options))
 
 You can view IPN History by link [https://www.coinpayments.net/acct-ipn-history](https://www.coinpayments.net/acct-ipn-history)
 
-![](../.gitbook/assets/image%20%2842%29.png)
+![](../.gitbook/assets/image%20%2844%29.png)
 
 Also you can resend IPN by checkin "Resend" checkbox and button "Re-send checked IPN\(s\)"
 
@@ -378,11 +243,7 @@ Also you can resend IPN by checkin "Resend" checkbox and button "Re-send checked
 Also it is possible **make test onPaymentCompleted** event. It is good if you do not want make test payment.
 
 ```javascript
-options = {
-  onPaymentCompleted: "/onPaymentCompleted 0.75"
-}
-
-Libs.CoinPayments.callTestPaymentCompleted(options);
+options = {  onPaymentCompleted: "/onPaymentCompleted 0.75"}Libs.CoinPayments.callTestPaymentCompleted(options);
 ```
 
 #### 
@@ -392,17 +253,7 @@ Libs.CoinPayments.callTestPaymentCompleted(options);
 Also it is possible **make test** callTestPermanentWalletIncome event. It is good if you do not want make test payment.
 
 ```javascript
-options = {
-  // onIPN: "/onPermanentWalletIPN",  // if you need IPN also
-  onIncome: "/onIncome",
-  
-  // not necessary options
-  // you can pass amount
-  //amount: 0.5
-  // txn_id: YOUR_TXN_ID
-}
-
-Libs.CoinPayments.callTestPermanentWalletIncome(options);
+options = {  // onIPN: "/onPermanentWalletIPN",  // if you need IPN also  onIncome: "/onIncome",    // not necessary options  // you can pass amount  //amount: 0.5  // txn_id: YOUR_TXN_ID}Libs.CoinPayments.callTestPermanentWalletIncome(options);
 ```
 
 
@@ -418,14 +269,7 @@ It is strongly recommended to pay attention to safety when using this library.
 Anybody can run any command by names. So need to check that security command runned by CoinPayment Lib only!
 
 ```javascript
-if(!options){
-   // for security we need to check that this command runned only by lib
-   // user can not run command with options
-   return
-}
-
-// your secure code
-...
+if(!options){   // for security we need to check that this command runned only by lib   // user can not run command with options   return}// your secure code...
 ```
 
 {% hint style="danger" %}

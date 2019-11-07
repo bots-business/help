@@ -19,6 +19,7 @@
   * [Variables](scenarios-and-bjs/variables.md)
   * [Api functions](scenarios-and-bjs/api-functions.md)
   * [BB Admin functions](scenarios-and-bjs/bb-admin-functions.md)
+  * [Admin Panel](scenarios-and-bjs/admin-panel.md)
   * [Send HTTP request](scenarios-and-bjs/send-http-request.md)
   * [Inline Bot](scenarios-and-bjs/inline-bot.md)
   * [BJS Security](scenarios-and-bjs/bjs-security.md)

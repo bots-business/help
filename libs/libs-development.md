@@ -15,25 +15,13 @@ See libraries in the Library Store. You can copy any free library and modify it.
 For example: code in file libs\myLib.js:
 
 ```javascript
-function hello(){
-  Bot.sendMessage("Hello from lib!")
-}
-
-function goodbye(name){
-  Bot.sendMessage("Goodbye, " + name)
-}
-
-publish({
-  sayHello: hello,
-  sayGoodbyeTo: goodbye     
-})
+function hello(){  Bot.sendMessage("Hello from lib!")}function goodbye(name){  Bot.sendMessage("Goodbye, " + name)}publish({  sayHello: hello,  sayGoodbyeTo: goodbye     })
 ```
 
 then you can use Lib in any bot's command:
 
 ```javascript
-Libs.myLib.hello()
-Libs.myLib.sayGoodbyeTo("Alice") 
+Libs.myLib.hello()Libs.myLib.sayGoodbyeTo("Alice") 
 ```
 
 ## Commands capturing
@@ -46,21 +34,13 @@ For example:
 * bot answer "Hello" 
 
 ```javascript
-function onHiCommand(){
-    Bot.sendMessage("Hello");
-}
-
-on('Hi', onHiCommand );
+function onHiCommand(){    Bot.sendMessage("Hello");}on('Hi', onHiCommand );
 ```
 
 Master command "\*" - for capture any text from user with lib
 
 ```javascript
-function onMasterCommand(){
-    /// input your code here
-}
-
-on('*', onMasterCommand );
+function onMasterCommand(){    /// input your code here}on('*', onMasterCommand );
 ```
 
 {% hint style="info" %}
@@ -72,21 +52,7 @@ You can use all BJS functions in the Libs
 Lib can perform web requests. For example: get page from eample.com and send its content to user.
 
 ```javascript
-libPrefix = "myLib"
-
-function load(){
-  HTTP.get( {
-    url: "http://example.com",
-    success: libPrefix + 'onLoading '
-    // headers: headers - if you need headers
-  } )
-}
-
-function onLoading(){
-   Bot.sendMessage(content);
-}
-
-on(libPrefix + 'onLoading', onLoading );
+libPrefix = "myLib"function load(){  HTTP.get( {    url: "http://example.com",    success: libPrefix + 'onLoading '    // headers: headers - if you need headers  } )}function onLoading(){   Bot.sendMessage(content);}on(libPrefix + 'onLoading', onLoading );
 ```
 
 on Bot command:

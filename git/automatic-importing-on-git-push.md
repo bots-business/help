@@ -9,33 +9,23 @@ This possible with [Webhooks](https://help.bots.business/libs/webhooks-lib). Mak
 command `/setupGit`
 
 ```javascript
-url = Libs.Webhooks.getUrlFor(
-   { command: "onGitPush", user_id: user.id }
-)
-
-Bot.sendMessage(url);
+url = Libs.Webhooks.getUrlFor(   { command: "onGitPush", user_id: user.id })Bot.sendMessage(url);
 ```
 
 execute `/setupGit` copy url and go to Github.com &gt; your repository -&gt; Settings -&gt; Webhooks. Press button "Add webhook"
 
 Past copied url as Payload URL
 
-![](../.gitbook/assets/image%20%2836%29.png)
+![](../.gitbook/assets/image%20%2837%29.png)
 
 Make like this:
 
-![](../.gitbook/assets/image%20%2841%29.png)
+![](../.gitbook/assets/image%20%2843%29.png)
 
 Go to App - create command `onGitPush`
 
 ```javascript
-Bot.sendMessage("Start code importing...");
-
-// Bot.exportGit also possible
-Bot.importGit({
-  branch: "master", // it is master branch
-  success: "onGitImportCompleted"
-})
+Bot.sendMessage("Start code importing...");// Bot.exportGit also possibleBot.importGit({  branch: "master", // it is master branch  success: "onGitImportCompleted"})
 ```
 
 command `onGitImportCompleted`

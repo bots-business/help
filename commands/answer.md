@@ -4,20 +4,14 @@
 Answer - it is simple text message from bot on command execition.
 {% endhint %}
 
-![Answer can be modified on command editing ](../.gitbook/assets/image%20%2838%29.png)
+![Answer can be modified on command editing ](../.gitbook/assets/image%20%2839%29.png)
 
 ### How to format command's answer?
 
 Use markdown text:
 
 ```text
-\n - new line (multi-line text also allowed)
-*bold text*
-_ italics _
-[text](URL)
-`inline fixed-width code`
-```text
-pre-formatted fixed-width code block
+\n - new line (multi-line text also allowed)*bold text*_ italics _[text](URL)`inline fixed-width code````textpre-formatted fixed-width code block
 ```
 
 

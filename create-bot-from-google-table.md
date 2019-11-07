@@ -6,7 +6,7 @@ You need the list with commands. See demo table [here](https://docs.google.com/s
 
 You can make copy from this table \(File-&gt;Copy in Google Table\) or copy list to your own table. \(Ctrl+C and Ctrl + V\)
 
-![](.gitbook/assets/image%20%2828%29.png)
+![](.gitbook/assets/image%20%2829%29.png)
 
 {% hint style="info" %}
 See [demo bot](https://telegram.me/DemoFromTableBot) from this Demo Table
@@ -16,7 +16,7 @@ See [demo bot](https://telegram.me/DemoFromTableBot) from this Demo Table
 
 Publish list \(prefer to use computer\) with commands in the web as CSV file: 
 
-![](.gitbook/assets/image%20%2843%29.png)
+![](.gitbook/assets/image%20%2845%29.png)
 
 ### 
 

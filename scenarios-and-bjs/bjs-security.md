@@ -13,13 +13,7 @@ Especially if you work with payments, user balances, sell goods through a bot
 Vulnerable command `/setBalance`:
 
 ```javascript
-// admin can add 100$ to users's balance by it telegramid
-
-tgID = params
-
-let res = Libs.ResourcesLib.anotherUserRes("money", tgID);
-res.add(100)
-Bot.sendMessage("Added 100$ for user");
+// admin can add 100$ to users's balance by it telegramidtgID = paramslet res = Libs.ResourcesLib.anotherUserRes("money", tgID);res.add(100)Bot.sendMessage("Added 100$ for user");
 ```
 
 {% hint style="danger" %}
@@ -30,18 +24,12 @@ So need check execute this command only for admin:
 
 **1.Add this command to** [**group**](https://help.bots.business/commands/groups)
 
-![](../.gitbook/assets/image%20%2832%29.png)
+![](../.gitbook/assets/image%20%2833%29.png)
 
 add admin to group "admin": 
 
 ```javascript
-// create any temporary command with this code
-// run it for admin
-
-// destroy command after for security
-// also you can protect this command with password
-
-User.addToGroup("admin")
+// create any temporary command with this code// run it for admin// destroy command after for security// also you can protect this command with passwordUser.addToGroup("admin")
 ```
 
 **2. Or you can check admin in BJS**
@@ -55,17 +43,7 @@ Bot.sendMessage(user.telegramid)
 security command:
 
 ```javascript
-if(user.telegramid!=ADMIN_TELEGRAM_ID){
-  return // exit from BJS
-}
-
-// ONLY admin can add 100$ to users's balance by it telegramid
-
-tgID = params
-
-let res = Libs.ResourcesLib.anotherUserRes("money", tgID);
-res.add(100)
-Bot.sendMessage("Added 100$ for user");
+if(user.telegramid!=ADMIN_TELEGRAM_ID){  return // exit from BJS}// ONLY admin can add 100$ to users's balance by it telegramidtgID = paramslet res = Libs.ResourcesLib.anotherUserRes("money", tgID);res.add(100)Bot.sendMessage("Added 100$ for user");
 ```
 
 
@@ -75,42 +53,13 @@ Bot.sendMessage("Added 100$ for user");
 For example, you have command `/payment` \(have "Wait for answer"\) with execute other "secret" command `/setBalance` :
 
 ```javascript
-// command /payment
-
-// user provide oneTime password. If password is valid - add bonus 100$
-
-var oneTimePassword = User.getProperty("oneTimePassword");
-
-if(!oneTimePassword){
-  return // we have not oneTime password now
-}
-
-if(oneTimePassword=="already taked"){
-  // if taked already - exit
-  return
-}
-
-if(oneTimePassword!=message){
-  // user do not know oneTime password
-  Bot.sendMessager("Error. Password is wrong")
-}
-
-if(oneTimePassword==message){
-  // user know oneTime password!
-  // make it "already taked"
-  User.setProperty("oneTimePassword", "already taked", "string")
-  // run "secret" command
-  Bot.runCommand("/setBalance");
-  Bot.sendMessage("Thank you for payment!");
-}
+// command /payment// user provide oneTime password. If password is valid - add bonus 100$var oneTimePassword = User.getProperty("oneTimePassword");if(!oneTimePassword){  return // we have not oneTime password now}if(oneTimePassword=="already taked"){  // if taked already - exit  return}if(oneTimePassword!=message){  // user do not know oneTime password  Bot.sendMessager("Error. Password is wrong")}if(oneTimePassword==message){  // user know oneTime password!  // make it "already taked"  User.setProperty("oneTimePassword", "already taked", "string")  // run "secret" command  Bot.runCommand("/setBalance");  Bot.sendMessage("Thank you for payment!");}
 ```
 
 "Secret" command `/setBalance`
 
 ```javascript
-let res = Libs.ResourcesLib.userRes("money", tgID);
-res.add(100)
-Bot.sendMessage("Added 100$ for you");
+let res = Libs.ResourcesLib.userRes("money", tgID);res.add(100)Bot.sendMessage("Added 100$ for you");
 ```
 
 **So user must:**
@@ -128,15 +77,7 @@ one of the methods - pass secret on run command as params:
 command `/payment`
 
 ```javascript
-...
-// part of code for /payment
-
-if(oneTimePassword==message){
-  ...
-  var secret = "GJHURFVJLHF" // use own secret. You can store it in property
-  Bot.runCommand("/setBalance");
-  Bot.sendMessage("Thank you for payment!");
-}
+...// part of code for /paymentif(oneTimePassword==message){  ...  var secret = "GJHURFVJLHF" // use own secret. You can store it in property  Bot.runCommand("/setBalance");  Bot.sendMessage("Thank you for payment!");}
 ```
 
 {% hint style="danger" %}
@@ -148,13 +89,7 @@ It is not secret world already
 command `/setBalance`
 
 ```javascript
-if(params=="GJHURFVJLHF"){
-   let res = Libs.ResourcesLib.userRes("money", tgID);
-   res.add(100)
-   Bot.sendMessage("Added 100$ for you");
-}else{
-   Bot.sendMessage("You are hacker!")
-}
+if(params=="GJHURFVJLHF"){   let res = Libs.ResourcesLib.userRes("money", tgID);   res.add(100)   Bot.sendMessage("Added 100$ for you");}else{   Bot.sendMessage("You are hacker!")}
 ```
 
 
@@ -188,21 +123,13 @@ Anybody can run any command. But it is possible make secured sub command.
 For example command `/admin`
 
 ```javascript
-// make admin access here
-// ...
-
-Bot.runCommand("/secure")
+// make admin access here// ...Bot.runCommand("/secure")
 ```
 
 command `/secure`
 
 ```javascript
-// this command can not be runned by user
-if(completed_commands_count==0){ return }
-
-// only via Bot.runCommand, Bot.run or as "on_result"
-// your secure code here
-// ...
+// this command can not be runned by userif(completed_commands_count==0){ return }// only via Bot.runCommand, Bot.run or as "on_result"// your secure code here// ...
 ```
 
 ## Do not use any non official libs now.
@@ -221,12 +148,7 @@ We have not way to protect this now. Just **not use NON official libs** with CP 
 Bad BJS:
 
 ```javascript
-let admin = "Jon Smith";
-
-if (user.first_name==admin){
-  // do admin action here
-  ...
-}
+let admin = "Jon Smith";if (user.first_name==admin){  // do admin action here  ...}
 ```
 
 {% hint style="danger" %}

@@ -15,8 +15,7 @@ You can use bot answer and `Bot.sendMessage("ANY message").`
 or use two functions: BJS code:
 
 ```javascript
-   Bot.sendMessage("ANY message");
-   Bot.sendMessage("Other any message");
+   Bot.sendMessage("ANY message");   Bot.sendMessage("Other any message");
 ```
 
 ## Q: I have Markdown warning for message in Errors. What it is?
@@ -26,21 +25,13 @@ Telegram have markdown for text formating.
 samples:
 
 ```text
-\n - new line (multi-line text also allowed)
-*bold text*
-_ italics _
-[text](URL)
-`inline fixed-width code`
-```text
-pre-formatted fixed-width code block
+\n - new line (multi-line text also allowed)*bold text*_ italics _[text](URL)`inline fixed-width code````textpre-formatted fixed-width code block
 ```
 
 So if you have incorrect markdown - you have this warning. Sample text with incorrect markdown:
 
 ```text
-  bot_name
-  price 1*
-  "user`s" - wrong. Use "user's"!
+  bot_name  price 1*  "user`s" - wrong. Use "user's"!
 ```
 
 ## Q: How I can use inline keyboard?
@@ -50,13 +41,7 @@ Please see [demo bot](https://telegram.me/DemoInlineKeyboardBot). It avaible in 
 BJS code:
 
 ```javascript
-var buttons = [
-    {title: "Go to Google", url: "https://google.com"},
-    {title: "Call command for Button1", command: "/touch Button1" },
-    {title: "Call command for Button2", command: "/touch Button2" }
-];
-
-Bot.sendInlineKeyboard(buttons, "Please make a choice. After that, another command `/touch` will be started with parameters");
+var buttons = [    {title: "Go to Google", url: "https://google.com"},    {title: "Call command for Button1", command: "/touch Button1" },    {title: "Call command for Button2", command: "/touch Button2" }];Bot.sendInlineKeyboard(buttons, "Please make a choice. After that, another command `/touch` will be started with parameters");
 ```
 
 `buttons` - it is array. It contains buttons. Each button is object with `title` \(required\), `url` or `command`.
@@ -82,16 +67,7 @@ For any message in chat use: `reply_to_message_id`
 Also you can retry with keyboard or inline keyboard too
 
 ```javascript
-  // retry for last message
-  Bot.sendMessage("It is reply message", {is_reply: true } );
-  // or for any message
-  Bot.sendMessage("It is reply message", {reply_to_message_id: request.message_id } );
-
-  Bot.sendInlineKeyboard(
-      [ {title: "google", url: "http://google.com" }, {title: "other command", commnad: "/othercommand"} ],
-      "Please make a choice.",
-      {reply_to_message_id: request.message_id }
- )
+  // retry for last message  Bot.sendMessage("It is reply message", {is_reply: true } );  // or for any message  Bot.sendMessage("It is reply message", {reply_to_message_id: request.message_id } );  Bot.sendInlineKeyboard(      [ {title: "google", url: "http://google.com" }, {title: "other command", commnad: "/othercommand"} ],      "Please make a choice.",      {reply_to_message_id: request.message_id } )
 ```
 
 You can retry for any message from chat.
@@ -101,9 +77,7 @@ You can retry for any message from chat.
 You can see it with `inspect` function:
 
 ```javascript
-  Bot.sendMessage( inspect(request) );
-  // or 
-  Bot.inspect(request)   // if have issue with markdown
+  Bot.sendMessage( inspect(request) );  // or   Bot.inspect(request)   // if have issue with markdown
 ```
 
 ## Q: I would like to create bjs for time limit! Example in a bot you can only use the command every 24hrs!
@@ -111,22 +85,7 @@ You can see it with `inspect` function:
 BJS code:
 
 ```javascript
-var last_run_at = User.getProperty("last_run_at");
-if(last_run_at){
-   duration_in_hours = ((new Date) - last_run_at) / 1000/60/60;
-}else{
-   // It is the first time!
-   duration_in_hours = 99;
-}
-if(duration_in_hours>=24){
-   User.setProperty("last_run_at", (new Date), "datetime")
-   Bot.sendMessage("You run command now!");
-   // add your code
-   ...
-
-}else{
-   Bot.sendMessage("Please return later. ")
-}
+var last_run_at = User.getProperty("last_run_at");if(last_run_at){   duration_in_hours = ((new Date) - last_run_at) / 1000/60/60;}else{   // It is the first time!   duration_in_hours = 99;}if(duration_in_hours>=24){   User.setProperty("last_run_at", (new Date), "datetime")   Bot.sendMessage("You run command now!");   // add your code   ...}else{   Bot.sendMessage("Please return later. ")}
 ```
 
 ## Q: How i can create bjs that if you click button it directs to open a link in web?
@@ -160,12 +119,7 @@ In this example, the user must enter the correct password. After that, the group
 BJS code:
 
 ```javascript
-if(message=="12345"){
-  User.addToGroup('Members');
-  Bot.sendMessage("Welcome, member!");
-}else{
-  Bot.sendMessage("Password incorrect");
-}
+if(message=="12345"){  User.addToGroup('Members');  Bot.sendMessage("Welcome, member!");}else{  Bot.sendMessage("Password incorrect");}
 ```
 
 ## Q: Do you know BJS code that bot will automatically message user if they don't do any activity in the bot in a given time?
@@ -179,26 +133,13 @@ command `tracking`
 BJS code:
 
 ```javascript
-   if(chat.chat_type=="private"){
-      // track only private chats
-
-      total_users = Bot.getProperty("total_users");
-      if(!total_users){ total_users = 0 }
-      Bot.setProperty("total_users", total_users+1, "integer");
-
-      var propLastActiveName = "user" + String(total_users) + "_last_active_at";
-      var propChatIdName =  "chat" + String(i) + "_id";
-
-      Bot.setProperty(propLastActiveName, (new Date), "datetime");
-      Bot.setProperty(propChatIdName, chat.chatid, "string");  
-   }
+   if(chat.chat_type=="private"){      // track only private chats      total_users = Bot.getProperty("total_users");      if(!total_users){ total_users = 0 }      Bot.setProperty("total_users", total_users+1, "integer");      var propLastActiveName = "user" + String(total_users) + "_last_active_at";      var propChatIdName =  "chat" + String(i) + "_id";      Bot.setProperty(propLastActiveName, (new Date), "datetime");      Bot.setProperty(propChatIdName, chat.chatid, "string");     }
 ```
 
 **2. In** _**others commands**_ **you need call** `tracking` **command** Bjs code:
 
 ```javascript
-   Bot.runCommand("tracking");
-   // your any code here
+   Bot.runCommand("tracking");   // your any code here
 ```
 
 > Please note. This code is needed in all commands of your bot.
@@ -208,19 +149,7 @@ BJS code:
 BJS:
 
 ```javascript
-   total_users = Bot.getProperty("total_users");
-   for(var i=0; i<total_users; i++){
-      var propLastActiveName = "user" + String(i) + "_last_active_at";
-      var last_active_at = Bot.getProperty(propLastActiveName);
-      var duration = (new Date) - last_active_at;
-      var duration_in_minutes = duration / 1000 / 60
-      if(duration_in_minutes>60*24){
-         // not active more than 24 hours
-         var propChatIdName = "chat" + String(i) + "_id";
-         var chatId = Bot.getProperty(propChatIdName);
-         Bot.sendMessageToChatWithId(chatId, "Hello! How are you?");
-      }
-   }
+   total_users = Bot.getProperty("total_users");   for(var i=0; i<total_users; i++){      var propLastActiveName = "user" + String(i) + "_last_active_at";      var last_active_at = Bot.getProperty(propLastActiveName);      var duration = (new Date) - last_active_at;      var duration_in_minutes = duration / 1000 / 60      if(duration_in_minutes>60*24){         // not active more than 24 hours         var propChatIdName = "chat" + String(i) + "_id";         var chatId = Bot.getProperty(propChatIdName);         Bot.sendMessageToChatWithId(chatId, "Hello! How are you?");      }   }
 ```
 
 ## Q: Is it possible to put some BJS code in our bot that notify user for cryptocurrency price?
@@ -230,10 +159,7 @@ You can use [Coinmarketcap API](https://coinmarketcap.com/api/). For example pag
 BJS:
 
 ```javascript
-  ->(https://api.coinmarketcap.com/v2/ticker/1/)
-  var result = JSON.parse(content);
-  var BTC_USD_Price = result.quotes.USD.price;
-  Bot.sendMessage("Current Bitcoin price: " + String(BTC_USD_Price) + " $");
+  ->(https://api.coinmarketcap.com/v2/ticker/1/)  var result = JSON.parse(content);  var BTC_USD_Price = result.quotes.USD.price;  Bot.sendMessage("Current Bitcoin price: " + String(BTC_USD_Price) + " $");
 ```
 
 ## Q: Is it posible that bot button can have value? How to create like on the screenshot below:
@@ -245,8 +171,7 @@ You must update the keyboard every time the value changes. To do this, send the 
 **BJS**:
 
 ```javascript
-var balance = User.getProperty("balance"); // or your code here
-Bot.sendKeyboard(String(balance) + ",\nHelp, Contacts" );
+var balance = User.getProperty("balance"); // or your code hereBot.sendKeyboard(String(balance) + ",\nHelp, Contacts" );
 ```
 
 {% hint style="info" %}
@@ -282,14 +207,7 @@ It is not "total members count". You can get chats count. Because one user can h
 This BJS return all bot statistics:
 
 ```javascript
-Bot.sendMessage(
-  "Total chats: " + bot.statistics.total +
-  "\n group chats: " + bot.statistics.group_chats_count +
-  "\n super group chats: " + bot.statistics.super_group_chats_count +
-  "\n private chats: " + bot.statistics.user_chats_count +
-  "\n active during last day chats: " + bot.statistics.active_during_last_day +
-  "\n active during last week chats: " + bot.statistics.active_during_last_week +
-)
+Bot.sendMessage(  "Total chats: " + bot.statistics.total +  "\n group chats: " + bot.statistics.group_chats_count +  "\n super group chats: " + bot.statistics.super_group_chats_count +  "\n private chats: " + bot.statistics.user_chats_count +  "\n active during last day chats: " + bot.statistics.active_during_last_day +  "\n active during last week chats: " + bot.statistics.active_during_last_week +)
 ```
 
 
@@ -303,21 +221,7 @@ Need command with "Wait for answer" option \(or you can use Master command and c
 BJS:
 
 ```javascript
-// you can inspect all data
-// Bot.inspect(request);
-
-let location = request.location
-if(!location){
-   Bot.sendMessage("Please send location");
-   return
-}
-
-Bot.sendMessage(
-   "Your location is:\n longitude " +
-       location.longitude +
-       "\n latitude: " +
-       location.latitude
- )
+// you can inspect all data// Bot.inspect(request);let location = request.locationif(!location){   Bot.sendMessage("Please send location");   return}Bot.sendMessage(   "Your location is:\n longitude " +       location.longitude +       "\n latitude: " +       location.latitude )
 ```
 
 ## Q: I have command with wait fo reply. How to cancel Wait for reply?
@@ -329,15 +233,7 @@ Add keyboard to this command: keyboard "Cancel" \(also can be "Back"\)
 BJS:
 
 ```javascript
-// exit on Cancel or Back button
-if((message=="Cancel")||(message=="Back")){
-  return // exit
-}
-
-// get name here
-name = message;
-Bot.sendMessage("Hello, " + name);
-
+// exit on Cancel or Back buttonif((message=="Cancel")||(message=="Back")){  return // exit}// get name herename = message;Bot.sendMessage("Hello, " + name);
 ```
 
 
@@ -347,11 +243,7 @@ Bot.sendMessage("Hello, " + name);
 BJS:
 
 ```javascript
-Api.answerCallbackQuery({
-  callback_query_id: request.id,
-  text: "My alert",
-  show_alert: true // or false - for alert on top
-})
+Api.answerCallbackQuery({  callback_query_id: request.id,  text: "My alert",  show_alert: true // or false - for alert on top})
 ```
 
 
@@ -361,30 +253,12 @@ Api.answerCallbackQuery({
 Command: `/isJoined`
 
 ```javascript
-chanell = "@MyChanell"
-
-Api.getChatMember({
-  chat_id: chanell,
-  user_id: user.telegramid,
-  on_result :"/onCheckJoin"
-})
+chanell = "@MyChanell"Api.getChatMember({  chat_id: chanell,  user_id: user.telegramid,  on_result :"/onCheckJoin"})
 ```
 
 Command `/onCheckJoin`
 
 ```javascript
-let status = options.result.status;
-
-var isJoined = (
-   (status == "member")||
-   (status == "administrator")||
-   (status == "creator")
-)
-
-if(isJoined){
-   Bot.sendMessage("You are chanell member!");
-}else{
-   Bot.sendMessage("You are NOT chanell member!");
-}
+let status = options.result.status;var isJoined = (   (status == "member")||   (status == "administrator")||   (status == "creator"))if(isJoined){   Bot.sendMessage("You are chanell member!");}else{   Bot.sendMessage("You are NOT chanell member!");}
 ```
 

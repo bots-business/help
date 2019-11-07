@@ -18,7 +18,7 @@ So it is need set auto retry time:
 
 #### Modify Auto Retry in app on command editing:
 
-![Auto retry time can be modified on command editing](../.gitbook/assets/image%20%2849%29.png)
+![Auto retry time can be modified on command editing](../.gitbook/assets/image%20%2851%29.png)
 
 
 

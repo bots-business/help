@@ -17,20 +17,13 @@ This function work only for new users. For old users - no any attraction and no 
 {% endhint %}
 
 ```javascript
-BBAdmin.attractUser(
-  { email: 'test@example.com'}
-)
+BBAdmin.attractUser(  { email: 'test@example.com'})
 ```
 
 Also it is possible pass owner\_id \(If not defined - used bot owner ID\)
 
 ```javascript
-BBAdmin.attractUser(
-  { 
-    email: 'test@example.com',
-    owner_id: user_id // 
-  }
-)
+BBAdmin.attractUser(  {     email: 'test@example.com',    owner_id: user_id //   })
 ```
 
 ## BBAdmin.installBot
@@ -54,13 +47,7 @@ You can pass bot properties for new bot
 {% endhint %}
 
 ```javascript
-BBAdmin.installBot(
-  { email: 'test@example.com',
-    bot_id: 15025, // see bot id in the app -> Bots -> Bot
-    // you can pass properties to bot:
-    // bot_properties: [{ name: 'test', value:'hello world', type:'string' }]
-  }
-)
+BBAdmin.installBot(  { email: 'test@example.com',    bot_id: 15025, // see bot id in the app -> Bots -> Bot    // you can pass properties to bot:    // bot_properties: [{ name: 'test', value:'hello world', type:'string' }]  })
 ```
 
 {% hint style="info" %}
