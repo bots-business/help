@@ -11,7 +11,13 @@ Libs.DateTimeFormat.format(time, mask);
 Example:
 
 ```javascript
-var now = new Date();Libs.DateTimeFormat.format(now, "m/dd/yy");Libs.DateTimeFormat.format(now, "ddd mmm dd yyyy HH:MM:ss");Libs.DateTimeFormat.format(now, "h:MM TT");
+var now = new Date();
+Libs.DateTimeFormat.format(now, "m/dd/yy");
+
+Libs.DateTimeFormat.format(now, "ddd mmm dd yyyy HH:MM:ss");
+
+Libs.DateTimeFormat.format(now, "h:MM TT");
+
 ```
 
 

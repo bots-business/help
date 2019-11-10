@@ -13,7 +13,8 @@ description: With lib we can manage any resources in bot.
 ## User's resource
 
 ```javascript
-let res = Libs.ResourcesLib.userRes("money");Bot.sendMessage("Cur your money: " + res.value());
+let res = Libs.ResourcesLib.userRes("money");
+Bot.sendMessage("Cur your money: " + res.value());
 ```
 
 {% hint style="danger" %}
@@ -31,7 +32,8 @@ But anywhere he have **simular** resources
 ## Chat's resource
 
 ```javascript
-let res = Libs.ResourcesLib.chatRes("money");Bot.sendMessage("Cur your money: " + res.value());
+let res = Libs.ResourcesLib.chatRes("money");
+Bot.sendMessage("Cur your money: " + res.value());
 ```
 
 {% hint style="info" %}
@@ -49,7 +51,8 @@ But he have **diffent** resources for each chats.
 All methods can be for user's or chat's resources.
 
 ```javascript
-// get reslet res = Libs.ResourcesLib.userRes("money");
+// get res
+let res = Libs.ResourcesLib.userRes("money");
 ```
 
 `res.name` - current res name. For example: 
@@ -87,13 +90,18 @@ for example: `Libs.ResourcesLib.userRes("wood").set(10);`
 ### Access to another user's resources
 
 ```javascript
-// telegramid - it is telegram id for another userlet res = Libs.ResourcesLib.anotherUserRes("money", telegramid);Bot.sendMessage("Cur your money: " + res.value());
+// telegramid - it is telegram id for another user
+let res = Libs.ResourcesLib.anotherUserRes("money", telegramid);
+Bot.sendMessage("Cur your money: " + res.value());
 ```
 
 ### Access to another chat's resources
 
 ```javascript
-// another chat's resources// chatid - it is telegram id for another chatlet res = Libs.ResourcesLib.anotherChatRes("money", chatid);Bot.sendMessage("Cur your money: " + res.value());
+// another chat's resources
+// chatid - it is telegram id for another chat
+let res = Libs.ResourcesLib.anotherChatRes("money", chatid);
+Bot.sendMessage("Cur your money: " + res.value());
 ```
 
 
@@ -101,19 +109,23 @@ for example: `Libs.ResourcesLib.userRes("wood").set(10);`
 ## Resource transfering 
 
 ```javascript
-let res = Libs.ResourcesLib.userRes("gold");// telegramid - it is telegram id for another userlet anotherRes = Libs.ResourcesLib.anotherUserRes("gold", telegramid);
+let res = Libs.ResourcesLib.userRes("gold");
+// telegramid - it is telegram id for another user
+let anotherRes = Libs.ResourcesLib.anotherUserRes("gold", telegramid);
 ```
 
 ### If have resource...
 
 ```javascript
-res.takeFromAnother(anotherRes, amount);res.transferTo(anotherRes, amount)
+res.takeFromAnother(anotherRes, amount);
+res.transferTo(anotherRes, amount)
 ```
 
 ### ...or anyway, even resource is not enough
 
 ```javascript
-res.takeFromAnotherAnyway(anotherRes, amount)res.transferToAnyway(anotherRes, amount)
+res.takeFromAnotherAnyway(anotherRes, amount)
+res.transferToAnyway(anotherRes, amount)
 ```
 
 
@@ -137,7 +149,9 @@ For example simple growth:
 {% endhint %}
 
 ```javascript
-let health = Libs.ResourcesLib.userRes("health");health.set(1);health.growth.add({value: 5, interval:10 });
+let health = Libs.ResourcesLib.userRes("health");
+health.set(1);
+health.growth.add({value: 5, interval:10 });
 ```
 
 Interval - it is value in seconds. Value is added every interval
@@ -145,13 +159,25 @@ Interval - it is value in seconds. Value is added every interval
 ### Add 5 every hour with max value 100.
 
 ```javascript
-//Max value: 100let secs_in_hour = 1 * 60 * 60;health.growth.add({  value: 5,  interval: secs_in_hour,  max: 100});
+//Max value: 100
+let secs_in_hour = 1 * 60 * 60;
+health.growth.add({
+  value: 5,
+  interval: secs_in_hour,
+  max: 100
+});
 ```
 
 ### Value can be negative. Remove 5 every 30 hours. 
 
 ```javascript
-//Min value: -20let secs_in_30hours = 1 * 60 * 60 * 30;health.growth.add({  value: -5,  // just add negative value  interval: secs_in_30hours,  min: -20});
+//Min value: -20
+let secs_in_30hours = 1 * 60 * 60 * 30;
+health.growth.add({
+  value: -5,  // just add negative value
+  interval: secs_in_30hours,
+  min: -20
+});
 ```
 
 
@@ -159,7 +185,11 @@ Interval - it is value in seconds. Value is added every interval
 ### Can limit max iteration count
 
 ```javascript
-health.growth.add(   {value: 5,   interval: secs_in_30hours,   max_iterations_count: 3});
+health.growth.add(
+   {value: 5,
+   interval: secs_in_30hours,
+   max_iterations_count: 3
+});
 ```
 
 ### Can growh by percent. 
@@ -167,7 +197,13 @@ health.growth.add(   {value: 5,   interval: secs_in_30hours,   max_iterations_co
 For example add 15% every month for 100 USD
 
 ```javascript
-let usd = Libs.ResourcesLib.userRes("usd");usd.set(100);let secs_in_month = 60 * 60 * 24 * 31;usd.growth.addPercent({  value: 15,  interval: secs_in_month});
+let usd = Libs.ResourcesLib.userRes("usd");
+usd.set(100);
+let secs_in_month = 60 * 60 * 24 * 31;
+usd.growth.addPercent({
+  value: 15,
+  interval: secs_in_month
+});
 ```
 
 
@@ -177,7 +213,13 @@ let usd = Libs.ResourcesLib.userRes("usd");usd.set(100);let secs_in_month = 60 *
 For example add 0.8% every day for 0.5 BTC with reinvest
 
 ```javascript
-let btc = Libs.ResourcesLib.userRes("BTC");btc.set(0.5);let secs_in_day = 1 * 60 * 60 * 24;usd.growth.addCompoundInterest({  value: 0.8,  interval: secs_in_day});
+let btc = Libs.ResourcesLib.userRes("BTC");
+btc.set(0.5);
+let secs_in_day = 1 * 60 * 60 * 24;
+usd.growth.addCompoundInterest({
+  value: 0.8,
+  interval: secs_in_day
+});
 ```
 
 {% hint style="info" %}
@@ -212,7 +254,17 @@ Every year we add bank growth to wallet.
 #### **Init:** on `/start` command \(or any other command\)
 
 ```javascript
-let wallet = Libs.ResourcesLib.userRes("wallet");wallet.set(500);let bankDeposit = Libs.ResourcesLib.userRes("deposit");bankDeposit.set(100);let secs_in_year = 1 * 60 * 60 * 24 * 365;bankDeposit.growth.addPercent({  value: 10,  interval: secs_in_year});
+let wallet = Libs.ResourcesLib.userRes("wallet");
+wallet.set(500);
+
+let bankDeposit = Libs.ResourcesLib.userRes("deposit");
+bankDeposit.set(100);
+let secs_in_year = 1 * 60 * 60 * 24 * 365;
+
+bankDeposit.growth.addPercent({
+  value: 10,
+  interval: secs_in_year
+});
 ```
 
 #### **On** `/wallet` command or etc
@@ -224,7 +276,19 @@ Or user can run it manually in anytime.
 {% endhint %}
 
 ```javascript
-let wallet = Libs.ResourcesLib.userRes("wallet");let bankDeposit = Libs.ResourcesLib.userRes("deposit");// it is initial res valuelet baseValue = bankDeposit.baseValue();// total income by percentlet delta = bankDeposit.value() - baseValue;// add all income to walletwallet.add(delta);// and remove it from bank depositbankDeposit.set(baseValue);
+let wallet = Libs.ResourcesLib.userRes("wallet");
+let bankDeposit = Libs.ResourcesLib.userRes("deposit");
+
+// it is initial res value
+let baseValue = bankDeposit.baseValue();
+
+// total income by percent
+let delta = bankDeposit.value() - baseValue;
+
+// add all income to wallet
+wallet.add(delta);
+// and remove it from bank deposit
+bankDeposit.set(baseValue);
 ```
 
 
@@ -246,13 +310,34 @@ For example add 10 to user's balance every day
 Command `/start`
 
 ```javascript
-let balance = Libs.ResourcesLib.userRes("balance");balance.set(0);Bot.run( {    command: "/addBonus",    run_after: 1*60*60*24,  // add bonus after 1 day} )
+let balance = Libs.ResourcesLib.userRes("balance");
+balance.set(0);
+
+Bot.run( {
+    command: "/addBonus",
+    run_after: 1*60*60*24,  // add bonus after 1 day
+} )
 ```
 
  Command `/addBonus`
 
 ```javascript
-if(request){  // user can not run this command manually  Bot.sendMessage("Restricted!")  return}let balance = Libs.ResourcesLib.userRes("balance");balance.add(10);// and repeat this command again after 1 day Bot.run( {    command: "/addBonus",    run_after: 1*60*60*24,  // after one day} )Bot.sendMessage("Bonus for you: 10")
+if(request){
+  // user can not run this command manually
+  Bot.sendMessage("Restricted!")
+  return
+}
+
+let balance = Libs.ResourcesLib.userRes("balance");
+balance.add(10);
+
+// and repeat this command again after 1 day 
+Bot.run( {
+    command: "/addBonus",
+    run_after: 1*60*60*24,  // after one day
+} )
+
+Bot.sendMessage("Bonus for you: 10")
 ```
 
 {% hint style="warning" %}

@@ -168,13 +168,23 @@ Bot.run(params)
 **Example 1**. Run another command `/balance` with delay 1 hour for current user
 
 ```javascript
-Bot.run( {    command: "/balance",    run_after: 1*60*60,  // 1 hour delay    // label: "runBalance"  // label can be used for remove future calling} )
+Bot.run( {
+    command: "/balance",
+    run_after: 1*60*60,  // 1 hour delay
+    // label: "runBalance"  // label can be used for remove future calling
+} )
 ```
 
 **Example 2**. Run another command `/balance` with delay 5 days for this user
 
 ```javascript
-Bot.run( {    command: "/balance",    run_after: 60*60*24*5,  // 5 days delay    // options: { amount: 5, currency: "BTC" }  // you can pass data    chat_id: chat.id  // or use another chat_id    user_id: user.id  // or use another user.id} )
+Bot.run( {
+    command: "/balance",
+    run_after: 60*60*24*5,  // 5 days delay
+    // options: { amount: 5, currency: "BTC" }  // you can pass data
+    chat_id: chat.id  // or use another chat_id
+    user_id: user.id  // or use another user.id
+} )
 ```
 
 {% hint style="danger" %}
@@ -196,11 +206,13 @@ Use this function if future command calling not needed already
 {% endhint %}
 
 ```javascript
-// delete all future commands executionsBot.clearRunAfter()
+// delete all future commands executions
+Bot.clearRunAfter()
 ```
 
 ```javascript
-// delete all future commands executions with label "myLabel"Bot.clearRunAfter({ label: "myLabel"})
+// delete all future commands executions with label "myLabel"
+Bot.clearRunAfter({ label: "myLabel"})
 ```
 
 | Field | Description |
@@ -210,13 +222,20 @@ Use this function if future command calling not needed already
 **Example 1**. Run another command `/work` with delay 5 days. And remove that delay \(for example on 3th day\)
 
 ```javascript
-Bot.run( {    command: "/balance",    run_after: 60*60*24*5,  // 5 days delay    label: "myLabel"} )
+Bot.run( {
+    command: "/balance",
+    run_after: 60*60*24*5,  // 5 days delay
+    label: "myLabel"
+} )
 ```
 
 On the third day we learned that the call is no longer needed:
 
 ```javascript
-// remove all future executions with label "mylabel"Bot.clearRunAfter( {    label: "myLabel"} )
+// remove all future executions with label "mylabel"
+Bot.clearRunAfter( {
+    label: "myLabel"
+} )
 ```
 
 

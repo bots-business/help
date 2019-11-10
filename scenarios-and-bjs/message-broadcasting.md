@@ -132,7 +132,13 @@ For income messages to bot: use `request.message_id`
 #### Example
 
 ```javascript
-let msg_id = request.message_id;Bot.editMessage("new text", msg_id)// also you can store message_id for future editing:User.setProperty("msg_id", msg_id, "integer");// or if you want to edit message from others chats:Bot.setProperty("msg_id" + chat.chatid, msg_id, "integer");
+let msg_id = request.message_id;
+Bot.editMessage("new text", msg_id)
+
+// also you can store message_id for future editing:
+User.setProperty("msg_id", msg_id, "integer");
+// or if you want to edit message from others chats:
+Bot.setProperty("msg_id" + chat.chatid, msg_id, "integer");
 ```
 
 {% hint style="warning" %}
@@ -148,13 +154,22 @@ use `on_result` in options - see [this](https://help.bots.business/scenarios-and
 in first command:
 
 ```javascript
-Bot.sendMessage("hello",   {on_result: "onMessageSending" })
+Bot.sendMessage("hello",
+   {on_result: "onMessageSending" }
+)
 ```
 
 in command `onMessageSending`:
 
 ```javascript
-// You can inspect all result:// Bot.inspect(options)let msg_id = options.result.message_id;Bot.editMessage("new text", msg_id);// Also you can save message_id for future:// Bot.setProperty( "MSG-for-edit" + chat.chatid, msg_id, "integer");
+// You can inspect all result:
+// Bot.inspect(options)
+
+let msg_id = options.result.message_id;
+Bot.editMessage("new text", msg_id);
+
+// Also you can save message_id for future:
+// Bot.setProperty( "MSG-for-edit" + chat.chatid, msg_id, "integer");
 ```
 
 
@@ -164,7 +179,10 @@ in command `onMessageSending`:
 You can pass options parameter to any `sendMessageXXX`, `sendKeyboard`, `editMesage`, `editMessageInChat` and`sendInlineKeyboard` functions:
 
 ```javascript
-  let options = { disable_notification: true, reply_to_message_id: request.message_id };  Bot.sendMessage("Hello from bot", options);  Bot.sendMessageToChatWithId("45445454521", "Hello users!", options);  Bot.sendKeyboard("about, help,\ncontacts", "send keyboard now", options)
+  let options = { disable_notification: true, reply_to_message_id: request.message_id };
+  Bot.sendMessage("Hello from bot", options);
+  Bot.sendMessageToChatWithId("45445454521", "Hello users!", options);
+  Bot.sendKeyboard("about, help,\ncontacts", "send keyboard now", options)
 ```
 
 | Parameter | Type | Description |

@@ -29,7 +29,16 @@ If the command has a folder - it is located in a folder on the disk with the sam
 It is optional file header:
 
 ```javascript
-/*CMD  command: /test  help: this is help for ccommand  need_reply: [ true or false here ]  auto_retry_time: [ time in sec ]  folder: MyFolder  answer: it is example answer for /test command  keyboard: button1, button2  aliases: /test2, /test3CMD*/
+/*CMD
+  command: /test
+  help: this is help for ccommand
+  need_reply: [ true or false here ]
+  auto_retry_time: [ time in sec ]
+  folder: MyFolder
+  answer: it is example answer for /test command
+  keyboard: button1, button2
+  aliases: /test2, /test3
+CMD*/
 ```
 
 {% hint style="info" %}
@@ -39,7 +48,13 @@ Command description - it is optional block.
 multiline also supported. For example for answer:
 
 ```javascript
-/*CMD    <<ANSWERtest answerwith severallines  ANSWERCMD*/
+/*CMD
+    <<ANSWER
+test answer
+with several
+lines
+  ANSWER
+CMD*/
 ```
 
 {% hint style="info" %}

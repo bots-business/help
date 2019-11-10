@@ -14,7 +14,7 @@ You can post and read data from GoogleSpreadSheet with this lib.
 
 **1.**Make new spreadsheet. 
 
-![](../.gitbook/assets/image%20%2825%29.png)
+![](../.gitbook/assets/image%20%2826%29.png)
 
 You definitely need a table header. Make it.
 
@@ -35,7 +35,8 @@ You definitely need a table header. Make it.
 **`/setup`**
 
 ```javascript
-// replace with your URL, obtained in step 6Libs.GoogleSpreadSheet.setUrl("https://script.google.com/macros/*******");
+// replace with your URL, obtained in step 6
+Libs.GoogleSpreadSheet.setUrl("https://script.google.com/macros/*******");
 ```
 
 
@@ -47,13 +48,33 @@ You definitely need a table header. Make it.
 command /add
 
 ```javascript
-let newRow = {  'Country': 'Italy',  'Age': '25',  'Do you like Bots.Business?': 'YES'}let prms = {  sheetName: "Users",  // sheet name  row: newRow,  onSuccess: "onSuccess",  // this command will be executed on Success  onError: "onError"       // this command will be executed on Error}Libs.GoogleSpreadSheet.addRow(prms)
+let newRow = {
+  'Country': 'Italy',
+  'Age': '25',
+  'Do you like Bots.Business?': 'YES'
+}
+
+let prms = {
+  sheetName: "Users",  // sheet name
+  row: newRow,
+  onSuccess: "onSuccess",  // this command will be executed on Success
+  onError: "onError"       // this command will be executed on Error
+}
+
+Libs.GoogleSpreadSheet.addRow(prms)
 ```
 
 ### `onSucess` command
 
 ```javascript
-// You can inspect options:// Bot.sendMessage(inspect(options));let rowIndex = options.rowIndex;User.setProperty("rowIndex", rowIndex, "integer"); // You can set row index to optionsBot.sendMessage("Posted at row: " + rowIndex +     "\nInserted values: " + options.inserted);
+// You can inspect options:
+// Bot.sendMessage(inspect(options));
+
+let rowIndex = options.rowIndex;
+User.setProperty("rowIndex", rowIndex, "integer"); // You can set row index to options
+
+Bot.sendMessage("Posted at row: " + rowIndex + 
+    "\nInserted values: " + options.inserted);
 ```
 
 ### `onError` command
@@ -65,7 +86,23 @@ Bot.sendMessage(inspect(options));
 ### Edit row.
 
 ```javascript
-let newRow = {  'Country': 'France',  'Age': '18',  'Do you like Bots.Business?': 'YES'}let prms = {  sheetName: "Users",  // sheet name  row: newRow,  onSuccess: "onSuccess",  // this command will be executed on Success  onError: "onError"       // this command will be executed on Error}prms.rowIndex = 3;  // row index for editingLibs.GoogleSpreadSheet.editRow(prms);
+let newRow = {
+  'Country': 'France',
+  'Age': '18',
+  'Do you like Bots.Business?': 'YES'
+}
+
+let prms = {
+  sheetName: "Users",  // sheet name
+  row: newRow,
+  onSuccess: "onSuccess",  // this command will be executed on Success
+  onError: "onError"       // this command will be executed on Error
+}
+
+
+prms.rowIndex = 3;  // row index for editing
+Libs.GoogleSpreadSheet.editRow(prms);
+
 ```
 
 ### Get data from spreadsheet
@@ -73,7 +110,14 @@ let newRow = {  'Country': 'France',  'Age': '18',  'Do you like Bots.Business?'
 Row can be changed on Spreadsheed.
 
 ```javascript
-var rowIndex = 3; // row index for readingLibs.GoogleSpreadSheet.getRow({  sheetName: "Users",  rowIndex: rowIndex,  onSuccess: "onSuccessRead",  onError: "onError"})
+var rowIndex = 3; // row index for reading
+
+Libs.GoogleSpreadSheet.getRow({
+  sheetName: "Users",
+  rowIndex: rowIndex,
+  onSuccess: "onSuccessRead",
+  onError: "onError"
+})
 ```
 
 ### `onSuccessRead` command

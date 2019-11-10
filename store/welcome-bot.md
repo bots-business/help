@@ -23,13 +23,25 @@ Bot send message to ALL chats. If user run this command at 6 AM - bot send messa
 We need check for auto retry only. Auto Retry do not have chat variable. Execution breaks if chat exist.
 
 ```javascript
-// can be runned with Auto Retry only!if(chat){ return }
+// can be runned with Auto Retry only!
+if(chat){ return }
 ```
 
 Then other code:
 
 ```javascript
-let time = new Date()let hours = time.getHours();let minutes = time.getMinutes();curTime = "Time: " + hours + ":" + minutes + " GMT-0";msg = "";if(hours==6){  msg = "Good morning!\n" + curTime;}Bot.sendMessageToAllChats(msg);
+let time = new Date()
+let hours = time.getHours();
+let minutes = time.getMinutes();
+
+curTime = "Time: " + hours + ":" + minutes + " GMT-0";
+msg = "";
+
+if(hours==6){
+  msg = "Good morning!\n" + curTime;
+}
+
+Bot.sendMessageToAllChats(msg);
 ```
 
 
@@ -47,13 +59,24 @@ let new_members = request.new_chat_members;
 We need build greetings for all users:
 
 ```javascript
-if(new_members.length > 0){   for(var i=0; i<new_members.length; i++){      msg = msg + comma + getNameFor(new_members[i])      comma = ", ";   }   Bot.sendMessage(msg);}
+if(new_members.length > 0){
+   for(var i=0; i<new_members.length; i++){
+      msg = msg + comma + getNameFor(new_members[i])
+      comma = ", ";
+   }
+   Bot.sendMessage(msg);
+}
 ```
 
 User can have username or first name. Or have not:
 
 ```javascript
-function getNameFor(member){   let haveAnyNames = member.username&&member.first_name;   if(!haveAnyNames){ return ""}   return member.username ? ("@" + member.username) : member.first_name}
+function getNameFor(member){
+   let haveAnyNames = member.username&&member.first_name;
+   if(!haveAnyNames){ return ""}
+
+   return member.username ? ("@" + member.username) : member.first_name
+}
 ```
 
 
@@ -61,10 +84,34 @@ function getNameFor(member){   let haveAnyNames = member.username&&member.first_
 #### All code: 
 
 ```javascript
-let new_members = request.new_chat_members;let msg = "Hello, ";let comma = "";function getNameFor(member){   let haveAnyNames = member.username&&member.first_name;   if(!haveAnyNames){ return ""}   return member.username ? ("@" + member.username) : member.first_name}if(new_members.length > 0){   for(var i=0; i<new_members.length; i++){      msg = msg + comma + getNameFor(new_members[i])      comma = ", ";   }   Bot.sendMessage(msg);}if(request.left_chat_member){  Bot.sendMessage(    "Goodbye, " + getNameFor(request.left_chat_member)  );}
+let new_members = request.new_chat_members;
+let msg = "Hello, ";
+let comma = "";
+
+function getNameFor(member){
+   let haveAnyNames = member.username&&member.first_name;
+   if(!haveAnyNames){ return ""}
+
+   return member.username ? ("@" + member.username) : member.first_name
+}
+
+if(new_members.length > 0){
+   for(var i=0; i<new_members.length; i++){
+      msg = msg + comma + getNameFor(new_members[i])
+      comma = ", ";
+   }
+   Bot.sendMessage(msg);
+}
+
+if(request.left_chat_member){
+  Bot.sendMessage(
+    "Goodbye, " + getNameFor(request.left_chat_member)
+  );
+}
+
 ```
 
-![](../.gitbook/assets/image%20%2830%29.png)
+![](../.gitbook/assets/image%20%2831%29.png)
 
 
 

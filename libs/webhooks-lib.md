@@ -21,7 +21,18 @@ Webhooks is more simple way for integration. Other libs also use webhooks notifi
 ## Get Webhook Url
 
 ```javascript
-let webhookUrl = Libs.Webhooks.getUrlFor({  // this command will be runned on webhook  command: "/onWebhook",  // this text will be passed to command  content: "Did you see the cat?",  // execute for this (current) user  user_id: user.id,  // redirect to page with cat after calling webhook  // you need remove this for external service  redirect_to: "https://cataas.com/cat"})
+let webhookUrl = Libs.Webhooks.getUrlFor({
+  // this command will be runned on webhook
+  command: "/onWebhook",
+  // this text will be passed to command
+  content: "Did you see the cat?",
+  // execute for this (current) user
+  user_id: user.id,
+  // redirect to page with cat after calling webhook
+  // you need remove this for external service
+  redirect_to: "https://cataas.com/cat"
+})
+
 ```
 
 This code will generate Webhook url. 
@@ -37,7 +48,10 @@ After loading page via this url:
 As a rule, the webhook URL must be set from the admin panel on the external service. So we can not set it for just one user: 
 
 ```javascript
-let webhookUrl = Libs.Webhooks.getUrlFor({  // this command will be runned on webhook  command: "/onWebhook"})
+let webhookUrl = Libs.Webhooks.getUrlFor({
+  // this command will be runned on webhook
+  command: "/onWebhook"
+})
 ```
 
 {% hint style="warning" %}
@@ -47,7 +61,8 @@ Webhooks can be with GET and POST methods only. All passed data contains on cont
 On command `/onWebhook` we can get posted content from external service
 
 ```javascript
-Bot.sendMessage(inspect(content))// also you can read data with Bot.getProperty - you need store it before
+Bot.sendMessage(inspect(content))
+// also you can read data with Bot.getProperty - you need store it before
 ```
 
 As a rule, external service must pass useful data on webhook. For example info about payments: order\_id, user\_id. Use it!

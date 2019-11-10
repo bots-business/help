@@ -119,7 +119,15 @@ We can use [ResourcesLib](https://help.bots.business/libs/resourceslib) for this
 on `/start`
 
 ```javascript
-function onAttracted(refUser){  // access to Bonus Res of refUser  let refUserBonus = Libs.ResourcesLib.anotherUserRes("money", refUser.telegramid);  refUserBonus.add(100);  // add 100 bonus for friend}Libs.ReferralLib.currentUser.track({   onAtractedByUser: onAttracted});
+function onAttracted(refUser){
+  // access to Bonus Res of refUser
+  let refUserBonus = Libs.ResourcesLib.anotherUserRes("money", refUser.telegramid);
+  refUserBonus.add(100);  // add 100 bonus for friend
+}
+
+Libs.ReferralLib.currentUser.track({
+   onAtractedByUser: onAttracted
+});
 ```
 
 
@@ -133,7 +141,17 @@ function onAttracted(refUser){  // access to Bonus Res of refUser  let refUserBo
 3. On user set balance:
 
 ```javascript
-let res = Libs.ResourcesLib.userRes("money");let referrer = Libs.ReferralLib.currentUser.AttractedByUser();// if current user was attracted by referrerif(referrer){   let referrerRes = Libs.ResourcesLib.anotherUserRes(       "money", referrer.telegramid);      let amount = res.value * 0.05; // it is 5%   referrerRes.takeFromAnother(res, amount);}
+let res = Libs.ResourcesLib.userRes("money");
+let referrer = Libs.ReferralLib.currentUser.AttractedByUser();
+
+// if current user was attracted by referrer
+if(referrer){
+   let referrerRes = Libs.ResourcesLib.anotherUserRes(
+       "money", referrer.telegramid);
+   
+   let amount = res.value * 0.05; // it is 5%
+   referrerRes.takeFromAnother(res, amount);
+}
 ```
 
 {% hint style="info" %}

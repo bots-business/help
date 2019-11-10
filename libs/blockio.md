@@ -2,7 +2,7 @@
 
 This Lib make integration with [block.io](blockio.md) in easy way.
 
-![](../.gitbook/assets/image%20%2840%29.png)
+![](../.gitbook/assets/image%20%2841%29.png)
 
 ## With Block.io you can
 
@@ -25,7 +25,17 @@ See [docs](https://help.bots.business/store/blockiobot) about this bot.
 Need to set Api key and secret pin in first. You can create command `/init` with such BJS:
 
 ```javascript
-// set secret PINLibs.BlockIO.setSecretPin("YOURS SECRET PIN");Libs.BlockIO.Bitcoin.setApiKey("YOURS_API_KEY for Bitcoin");Libs.BlockIO.Dogecoin.setApiKey("YOURS_API_KEY for Dogecoin");Libs.BlockIO.Litecoin.setApiKey("YOURS_API_KEY for Litecoin");// TestnetLibs.BlockIO.testNet.Bitcoin.setApiKey("YOURS_API_KEY for Bitcoin");Libs.BlockIO.testNet.Dogecoin.setApiKey("YOURS_API_KEY for Dogecoin");Libs.BlockIO.testNet.Litecoin.setApiKey("YOURS_API_KEY for Litecoin");
+// set secret PIN
+Libs.BlockIO.setSecretPin("YOURS SECRET PIN");
+
+Libs.BlockIO.Bitcoin.setApiKey("YOURS_API_KEY for Bitcoin");
+Libs.BlockIO.Dogecoin.setApiKey("YOURS_API_KEY for Dogecoin");
+Libs.BlockIO.Litecoin.setApiKey("YOURS_API_KEY for Litecoin");
+
+// Testnet
+Libs.BlockIO.testNet.Bitcoin.setApiKey("YOURS_API_KEY for Bitcoin");
+Libs.BlockIO.testNet.Dogecoin.setApiKey("YOURS_API_KEY for Dogecoin");
+Libs.BlockIO.testNet.Litecoin.setApiKey("YOURS_API_KEY for Litecoin");
 ```
 
 Just run bot and execute this command `/init`. Then you can remove it.
@@ -49,7 +59,12 @@ All methods from [https://block.io/api](https://block.io/api/simple/) available 
 You can run it via command:
 
 ```javascript
-Libs.BlockIO.XXXcoin.methodYYY(    { onSuccess: "/onNewAddress",      onError: "/onerror",      // ....      // OTHER POSSIBLE PARAMS - see are later} );
+Libs.BlockIO.XXXcoin.methodYYY(
+    { onSuccess: "/onNewAddress",
+      onError: "/onerror",
+      // ....
+      // OTHER POSSIBLE PARAMS - see are later
+} );
 ```
 
 {% hint style="info" %}
@@ -175,13 +190,23 @@ You can also use Testnet: Libs.BlockIO.testNet.XXXcoin
 So if you need, for example, getTransactions method for Litecoin change this code:
 
 ```javascript
-Libs.BlockIO.XXXcoin.methodYYY(    { onSuccess: "/onNewAddress",      onError: "/onerror",      // ....      // OTHER POSSIBLE PARAMS} );
+Libs.BlockIO.XXXcoin.methodYYY(
+    { onSuccess: "/onNewAddress",
+      onError: "/onerror",
+      // ....
+      // OTHER POSSIBLE PARAMS
+} );
 ```
 
 to:
 
 ```javascript
-Libs.BlockIO.Litecoin.getTransactions(    { onSuccess: "/onGetTransaction",      onError: "/onerror",      // ....      // OTHER POSSIBLE PARAMS} );
+Libs.BlockIO.Litecoin.getTransactions(
+    { onSuccess: "/onGetTransaction",
+      onError: "/onerror",
+      // ....
+      // OTHER POSSIBLE PARAMS
+} );
 ```
 
 ### What it is - "OTHER POSSIBLE PARAMS" ?
@@ -208,12 +233,15 @@ For example: "Actions for Handling Addresses"
 
 From block.io [help](https://block.io/api/): 
 
-![from Block.io help - https://block.io/api](../.gitbook/assets/image%20%2836%29.png)
+![from Block.io help - https://block.io/api](../.gitbook/assets/image%20%2837%29.png)
 
 So we have API method "Get New Address":
 
 ```javascript
-Libs.BlockIO.Bitcoin.getNewAddress(    { onSuccess: "/onNewAddress",      onError: "/onerror"} );
+Libs.BlockIO.Bitcoin.getNewAddress(
+    { onSuccess: "/onNewAddress",
+      onError: "/onerror"
+} );
 ```
 
 This function getNewAddress have 2 callbacks: `onSuccess` and `onError`.
@@ -221,7 +249,16 @@ This function getNewAddress have 2 callbacks: `onSuccess` and `onError`.
 `onSuccess` callback command `/onNewAddress` will be runned:
 
 ```javascript
-let wallet = options;  // we have Block.io response in options// uncomment this line for inspecting all options// Bot.sendMessage(inspect(options));Bot.sendMessage(    "*New wallet* was created. \n  #⃣Wallet: `" +     wallet.address + "`\n  🏷Label: `" +    wallet.label + "`");
+let wallet = options;  // we have Block.io response in options
+
+// uncomment this line for inspecting all options
+// Bot.sendMessage(inspect(options));
+
+Bot.sendMessage(
+    "*New wallet* was created. \n  #⃣Wallet: `" + 
+    wallet.address + "`\n  🏷Label: `" +
+    wallet.label + "`"
+);
 ```
 
 
@@ -237,7 +274,12 @@ We know about params: `to_addresses` and `from_labels` from block.io [help](http
 Transfer coin from Block.io wallet with label "default" to any wallet:
 
 ```javascript
-Libs.BlockIO.Bitcoin.withdrawFromLabels(    { to_addresses:"3KyRZdjJCpHjHfnjaELvrDpNAxUE3D1NK4",      from_labels:"default",      amounts:0.002,      onSuccess: "/onwithdraw", onError: "/onerror"});
+Libs.BlockIO.Bitcoin.withdrawFromLabels(
+    { to_addresses:"3KyRZdjJCpHjHfnjaELvrDpNAxUE3D1NK4",
+      from_labels:"default",
+      amounts:0.002,
+      onSuccess: "/onwithdraw", onError: "/onerror"
+});
 ```
 
 onWithdraw command: 
@@ -253,7 +295,12 @@ Bot.sendMessage(inspect(options))
 You can show error message from Block.io
 
 ```javascript
-Bot.sendMessage("Error");if(options&&options.data){  Bot.sendMessage(options.data.error_message);}
+Bot.sendMessage("Error");
+
+if(options&&options.data){
+  Bot.sendMessage(options.data.error_message);
+}
+
 ```
 
 
@@ -265,13 +312,19 @@ Bot.sendMessage("Error");if(options&&options.data){  Bot.sendMessage(options.dat
 possible BJS for command /newAddress:
 
 ```javascript
-Libs.BlockIO.Bitcoin.getNewAddress(    {       label: "chat" + chat.chatid,      onSuccess: "/onNewAddress",      onError: "/onError",} );
+Libs.BlockIO.Bitcoin.getNewAddress(
+    { 
+      label: "chat" + chat.chatid,
+      onSuccess: "/onNewAddress",
+      onError: "/onError",
+} );
 ```
 
 command /onNewAddress:
 
 ```javascript
-Bot.sendMessage(inspect(options));Bot.sendMessage("Created: " + options.address);
+Bot.sendMessage(inspect(options));
+Bot.sendMessage("Created: " + options.address);
 ```
 
 command /onError:

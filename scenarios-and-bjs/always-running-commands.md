@@ -27,11 +27,19 @@ You can share functions, variables and etc with `BeforeAll` and `AfterAll` comma
 {% endhint %}
 
 ```javascript
-// code for @ BeforeAll commandfunction myName(){  return "Peter"}
+// code for @ BeforeAll command
+function myName(){
+  return "Peter"
+}
 ```
 
 ```javascript
-// code for /test commandBot.sendMessage(  myName()  // result will be "Peter")// myName is defined in BeforeAll command
+// code for /test command
+Bot.sendMessage(
+  myName()  // result will be "Peter"
+)
+
+// myName is defined in BeforeAll command
 ```
 
 {% hint style="danger" %}
@@ -49,12 +57,27 @@ If you have `return` in any command AfterAll commands do not executed
 In command BeforeAll: with `@` name
 
 ```javascript
-badUsers = Bot.getProperty("badUsers", { list: {} })if(badUsers.list[user.telegramid]){  Bot.sendMessage("You are blocked!")  return // this is worked for all command  // because it is in BeforeAll command}
+badUsers = Bot.getProperty("badUsers", { list: {} })
+
+if(badUsers.list[user.telegramid]){
+  Bot.sendMessage("You are blocked!")
+  return // this is worked for all command
+  // because it is in BeforeAll command
+}
 ```
 
 In command `/block`:
 
 ```javascript
-tgID = 1111111;  // any tgID for ban. You can pass it via message with wait for replybadUsers = Bot.getProperty("badUsers", { list: {} });badUsers.list[tgID] = true;// for unban:// badUsers.list[tgID] = false;Bot.setProperty("badUsers", badUsers, "json");Bot.sendMessage("User with TG id: " + tgID + " banned");
+tgID = 1111111;  // any tgID for ban. You can pass it via message with wait for reply
+badUsers = Bot.getProperty("badUsers", { list: {} });
+badUsers.list[tgID] = true;
+
+// for unban:
+// badUsers.list[tgID] = false;
+
+Bot.setProperty("badUsers", badUsers, "json");
+
+Bot.sendMessage("User with TG id: " + tgID + " banned");
 ```
 

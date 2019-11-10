@@ -19,13 +19,17 @@ Currency values are refreshed every 60 minutes.
 In any command:
 
 ```javascript
-let amount = 1;let onSucces = '/onconvert';let conversation = 'USD_EUR' // others: USD_BTC, BTC_USD, CNY_BTC and etc...Libs.CurrencyConverter.convert(conversation, amount, onSucces);
+let amount = 1;
+let onSucces = '/onconvert';
+let conversation = 'USD_EUR' // others: USD_BTC, BTC_USD, CNY_BTC and etc...
+Libs.CurrencyConverter.convert(conversation, amount, onSucces);
 ```
 
 ### In command '/onconvert':
 
 ```javascript
-// result stored in paramsBot.sendMessage(params);
+// result stored in params
+Bot.sendMessage(params);
 ```
 
 

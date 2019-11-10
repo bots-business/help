@@ -9,7 +9,12 @@ description: Lib for multi language support
 First - need to setup languages. For example with **/setup** command:
 
 ```javascript
-enLang = { user: { whatIsYourName: "What is your name?", }, hello: "Hello!" }ruLang = { user: { whatIsYourName: "Как тебя зовут?", }, hello: "Привет!" }// first language is default languageLibs.Lang.setup("en", enLang);Libs.Lang.setup("ru", ruLang);
+enLang = { user: { whatIsYourName: "What is your name?", }, hello: "Hello!" }
+ruLang = { user: { whatIsYourName: "Как тебя зовут?", }, hello: "Привет!" }
+
+// first language is default language
+Libs.Lang.setup("en", enLang);
+Libs.Lang.setup("ru", ruLang);
 ```
 
 Now default language is "english".
@@ -17,7 +22,8 @@ Now default language is "english".
 You can use lib now:
 
 ```javascript
-Bot.sendMessage(Libs.Lang.get().hello)Bot.sendMessage(Libs.Lang.get().user.whatIsYourName)
+Bot.sendMessage(Libs.Lang.get().hello)
+Bot.sendMessage(Libs.Lang.get().user.whatIsYourName)
 ```
 
 ## Functions
@@ -30,7 +36,9 @@ Bot.sendMessage(Libs.Lang.get().hello)Bot.sendMessage(Libs.Lang.get().user.whatI
 `You can get user language code. For example in /start:`
 
 ```javascript
-// in /start commandlang_code = request.from.language_code;Libs.Lang.user.setLang(lang_code)
+// in /start command
+lang_code = request.from.language_code;
+Libs.Lang.user.setLang(lang_code)
 ```
 {% endhint %}
 
@@ -41,7 +49,8 @@ Bot.sendMessage(Libs.Lang.get().hello)Bot.sendMessage(Libs.Lang.get().user.whatI
 ### Change default lang
 
 ```javascript
-Libs.Lang.default.setLang("en")var default = Libs.Lang.default.getCurLang()
+Libs.Lang.default.setLang("en")
+var default = Libs.Lang.default.getCurLang()
 ```
 
 {% hint style="info" %}

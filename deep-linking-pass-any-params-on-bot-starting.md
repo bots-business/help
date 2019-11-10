@@ -17,6 +17,8 @@ For example:
 We pass user's API Token to bot.
 
 ```javascript
-let api_token = params;// do anything what you want with this paramsBot.sendMessage("Your api token is: " + api_token)
+let api_token = params;
+// do anything what you want with this params
+Bot.sendMessage("Your api token is: " + api_token)
 ```
 

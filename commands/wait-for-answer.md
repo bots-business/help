@@ -23,7 +23,9 @@ Bot:
 command:
 
 ```javascript
-answer: What is your name?need_reply: trueBJS: Bot.sendMessage( "Hello, " + message );
+answer: What is your name?
+need_reply: true
+BJS: Bot.sendMessage( "Hello, " + message );
 ```
 
 So BJS code execute only after user's answer
@@ -43,13 +45,22 @@ User \(press "❌ Back" on keybord\):
 BJS:
 
 ```javascript
-if(message=="❌ Back"){   return  // exit from command on "Back"}Bot.sendMessage( "Hello, " + message );
+if(message=="❌ Back"){
+   return  // exit from command on "Back"
+}
+
+Bot.sendMessage( "Hello, " + message );
 ```
 
 or you can run /menu command on "Back"
 
 ```javascript
-if(message=="❌ Back"){   Bot.runCommand("/menu")   return // exit from command on "Back"}Bot.sendMessage( "Hello, " + message );
+if(message=="❌ Back"){
+   Bot.runCommand("/menu")
+   return // exit from command on "Back"
+}
+
+Bot.sendMessage( "Hello, " + message );
 ```
 
 
