@@ -26,7 +26,7 @@ Admin Panel - this is a combination of several panels. Each panel have title, ic
 
 For adding panel:
 
-`AdminPanel.setPanel(PANEL_NAME, PANEL_OPTIONS);`
+`AdminPanel.setPanel({ panel_name: PANEL_NAME, data: PANEL_OPTIONS });`
 
 PANEL\_OPTIONS - it is JSON option for this panel
 
