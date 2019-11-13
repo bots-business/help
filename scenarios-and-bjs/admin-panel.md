@@ -70,8 +70,18 @@ var panel = {
   ]
 }
 
-AdminPanel.setPanel("AdminInfo", panel);
+AdminPanel.setPanel({
+  panel_name: "AdminInfo",
+  data: panel
+  // force: true // default false - save fields values
+});
 ```
+
+#### Force
+
+Default is false. All old values for the fields are retained.
+
+If true - all old values for fields are reassigned.
 
 #### Fields
 
@@ -90,16 +100,20 @@ Fields can have name, value, title, description, type, placeholder and icon
 | password | Password input |
 | text | Text field |
 
+### 
+
 ### Getting field value from Panel
 
 ```javascript
-var admin_id = AdminPanel.getPanelValue({
-  panel: "AdminInfo", // panel name
-  name: "ADMIN_ID" // field name
+var admin_id = AdminPanel.getFieldValue({
+  panel_name: "AdminInfo", // panel name
+  field_name: "ADMIN_ID" // field name
 })
 
 Bot.sendMessage(admin_id)
 ```
+
+### 
 
 ### Getting panel data
 
@@ -111,6 +125,19 @@ Bot.inspect(panel);
 // panel.fields[0].value = 1000
 // panel.fields[0].tite = "my admin id"
 // AdminPanel.setPanel("AdminInfo", panel);
+```
+
+### 
+
+### Getting panel field data
+
+```javascript
+var panel_field = AdminPanel.getPanelField({
+  panel_name: "AdminInfo", // panel name
+  field_name: "ADMIN_ID" // field name
+})
+
+Bot.inspect(panel_field);
 ```
 
 ### Icons
