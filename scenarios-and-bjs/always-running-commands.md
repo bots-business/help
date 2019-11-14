@@ -60,7 +60,7 @@ In command BeforeAll: with `@` name
 badUsers = Bot.getProperty("badUsers", { list: {} })
 
 if(badUsers.list[user.telegramid]){
-  Bot.sendMessage("You are blocked!")
+  Bot.sendMessage("You are blocked!");
   return // this is worked for all command
   // because it is in BeforeAll command
 }
@@ -79,5 +79,11 @@ badUsers.list[tgID] = true;
 Bot.setProperty("badUsers", badUsers, "json");
 
 Bot.sendMessage("User with TG id: " + tgID + " banned");
+
+// You can also use hard block
+// It is save your iterations:
+// Bot.blockChat(chat.id);
+
+// But with this BeforeAll will be also not working
 ```
 

@@ -131,6 +131,24 @@
       </td>
     </tr>
     <tr>
+      <td style="text-align:left"><code>Bot.blockChat(chat_id)</code>
+      </td>
+      <td style="text-align:left">
+        <p>Block chat:</p>
+        <p><code>Bot.blockChat(chat.id)</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>Bot.unblockChat(chat_id)</code>
+      </td>
+      <td style="text-align:left">
+        <p>Unblock chat:</p>
+        <p><code>Bot.unblockChat(chat.id)</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
       <td style="text-align:left"><code>Bot.inspect(value)</code>
       </td>
       <td style="text-align:left">Send inspected value to chat. Good for debug</td>
