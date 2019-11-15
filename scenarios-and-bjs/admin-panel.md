@@ -104,6 +104,10 @@ Fields can have name, value, title, description, type, placeholder and icon
 
 ### Getting field value from Panel
 
+{% hint style="success" %}
+Use this method for getting one value from panel
+{% endhint %}
+
 ```javascript
 var admin_id = AdminPanel.getFieldValue({
   panel_name: "AdminInfo", // panel name
@@ -113,7 +117,20 @@ var admin_id = AdminPanel.getFieldValue({
 Bot.sendMessage(admin_id)
 ```
 
-### 
+### Getting all fields values from Panel
+
+{% hint style="success" %}
+Use this method for getting several/all values from panel
+{% endhint %}
+
+```javascript
+var values = AdminPanel.getPanelValues("AdminInfo");
+Bot.inspect(values);
+// will be like:
+// { ADMIN_ID: 100 }
+```
+
+###  
 
 ### Getting panel data
 
