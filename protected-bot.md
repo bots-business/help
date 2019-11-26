@@ -17,5 +17,9 @@ Protected bots - good thing for selling to customers.
 Make protected bots with [Admin Panels](https://help.bots.business/scenarios-and-bjs/admin-panel) and sell them
 {% endhint %}
 
+## How to create Protected bot?
 
+If you want to sell your bot - just start develop it.
+
+Contact the administrator to start selling this bot.
 
