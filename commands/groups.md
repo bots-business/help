@@ -1,15 +1,16 @@
 # Groups
 
-## What it is: "allowed only for group"?
+## ما هو: "مسموح فقط للمجموعة"؟
 
-Users can be members of the group. 
+يمكن للمستخدمين أن يكونوا أعضاء في المجموعة.
 
-For example, there may be a group of "customers" and "guests." Then you can make sure that guests can not execute client commands.
+ على سبيل المثال ، قد يكون هناك مجموعة من "customers" & "guests." ثم يمكنك التأكد من أنه لا يمكن للضيوف تنفيذ أوامر العميل..
 
 ![Group can be modified on command editing](../.gitbook/assets/image%20%2833%29.png)
 
 {% hint style="info" %}
-You can use BJS code for adding user to group:`User.addToGroup(group_name)` 
+يمكنك استخدام رمز BJS لإضافة مستخدم إلى المجموعة:
+`User.addToGroup(group_name)` 
 {% endhint %}
 
 

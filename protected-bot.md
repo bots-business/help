@@ -1,25 +1,27 @@
-# Protected bot
+# الروبوت المحمي
 
-Protected bot - it is a bot without access to commands editing and copying.
+Protected bot - إنه روبوت دون الوصول إلى أوامر التحرير والنسخ.
 
-Forbidden for this bot:
+ممنوع لهذا الروبوت:
 
-* add new command
-* edit and remove commands
-* view commands
-* change BJS
-* make bot copy \(via app and BJS\)
-* git exporting \(via app and BJS\). Git importing is allowed
+* أضف قيادة جديدة
+* تحرير وإزالة الأوامر
+* عرض الأوامر
+* تغيير BJS
+* جعل نسخة بوت \(via app and BJS\)
+* بوابة التصدير \(via app and BJS\).
+يسمح استيراد بوابة
 
 {% hint style="success" %}
-Protected bots - good thing for selling to customers.
+Protected bots - شيء جيد للبيع للعملاء.
 
-Make protected bots with [Admin Panels](https://help.bots.business/scenarios-and-bjs/admin-panel) and sell them
+جعل البوت محمي مع
+[Admin Panels](https://help.bots.business/scenarios-and-bjs/admin-panel) and sell them
 {% endhint %}
 
-## How to create Protected bot?
+## كيفية إنشاء الروبوت محمي؟
 
-If you want to sell your bot - just start develop it.
+إذا كنت تريد بيع روبوتك - فما عليك سوى البدء في تطويره.
 
-Contact the administrator to start selling this bot.
+اتصل بالمسؤول لبدء بيع هذا الروبوت.
 

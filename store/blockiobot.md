@@ -1,41 +1,43 @@
 # BlockIOBot
 
-This bot is demo for integration with [Block.io](https://block.io). 
+هذا الروبوت هو تجريبي للتكامل مع
+ [Block.io](https://block.io). 
 
-### See also related [Lib](https://help.bots.business/libs/blockio)
+###انظر أيضا ذات الصلة [Lib](https://help.bots.business/libs/blockio)
 
-### With Block.io you can:
+### مع Block.io يمكنك:
 
-* create new wallets: Bitcoin, Dogecoin, Litecoin
-* look transactions
-* accept payments
-* make withdraws
-* etc
+ * إنشاء محافظ جديدة: بيتكوين ، Dogecoin ، Litecoin
+ * تبدو المعاملات
+ * قبول المدفوعات
+ * جعلها تنسحب
+ * الخ
 
-### Bot menus
+### بوت القوائم
 
-Main menu on /start command:
+القائمة الرئيسية start/ في امر:
 
 ![](../.gitbook/assets/image%20%2852%29.png)
 
-Bot addresses menu on aliase "Bot addresses":
+قائمة عناوين بوت في الاسم المستعار "عناوين بوت":
 
 ![](../.gitbook/assets/image%20%2815%29.png)
 
   
-Withdrawals menu:
+قائمة السحب:
 
 ![](../.gitbook/assets/image%20%2848%29.png)
 
-Tools menu:
+قائمة الأدوات:
 
 ![](../.gitbook/assets/image%20%2827%29.png)
 
-### How it is works?
+### كيف يعمل؟
 
-Bot use BlockIo lib. 
+يستخدم بوت BlockIo lib. 
 
-Typical code for command `/getXXX` is:
+رمز نموذجي للقيادة وهو
+`/getXXX` :
 
 ```java
 Libs.BlockIO.Bitcoin.getXXX(
@@ -43,29 +45,30 @@ Libs.BlockIO.Bitcoin.getXXX(
 );
 ```
 
-`getXXX` - it is API methods from [https://block.io/api/simple](https://block.io/api/simple/)
+`getXXX` - من اساليب apk فمن [https://block.io/api/simple](https://block.io/api/simple/)
 
-Also we have `onSuccess` and `onError` commands.
+أيضا لدينا أوامر `onSucc.ess` و `on.Error`.
 
-All `onSuccess` command have name`/onGetXXX`
+All `onSuccess` قيادة لها اسم`/onGetXXX`
 
-Bot have only one `onError` command: `/onerror`:
+بوت لديها واحد فقط
+`onError` command: `/onerror`:
 
 ```javascript
 Bot.sendMessage("Error");
 
 if(options&&options.data){
-  // in options we have error message from Block.io
-  // just send it
+  // في الخيارات لدينا رسالة خطأ من Block.io
+  // فقط ارسلها
   Bot.sendMessage(options.data.error_message);
 }
 ```
 
 
 
-#### For example - command for address validation
+#### على سبيل المثال - أمر للتحقق من صحة العنوان
 
-Command name is:
+ اسم الأمر هو:
 
 ```javascript
 Libs.BlockIO.Bitcoin.isValidAddress(
@@ -75,22 +78,24 @@ Libs.BlockIO.Bitcoin.isValidAddress(
 );
 ```
 
-We also have address in message variables: command have value "wait for answer" from user.
+لدينا أيضًا عنوان في متغيرات الرسالة: الامر لها قيمة "انتظر الإجابة" من المستخدم.
 
-Command: /onvalidate
+الامر:
+/onvalidate
 
-We just send response:
+نحن فقط نرسل الرد:
 
 ```javascript
-// we have json response from Block.io in options 
+// لدينا استجابة json من Block.io في الخيارات 
 Bot.sendMessage(inspect(options));
 ```
 
 
 
-### Getting addresses
+### الحصول على العناوين
 
-Command: `/getMyAddresses`
+أمر:
+`/getMyAddresses`
 
 ```javascript
 Libs.BlockIO.Bitcoin.getMyAddresses(
@@ -98,18 +103,19 @@ Libs.BlockIO.Bitcoin.getMyAddresses(
 );
 ```
 
-Command: `"/onGetMyAdresses"`
+أمر:
+`"/onGetMyAdresses"`
 
 ```javascript
-// Block.io response in options 
-let wallets = options;
+// استجابة Block.io في الخيارات
+واسمح للمحافظ = الخيارات ؛
 Bot.sendMessage("Network: " + wallets.network);
 
 let addresses = wallets.addresses;
-let answer = "*Yours wallets:*\n"
+let answer = "*محافظك:*\n"
 
 let counter = 0;
-// we have several addresses.
+// لدينا عدة عناوين.
 for(let ind in addresses){
   if(counter>10){ break } // no more then 10 addresses
 
@@ -129,9 +135,9 @@ for(let ind in addresses){
 Bot.sendMessage(answer);
 ```
 
-### Transactions. Income and outgoing transactions
+### المعاملات.  الدخل والمعاملات الصادرة
 
-For outgoing transactions:
+للمعاملات الصادرة:
 
 ```javascript
 Libs.BlockIO.Bitcoin.getTransactions(
@@ -140,7 +146,7 @@ Libs.BlockIO.Bitcoin.getTransactions(
 );
 ```
 
-For income transactions:
+لمعاملات الدخل:
 
 ```javascript
 Libs.BlockIO.Bitcoin.getTransactions(
@@ -149,7 +155,7 @@ Libs.BlockIO.Bitcoin.getTransactions(
 );
 ```
 
-`/onGetOutTransactions` and `/onGetTransactions` command - is simular:
+`/onGetOutTransactions` and `/onGetTransactions` الأمر - مشابه:
 
 {% tabs %}
 {% tab title="/onGetOutTransactions" %}
@@ -247,15 +253,16 @@ Bot.sendMessage(answer);
 
 
 
-### Master command "\*" for address actions
-
-Bot need command for addresses archiving.
+### الأمر الرئيسي "*\" لإجراءات العنوان
+ بوت بحاجة إلى الأمر لأرشفة العناوين.
 
 ![](../.gitbook/assets/image%20%2828%29.png)
 
-We need command /archiveLabel, where Label is label for address
+نحتاج القيادة
+/archiveLabel, حيث التسمية تسمية للعنوان
 
-So we have master command "\*" with BJS. It process all "/archiveXXX" commands:
+لذلك لدينا القيادة الرئيسية "*\" مع BJS. يقوم بمعالجة جميع أوامر
+"/ archiveXXX":
 
 ```javascript
 if(message.substring(0, 8)=="/archive"){

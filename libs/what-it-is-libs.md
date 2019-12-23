@@ -1,28 +1,27 @@
 # What it is - Libs?
 
-Libs - it is common functionality. You can use it for any your tasks.
+Libs - إنها وظيفة شائعة.  يمكنك استخدامه لأي مهامك.
 
-For example Bots.Business have such Libs:
+ على سبيل المثال ، Bots.Business لها مثل Libs:
 
-* Random Lib - for random messages from bot
-* Referral Lib - for referral tracking
-* ResourcesLib - for chat resources with growth and etc
-* Lang Lib - for multi language
-* etc
+ * عشوائية lib - لرسائل عشوائية من الروبوت
+ * الإحالة lib - لتتبع الإحالة
+ * ResourcesLib - لموارد الدردشة مع النمو وغيرها
+ * لغة lib - متعدد اللغات
+ * الخ
 
-### How to install Lib to bot?
+### كيفية تثبيت Lib إلى bot؟
 
-1.Go to Libs Tab in the App
+1. انتقل إلى علامة تبويب Libs في التطبيق
 
 ![](../.gitbook/assets/image%20%2821%29.png)
 
-2. Click on Install button
+2. انقر على زر التثبيت
 
-3. Select your bot
+ 3. حدد الروبوت الخاص بك
 
-### How to use Lib?
+ ### كيفية استخدام Lib؟
 
-Please see help article for this Lib.
-
+ يرجى الاطلاع على مقالة المساعدة لهذا Lib.
  
 

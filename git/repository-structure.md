@@ -1,32 +1,35 @@
-# Repository structure
+# هيكل مستودع
 
 {% hint style="success" %}
-You can make export for any free bot in the Store. Just install it. 
+يمكنك جعل التصدير لأي روبوت مجاني في المتجر. فقط تثبيته. 
 
-It is good for practice.
+انه لامر جيد للممارسة.
 {% endhint %}
 
-### bot.json file
+### bot.json ملف
 
-Please see [this](https://help.bots.business/git/file-bot-json)
+لطفا أنظر [this](https://help.bots.business/git/file-bot-json)
 
-### Commands - in commands folder
+### الأوامر - في مجلد الأوامر
 
-File name - it is command name \(But it can be rewritten in command description\)
+اسم الملف - هو اسم الأمر 
+\(ولكن يمكن إعادة كتابته في وصف الأمر\)
 
 {% hint style="warning" %}
-For commands with "/" \(for example command "/start"\) file name is "\_start"
+للأوامر مع
+"/" \(for example command "/start"\) file name is "\_start"
 {% endhint %}
 
-Command can have: `name`, `help`, `aliases` \(second names\), `answer`, `keyboard`, `scnarios` \(for simple logic\) and other options.
+القيادة يمكن أن يكون:
+`name`, `help`, `aliases` \(second names\), `answer`, `keyboard`, `scnarios` \(for simple logic\) وغيرها من الخيارات.
 
 {% hint style="success" %}
-If the command has a folder - it is located in a folder on the disk with the same name
+إذا كان الأمر يحتوي على مجلد - فهو موجود في مجلد على القرص بنفس الاسم
 {% endhint %}
 
-#### Command description
+#### وصف القيادة
 
-It is optional file header:
+إنه رأس ملف اختياري:
 
 ```javascript
 /*CMD
@@ -34,18 +37,19 @@ It is optional file header:
   help: this is help for ccommand
   need_reply: [ true or false here ]
   auto_retry_time: [ time in sec ]
-  folder: MyFolder
-  answer: it is example answer for /test command
+  folder: ملفي
+  answer: إنه مثال للإجابة
+/test command
   keyboard: button1, button2
   aliases: /test2, /test3
 CMD*/
 ```
 
 {% hint style="info" %}
-Command description - it is optional block.
+وصف الأوامر - حظر اختياري.
 {% endhint %}
 
-multiline also supported. For example for answer:
+متعدد الخطوط المدعومة أيضا. على سبيل المثال للإجابة:
 
 ```javascript
 /*CMD
@@ -58,16 +62,17 @@ CMD*/
 ```
 
 {% hint style="info" %}
-You can have only answer \(or others\) key in the command description. All keys - optional
+يمكنك الحصول على الجواب فقط
+\(or others\) المفتاح في وصف الأمر. جميع المفاتيح - الخيارات
 {% endhint %}
 
 See [more](https://help.bots.business/commands)
 
-#### Command body
+#### هيئة القيادة
 
-It is command code in JavaScript. Use Bot Java Script for logic in command.
+إنه رمز الأمر في JavaScript. استخدم Bot Java Script للمنطق المنطقي في الأمر.
 
-For example:
+فمثلا:
 
 `Bot.sendMessage(2+2);`
 
@@ -75,9 +80,9 @@ See [more](https://help.bots.business/scenarios-and-bjs)
 
 
 
-### Libraries - in libs folder
+### المكتبات - في مجلد libs
 
-You can store common code in the libs folder
+يمكنك تخزين الكود الشائع في مجلد libs
 
 See [more](https://help.bots.business/git/library)
 

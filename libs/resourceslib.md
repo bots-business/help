@@ -1,16 +1,16 @@
 ---
-description: With lib we can manage any resources in bot.
+الوصف: مع lib يمكننا إدارة أي موارد في الروبوت.
 ---
 
 # ResourcesLib
 
-## Resource can be
+## الموارد يمكن أن يكون
 
-* balance \(in USD, BTC or any other\)
-* any game resources: gold, woods, stone, etc
-* etc, any float values
+* توازن \(in USD, BTC or any other\)
+* أي موارد اللعبة: الذهب ، الغابة ، الحجر ، الخ
+ * الخ ، أي قيم تعويم
 
-## User's resource
+## مورد المستخدم
 
 ```javascript
 let res = Libs.ResourcesLib.userRes("money");
@@ -18,18 +18,18 @@ Bot.sendMessage("Cur your money: " + res.value());
 ```
 
 {% hint style="danger" %}
-Res name is case sensitive. The resources “money”, “Money” and “MONEY” do not match. These are 3 separate resources.
+اسم الدقة حساس لحالة الأحرف.  الموارد “money” ، “Money” و “MONEY” غير متطابقة.  هذه هي 3 موارد منفصلة.
 {% endhint %}
 
 {% hint style="info" %}
-One user can have same chats with bot. 
+يمكن للمستخدم واحد أن يكون نفس الدردشة مع بوت.
 
-**For example:** private and group chat. 
+** على سبيل المثال: ** دردشة خاصة وجماعية.
 
-But anywhere he have **simular** resources
+ولكن في أي مكان لديه ** محاكات ** الموارد
 {% endhint %}
 
-## Chat's resource
+## مورد الدردشة
 
 ```javascript
 let res = Libs.ResourcesLib.chatRes("money");
@@ -37,91 +37,90 @@ Bot.sendMessage("Cur your money: " + res.value());
 ```
 
 {% hint style="info" %}
-One user can have same chats with bot. 
+يمكن لمستخدم واحد الحصول على نفس الدردشات مع bot.
 
-**For example**: private and group chat.
+ ** على سبيل المثال **: دردشة خاصة وجماعية.
 
-But he have **diffent** resources for each chats.
+لكن لديه موارد ** مختلفة ** لكل دردشات
 {% endhint %}
 
 
 
-## Methots for user's and chat resources
+## موارد المستخدم والدردشة
 
-All methods can be for user's or chat's resources.
+ جميع الطرق يمكن أن تكون لموارد المستخدم أو الدردشة.
 
 ```javascript
-// get res
+// الحصول على الدقة
 let res = Libs.ResourcesLib.userRes("money");
 ```
 
-`res.name` - current res name. For example: 
+`res.name` - اسم الدقة الحالية. فمثلا: 
 
 ```javascript
 Libs.ResourcesLib.chatRes("BTC").name // is "BTC"
 ```
 
-## Basic functions
+## وظائف أساسية
 
-### Current res amount
+ ### كمية الدقة الحالية
 
 `res.value()` 
 
-### Set amount for this res 
+### تعيين المبلغ لهذا القرار
 
 `res.set(amount)` 
 
-for example: `Libs.ResourcesLib.userRes("wood").set(10);`
+فمثلا: `Libs.ResourcesLib.userRes("wood").set(10);`
 
-### Add amount for this res
+### إضافة مبلغ لهذا القرار
 
 `res.add(amount)` 
 
-### Res have such amount?
+### الدقة لديها مثل هذا المبلغ؟
 
-`res.have(amount)`- if res value equal amount or more return true
+`res.have(amount)`- إذا كانت القيمة res مساوية للمبلغ أو أكثر
 
-### Take away amount from resource
+### يسلب المبلغ من الموارد
 
-`res.remove(amount)` -  if have it res.removeAnyway\(amount\) - take away amount anyway.
+`res.remove(amount)` -  إذا كان لديك ذلك res.removeAnyway\(amount\) - يسلب المبلغ على أي حال.
 
-## Access to another resources
+## الوصول إلى موارد أخرى
 
-### Access to another user's resources
+### الوصول إلى موارد مستخدم آخر
 
 ```javascript
-// telegramid - it is telegram id for another user
+// telegramid - هو معرف telegram لمستخدم آخر
 let res = Libs.ResourcesLib.anotherUserRes("money", telegramid);
 Bot.sendMessage("Cur your money: " + res.value());
 ```
 
-### Access to another chat's resources
+### الوصول إلى موارد الدردشة الأخرى
 
 ```javascript
-// another chat's resources
-// chatid - it is telegram id for another chat
+// موارد دردشة أخرى
+// chatid - إنه معرف برقية للدردشة الأخرى
 let res = Libs.ResourcesLib.anotherChatRes("money", chatid);
 Bot.sendMessage("Cur your money: " + res.value());
 ```
 
 
 
-## Resource transfering 
+## نقل الموارد 
 
 ```javascript
 let res = Libs.ResourcesLib.userRes("gold");
-// telegramid - it is telegram id for another user
-let anotherRes = Libs.ResourcesLib.anotherUserRes("gold", telegramid);
+// telegramid - هو معرف برقية لمستخدم آخر السماح للبرسمات الأخرى = Libs.ResourcesLib.anotherUserRes("gold", telegramid);
 ```
 
-### If have resource...
+### إذا كان لديك مورد ...
 
 ```javascript
 res.takeFromAnother(anotherRes, amount);
 res.transferTo(anotherRes, amount)
 ```
 
-### ...or anyway, even resource is not enough
+### ...أو على أي حال، حتى الموارد ليست كافية
 
 ```javascript
 res.takeFromAnotherAnyway(anotherRes, amount)
@@ -130,22 +129,22 @@ res.transferToAnyway(anotherRes, amount)
 
 
 
-### Can exchange different resources
+### يمكن تبادل موارد مختلفة
 
-For example "gold" for "wood":
+على سبيل المثال من "الذهب" ل "الخشب":
 
 `res.exchangeTo(anotherRes, { remove_amount: 10, add_amount:23 } )`
 
 \`\`
 
-## Growth for resource.
+## النمو للموارد.
 
-Resource can have growth.
+الموارد يمكن أن يكون النمو.
 
 {% hint style="info" %}
-For example simple growth:
+على سبيل المثال نمو بسيط:
 
-**add 5 every 10 secs to res**
+ ** أضف 5 كل 10 ثوانٍ إلى الدقة **
 {% endhint %}
 
 ```javascript
@@ -154,9 +153,9 @@ health.set(1);
 health.growth.add({value: 5, interval:10 });
 ```
 
-Interval - it is value in seconds. Value is added every interval
+Interval - انها قيمة في ثوان.  تضاف القيمة كل فاصل
 
-### Add 5 every hour with max value 100.
+### أضف 5 كل ساعة بقيمة 100 كحد أقصى.
 
 ```javascript
 //Max value: 100
@@ -168,13 +167,13 @@ health.growth.add({
 });
 ```
 
-### Value can be negative. Remove 5 every 30 hours. 
+### يمكن أن تكون القيمة سلبية.  إزالة 5 كل 30 ساعة.
 
 ```javascript
 //Min value: -20
 let secs_in_30hours = 1 * 60 * 60 * 30;
 health.growth.add({
-  value: -5,  // just add negative value
+  value: -5,  // فقط أضف قيمة سالبة
   interval: secs_in_30hours,
   min: -20
 });
@@ -182,7 +181,7 @@ health.growth.add({
 
 
 
-### Can limit max iteration count
+### يمكن أن تحد من الحد الأقصى لعدد التكرار
 
 ```javascript
 health.growth.add(
@@ -192,9 +191,7 @@ health.growth.add(
 });
 ```
 
-### Can growh by percent. 
-
-For example add 15% every month for 100 USD
+###يمكن أن النمو بنسبة في المئة.  على سبيل المثال ، أضف 15 ٪ كل شهر مقابل 100 دولار أمريكي
 
 ```javascript
 let usd = Libs.ResourcesLib.userRes("usd");
@@ -208,9 +205,9 @@ usd.growth.addPercent({
 
 
 
-### Can grow by compound interest.
+### يمكن أن تنمو عن طريق الفائدة المركبة.
 
-For example add 0.8% every day for 0.5 BTC with reinvest
+ على سبيل المثال ، أضف 0.8٪ يوميًا مقابل 0.5 BTC مع إعادة الاستثمار
 
 ```javascript
 let btc = Libs.ResourcesLib.userRes("BTC");
@@ -223,35 +220,35 @@ usd.growth.addCompoundInterest({
 ```
 
 {% hint style="info" %}
-You can get initial res value by: `res.baseValue()`
+يمكنك الحصول على قيمة دس الأولية من خلال: `res.baseValue()`
 {% endhint %}
 
-### Other methods for res.growth: 
+### طرق أخرى لل res.growth:
 
-`res.growth.info()` - get info for current growth
+`res.growth.info()` - الحصول على معلومات عن النمو الحالي
 
-`res.growth.title()` - get title. For example "add 5 once at 15 secs" 
+`res.growth.title()` - الحصول على اللقب.  على سبيل المثال "أضف 5 مرة في 15 ثانية"
 
-`res.growth.isEnabled()` - return true if is enabled 
+`res.growth.isEnabled()` - العودة الحقيقية إذا تم تمكين
 
-`res.growth.stop()` - stop growth 
+`res.growth.stop()` - وقف النمو
 
-`res.growth.progress()` - current progress for next iteration 
+`res.growth.progress()` - التقدم الحالي للتكرار المقبل
 
-`res.growth.willCompletedAfter()` - will completed iteration after this time in seconds
+`res.growth.willCompletedAfter()` - will الانتهاء من التكرار بعد هذا الوقت في ثوان
 
 ### 
 
-### How to add growth to another resources?
+### كيفية إضافة النمو إلى موارد أخرى؟
 
-For example we have:
+ على سبيل المثال لدينا:
 
-* bank deposit 100$ with yearly growth 10%
-* and simple wallet - 500$
+* الودائع المصرفية 100 دولار مع نمو سنوي 10 ٪
+ * ومحفظة بسيطة - 500 دولار
 
-Every year we add bank growth to wallet.
+كل عام نضيف نمو البنك إلى المحفظة.
 
-#### **Init:** on `/start` command \(or any other command\)
+#### **Init:** on `/start` command \(أو أي أمر آخر\)
 
 ```javascript
 let wallet = Libs.ResourcesLib.userRes("wallet");
@@ -267,27 +264,28 @@ bankDeposit.growth.addPercent({
 });
 ```
 
-#### **On** `/wallet` command or etc
+#### **On** `/wallet` الامر أو الخ
 
 {% hint style="info" %}
-We can run this command every 1 year. It is possible for example, with [Auto Retry](https://help.bots.business/commands/auto-retry)
+يمكننا تشغيل هذا الأمر كل عام.  فمن الممكن على سبيل المثال ، مع
+[Auto Retry](https://help.bots.business/commands/auto-retry)
 
-Or user can run it manually in anytime.
+أو يمكن للمستخدم تشغيله يدويًا في أي وقت.
 {% endhint %}
 
 ```javascript
 let wallet = Libs.ResourcesLib.userRes("wallet");
 let bankDeposit = Libs.ResourcesLib.userRes("deposit");
 
-// it is initial res value
+// انها قيمة الدقة الأولية
 let baseValue = bankDeposit.baseValue();
 
-// total income by percent
+// إجمالي الدخل بنسبة المئة
 let delta = bankDeposit.value() - baseValue;
 
-// add all income to wallet
+// إضافة جميع الدخل للمحفظة
 wallet.add(delta);
-// and remove it from bank deposit
+// وإزالته من الودائع المصرفية
 bankDeposit.set(baseValue);
 ```
 
@@ -297,15 +295,15 @@ bankDeposit.set(baseValue);
 
 ## How to
 
-### **Q: How to give to referrer 5% of referral user deposit?**
+### ** س: كيفية إعطاء للإحالة 5 ٪ من إيداع المستخدم الإحالة؟ **
 
-Please see [https://help.bots.business/libs/refferallib\#how-to](https://help.bots.business/libs/refferallib#how-to)
+لطفا أنظر [https://help.bots.business/libs/refferallib\#how-to](https://help.bots.business/libs/refferallib#how-to)
 
 
 
-### **Q: How to give a bonus to all users every day?**
+### ** س: كيفية منح مكافأة لجميع المستخدمين كل يوم؟ **
 
-For example add 10 to user's balance every day
+على سبيل المثال ، أضف 10 إلى رصيد المستخدم كل يوم
 
 Command `/start`
 
@@ -315,7 +313,7 @@ balance.set(0);
 
 Bot.run( {
     command: "/addBonus",
-    run_after: 1*60*60*24,  // add bonus after 1 day
+    run_after: 1*60*60*24,  // إضافة مكافأة بعد 1 يوم
 } )
 ```
 
@@ -323,7 +321,7 @@ Bot.run( {
 
 ```javascript
 if(request){
-  // user can not run this command manually
+  // لا يمكن للمستخدم تشغيل هذا الأمر يدويا
   Bot.sendMessage("Restricted!")
   return
 }
@@ -331,7 +329,7 @@ if(request){
 let balance = Libs.ResourcesLib.userRes("balance");
 balance.add(10);
 
-// and repeat this command again after 1 day 
+// وكرر هذا الأمر مرة أخرى بعد يوم واحد 
 Bot.run( {
     command: "/addBonus",
     run_after: 1*60*60*24,  // after one day
@@ -341,9 +339,9 @@ Bot.sendMessage("Bonus for you: 10")
 ```
 
 {% hint style="warning" %}
-Command /addBonus will be executed for each user. It spend 1 iteration every day for each user.
+سيتم تنفيذ الأمر addBonus/ لكل مستخدم.  تنفق 1 التكرار كل يوم لكل مستخدم.
 
-For example, for 100 user - it will be 100 iterations per day.
+على سبيل المثال ، بالنسبة لـ 100 مستخدم - سيكون 100 تكرار يوميًا.
 {% endhint %}
 
 

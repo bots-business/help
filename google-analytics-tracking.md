@@ -1,13 +1,13 @@
-# Google Analytics tracking
+# تتبع تحليلات جوجل
 
-Use [Google Analytics](https://analytics.google.com/analytics/web/) for tracking bot statistic.
+استعمال [Google Analytics](https://analytics.google.com/analytics/web/) for tracking bot statistic.
 
-## Usage
+## استعمال
 
-Track  events can be more usefull for bot
+يمكن أن تكون أحداث المسار أكثر فائدة للبوت
 
 ```javascript
-// Track an Event (all values optional)
+// تتبع حدث (جميع القيم اختيارية)
 GoogleAnalytics.event({
   ua_key: "UA-XXXXXX-1",
   category: 'refferal',
@@ -20,7 +20,7 @@ GoogleAnalytics.event({
 
 
 ```javascript
-// Track exceptions (all values optional)
+// تتبع الاستثناءات (جميع القيم اختياري)
 GoogleAnalytics.exception({
   ua_key: "UA-XXXXXX-1",
   description: 'No money',
@@ -31,8 +31,8 @@ GoogleAnalytics.exception({
 
 
 ```javascript
-// Track timing (all values optional, but should include time)
-// time in milliseconds
+// توقيت المسار (جميع القيم اختيارية ، ولكن يجب أن تشمل الوقت)
+// الوقت بالميلي ثانية
 GoogleAnalytics.timing({
   ua_key: "UA-XXXXXX-1",
   category: 'downloading',
@@ -45,7 +45,7 @@ GoogleAnalytics.timing({
 
 
 ```javascript
-// Track a Pageview (all values optional)
+// تتبع صفحة (جميع القيم اختياري)
 GoogleAnalytics.pageview({
   ua_key: "UA-XXXXXX-1",
   path: '/vip-area',
@@ -57,7 +57,7 @@ GoogleAnalytics.pageview({
 
 
 ```javascript
-// Track social activity (all values REQUIRED)
+// تتبع النشاط الاجتماعي (جميع القيم المطلوبة)
 GoogleAnalytics.social({
   ua_key: "UA-XXXXXX-1",
   action: 'like',
@@ -66,10 +66,10 @@ GoogleAnalytics.social({
 })
 ```
 
-### Track transactions
+### تتبع المعاملات
 
 ```javascript
-// Track transaction
+// تتبع المعاملات
 // (transaction_id REQUIRED)
 GoogleAnalytics.transaction({
   ua_key: "UA-XXXXXX-1",
@@ -85,8 +85,8 @@ GoogleAnalytics.transaction({
 
 
 ```javascript
-// Track transaction item
-// (matching transaction_id and item name REQUIRED)
+// تتبع عنصر المعاملة
+// (مطابقة المعاملة_المطلوب واسم العنصر مطلوب)
 GoogleAnalytics.transaction_item({
   ua_key: "UA-XXXXXX-1",
   transaction_id: 12345,
@@ -99,17 +99,17 @@ GoogleAnalytics.transaction_item({
 })
 ```
 
-### "Global" Options
+### خيارات "عالمية"
 
-Any of the options on the parameters list \([https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters)\) that are accepted on ALL hit types can be set as options on any of the hits.
+أي من الخيارات في قائمة المعلمات \([https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters)\) that are accepted on ALL hit types can be set as options on any of the hits.
 
 ```javascript
 GoogleAnalytics.pageview({ path: '/video/1235', user_id: user.id })
 ```
 
-User id is a global option in the example above.
+معرف المستخدم هو خيار عالمي في المثال أعلاه.
 
-The complete list at this time:
+القائمة الكاملة في هذا الوقت:
 
 ```text
  anonymize_ip,
@@ -152,38 +152,40 @@ The complete list at this time:
  geographical_id
 ```
 
-Boolean options like `anonymize_ip` will be converted from `true`/`false` into `1`/`0` as per the tracking API docs.
+خيارات منطقية مثل
+`anonymize_ip` سيتم تحويل من `true`/`false` into `1`/`0` وفقًا لمستندات تتبع التتبع.
 
 
 
-### **Non-Interactive Hit**
+### **ضرب غير التفاعلية**
 
 ```javascript
 # Track a Non-Interactive Hit
 GoogleAnalytics.event({ category: 'webhook', action: 'send', non_interactive: true })
 ```
 
-Non-Interactive events are useful for tracking things like emails sent, or other events that are not directly the result of a user's interaction.
+تعد الأحداث غير التفاعلية مفيدة لتتبع أشياء مثل رسائل البريد الإلكتروني المرسلة ، أو الأحداث الأخرى التي لا تكون مباشرة نتيجة تفاعل المستخدم.
 
-The option `non_interactive` is accepted for all methods on `tracker`.
+الخيار
+`non_interactive` مقبول لجميع الطرق على `tracker`.
 
-### **Session Control**
+### **التحكم في الجلسة**
 
 ```javascript
-// start a session
+// بدء جلسة
 GoogleAnalytics.pageview({ path: '/blog', start_session: true })
 
-// end a session
+// انهاء الجلسة
 GoogleAnalytics.pageview({ path: '/blog', end_session: true })
 ```
 
-Other options are acceptable to start and end a session: `session_start`, `session_end`, and `stop_session`.
+الخيارات الأخرى مقبولة لبدء الجلسة وإنهاؤها: `session_start`, `session_end`, and `stop_session`.
 
-### **Content Experiment**
+### **تجربة المحتوى**
 
 ```javascript
-// Tracking an Experiment
-//   useful for tracking A/B or Multivariate testing
+// تتبع تجربة
+// مفيد لتتبع اختبار A / B أو متعدد المتغيرات
 GoogleAnalytics.pageview({
   path: '/blog',
   experiment_id: 'a7a8d91df',

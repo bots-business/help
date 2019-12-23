@@ -1,12 +1,12 @@
-# Bot information
+# بوت المعلومات
 
 ![](.gitbook/assets/image%20%2820%29.png)
 
-In bot dashboard you can see usage information.
+في bot dashboard ، يمكنك رؤية معلومات الاستخدام.
 
 
 
-**Chats can be blocked by users** - so we have active and total chats.
+** يمكن حظر الدردشات من قبل المستخدمين ** - لذلك لدينا دردشات نشطة وكاملة.
 
-This information can be refreshed by Refresh button.
+يمكن تحديث هذه المعلومات بواسطة زر التحديث.
 

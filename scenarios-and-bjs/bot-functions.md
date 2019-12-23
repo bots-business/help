@@ -1,10 +1,10 @@
-# Bot functions
+# وظائف بوت
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Function</th>
-      <th style="text-align:left">Description</th>
+      <th style="text-align:left">الوظيفة</th>
+      <th style="text-align:left">الوصف</th>
     </tr>
   </thead>
   <tbody>
@@ -39,7 +39,7 @@
       <td style="text-align:left"><code>Bot.clearRunAfter(options)</code>
       </td>
       <td style="text-align:left">
-        <p>Clear other command with run_after by label</p>
+        <p>امسح الأمر الآخر باستخدام run_after حسب التسمية</p>
         <p></p>
         <p><a href="https://help.bots.business/scenarios-and-bjs/bot-functions#bot-clearrunafter-options">see more</a>
         </p>
@@ -49,7 +49,7 @@
       <td style="text-align:left"><code>Bot.sendKeyboard(buttons, message)</code>
       </td>
       <td style="text-align:left">
-        <p>send keyboard and message. Message is required</p>
+        <p>إرسال لوحة المفاتيح والرسالة.  الرسالة مطلوبة</p>
         <p></p>
         <p><code>Bot.sendKeyboard(&quot;about, help,\ncontacts&quot;, &quot;send keyboard now&quot;)</code>
         </p>
@@ -59,8 +59,7 @@
       <td style="text-align:left"><code>Bot.sendInlineKeyboard(buttons, message)</code>
       </td>
       <td style="text-align:left">
-        <p>Send inline keyboard and message. Message is required. Buttons is array.
-          Button must have text fields: title(required), url or command.</p>
+        <p>إرسال لوحة المفاتيح والرسالة المأهولة. رسالة مطلوبة. أزرار هي صفيف. يجب أن يكون الزر حقول نصية: العنوان (مطلوب) url  أمر او.</p>
         <p></p>
         <p><code>Bot.sendInlineKeyboard([ {title: &quot;google&quot;, url: &quot;http://google.com&quot; }, {title: &quot;other command&quot;, command: &quot;/othercommand&quot;} ], &quot;Please make a choice.&quot;)</code>
         </p>
@@ -70,7 +69,7 @@
       <td style="text-align:left"><code>Bot.sendInlineKeyboardToChatWithId(chat_id, buttons, message)</code>
       </td>
       <td style="text-align:left">
-        <p>Send inline keyboard and message to chat with chat_id</p>
+        <p>أرسل لوحة مفاتيح مضمّنة ورسالة للدردشة مع chat_id</p>
         <p></p>
         <p><code>Bot.sendInlineKeyboard(&apos;852378745487&apos;, [ {title: &quot;google&quot;, url: &quot;http://google.com&quot; }, {title: &quot;other command&quot;, command: &quot;/othercommand&quot;} ], &quot;Please make a choice.&quot;)</code>
         </p>
@@ -80,8 +79,8 @@
       <td style="text-align:left"><code>Bot.editInlineKeyboard(buttons)</code>
       </td>
       <td style="text-align:left">
-        <p>Edit exist inline keyboard after executing the command that was called
-          by its button</p>
+        <p>تحرير موجود لوحة المفاتيح المضمنة بعد تنفيذ الأمر الذي تم استدعاؤه
+           بواسطة الزر الخاص به</p>
         <p></p>
         <p><code>Bot.editInlineKeyboard([ {title: &quot;google&quot;, url: &quot;http://google.com&quot; } ])</code>
         </p>
@@ -91,8 +90,8 @@
       <td style="text-align:left"><code>Bot.editInlineKeyboard(buttons, message_id, chat_id)</code>
       </td>
       <td style="text-align:left">
-        <p>Edit exist inline keyboard for message with message_id in the chat with
-          chat_id. If chat_id is blank current chat is used</p>
+        <p>تحرير موجود لوحة المفاتيح المضمنة للرسالة مع message_id في الدردشة مع
+           chat_id.  إذا كانت chat_id فارغة ، فسيتم استخدام الدردشة الحالية</p>
         <p></p>
         <p><code>Bot.editInlineKeyboard([ {title: &quot;google&quot;, url: &quot;http://google.com&quot; } ], request.message.message_id, chat.id)</code>
         </p>
@@ -107,19 +106,19 @@
         <p><code>Bot.setProperty(&quot;TotalScore&quot;, 100, &quot;integer&quot;)</code> 
         </p>
         <p></p>
-        <p>Type can be integer, float, string, text, json, datetime</p>
+        <p>يمكن أن يكون النوع عددًا صحيحًا أو عائمًا أو نصًا json أو وقت</p>
       </td>
     </tr>
     <tr>
       <td style="text-align:left"><code>Bot.getProperty(name)</code>
       </td>
       <td style="text-align:left">
-        <p>Read property with name. Name is case sensitive. Name is case sensitive.</p>
+        <p>قراءة الممتلكات مع الاسم.  الاسم حساس لحالة الأحرف.  الاسم حساس لحالة الأحرف.</p>
         <p></p>
         <p><code>Bot.getProperty(&quot;TotalScore&quot;)</code>
         </p>
         <p></p>
-        <p>can get property with default value for non exist property:</p>
+        <p>يمكن الحصول على خاصية ذات قيمة افتراضية لخاصية غير موجودة:</p>
         <p><code>Bot.getProperty(&quot;TotalScore&quot;, 100)</code> 
         </p>
       </td>
@@ -151,106 +150,117 @@
     <tr>
       <td style="text-align:left"><code>Bot.inspect(value)</code>
       </td>
-      <td style="text-align:left">Send inspected value to chat. Good for debug</td>
+      <td style="text-align:left">إرسال قيمة تفتيش للدردشة.  جيد لتصحيح</td>
     </tr>
   </tbody>
 </table>
 
-**Access to property** in answer:
+** الوصول إلى الممتلكات ** في الإجابة:
 
-> You can also use the properties in the command's answer. For example, you can do this with the / hello command:`Total score: <TotalScore>!`
+> يمكنك أيضًا استخدام الخصائص في إجابة الأمر.  على سبيل المثال ، يمكنك القيام بذلك باستخدام الأمر
+مجموع الدرجات:
+/hello
+`<TotalScore>!`
 
 in BJS:
 
-> And you can use it in `Bot.sendMessage("<TotalScore>")`
+> ويمكنك استخدامها في `Bot.sendMessage("<TotalScore>")`
 
 
 
-## Bot.run\(options\)
+## Bot.run\(خيارات\)
 
-Run other command
+تشغيل قيادة أخرى
 
 ```javascript
 Bot.run(params)
 ```
 
-| Field | Description |
+| مجال | الوصف |
 | :--- | :--- |
-| `command` | **Required**. Command for run. For example "/start". Can pass params  |
-| `options` | json for passing to command. Available through options in this command |
-| `run_after` | delay in seconds before command callingName is case sensitive. |
-| `user_id` | user\_id for passing. **By default** this is current user.id |
-| `chat_id` | chat\_id for passing. **By default** this is current chat.id |
-| `label` | can be used for clearing with `Bot.clearRunAfter` |
+| `command` | **مطلوب**. قيادة للتشغيل. على سبيل المثال "/ بدء". يمكن أن يمر params |
+| `options` | json لتمرير الأمر. متاح من خلال الخيارات في هذا الأمر |
+| `run_after` | التأخير بالثواني قبل الأمر callName حساس لحالة الأحرف. |
+| `user_id` | user\_id لتمرير. ** بشكل افتراضي ** هذا هو user.id الحالي
+| `chat_id` | chat\_id لتمرير. ** افتراضيا ** هذا هو chat.id الحالي |
+| `label` | يمكن استخدامها للتطهير باستخدام `Bot.clearRunAfter` |
 
-**Example 1**. Run another command `/balance` with delay 1 hour for current user
+**مثال 1**
+قم بتشغيل أمر آخر
+`/balance` مع تأخير 1 ساعة للمستخدم الحالي
 
 ```javascript
 Bot.run( {
     command: "/balance",
-    run_after: 1*60*60,  // 1 hour delay
-    // label: "runBalance"  // label can be used for remove future calling
+    run_after: 1*60*60,  // 1 ساعة تأخير
+        // label: "runBalance"  // التسمية يمكن استخدامها لإزالة الدعوة في المستقبل
 } )
 ```
 
-**Example 2**. Run another command `/balance` with delay 5 days for this user
+** مثال 2 **. 
+قم بتشغيل أمر آخر `balance/` مع تأخير لمدة 5 أيام لهذا المستخدم
 
 ```javascript
 Bot.run( {
     command: "/balance",
     run_after: 60*60*24*5,  // 5 days delay
-    // options: { amount: 5, currency: "BTC" }  // you can pass data
-    chat_id: chat.id  // or use another chat_id
-    user_id: user.id  // or use another user.id
+    // خيارات: { كمية: 5, عملة: "BTC" } 
+// يمكنك تمرير البيانات
+    chat_id: chat.id  // أو استخدم chat_id آخر
+    user_id: user.id  // أو استخدام user.id آخر
 } )
 ```
 
 {% hint style="danger" %}
-You can not use chat.chatid and user.telegramid with Bot.run method.
+لا يمكنك استخدام chat.chatid و user.telegramid مع طريقة Bot.run.
 
-Only chat.id or user.id
+فقط chat.id or user.id
 {% endhint %}
 
 {% hint style="success" %}
-Store another chat.id or user.id to propertis if you can not pass it imeditally. 
+تخزين chat.id آخر أو user.id إلى propertis إذا لم تتمكن من تمريره على الفور.
 {% endhint %}
 
 ## Bot.clearRunAfter\(options\)
 
-Can clear future command\(s\) execution setted by Bot.run
+يمكن مسح الأمر المستقبل \ (s \) التنفيذ
+استقر بها Bot.run
 
 {% hint style="info" %}
-Use this function if future command calling not needed already
+استخدم هذه الوظيفة إذا لم تكن هناك حاجة إلى استدعاء الأمر في المستقبل
 {% endhint %}
 
 ```javascript
-// delete all future commands executions
+// احذف جميع أوامر الإعدام المستقبلية
 Bot.clearRunAfter()
 ```
 
 ```javascript
-// delete all future commands executions with label "myLabel"
+// حذف جميع أوامر تنفيذ الأوامر المستقبلية مع التصنيف "myLabel"
 Bot.clearRunAfter({ label: "myLabel"})
 ```
 
-| Field | Description |
+| مجال | الوصف |
 | :--- | :--- |
-| `label` | **Required**. Command for clearing. For example "myLabel"  |
+| `label` | **مطلوب**. أمر للمقاصة. على سبيل المثال "myLabel" |
 
-**Example 1**. Run another command `/work` with delay 5 days. And remove that delay \(for example on 3th day\)
+**مثال 1**. 
+قم بتشغيل أمر آخر
+`/work` مع تأخير 5 أيام. وأزل هذا التأخير
+ \ (على سبيل المثال في اليوم الثالث \)
 
 ```javascript
 Bot.run( {
     command: "/balance",
-    run_after: 60*60*24*5,  // 5 days delay
-    label: "myLabel"
+    run_after: 60*60*24*5, 
+// 5 أيام تأخير التصنيف: "myLabel"
 } )
 ```
 
-On the third day we learned that the call is no longer needed:
+في اليوم الثالث ، علمنا أن المكالمة لم تعد مطلوبة:
 
 ```javascript
-// remove all future executions with label "mylabel"
+// قم بإزالة جميع عمليات الإعدام المستقبلية باستخدام التصنيف "mylabel"
 Bot.clearRunAfter( {
     label: "myLabel"
 } )

@@ -1,45 +1,52 @@
 # Inline Bot
 
-We have [Inline bots](https://core.telegram.org/bots/inline) in Telegram:
+لدينا
+[Inline bots](https://core.telegram.org/bots/inline) in Telegram:
 
 [![](https://core.telegram.org/file/811140995/1/I-wubuXAnzk/2e39739d0ac6bd5458)](https://core.telegram.org/file/811140995/1/I-wubuXAnzk/2e39739d0ac6bd5458)
 
-> Beyond sending commands in private messages or groups, users can interact with your bot via [**inline queries**](https://core.telegram.org/bots/api#inline-mode). If inline queries are enabled, users can call your bot by typing its username and a query in the **text input field** in **any** chat. The query is sent to your bot in an update. This way, people can request content from your bot in **any** of their chats, groups, or channels without sending any messages at all.
+> إلى جانب إرسال الأوامر في رسائل أو مجموعات خاصة ، يمكن للمستخدمين التفاعل مع الروبوت الخاص بك عبر 
+[**inline queries**](https://core.telegram.org/bots/api#inline-mode).
+إذا تم تمكين الاستعلامات المضمّنة ، فيمكن للمستخدمين الاتصال بالروبوت الخاص بك عن طريق كتابة اسم المستخدم الخاص به والاستعلام في **حقل إدخال النص ** في ** أي دردشة**.  يتم إرسال الاستعلام إلى الروبوت الخاص بك في التحديث.  وبهذه الطريقة ، يمكن للناس طلب محتوى من روبوتك في ** أي ** من دردشاتهم أو مجموعاتهم أو قنواتهم دون إرسال أي رسائل على الإطلاق.
 
 {% hint style="warning" %}
-To enable this option, send the `/setinline` command to [@BotFather](https://telegram.me/botfather) and provide the placeholder text that the user will see in the input field after typing your bot’s name.
+لتفعيل هذا الخيار
+`/setinline` command to [@BotFather](https://telegram.me/botfather) وقم بتوفير نص العنصر النائب الذي سيراه المستخدم في حقل الإدخال بعد كتابة اسم الروبوت الخاص بك.
 {% endhint %}
 
 {% hint style="success" %}
-See example bot [BBHelpBot](https://t.me/bbhelpbot)
+مثال انظر الى البوت [BBHelpBot](https://t.me/bbhelpbot)
 {% endhint %}
 
-## Support with BJS - command /inlineQuery
+## الدعم مع BJS - القيادة 
+/inlineQuery
 
-Need create command `/inlineQuery`. Such a name is required.
+تحتاج الى صنع امر
+`/inlineQuery`
+.هذا الاسم مطلوب
 
 ```javascript
-// result.query - it is query from inline searching
+// result.query - إنه استعلام من البحث المضمن
 if(!request.query){ return }
 
 results = [];
 totalResult = 0;
 
-// it is array of results.
-// we have InlineQueryResultArticle
+// انها مجموعة من النتائج.
+/ / لدينا InlineQueryResultArticle
 // core.telegram.org/bots/api#inlinequeryresultarticle
-// another types: https://core.telegram.org/bots/api#inlinequeryresult
+// أنواع أخرى: https://core.telegram.org/bots/api#inlinequeryresult
 
 results.push({
-  type: "article",
+  type: "المقال",
   id: totalResult,
-  title: "Text for item",
+  title: "نص للعنصر",
   input_message_content:
-     { "message_text": "This message will be in chat" }
+     { "message_text": "هذه الرسالة ستكون في الدردشة" }
 })
 
 Api.answerInlineQuery({
-  // see another fields at:
+  // رؤية حقول أخرى في:
   // core.telegram.org/bots/api#answerinlinequery
   inline_query_id: request.id,
   results: results,

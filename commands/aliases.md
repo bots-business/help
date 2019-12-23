@@ -1,13 +1,17 @@
 # Aliases
 
-### What it is aliases?
+### ما هو الأسماء المستعارة؟
 
-Sometimes it is convenient to set aliases. For example, include aliases `/phone, /email` to command `/contacts`.  
-Then `/contacts` - it is command name. Others - it's aliases.
+في بعض الأحيان أنها مريحة لتعيين مستعرض. على سبيل المثال، تشمل 
+aliases `/phone, /email` to command `/contacts`.  
+Then `/contacts` - إنه اسم الأمر.
+الآخرين (aliases) - إنها الأسماء المستعارة.
 
 ![Aliases can be modified on command editing ](../.gitbook/assets/image%20%284%29.png)
 
-A much more useful case: set aliases for **keyboard** keys. Quite pleasant "contact" on the button, than "/contacts"
+وهناك حالة أكثر فائدة بكثير: تعيين الأسماء المستعارة ل **keyboard** keys.
+لطيف جدا
+"contact" على الزر ، من "/contacts"
 
 ![](../.gitbook/assets/image%20%287%29.png)
 

@@ -1,24 +1,24 @@
-# Import bot from Git repository
+# استيراد الروبوت من مستودع جيت
 
-## Preconditions
+## شروط مسبقة
 
-Please see [this](https://help.bots.business/git#requirements) before. \(Need set repository and Deploy Key in external repository\)
+لطفا أنظر [this](https://help.bots.business/git#requirements) before. \(Need set repository and Deploy Key in external repository\)
 
-## Importing
+## استيراد
 
 {% hint style="danger" %}
-All existing bot's commands will be deleted
+سيتم حذف جميع أوامر bot الحالية
 {% endhint %}
 
 {% hint style="danger" %}
-All existing bot's libs will be uninstalled
+سيتم إلغاء تثبيت كل libs الموجودة في bot
 {% endhint %}
 
-Go to bot -&gt; Sync
+انتقل إلى bot -> Sync
 
 ![](../.gitbook/assets/image%20%2849%29.png)
 
-Press button "Import from Git rep"
+اضغط على زر "استيراد من Git rep"
 
 
 

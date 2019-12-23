@@ -1,19 +1,21 @@
-# BJS Security
+# BJS الأمن
 
-BJS is very powerful and flexible. But with this. But simply make the code **vulnerable**.
+BJS قوية جدا ومرنة.  لكن مع هذا.  ولكن ببساطة اجعل الكود
+** ضعيفًا**
 
 {% hint style="danger" %}
-Please read this article carefully
+يرجى قراءة هذا المقال بعناية
 
-Especially if you work with payments, user balances, sell goods through a bot
+ خاصة إذا كنت تعمل مع المدفوعات ، أرصدة المستخدم ، بيع البضائع من خلال الروبوت
 {% endhint %}
 
-## Any user can execute any command
+## يمكن لأي مستخدم تنفيذ أي أمر
 
-Vulnerable command `/setBalance`:
+القيادة الضعيفة
+`/setBalance`:
 
 ```javascript
-// admin can add 100$ to users's balance by it telegramid
+// يمكن للمشرف إضافة 100 دولار إلى رصيد المستخدمين من خلال telegramid
 
 tgID = params
 
@@ -23,81 +25,86 @@ Bot.sendMessage("Added 100$ for user");
 ```
 
 {% hint style="danger" %}
-Any user can run /setBalance \[telegramid\]
+اي مستخدم يمكنة تشغيل
+ /setBalance \[telegramid\]
 {% endhint %}
 
-So need check execute this command only for admin:
+لذلك تحتاج التحقق من تنفيذ هذا الأمر فقط للمشرف:
 
 **1.Add this command to** [**group**](https://help.bots.business/commands/groups)
 
 ![](../.gitbook/assets/image%20%2834%29.png)
 
-add admin to group "admin": 
+إضافة المسؤول إلى المجموعة "admin": 
 
 ```javascript
-// create any temporary command with this code
-// run it for admin
+// إنشاء أي أمر مؤقت مع هذا الرمز
+// تشغيله للمشرف
 
-// destroy command after for security
-// also you can protect this command with password
+// تدمير الامر بعد تنفيذ الامان
+// كما يمكنك حماية هذا الأمر بكلمة مرور
 
 User.addToGroup("admin")
 ```
 
-**2. Or you can check admin in BJS**
+** 2.  أو يمكنك التحقق من المشرف في BJS **
 
-first you need get ADMIN\_TELEGRAM\_ID
+تحتاج أولا الحصول عليها ADMIN\_TELEGRAM\_ID
 
 ```javascript
 Bot.sendMessage(user.telegramid)
 ```
 
-security command:
+قيادة الأمن:
 
 ```javascript
 if(user.telegramid!=ADMIN_TELEGRAM_ID){
-  return // exit from BJS
+  return // الخروج من BJS
 }
 
-// ONLY admin can add 100$ to users's balance by it telegramid
+// يمكن للمشرف فقط إضافة 100 دولار إلى رصيد المستخدمين من خلال telegramid
 
 tgID = params
 
 let res = Libs.ResourcesLib.anotherUserRes("money", tgID);
 res.add(100)
-Bot.sendMessage("Added 100$ for user");
+Bot.sendMessage("أضاف 100 دولار للمستخدم");
 ```
 
 
 
-## Any user can execute any "SECRET" command
+## يمكن لأي مستخدم تنفيذ أي أمر "SECRET"
 
-For example, you have command `/payment` \(have "Wait for answer"\) with execute other "secret" command `/setBalance` :
+على سبيل المثال ، لديك
+أمر
+`/payment` \(have "Wait for answer"\) with 
+تنفيذ آخر
+"secret" command `/setBalance` :
 
 ```javascript
-// command /payment
+// أمر /payment
 
-// user provide oneTime password. If password is valid - add bonus 100$
+// يوفر المستخدم كلمة مرور oneTime. إذا كانت كلمة المرور صالحة - أضف مكافأة 100 دولار
 
 var oneTimePassword = User.getProperty("oneTimePassword");
 
 if(!oneTimePassword){
-  return // we have not oneTime password now
+  return // ليس لدينا كلمة مرور مرة واحدة الآن
 }
 
 if(oneTimePassword=="already taked"){
-  // if taked already - exit
+  // إذا اتخذت بالفعل - موجودة
   return
 }
 
 if(oneTimePassword!=message){
-  // user do not know oneTime password
+  // المستخدم لا يعرف كلمة مرور oneTime
   Bot.sendMessager("Error. Password is wrong")
 }
 
 if(oneTimePassword==message){
-  // user know oneTime password!
-  // make it "already taked"
+  // يعرف المستخدم كلمة مرور واحدة
+// اجعلها "مأخوذة بالفعل"
   User.setProperty("oneTimePassword", "already taked", "string")
   // run "secret" command
   Bot.runCommand("/setBalance");
@@ -113,36 +120,42 @@ res.add(100)
 Bot.sendMessage("Added 100$ for you");
 ```
 
-**So user must:**
+** لذلك يجب على المستخدم: **
 
-* run /payment command
-* type secret one time password
-* after it - "secret" command "/setBalance" will be runned
+ * تشغيل / دفع الأوامر
+ * اكتب كلمة المرور السرية لمرة واحدة
+* بعد ذلك - سيتم تشغيل الأمر "السري"setBalance/"
 
-**Vulnerability: hacker can run /setBalance only and get bonus immediately**
+** الضعف: يمكن للقراصنة تشغيل
+/setBalance 
+فقط والحصول على مكافأة على الفور **
 
-Need to checking that command `/setBalance` was runned only by command `/payment`
+تحتاج إلى التحقق من هذا الأمر
+`/setBalance`
+كان يديرها فقط عن طريق القيادة
+`/payment`
 
-one of the methods - pass secret on run command as params:
+إحدى الطرق - تمرير أمر سري في أمر التشغيل كما يلي:
 
 command `/payment`
 
 ```javascript
 ...
-// part of code for /payment
+// جزء من رمز ل /payment
 
 if(oneTimePassword==message){
   ...
-  var secret = "GJHURFVJLHF" // use own secret. You can store it in property
+  var secret = "GJHURFVJLHF"
+// استخدام السرية الخاصة. يمكنك تخزينها في الممتلكات
   Bot.runCommand("/setBalance");
   Bot.sendMessage("Thank you for payment!");
 }
 ```
 
 {% hint style="danger" %}
-Do not use "GJHURFVJLHF" secret! 
+لا تستخدم سر "GJHURFVJLHF"!
 
-It is not secret world already
+ إنه ليس عالم سري بالفعل
 {% endhint %}
 
 command `/setBalance`
@@ -153,42 +166,45 @@ if(params=="GJHURFVJLHF"){
    res.add(100)
    Bot.sendMessage("Added 100$ for you");
 }else{
-   Bot.sendMessage("You are hacker!")
+   Bot.sendMessage("أنت المتسلل!")
 }
 ```
 
 
 
-## Recommendations
+## التوصيات
 
-### Do not share your bot token, BB API Key
+### لا تشارك الرمز المميز للبوت الخاص بك ، BB API Key
 
-Bot token and BB API Key - are is very vulnerability data. Do not share theys anywhere!
+رمز مميز لـ Bot و BB API Key - هما بيانات الثغرات الأمنية.  لا نشاركهم في أي مكان!
 
 
 
-### Do not use default command names "/onIncome", "/onTransaction" for important commands
+### لا تستخدم أسماء الأوامر الافتراضية
+"/onIncome", "/onTransaction" من اجل استيراد الامر
 
-Hacker can brute force such command names and try to execute it
+يمكن هاكر القوة الغاشمة هذه أسماء الأوامر ومحاولة تنفيذها
 
 ### \*\*\*\*
 
 ### **Remove /test command**
 
-If you have any /test command with non security BJS - remove it.
+إذا كان لديك أي أمر test/ مع BJS غير آمن - إزالته.
 
-Hacker can execute /test too
+يمكن هاكر تنفيذ test/ جدا
 
 
 
-### Use `completed_commands_count` variable
+### استعمال متغير
+###`completed_commands_count`
 
-Anybody can run any command. But it is possible make secured sub command.
+يمكن لأي شخص تشغيل أي أمر.  ولكن من الممكن جعل الأمر الفرعي المضمون.
 
-For example command `/admin`
+ على سبيل المثال القيادة
+`/admin`
 
 ```javascript
-// make admin access here
+// جعل وصول المسؤول هنا
 // ...
 
 Bot.runCommand("/secure")
@@ -197,26 +213,28 @@ Bot.runCommand("/secure")
 command `/secure`
 
 ```javascript
-// this command can not be runned by user
+// لا يمكن تشغيل هذا الأمر بواسطة المستخدم
 if(completed_commands_count==0){ return }
 
-// only via Bot.runCommand, Bot.run or as "on_result"
-// your secure code here
+// فقط عبر Bot.runCommand أو Bot.run أو 
+//as "on_result"
+// الرمز الآمن الخاص بك هنا
 // ...
 ```
 
-## Do not use any non official libs now.
+## لا تستخدم أي libs غير الرسمية الآن.
 
 {% hint style="danger" %}
-Do not use any non official libs now. 
+لا تستخدم أي libs غير الرسمية الآن.
 
-* Any lib can run command with options.
-* Any libs can read properties \(and read your API Keys from other lib\)
+ * يمكن لأي lib تشغيل الأمر مع الخيارات.
+ * يمكن لأي libs قراءة الخصائص
+\(and read your API Keys from other lib\)
 
-We have not way to protect this now. Just **not use NON official libs** with CP lib. Well, that now there are no such libraries
+ليس لدينا طريقة لحماية هذا الآن.  فقط ** لا تستخدم LIBS الرسمية ** مع CP lib.  حسنًا ، الآن لا توجد مثل هذه المكتبات
 {% endhint %}
 
-## Bad practice
+## سوء الممارسة
 
 Bad BJS:
 
@@ -224,20 +242,21 @@ Bad BJS:
 let admin = "Jon Smith";
 
 if (user.first_name==admin){
-  // do admin action here
+  // القيام بعمل المشرف هنا
   ...
 }
 ```
 
 {% hint style="danger" %}
-Any user can set any first\_name, last\_name and etc 
+يمكن لأي مستخدم تعيين أي
+first\_name, last\_name and etc 
 
-Hacker can change or create account with this field
+يمكن للهاكر تغيير أو إنشاء حساب بهذا الحقل
 {% endhint %}
 
 
 
-## See BB reports
+## انظر تقارير BB
 
-[Read info](https://help.bots.business/bb-inspection) about BB report. Demo report have nice recommendations. 
+[Read info](https://help.bots.business/bb-inspection) حول تقرير BB. تقرير تجريبي لديك توصيات لطيفة. 
 

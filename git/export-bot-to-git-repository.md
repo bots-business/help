@@ -1,20 +1,23 @@
-# Export bot to Git repository
+# تصدير بوت إلى مستودع Git
 
 {% hint style="success" %}
-You can make export for any free bot in the Store. Just install it.
+يمكنك جعل التصدير لأي روبوت مجاني في المتجر. فقط تثبيته.
 {% endhint %}
 
-## Preconditions
+## شروط مسبقة
 
-Please see [this](https://help.bots.business/git#requirements) before. \(Need set repository and Deploy Key in external repository\)
+لطفا أنظر [this](https://help.bots.business/git#requirements) before. 
+\(تحتاج إلى تعيين مستودع التخزين و Deploy Key في مستودع التخزين الخارجي\)
 
-## Exporting
+## تصدير
 
-Go to bot -&gt; Sync
+انتقل إلى bot -> Sync
 
 ![](../.gitbook/assets/image%20%2849%29.png)
 
-Press on button "Export to git rep" and wait.
+اضغط على زر "تصدير إلى git rep" وانتظر.
 
-After some minutes new branch with name "BB\_Export\_TIME" will be created on your external repository. 
+بعد بضع دقائق فرع جديد بالاسم
+"BB\_Export\_TIME"
+سيتم إنشاؤه في مستودعك الخارجي. 
 

@@ -1,46 +1,47 @@
 ---
-description: Use this Lib for referral tracking.
+الوصف: استخدم هذه المكتبة لتتبع الإحالة.
 ---
 
 # RefferalLib
 
 Demo bot: [https://telegram.me/DemoReferalTrackingBot?start=FromLibPage](https://telegram.me/DemoReferalTrackingBot?start=FromLibPage)
 
-## Getting started
+## ابدء
 
-Basic function is **track**. Prefer to call it on /start:
+الوظيفة الأساسية هي ** المسار **.  تفضل أن نسميها على
+/start:
 
 `Libs.ReferralLib.currentUser.track(trackOptions);`
 
-params `trackOptions` - it is object with callback functions for:
+params `trackOptions` - هو كائن مع وظائف رد الاتصال من أجل:
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">callback function</th>
-      <th style="text-align:left">description</th>
+      <th style="text-align:left">وظيفة رد الاتصال</th>
+      <th style="text-align:left">الوصف</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">onTouchOwnLink()</td>
-      <td style="text-align:left">user touch own link</td>
+      <td style="text-align:left">اتصال المستخدم الرابط الخاص</td>
     </tr>
     <tr>
       <td style="text-align:left">onAlreadyAttracted()</td>
-      <td style="text-align:left">user already attracted</td>
+      <td style="text-align:left">المستخدم جذبت بالفعل</td>
     </tr>
     <tr>
       <td style="text-align:left">onAttracted()</td>
-      <td style="text-align:left">user was attracted via chanell</td>
+      <td style="text-align:left">تم جذب المستخدم عبر شانيل</td>
     </tr>
     <tr>
       <td style="text-align:left">onAtractedByUser(refUser)</td>
       <td style="text-align:left">
-        <p>user was attracted by other user refUser - it is common user data (fields:
-          nickname, first_name and etc)</p>
+        <p>تم جذب المستخدم من قبل مستخدم refUser آخر - إنها بيانات مستخدم شائعة (الحقول:
+           اللقب ، الاسم الأول ، إلخ)</p>
         <p></p>
-        <p>Also have field chatId with chat id for this user.</p>
+        <p>لديك أيضا مجال الدردشة مع معرف الدردشة لهذا المستخدم.</p>
       </td>
     </tr>
   </tbody>
@@ -48,73 +49,71 @@ params `trackOptions` - it is object with callback functions for:
 See @[DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=FromLibPage) for details
 {% endhint %}
 
-## Functions
+## المهام
 
 
 
-## Get Referral link for current user
+ ## الحصول على رابط الإحالة للمستخدم الحالي
 
 `Libs.ReferralLib.currentUser.getRefLink(bot.name);` 
 
 will generate link kind **http://t.me/botname?start=userUSER\_ID**
 
-Also you can change prefix. For example remove "user"
+كما يمكنك تغيير البادئة.  على سبيل المثال إزالة "المستخدم"
 
 `Libs.ReferralLib.currentUser.getRefLink(bot.name, "");` 
 
-will generate link kind **http://t.me/botname?start=USER\_ID**
+سوف تولد نوع الارتباط **http://t.me/botname?start=USER\_ID**
 
 ### 
 
-### Get attractor for current user
+### الحصول على جاذب للمستخدم الحالي
 
 `Libs.ReferralLib.currentUser.attractedByUser()` 
 
-return user data \(with chatId\) 
+إرجاع بيانات المستخدم \(with chatId\) 
 
 
 
-### Get attracted channel for current user
+### الحصول على قناة جذب للمستخدم الحالي
 
 `Libs.ReferralLib.currentUser.attractedByChannel()` 
 
-return Channel wich current user was attracted
+عودة قناة الذي تم جذب المستخدم الحالي
 
 
 
-### Get refList
+### الحصول على refList
 
 `Libs.ReferralLib.currentUser.refList.get();` 
 
-return list with attracted users
+قائمة العودة مع المستخدمين جذبت
 
 
 
-### Clear refList
+### مسح refList
 
 `Libs.ReferralLib.currentUser.refList.clear();`
 
 ### 
 
-### Get Top Refferal List
+### الحصول على أعلى قائمة الإحالة
 
 `Libs.ReferralLib.topList.get(45)`
 
-return first 45 users ordering by referrals count
+إرجاع أول 45 مستخدمًا حسب عدد الإحالات
 
 
 
-### Clear Top Refferal List
+### مسح أعلى قائمة الإحالة
 
 `Libs.ReferralLib.topList.clear()`
 
-## How to
-
-**Q: How to give bonus to user for attracted friend?**
+** س: كيفية منح مكافأة للمستخدم عن صديق جذب؟ **
 
 **Answer:**
 
-We can use [ResourcesLib](https://help.bots.business/libs/resourceslib) for this.
+يمكننا استخدام [ResourcesLib](https://help.bots.business/libs/resourceslib) for this.
 
 on `/start`
 
@@ -122,7 +121,7 @@ on `/start`
 function onAttracted(refUser){
   // access to Bonus Res of refUser
   let refUserBonus = Libs.ResourcesLib.anotherUserRes("money", refUser.telegramid);
-  refUserBonus.add(100);  // add 100 bonus for friend
+  refUserBonus.add(100);  // إضافة 100 مكافأة لصديق
 }
 
 Libs.ReferralLib.currentUser.track({
@@ -132,13 +131,13 @@ Libs.ReferralLib.currentUser.track({
 
 
 
-**Q: how to give to referrer 5% of referral user deposit?**
+** س: كيفية إعطاء للإحالة 5 ٪ من إيداع المستخدم الإحالة؟ **
 
 **Answer:**
 
-1. You need setup [track](https://help.bots.business/libs/refferallib#getting-started) in first
-2. Seems you need use [ResourcesLib](https://help.bots.business/libs/resourceslib)
-3. On user set balance:
+1. تحتاج الإعداد [track](https://help.bots.business/libs/refferallib#getting-started) in first
+2. يبدو أنك بحاجة إلى استخدام [ResourcesLib](https://help.bots.business/libs/resourceslib)
+3. على رصيد مجموعة المستخدم:
 
 ```javascript
 let res = Libs.ResourcesLib.userRes("money");
@@ -155,6 +154,6 @@ if(referrer){
 ```
 
 {% hint style="info" %}
-In this example we use userRes. Also it is possible use chatRes. See [ResourcesLib](https://help.bots.business/libs/resourceslib) for details
+في هذا المثال ، نستخدم userRes.  كما أنه من الممكن استخدام chatRes.  نرى [ResourcesLib](https://help.bots.business/libs/resourceslib) for details
 {% endhint %}
 

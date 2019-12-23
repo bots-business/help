@@ -1,22 +1,23 @@
 ---
-description: Conversion is as easy as a few lines of code!
+الوصف: التحويل سهل مثل بضعة سطور من الكود!
 ---
 
-# CurrencyConverter
+# محول العملات
 
-Currency values are refreshed every 60 minutes.
+يتم تحديث قيم العملة كل 60 دقيقة.
 
-## FREE
+## مجانا
 
-* Maximum of 100 requests/hr
-* Shared with all users who are acccessing it for free.
-* Downtime when there's a need to restart the server for bug fixes and enhancements
+* بحد أقصى 100 طلب / ساعة
+* مشترك مع جميع المستخدمين الذين يتفوقون عليه مجانًا.
+* تعطل عندما تكون هناك حاجة إلى إعادة تشغيل الخادم لإصلاح الأخطاء والتحسينات
 
-## Example bot @DemoCurrencyConverterBot
+## مثال بوت
+@DemoCurrencyConverterBot
 
-## Example code
+## رمز المثال
 
-In any command:
+في أي أمر:
 
 ```javascript
 let amount = 1;
@@ -25,10 +26,11 @@ let conversation = 'USD_EUR' // others: USD_BTC, BTC_USD, CNY_BTC and etc...
 Libs.CurrencyConverter.convert(conversation, amount, onSucces);
 ```
 
-### In command '/onconvert':
+### في القيادة
+###'/onconvert':
 
 ```javascript
-// result stored in params
+// النتيجة المخزنة في params
 Bot.sendMessage(params);
 ```
 

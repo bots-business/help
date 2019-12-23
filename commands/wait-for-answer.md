@@ -1,44 +1,44 @@
 # Wait for answer
 
-## What it is "Wait for answer"?
+## ما هو "انتظر الإجابة"؟
 
-It is need the `Wait for answer` flag if need a response from the user.
+إنها بحاجة إلى علامة `Wait for answerer` إذا احتجت إلى استجابة من المستخدم.
 
 ![Can be modified on command editing](../.gitbook/assets/image%20%286%29.png)
 
-Example of execution of one command:
+مثال على تنفيذ أمر واحد:
 
 Bot:
 
-> What is your name?
+> ما اسمك؟
 
 User:
 
-> Jon
+> جون
 
 Bot:
 
-> Hello, Jon
+> مرحبا ، جون
 
 command:
 
 ```javascript
-answer: What is your name?
+answer: ما اسمك؟
 need_reply: true
-BJS: Bot.sendMessage( "Hello, " + message );
+BJS: Bot.sendMessage( "مرحبا, " + الرسالة );
 ```
 
-So BJS code execute only after user's answer
+لذا يُنفّذ رمز BJS فقط بعد إجابة المستخدم
 
-## How to cancel "Wait for"?
+## كيفية إلغاء "انتظر"؟
 
-Example of canceled for command with "Wait for":
+مثال على إلغاء الأمر مع "انتظر":
 
 Bot:
 
-> What is your name?
+> ما اسمك؟
 
-User \(press "❌ Back" on keybord\):
+استخدم \(press "❌ Back" on keybord\):
 
 > ❌ Back
 
@@ -46,21 +46,22 @@ BJS:
 
 ```javascript
 if(message=="❌ Back"){
-   return  // exit from command on "Back"
+   return  // "الخروج من الأمر على "العودة
 }
 
-Bot.sendMessage( "Hello, " + message );
+Bot.sendMessage( " مرحبا, " + الرسالة );
 ```
 
-or you can run /menu command on "Back"
+أو يمكنك تشغيل 
+/menu command على "Back"
 
 ```javascript
 if(message=="❌ Back"){
    Bot.runCommand("/menu")
-   return // exit from command on "Back"
+   return // "الخروج من الأمر على "العودة
 }
 
-Bot.sendMessage( "Hello, " + message );
+Bot.sendMessage( " مرحبا, " + الرسالة );
 ```
 
 

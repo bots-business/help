@@ -1,6 +1,7 @@
-# File: bot.json
+# ملف: bot.json
 
-bot.json - it is file with bot description. It is required for bot import.
+bot.json - هو ملف مع وصف الروبوت.
+مطلوب لاستيراد الروبوت.
 
 bot.json example:
 

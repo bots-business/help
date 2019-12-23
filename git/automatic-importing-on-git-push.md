@@ -1,8 +1,9 @@
-# Automatic importing on Git push
+# استيراد التلقائي على دفع جيت
 
-You can make automatic bot deploying on git push. 
+يمكنك جعل نشر الروبوت التلقائي على بوابة دفع. 
 
-This possible with [Webhooks](https://help.bots.business/libs/webhooks-lib). Make install for this lib.
+هذا ممكن مع 
+[Webhooks](https://help.bots.business/libs/webhooks-lib). امكانية تثبيت لهذا ليب.
 
 ## Setup
 
@@ -16,38 +17,43 @@ url = Libs.Webhooks.getUrlFor(
 Bot.sendMessage(url);
 ```
 
-execute `/setupGit` copy url and go to Github.com &gt; your repository -&gt; Settings -&gt; Webhooks. Press button "Add webhook"
+نفذ
+ `/setupGit` 
+انسخ عنوان url وانتقل إلى Github.com> مستودعك -> الإعدادات -> Webhooks. اضغط على زر "أضف webhook"
 
-Past copied url as Payload URL
+تم نسخ عنوان url السابق كعنوان URL للحمولة
 
 ![](../.gitbook/assets/image%20%2838%29.png)
 
-Make like this:
+اجعل مثل هذا:
 
 ![](../.gitbook/assets/image%20%2844%29.png)
 
-Go to App - create command `onGitPush`
+انتقل إلى التطبيق - إنشاء القيادة
+`onGitPush`
 
 ```javascript
 Bot.sendMessage("Start code importing...");
 
-// Bot.exportGit also possible
+// Bot.exportGit من الممكن أيضا
 Bot.importGit({
-  branch: "master", // it is master branch
-  success: "onGitImportCompleted"
+  branch: "master", // إنه فرع رئيسي
+  نجاح: "onGitImportCompleted"
 })
 ```
 
-command `onGitImportCompleted`
+أمر `onGitImportCompleted`
 
-just put to answer: "Git import completed"
+وضعت للتو للإجابة: "اكتمال استيراد بوابة"
 
 {% hint style="warning" %}
-Commands `onGitPush and onGitImportCompleted`must be in repository also. Because all commands will be deleted on git importing
+الأوامر 
+`onGitPush و onGitImportCompleted` 
+يجب تكون في مستودع أيضا. لأنه سيتم حذف جميع الأوامر عند استيراد بوابة
 {% endhint %}
 
 {% hint style="danger" %}
-Protect onGitPush command if you need this. Anybody can run it. 
+حماية onGitPush الأمر إذا كنت بحاجة إلى هذا. يمكن لأي شخص تشغيله. 
 {% endhint %}
 
 

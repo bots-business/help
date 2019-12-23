@@ -1,14 +1,14 @@
 # DateTimeFormat Lib
 
-Convert time to time string by mask.
+تحويل الوقت إلى سلسلة الوقت عن طريق القناع.
 
-Implemented from [http://blog.stevenlevithan.com/archives/date-time-format](http://blog.stevenlevithan.com/archives/date-time-format)
+نفذت من [http://blog.stevenlevithan.com/archives/date-time-format](http://blog.stevenlevithan.com/archives/date-time-format)
 
 ```javascript
 Libs.DateTimeFormat.format(time, mask);
 ```
 
-Example:
+مثال:
 
 ```javascript
 var now = new Date();
@@ -22,36 +22,36 @@ Libs.DateTimeFormat.format(now, "h:MM TT");
 
 
 
-| Mask | Description |
+| قناع | الوصف |
 | :--- | :--- |
-| `d` | Day of the month as digits; no leading zero for single-digit days. |
-| `dd` | Day of the month as digits; leading zero for single-digit days. |
-| `ddd` | Day of the week as a three-letter abbreviation. |
+| `D` | يوم الشهر كرقم ؛ لا يوجد صفر بادئة للأيام المكونة من رقم واحد. |
+| `DD` | يوم الشهر كرقم ؛ يؤدي صفر للأيام المكونة من رقم واحد. |
+| `DDD` | يوم من أيام الأسبوع abbr ثلاثة أحرف
 | `dddd` | Day of the week as its full name. |
-| `m` | Month as digits; no leading zero for single-digit months. |
-| `mm` | Month as digits; leading zero for single-digit months. |
-| `mmm` | Month as a three-letter abbreviation. |
-| `mmmm` | Month as its full name. |
-| `yy` | Year as last two digits; leading zero for years less than 10. |
-| `yyyy` | Year represented by four digits. |
-| `h` | Hours; no leading zero for single-digit hours \(12-hour clock\). |
-| `hh` | Hours; leading zero for single-digit hours \(12-hour clock\). |
-| `H` | Hours; no leading zero for single-digit hours \(24-hour clock\). |
-| `HH` | Hours; leading zero for single-digit hours \(24-hour clock\). |
-| `M` | Minutes; no leading zero for single-digit minutes. Uppercase M unlike CF `timeFormat`'s m to avoid conflict with months. |
-| `MM` | Minutes; leading zero for single-digit minutes. Uppercase MM unlike CF `timeFormat`'s mm to avoid conflict with months. |
-| `s` | Seconds; no leading zero for single-digit seconds. |
-| `ss` | Seconds; leading zero for single-digit seconds. |
-| `l` _or_ `L` | Milliseconds. `l` gives 3 digits. `L` gives 2 digits. |
-| `t` | Lowercase, single-character time marker string: _a_ or _p_. No equivalent in CF. |
-| `tt` | Lowercase, two-character time marker string: _am_ or _pm_. No equivalent in CF. |
-| `T` | Uppercase, single-character time marker string: _A_ or _P_. Uppercase T unlike CF's t to allow for user-specified casing. |
-| `TT` | Uppercase, two-character time marker string: _AM_ or _PM_. Uppercase TT unlike CF's tt to allow for user-specified casing. |
-| `Z` | US timezone abbreviation, e.g. _EST_ or _MDT_. With non-US timezones or in the Opera browser, the GMT/UTC offset is returned, e.g. _GMT-0500_ No equivalent in CF. |
-| `o` | GMT/UTC timezone offset, e.g. _-0500_ or _+0230_. No equivalent in CF. |
-| `S` | The date's ordinal suffix \(_st_, _nd_, _rd_, or _th_\). Works well with `d`. No equivalent in CF. |
-| `'…'`_or_`"…"` | Literal character sequence. Surrounding quotes are removed. No equivalent in CF. |
-| `UTC:` | Must be the first four characters of the mask. Converts the date from local time to UTC/GMT/Zulu time before applying the mask. The "UTC:" prefix is removed. No equivalent in CF. |
+| `m` | الشهر كرقم ؛ لا يوجد صفر بادئة للأشهر المكونة من رقم واحد. |
+| `mm` |  | الشهر كرقم ؛ لا يوجد صفر بادئة للأشهر المكونة من رقم واحد. |
+| `mmm` | الشهر كاختصار ثلاثة أحرف. |
+| `mmmm` | شهر باسمه الكامل. |
+| `yy` | السنة مثل آخر رقمين ؛ يؤدي صفر لسنوات أقل من 10. |
+| `yyyy` | السنة ممثلة بأربعة أرقام. |
+| `h` | ساعة؛ لا يوجد صفر بادئة لساعات من رقم واحد \ (على مدار 12 ساعة \). |
+| `hh` | ساعة؛ المسافة البادئة صفر لساعات من رقم واحد \ (على مدار 12 ساعة \). |
+| `H` | ساعة؛ لا يوجد صفر بادئة لساعات من رقم واحد \ (على مدار 24 ساعة \). |
+| `HH` | ساعة؛ المسافة البادئة صفر لساعات من رقم واحد \ (على مدار 24 ساعة \). |
+| `M` | الدقائق؛ لا يوجد صفر بادئة لدقائق من رقم واحد. أحرف كبيرة على عكس CF `timeFormat`'s م لتجنب الصراع مع أشهر. |
+| `MM` | الدقائق؛ يؤدي صفر لدقائق من رقم واحد. الأحرف الكبيرة MM على عكس CF `timeFormat`'s مم لتجنب الصراع مع أشهر. |
+| `s` | ثواني. لا يوجد صفر بادئة للثواني المكون من رقم واحد. |
+| `ss` | ثواني. يؤدي صفر لثواني واحد أرقام. |
+| `l` _or_ `L` | ميلي ثانية. `ل` يعطي 3 أرقام. `L` يعطي 2 أرقام. |
+| `t` | صغيرة ، سلسلة علامة الوقت حرف واحد: _a_ أو _p_. لا يوجد ما يعادلها في CF. |
+| `tt` | صغيرة ، علامة زمنية من حرفين string: _am_ or _pm_. لا يوجد ما يعادلها في CF. |
+| `T` | أحرف كبيرة ، سلسلة علامات الوقت ذات الحرف الفردي: _A_ أو _P_. الأحرف الكبيرة T بخلاف CF's t للسماح بالغطاء الذي يحدده المستخدم. |
+| `TT` | أحرف كبيرة ، سلسلة علامات الوقت المكونة من حرفين: _AM_ أو _PM_. الأحرف الكبيرة TT على عكس CF's tt للسماح للغلاف المستخدم المحدد. |
+| `Z` | اختصار المنطقة الزمنية في الولايات المتحدة ، على سبيل المثال _EST_ أو _MDT_. مع المناطق الزمنية غير التابعة للولايات المتحدة أو في متصفح Opera ، يتم إرجاع إزاحة GMT / UTC ، على سبيل المثال _GMT-0500_ لا يوجد ما يعادلها في CF. |
+| `o` | إزاحة توقيت GMT / UTC ، على سبيل المثال _-0500_ أو _ + 0230_. لا يوجد ما يعادلها في CF. |
+| `S` | اللاحقة الترتيبية لـ دات e \ (_ st_ أو _nd_ أو _rd_ أو _th_ \). يعمل بشكل جيد مع `D`. لا يوجد ما يعادلها في CF. |
+| `'...'` _or_` "..." `| تسلسل الحرفي. تتم إزالة اقتباسات المحيطة. لا يوجد ما يعادلها في CF. |
+| `UTC:` | يجب أن تكون الأحرف الأربعة الأولى من القناع. يحول التاريخ من التوقيت المحلي إلى وقت UTC / GMT / Zulu قبل تطبيق القناع. تتم إزالة البادئة "UTC:". لا يوجد ما يعادلها في CF. |
 
 
 

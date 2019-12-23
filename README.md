@@ -1,58 +1,60 @@
 # Welcome
 
-## Bots.business Help
+## مساعدة Bots.business
 
-Download from [Play Market](https://play.google.com/store/apps/details?id=bb_app.com.bots.business)
+التحميل من
+[Play Market](https://play.google.com/store/apps/details?id=bb_app.com.bots.business)
 
-## Create your own bot for Telegram from new app Bots.Business.
+## قم بإنشاء روبوت خاص بك لـ Telegram من التطبيق الجديد Bots.Business.
 
-### How to create bot
+### كيفية إنشاء بوت
 
-1. Create bot with @BotFather
-2. Now create bot in app: add secret token
-3. Create commands 
+1. خلق بوت مع @BotFather
+2. الآن إنشاء الروبوت في التطبيق: إضافة الرمز السري
+3. إنشاء الأوامر 
 
-See [more](https://help.bots.business/getting-started)
+نرى [more](https://help.bots.business/getting-started)
 
-### Install bots from the Store
+### تثبيت الروبوتات من المتجر
 
 {% hint style="info" %}
-In the store are available various bots. Do you need referal tracking? Or chat with yours users via bot? This and the other is in the Bots Store!
+في المتجر تتوفر العديد من السير. هل تحتاج إلى تتبع الإحالة؟ أو الدردشة مع المستخدمين لك عبر الروبوت؟ هذا والآخر موجود في متجر Bots!
 {% endhint %}
 
-In the store are available various bots. Do you need referal tracking? Or chat with yours users via bot? This and the other is in the Bots Store!
+في المتجر تتوفر العديد من السير. هل تحتاج إلى تتبع الإحالة؟ أو الدردشة مع المستخدمين لك عبر الروبوت؟ هذا والآخر في متجر Bots!
 
-### Commands
+### الأوامر
 
-Command can have: `name`, `help`, `aliases` \(second names\), `answer`, `keyboard`, `scnarios` \(for simple logic\) and other options.
+القيادة يمكن أن يكون:
+`name`, `help`, `aliases` \(second names\), `answer`, `keyboard`, `scnarios` \(for simple logic\) وغيرها من الخيارات.
 
 #### 
 
-#### CSV import with Google Table
+#### استيراد ملف CSV باستخدام جدول Google
 
-Do you have much commands? Use Google Table and make import! Generate commands with formulas and do more with Google Table.
+هل لديك الكثير من الأوامر؟ استخدام جوجل الجدول وجعل الاستيراد! قم بإنشاء أوامر باستخدام الصيغ وقم بعمل المزيد باستخدام Google Table.
 
-**Template table** [http://bit.ly/bb\_table\_template](http://bit.ly/bb_table_template)
+**جدول القالب** [http://bit.ly/bb\_table\_template](http://bit.ly/bb_table_template)
 
 **Demo bot @DemoFromTableBot from this table** [http://bit.ly/DemoFromTableBot](http://bit.ly/DemoFromTableBot)
 
-#### How to import CSV file
+#### كيفية استيراد ملف CSV
 
-1. Create Google Table with commands for bot \(You can use template\)
-2. Do publich this Table in CSV format via File menu
-3. Paste CSV url in application and do upload command
+1. إنشاء جدول Google باستخدام أوامر bot \ (يمكنك استخدام القالب \)
+2. لنشر هذا الجدول بتنسيق CSV عبر قائمة "ملف"
+3. لصق رابط CSV في التطبيق والقيام بالتحميل القيادة
 
-Now you can talk with yours new Telegram Bot
+يمكنك الآن التحدث مع برقية Telegram Bot الجديدة
 
-See [more](https://help.bots.business/create-bot-from-google-table)
+نرى [more](https://help.bots.business/create-bot-from-google-table)
 
-## BJS for command
+## BJS للقيادة
 
-Use Bot Java Script for logic in command.
+استخدم Bot Java Script للمنطق المنطقي في الأمر.
 
-See [more](https://help.bots.business/scenarios-and-bjs)
+نرى [more](https://help.bots.business/scenarios-and-bjs)
 
-## FAQ
+## التعليمات
 
 [https://help.bots.business/howto](https://help.bots.business/howto)
 
@@ -60,11 +62,11 @@ See [more](https://help.bots.business/scenarios-and-bjs)
 
 [https://api.bots.business/docs](https://api.bots.business/docs)
 
-## Issues
+## مسائل
 
 [https://github.com/bots-business/help/issues](https://github.com/bots-business/help/issues)
 
-## Beta version
+## النسخة التجريبية
 
-Bots.business under active development. App very unstable. Sorry :\(
+Bots.business تحت التطوير النشط. التطبيق غير مستقر للغاية. آسف :\(
 

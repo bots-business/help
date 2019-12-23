@@ -1,45 +1,43 @@
 ---
-description: Track payment with Qiwi.com
+الوصف: تتبع الدفع مع Qiwi.com
 ---
 
-# QiwiPayments
-
-## Getting started
+# Qiwi Payments
+## الشروع في العمل
 
 {% hint style="warning" %}
-Need Api token from [https://qiwi.com/api](https://qiwi.com/api)
+تحتاج Api token من [https://qiwi.com/api](https://qiwi.com/api)
 {% endhint %}
 
 ### Set Api Token to lib:
 
 `Libs.QiwiPayment.setQiwiApiTokent(API_KEY);`
 
-### Get payment link
+### احضار رابط الدفع
 
 ```javascript
 let link = Libs.QiwiPayment.getPaymentLink({
     account: "+7XXXXXXXXXX", // Qiwi wallet
     amount: 250, // amount in RUB
-    comment: "u" + String(user.id) // track transaction with label for user or order 
+    comment: "u" + String(user.id) // تتبع المعاملات مع التسمية للمستخدم أو النظام 
 });
 ```
 
-User can make payment via this link.
+يمكن للمستخدم إجراء الدفع عبر هذا الرابط.
 
-### Bot need check payments
+ ### بوت بحاجة إلى مدفوعات الشيكات
 
 ```javascript
 Libs.QiwiPayment.acceptPayment({
       account: "+7XXXXXXXXXX", // Qiwi wallet
       onSuccess: "/onacceptpayment",
       onNoPaymentYet: "/onnopaymentyet",
-      comment: "u" + user.id // track transaction with label for user or order
+      comment: "u" + user.id // تتبع المعاملات مع التسمية للمستخدم أو النظام
 })
 ```
 
 If payment recived command `/onacceptpayment` executed.
 
-Params contain amount in RUB:
-
+تحتوي البارامس على مبلغ في RUB:
 `let amount = parseFloat(params);`
 

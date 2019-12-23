@@ -1,22 +1,23 @@
 ---
-description: Get bot Token with @BotFather
+الوصف: الحصول على رمز الروبوت مع @BotFather
 ---
 
-# Getting started
+# ابدء
 
-##  How do I create a bot?
+##  كيف يمكنني إنشاء الروبوت؟
 
-There's a… bot for that. Just talk to [@BotFather](https://telegram.me/BotFather) and follow a few simple steps. You need your authorization token.
+هناك ... روبوت لذلك. مجرد كلام [@BotFather](https://telegram.me/BotFather) واتبع بضع خطوات بسيطة. أنت بحاجة إلى رمز التفويض الخاص بك.
 
-The **token** is a string along the lines of _`110201543:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw`_ that is required to authorize the bot
+** الرمز المميز ** عبارة عن سلسلة على طول خطوط _`110201543:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw`_ that is required to authorize the bot
 
-Now go to app and fill this token in bot creation form.
+انتقل الآن إلى التطبيق وملء هذا الرمز المميز في نموذج إنشاء الروبوت.
 
 ![](.gitbook/assets/image%20%2836%29.png)
 
-## Help video
+## فيديو مساعدة
 
-See [video](https://youtu.be/MZixi8oIdaA)
+نرى
+[video](https://youtu.be/MZixi8oIdaA)
 
 ![](.gitbook/assets/image%20%2851%29.png)
 

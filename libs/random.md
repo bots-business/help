@@ -1,18 +1,18 @@
 ---
-description: Send random message to user with this lib and get random values!
+الوصف: إرسال رسالة عشوائية للمستخدم مع هذا lib والحصول على قيم عشوائية!
 ---
 
-# Random
+# عشوائي
 
-## Example BJS code:
+## مثال BJS code:
 
 `Libs.Random.sendMessage(["hello", "Hi", "Good day!", "Welcome!"]);`
 
-## Get random integer value beetwen 0 and 10:
+## الحصول على قيمة عدد صحيح عشوائي بين 0 و 10:
 
 `Libs.Random.randomInt(0, 10);`
 
-## Get random float value beetwen 200 and 400
+## احصل على قيمة تعويم عشوائية بين 200 و 400
 
 `Libs.Random.randomFloat(200, 400);`
 

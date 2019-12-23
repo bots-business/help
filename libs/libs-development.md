@@ -1,18 +1,19 @@
-# Libs development
+# Libs تطوير
 
-You can create own Lib. Now it is possible create lib only with Git [importing](https://help.bots.business/git/import-bot-from-git-repository).
+يمكنك إنشاء Lib ​​الخاصة.  الآن من الممكن إنشاء lib فقط مع Git [importing](https://help.bots.business/git/import-bot-from-git-repository).
 
 Official Bots.Business repository available [here](https://github.com/bots-business/store-libs)
 
-You can store common code in the library.
+يمكنك تخزين الكود الشائع في المكتبة.
 
 {% hint style="success" %}
-See libraries in the Library Store. You can copy any free library and modify it.
+انظر المكتبات في مكتبة المتجر.  يمكنك نسخ أي مكتبة مجانية وتعديلها.
 {% endhint %}
 
-## Basic
+## الأساسي
 
-For example: code in file libs\myLib.js:
+ على سبيل المثال: رمز في ملف libs
+\myLib.js:
 
 ```javascript
 function hello(){
@@ -29,21 +30,21 @@ publish({
 })
 ```
 
-then you can use Lib in any bot's command:
+ثم يمكنك استخدام Lib في أمر أي bot:
 
 ```javascript
 Libs.myLib.hello()
 Libs.myLib.sayGoodbyeTo("Alice") 
 ```
 
-## Commands capturing
+## أوامر التقاط
 
-It is possible to capture command with lib.
+ من الممكن التقاط الأوامر باستخدام lib.
 
-For example:
+ فمثلا:
 
-* user type "Hi"
-* bot answer "Hello" 
+ * نوع المستخدم "Hi"
+ * بوت الإجابة "مرحبا"
 
 ```javascript
 function onHiCommand(){
@@ -53,23 +54,23 @@ function onHiCommand(){
 on('Hi', onHiCommand );
 ```
 
-Master command "\*" - for capture any text from user with lib
+الأمر الرئيسي " *\" - لالتقاط أي نص من المستخدم مع lib
 
 ```javascript
 function onMasterCommand(){
-    /// input your code here
+    /// إدخال الرمز الخاص بك هنا
 }
 
 on('*', onMasterCommand );
 ```
 
 {% hint style="info" %}
-You can use all BJS functions in the Libs 
+يمكنك استخدام جميع وظائف BJS في Libs
 {% endhint %}
 
 ## Using HTTP
 
-Lib can perform web requests. For example: get page from eample.com and send its content to user.
+Lib يمكن أن تؤدي طلبات الويب.  على سبيل المثال: احصل على صفحة من eample.com وأرسل محتواها إلى المستخدم.
 
 ```javascript
 libPrefix = "myLib"

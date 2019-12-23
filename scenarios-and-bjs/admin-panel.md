@@ -2,59 +2,61 @@
 
 \*\*\*\*
 
-**You can create a custom admin panel.**
+** يمكنك إنشاء لوحة إدارة مخصصة. **
 
-* make custom data fields: numeric, text, checkbox, password
-* data fields will be accessible in BJS
-* admin panels can be created via BJS
-* bot run customized command on field saving
-* supports severals panels with titles and differents fields
+* جعل حقول البيانات المخصصة: الرقمية ، النص ، مربع ، كلمة المرور
+ * حقول البيانات ستكون متاحة في BJS
+ * يمكن إنشاء لوحات المشرف عبر BJS
+ * بوت تشغيل قيادة مخصصة في مجال الادخار
+ * يدعم الألواح الفاصلة مع الألقاب وحقول الاختلافات
 
-**Benefits:**
+**فوائد:**
 
-* making options for saving any api keys, secure and unsecure data
-* can run any BJS logic from panel. For example: it will be possible create text field with button "Send this message to all chats" from App.
-* make any quick statistic and information. Bot dashboards and etc
+* صنع خيارات لحفظ أي مفاتيح api ، بيانات آمنة وغير آمنة
+ * يمكن تشغيل أي منطق BJS من لوحة.  على سبيل المثال: سيكون من الممكن إنشاء حقل نص مع زر "إرسال هذه الرسالة إلى جميع الدردشات" من التطبيق.
+ * جعل أي إحصائية سريعة والمعلومات.  بوت لوحات القيادة وغيرها
 
 ![](../.gitbook/assets/image%20%2829%29.png)
 
-## Methods
+## اساليب
 
-### Define new Admin Panel
+### تحديد لوحة الإدارة الجديدة
 
-Admin Panel - this is a combination of several panels. Each panel have title, icon, description and one or more fields:
+لوحة الإدارة - هذا هو مزيج من العديد من اللوحات.  كل لوحة لها
+title, icon, description
+وحقل واحد أو أكثر:
 
-For adding panel:
+لإضافة لوحة:
 
 `AdminPanel.setPanel({ panel_name: PANEL_NAME, data: PANEL_OPTIONS });`
 
-PANEL\_OPTIONS - it is JSON option for this panel
+PANEL\_OPTIONS - إنه خيار JSON لهذه اللوحة
 
-**Example**
+**مثال**
 
 ![](../.gitbook/assets/image%20%2850%29.png)
 
 ```javascript
 var panel = {
-  // Pabel title
-  title: "Admin Information",
-  description: "Please fill here your admin id",
-  // order index
+  // Pabel عنوان
+  title: "معلومات المسؤول",
+  description: "يرجى ملء هنا معرف المسؤول الخاص بك",
+  // مؤشر الطلب
   index: 0,
   icon: "key",
-  // save button title - default "SAVE"
-  button_title: "SAVE",
-  // command called on saving
-  // not necessary
+  // حفظ عنوان الزر - الافتراضي "حفظ"
+  button_title: "SAVE" ،
+  // أمر يسمى على الحفظ
+  // ليس من الضروري
   /* on_saving:{
      command: "/on-saving",
-     // if you need user
+     // إذا كنت بحاجة إلى المستخدم
      user_id: user_id // Get it via Bot.sendMessage(user.id)
   },
   */
   
-  // Fields for this Panel
-  // here 1 field only
+  // الحقول لهذا الفريق
+  // هنا 1 حقل فقط
   fields: [
     {
       name: "ADMIN_ID",
@@ -62,10 +64,10 @@ var panel = {
       description: "you can get your admin_id with BJS Bot.sendMessage(user.id)",
       type: "string",
       placeholder: "your admin id",
-      // value: 100
+      // القيمة: 100
     }
-    // another fields here
-    // if needed
+    // حقول أخرى هنا
+    // إذا لزم الأمر
     // ...
   ]
 }
@@ -73,72 +75,75 @@ var panel = {
 AdminPanel.setPanel({
   panel_name: "AdminInfo",
   data: panel
-  // force: true // default false - save fields values
+  // اجبر: صحيح
+// default false - احفظ قيم الحقول
 });
 ```
 
-#### Force
+#### فرض
 
-Default is false. All old values for the fields are retained.
+ الافتراضي غير صحيح.  يتم الاحتفاظ بجميع القيم القديمة للحقول.
 
-If true - all old values for fields are reassigned.
+ إذا كان هذا صحيحًا - يتم إعادة تعيين جميع القيم القديمة للحقول.
 
-#### Fields
+ #### مجالات
 
-It is array of fields. One panel can have several fields. It is also possible panel without any field.
+ إنه مجموعة من الحقول.  لوحة واحدة يمكن أن يكون لها العديد من المجالات.  بل هو أيضا لوحة ممكنة دون أي مجال.
 
-Fields can have name, value, title, description, type, placeholder and icon
+الحقول يمكن أن تكون
+name, value, title, description, type, placeholder and icon
 
 #### Field type
 
-| Type | Description |
+| اكتب | الوصف |
 | :--- | :--- |
-| checkbox | Text input |
-| integer | Text input |
-| float | Text input |
-| string | Text input |
-| password | Password input |
-| text | Text field |
+| مربع الاختيار | إدخال النص |
+| عدد صحيح | إدخال النص |
+| تعويم | إدخال النص |
+| سلسلة | إدخال النص |
+| كلمة المرور | إدخال كلمة المرور |
+| نص | حقل النص |
 
 ### 
 
-### Getting field value from Panel
+### الحصول على قيمة الحقل من لوحة
 
 {% hint style="success" %}
-Use this method for getting one value from panel
+استخدم هذه الطريقة للحصول على قيمة واحدة من اللوحة
 {% endhint %}
 
 ```javascript
 var admin_id = AdminPanel.getFieldValue({
-  panel_name: "AdminInfo", // panel name
-  field_name: "ADMIN_ID" // field name
+  panel_name: "AdminInfo", // اسم اللوحة
+  field_name: "ADMIN_ID" // اسم الحقل
 })
 
 Bot.sendMessage(admin_id)
 ```
 
-### Getting all fields values from Panel
+### الحصول على جميع قيم الحقول من لوحة
 
 {% hint style="success" %}
-Use this method for getting several/all values from panel
+استخدم هذه الطريقة للحصول على عدة
+/جميع القيم من لوحة
 {% endhint %}
 
 ```javascript
 var values = AdminPanel.getPanelValues("AdminInfo");
 Bot.inspect(values);
-// will be like:
+// سيكون مثل:
 // { ADMIN_ID: 100 }
 ```
 
 ###  
 
-### Getting panel data
+### الحصول على بيانات اللوحة
 
 ```javascript
 var panel = AdminPanel.getPanel("AdminInfo")
 Bot.inspect(panel);
 
-// can modify panel
+// يمكن تعديل لوحة
 // panel.fields[0].value = 1000
 // panel.fields[0].tite = "my admin id"
 // AdminPanel.setPanel("AdminInfo", panel);
@@ -146,64 +151,71 @@ Bot.inspect(panel);
 
 ### 
 
-### Getting panel field data
+### الحصول على بيانات حقل اللوحة
 
 ```javascript
 var panel_field = AdminPanel.getPanelField({
-  panel_name: "AdminInfo", // panel name
-  field_name: "ADMIN_ID" // field name
+  panel_name: "AdminInfo", // اسم اللوحة
+  field_name: "ADMIN_ID" // اسم الحقل
 })
 
 Bot.inspect(panel_field);
 ```
 
-### Icons
+### الرموز
 
-You can use all icons from [https://ionicons.com](https://ionicons.com/)
-
-
-
-## Good practices
-
-{% hint style="success" %}
-Use admin panels to create a **configuration**
-{% endhint %}
-
-Define Admin Panels in `/config` command with `AdminPanel.setPanel` method.
-
-Then use `AdminPanel.getPanelValue` method for getting any field's value
+يمكنك استخدام جميع الرموز من 
+[https://ionicons.com](https://ionicons.com/)
 
 
+
+## الممارسات الجيدة
 
 {% hint style="success" %}
-Use admin panels to create a bot **dashboard**
+استخدم لوحات الإدارة لإنشاء **تكوين **
 {% endhint %}
 
-Panel without fields can dispay any informations. Use this.
+تحديد لوحات الإدارة في
+`/config`
+قيادة مع طريقة
+`AdminPanel.setPanel`.
+
+ثم استخدام
+`AdminPanel.getPanelValue`
+طريقة للحصول على قيمة أي مجال
 
 
 
 {% hint style="success" %}
-Use admin panels to create admin reactions
+استخدم لوحات الإدارة لإنشاء لوحة **معلومات **
 {% endhint %}
 
-You can launch any bot command on panel saving. It is good for making any admin command execution. Use `on_saving`: 
+لوحة بدون حقول يمكن نشر أي معلومات.  استخدم هذا.
+
+
+
+{% hint style="success" %}
+استخدم لوحات المشرف لإنشاء ردود فعل المشرف
+{% endhint %}
+
+يمكنك تشغيل أي أمر bot في توفير اللوحة.  انه لامر جيد لتنفيذ أي تنفيذ الأوامر المشرف.  استعمل
+`on_saving`: 
 
 ```javascript
 var panel = {
-  // Pabel title
-  title: "Call secure command",
-  description: "It is secure command",
-  // order index
+  // Pabel عنوان
+  title: "استدعاء قيادة آمنة",
+  description: "إنه أمر آمن",
+  // مؤشر الطلب
   index: 0,
   icon: "key",
-  // save button title - default "SAVE"
+  // حفظ عنوان الزر - الافتراضي "حفظ"
   button_title: "RUN",
-  // command called on saving
-  // not necessary
+  // أمر يسمى على الحفظ
+  // ليس من الضروري
   on_saving: {
      command: "/secure-command",
-     // if you need user
+     // إذا كنت بحاجة إلى المستخدم
      user_id: user_id // Get it via Bot.sendMessage(user.id)
   }
 }

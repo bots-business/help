@@ -1,37 +1,39 @@
 # CoinPayments \(CP\)
 
-This Lib make integration with [https://www.coinpayments.net](https://www.coinpayments.net/index.php?ref=5418303a5fc165090ee8a9177a3982de) in easy way.
+هذا ليب جعل التكامل مع [https://www.coinpayments.net](https://www.coinpayments.net/index.php?ref=5418303a5fc165090ee8a9177a3982de) in easy way.
 
-## Initial setup
+## الإعداد الأولي
 
-Need to setup public and private key:
+تحتاج إلى إعداد المفتاح العام والخاص:
 
 1. [Register](https://www.coinpayments.net/index.php?ref=5418303a5fc165090ee8a9177a3982de)
-2. Go to this [page](https://www.coinpayments.net/acct-api-keys) and generate new key.
+2. Go to this [page](https://www.coinpayments.net/acct-api-keys) وتوليد مفتاح جديد.
 
 ![](../.gitbook/assets/image%20%2847%29.png)
 
-Press on button "Edit Permissions" and add API Key Permissions:
+اضغط على زر "تحرير الأذونات" وأضف أذونات مفتاح واجهة برمجة التطبيقات:
 
 ![Check all options what you need](../.gitbook/assets/image%20%2818%29.png)
 
-Then on bot `/setup` command:
+ثم على الروبوت
+`/ setup` command:
 
 ```javascript
-// Get your keys in https://www.coinpayments.net/index.php?cmd=acct_api_keys
+// الحصول على المفاتيح الخاصة بك في https://www.coinpayments.net/index.php?cmd=acct_api_keys
 Libs.CoinPayments.setPrivateKey("YOUR KEY");
 Libs.CoinPayments.setPublicKey('YOUR KEY');
 
-// for Receiving Payments
-// Get your BB Api Key from Bots.Business App in Profile
+// لتلقي المدفوعات
+// احصل على مفتاح BB Api من تطبيق Bots.Business في الملف الشخصي
 Libs.CoinPayments.setBBApiKey('YOUR API KEY');
 ```
 
-## Call API methods
+## استدعاء أساليب API
 
-All CoinPayments API method available [here](https://www.coinpayments.net/apidoc-intro).
+كل طريقة CoinPayments API متاحة [here](https://www.coinpayments.net/apidoc-intro).
 
-For example for method [Get Basic Account Information](https://www.coinpayments.net/apidoc-get-basic-info) we need 2 commands: `/info` and `/onInfo`
+على سبيل المثال للطريقة
+[Get Basic Account Information](https://www.coinpayments.net/apidoc-get-basic-info) we need 2 commands: `/info` and `/onInfo`
 
 `/info` command:
 
@@ -43,7 +45,7 @@ Libs.CoinPayments.apiCall({
 ```
 
 {% hint style="info" %}
-In fields you can pass all fields from CoinPayments api. Just read [help](https://www.coinpayments.net/apidoc-intro). 
+في الحقول ، يمكنك تمرير جميع الحقول من CoinPayments api. فقط اقرأ [help](https://www.coinpayments.net/apidoc-intro). 
 {% endhint %}
 
 `/onInfo` command:
@@ -55,87 +57,89 @@ Bot.sendMessage("CoinPayments owner email:" + options.body.result.email);
 
 ## Combine libs!
 
-CoinPayments API do not have some methods. For example get balance by address, validate address, get transactions for address and etc.
+لا تملك CoinPayments API بعض الطرق. على سبيل المثال الحصول على التوازن حسب العنوان ، والتحقق من صحة العنوان ، والحصول على المعاملات للعنوان وغيرها.
 
 Use Block.io [Lib](https://help.bots.business/libs/blockio) with CP Lib together!
 
-Block.io is free if you do not use wallets there.
+Block.io مجاني إذا كنت لا تستخدم محافظ هناك.
 
 
 
-## Receiving Payments
+## تلقي المدفوعات
 
 {% hint style="success" %}
 See [demo bot](https://telegram.me/BBDemoStoreBot). Available in the Store.
 {% endhint %}
 
-It is possible to receive payment for a temporary or permanent wallet.
+من الممكن تلقي الدفع مقابل محفظة مؤقتة أو دائمة.
 
-**Temporary wallet benefits:**
+**فوائد المحفظة المؤقتة:**
 
-* Fixed amount
-* Can bind the payment to the ordered product
-* Status and checkout page
-* QR code for payment
-* one address for one payment
+* مبلغ ثابت
+* يمكن ربط الدفع إلى المنتج المطلوب
+* الحالة والخروج صفحة
+* رمز الاستجابة السريعة للدفع
+* عنوان واحد للدفع واحد
 
-**Permanent wallet benefits:**
+** فوائد المحفظة الدائمة: **
 
-* Any amount
-* One address for several payments
-* User can transfer funds at any time
+* أي كمية
+* عنوان واحد 
 
-### Setup: set IPN Secret
+### الإعداد: ضبط IPN Secret
 
 {% hint style="warning" %}
-The first step is to go to the [My Settings](https://www.coinpayments.net/index.php?cmd=acct_settings) page &gt; **Merchant Settings**  and set a IPN Secret.
+The first step is to go to the [My Settings](https://www.coinpayments.net/index.php?cmd=acct_settings) صفحة> ** إعدادات التاجر ** وتعيين IPN Secret.
 
-Your IPN Secret is a string of **your choosing**. Recommended to be a random string of letters, numbers, and special characters.
+يعد IPN Secret الخاص بك سلسلة من ** اختيارك **. يوصى أن تكون سلسلة عشوائية من الحروف والأرقام والأحرف الخاصة.
 
-CoinPayments **will not send** any IPNs unless you have an IPN Secret set. 
+CoinPayments
+** لن ترسل **
+أي IPNs ما لم يكن لديك مجموعة IPN السرية. 
 
 See [more](https://www.coinpayments.net/merchant-tools-ipn)
 {% endhint %}
 
-**Once more!** You need input **any text \(random text\)** as IPN secret in Merchant Settings page
+** واحد أكثر! ** تحتاج إلى إدخال ** أي نص
+\(random text\)** سر IPN في صفحة إعدادات التاجر
 
-## Temporary wallet
+## محفظة مؤقتة
 
-We use command "create\_transaction" with IPN.
+نحن نستخدم الأمر "create \ _transaction" مع IPN.
 
-Please see [https://www.coinpayments.net/apidoc-create-transaction](https://www.coinpayments.net/apidoc-create-transaction) for details.
+لطفا أنظر [https://www.coinpayments.net/apidoc-create-transaction](https://www.coinpayments.net/apidoc-create-transaction) for details.
 
-Yes, you can write it via `Libs.CoinPayments.apiCall`method too. But there is an easier way.
+نعم ، يمكنك كتابتها عبر `Libs.CoinPayments.apiCall`method too. But هناك طريقة أسهل.
 
 ### 
 
 ### Command `/pay`
 
 ```javascript
-let amount = 0.0001; // amount in BTC
+let amount = 0.0001; // المبلغ في BTC
 
 options = {
   fields: {
-     amount: amount,   // amount in BTC
-     currency: "BTC",  // currency1 = currency2 = BTC
-     // currency1: "BTC",   // The original currency of the transaction
-     // currency2: "LTC"  //The currency the buyer will be sending
-     // you can use another fields also
-     // except custom and ipn_url (it used by Lib)
-     // See https://www.coinpayments.net/apidoc-create-transaction
+     amount: amount,   // المبلغ في BTC
+     currency: "BTC",  // عملة 1 = عملة2 = BTC
+     // currency1: "BTC",   // العملة الأصلية للمعاملة
+     // currency2: "LTC"  //العملة التي سيرسلها المشتري
+     // يمكنك استخدام حقول أخرى أيضا
+     // باستثناء العرف و ipn_url (يستخدمه Lib)
+     // نرى https://www.coinpayments.net/apidoc-create-transaction
   },
-  // generated wallet, QR code, payment page
-  // will be available in this command
+  // محفظة ولدت ، رمز الاستجابة السريعة ، صفحة الدفع
+  // سوف تكون متاحة في هذا الأمر
   onSuccess: '/onCreatePayment',
   
-  // on successful payment this command
-  // will be executed
+  // على الدفع الناجح هذا الأمر
+  // سيتم تنفيذها
   onPaymentCompleted: "/onPaymentCompleted",
   
-  // it is not necessary
+  // ليست ضرورية
   // onIPN: "/onIPN"
   
-  // if you want customize error messages
+  // إذا كنت تريد تخصيص رسائل الخطأ
   // onError: "/onError"
 }
 
@@ -143,21 +147,21 @@ Libs.CoinPayments.createTransaction(options);
 ```
 
 {% hint style="success" %}
-#### Automatically with Library:
+#### تلقائيا مع المكتبة:
 
 #### CoinPayments: [IPN Retries / Duplicate IPNs](https://www.coinpayments.net/merchant-tools-ipn)
 {% endhint %}
 
 {% hint style="info" %}
-It is preferable to use method  **`onPaymentCompleted`** and not method **`onIPN`**. 
+من الأفضل استخدام الطريقة ** `onPaymentCompleted` ** وليس الطريقة **` onIPN` **. 
 
-Since the method **`onPaymentCompleted`** completely covers the IPN and solves the problem with [IPN Retries / Duplicate IPNs](https://www.coinpayments.net/merchant-tools-ipn)
+نظرًا لأن الطريقة ** `onPaymentCompleted` ** تغطي IPN بالكامل وتحل المشكلة [IPN Retries / Duplicate IPNs](https://www.coinpayments.net/merchant-tools-ipn)
 {% endhint %}
 
 ### Command `/onCreatePayment`
 
 ```javascript
-// You can inspect all options:
+// يمكنك فحص جميع الخيارات:
 // Bot.sendMessage(inspect(options));
 
 let result = options.result;
@@ -167,7 +171,7 @@ let msg = "*Need pay:*\n `" + result.amount + "`" +
  "`" + result.address + "`" +
  "\n\n [Checkout](" + result.checkout_url +
     ") | [Status](" + result.status_url + 
- ")" // you can uncomment this for manual status checking
+ ")" // يمكنك uncomment هذا لفحص الوضع اليدوي
  // + "\n\nCheck status manually: /check" + options.payment_index;
 
 Bot.sendMessage(msg);
@@ -177,25 +181,25 @@ Api.sendPhoto({ photo: result.qrcode_url });
 
 ### Command `/onPaymentCompleted`
 
-This command will be executed on successful payment
+سيتم تنفيذ هذا الأمر عند الدفع بنجاح
 
 {% hint style="info" %}
-Need install ResourcesLib
+تحتاج تثبيت ResourcesLib
 {% endhint %}
 
 ```javascript
-// you can inspect all options
+// يمكنك فحص جميع الخيارات
 // Bot.sendMessage(inspect(options));
 
 if(!options){
-   // for security we need to check that this command runned only by lib
-   // user can not run command with options
+   للأمن ، نحتاج إلى التحقق من أن هذا الأمر لا يعمل إلا من خلال lib
+   // المستخدم لا يمكن تشغيل الأمر مع الخيارات
    return
 }
 
 Bot.sendMessage("Payment completed");
 
-let amount = options.amount1;
+اسمحوا المبلغ = options.amount1 ؛
 
 let res = Libs.ResourcesLib.userRes("balance");
 res.add(amount)
@@ -203,18 +207,18 @@ res.add(amount)
 Bot.sendMessage("added to balance, BTC: " + amount);
 ```
 
-### Finished!
+### تم الانتهاء من!
 
-Now you can  receive payments
+الآن يمكنك تلقي المدفوعات
 
-### Additional Information
+### معلومة اضافية
 
-You can check payment status
+يمكنك التحقق من حالة الدفع
 
 ```javascript
 Libs.CoinPayments.getTxInfo({
   payment_index: payment_index,  // see /onCreatePayment command.
-                                    // Need pass this payment_index to this command
+                                    // انت بحاجة تمرير هذا payment_index إلى هذا الأمر
   onSuccess: '/on_txn_id'
 })
 ```
@@ -222,21 +226,21 @@ Libs.CoinPayments.getTxInfo({
 #### `command: /on_txn_id:` 
 
 ```javascript
-// You can inspect all options:
+// يمكنك فحص جميع الخيارات:
 // Bot.sendMessage(inspect(options));
 
 Bot.sendMessage(options.result.status_text);
 
-// Do not finish payment here.
+// لا تنتهي الدفع هنا.
 // Use /onPaymentCompleted for this
 ```
 
 #### `command /onIPN`
 
-You can get info from IPN. Really it is not needed in simple. Just use onPaymentCompleted option on createTransaction.
+يمكنك الحصول على معلومات من IPN. حقا ليست هناك حاجة في بسيطة. فقط استخدم خيار onPaymentCompleted على createTransaction.
 
 ```javascript
-// You can inspect all fields:
+// يمكنك فحص جميع المجالات:
 // Bot.sendMessage(inspect(options))
 
 // IPN is not needed
@@ -249,19 +253,20 @@ Bot.sendMessage("IPN: Payment status: " + options.status_text );
 #### `command onError`
 
 ```javascript
-// You can inspect all fields:
+// يمكنك فحص جميع المجالات:
 Bot.sendMessage(inspect(options))
 ```
 
 ### 
 
-## Permanent wallet
+## محفظة دائمة
 
-We use command "get\_callback\_address" with IPN.
+نحن نستخدم القيادة
+"get\_callback\_address" with IPN.
 
-Please see [https://www.coinpayments.net/apidoc-get-callback-address](https://www.coinpayments.net/apidoc-get-callback-address) for details.
+لطفا أنظر [https://www.coinpayments.net/apidoc-get-callback-address](https://www.coinpayments.net/apidoc-get-callback-address) للتفاصيل.
 
-Yes, you can write it via `Libs.CoinPayments.apiCall`method too. But there is an easier way.
+نعم ، يمكنك كتابتها عبر `Libs.CoinPayments.apiCall`method too. But there is an easier way.
 
 
 
@@ -278,21 +283,21 @@ Libs.CoinPayments.createPermanentWallet({
   
   onIncome: "/onIncome"
   
-  // if you want customize error messages
+  // إذا كنت تريد تخصيص رسائل الخطأ
   // onError: "/onError"
 });
 ```
 
 {% hint style="success" %}
-#### Automatically with Library:
+#### تلقائيا مع المكتبة:
 
 #### CoinPayments: [IPN Retries / Duplicate IPNs](https://www.coinpayments.net/merchant-tools-ipn)
 {% endhint %}
 
 {% hint style="info" %}
-It is preferable to use method  **`onIncome`** and not method **`onIPN`**. 
+من الأفضل استخدام الطريقة ** `على الدخل` ** وليس الطريقة **` onION` **. 
 
-Since the method **`onIncome`** completely covers the IPN and solves the problem with [IPN Retries / Duplicate IPNs](https://www.coinpayments.net/merchant-tools-ipn)
+لأن هذه الطريقة ** `onIncome` ** تغطي IPN بالكامل وتحل المشكلة [IPN Retries / Duplicate IPNs](https://www.coinpayments.net/merchant-tools-ipn)
 {% endhint %}
 
 ### Command `/onWalletCreate`
@@ -310,30 +315,31 @@ Bot.sendMessage("Your permanent wallet address is:\n`" + wallet + "`")
 ### Command `/onIncome`
 
 ```javascript
-// anybody can run /onIncome command!
+// يمكن لأي شخص أن يركض
+/onIncome command!
 
 if(!options){
-   // for security we need to check that this command runned only by lib
-   // user can not run command with options
+   // للأمن ، نحتاج إلى التحقق من أن هذا الأمر لا يعمل إلا من خلال lib
+   // لا يمكن للمستخدم تشغيل الأمر مع الخيارات
    return
 }
 
-let wallet = options.address;
-let currency = options.currency;
-let amount = options.amount;
+واسمحوا محفظة = options.address؛
+دع العملة = options.currency؛
+دع المبلغ = options.amount؛
 
-let fiat_amount = options.fiat_amount;
-let fiat_currency = options.fiat_coin;
+دع fiat_amount = options.fiat_amount؛
+دع fiat_currency = options.fiat_coin؛
 
-let fee = options.fee;
+اسمحوا رسوم = options.fee ؛
 
-let txn_id = options.txn_id
+سمح 
 
-// see another fields by
+// رؤية حقول أخرى من قبل
 // Bot.sendMessage(inspect(options));
 
 Bot.sendMessage(
-   "*Income to wallet:*" +
+   "*الدخل للمحفظة:*" +
    "\n`"+ wallet + "`" +
    "\n\n*Amount*:\n" +
 amount + " " + currency + " (" + fiat_amount + " " + fiat_currency + ")" +
@@ -348,7 +354,7 @@ amount + " " + currency + " (" + fiat_amount + " " + fiat_currency + ")" +
 #### `command onError`
 
 ```javascript
-// You can inspect all fields:
+// يمكنك فحص جميع المجالات:
 Bot.sendMessage(inspect(options))
 ```
 
@@ -356,26 +362,26 @@ Bot.sendMessage(inspect(options))
 
 
 
-## Troubleshooting & Debuging
-
-* Do not use same CoinPayment account for receiving and transfering funds.
-* Go to [page](https://www.coinpayments.net/index.php?cmd=acct_balances&action=deposits). This list must have history with completed income transaction\(s\)
-* Try to resend IPN - see Debuging
-* Verify that you have [set IPN secret](https://help.bots.business/libs/coinpayments#set-ipn-secret)
+## استكشاف الأخطاء وإصلاحها وتصحيحها
+* لا تستخدم نفس حساب CoinPayment لاستلام الأموال وتحويلها.
+* اذهب إلى [page](https://www.coinpayments.net/index.php?cmd=acct_balances&action=deposits). يجب أن تحتوي هذه القائمة على سجل مع معاملة الدخل المكتملة\(s\)
+* حاول إعادة إرسال IPN - راجع تصحيح الأخطاء
+* تحقق من أن لديك
+[set IPN secret](https://help.bots.business/libs/coinpayments#set-ipn-secret)
 
 ### IPN History
 
-You can view IPN History by link [https://www.coinpayments.net/acct-ipn-history](https://www.coinpayments.net/acct-ipn-history)
+يمكنك عرض تاريخ IPN عن طريق الرابط [https://www.coinpayments.net/acct-ipn-history](https://www.coinpayments.net/acct-ipn-history)
 
 ![](../.gitbook/assets/image%20%2845%29.png)
 
-Also you can resend IPN by checkin "Resend" checkbox and button "Re-send checked IPN\(s\)"
+كما يمكنك إعادة إرسال IPN عن طريق تحديد خانة الاختيار "إعادة إرسال" وزر "إعادة إرسال التحقق IPN\(s\)"
 
 ### Test methods
 
-#### Temporary wallet:
+#### محفظة مؤقتة:
 
-Also it is possible **make test onPaymentCompleted** event. It is good if you do not want make test payment.
+كما أنه من الممكن ** إجراء اختبار onPaymentCompleted ** الحدث. انه لامر جيد إذا كنت لا تريد إجراء اختبار الدفع.
 
 ```javascript
 options = {
@@ -387,17 +393,17 @@ Libs.CoinPayments.callTestPaymentCompleted(options);
 
 #### 
 
-#### Permanent wallet:
+#### محفظة دائمة:
 
-Also it is possible **make test** callTestPermanentWalletIncome event. It is good if you do not want make test payment.
+أيضا فمن الممكن ** إجراء اختبار ** callTestPermanentWalletIncome الحدث. انه لامر جيد إذا كنت لا تريد إجراء اختبار الدفع.
 
 ```javascript
 options = {
   // onIPN: "/onPermanentWalletIPN",  // if you need IPN also
   onIncome: "/onIncome",
   
-  // not necessary options
-  // you can pass amount
+  // ليس الخيارات الضرورية
+  // يمكنك تمرير المبلغ
   //amount: 0.5
   // txn_id: YOUR_TXN_ID
 }
@@ -407,41 +413,42 @@ Libs.CoinPayments.callTestPermanentWalletIncome(options);
 
 
 
-## Security
+## الأمان
 
 {% hint style="warning" %}
-It is strongly recommended to pay attention to safety when using this library.
+يوصى بشدة بالاهتمام بالسلامة عند استخدام هذه المكتبة.
 {% endhint %}
 
-**Do not use default names** for secure commands such as `/onIncome`, `/onPaymentCompleted`
+** لا تستخدم الأسماء الافتراضية ** للأوامر الآمنة مثل
+`/onIncome`, `/onPaymentCompleted`
 
-Anybody can run any command by names. So need to check that security command runned by CoinPayment Lib only!
+يمكن لأي شخص تشغيل أي أمر بالأسماء. لذلك تحتاج إلى التحقق من ذلك الأمر الأمني ​​الذي تديره CoinPayment ليب فقط!
 
 ```javascript
 if(!options){
-   // for security we need to check that this command runned only by lib
-   // user can not run command with options
+   // للأمن ، نحتاج إلى التحقق من أن هذا الأمر لا يعمل إلا من خلال lib
+   // لا يمكن للمستخدم تشغيل الأمر مع الخيارات
    return
 }
 
-// your secure code
+// كودك الآمن
 ...
 ```
 
 {% hint style="danger" %}
-Do not use any non official libs now. 
+لا تستخدم أي libs غير الرسمية الآن.
 
-* Any lib can run command with options.
-* Any libs can read properties \(and read your API Keys from other lib\)
+* يمكن لأي ليب تشغيل الأمر مع الخيارات.
+* يمكن لأي libs قراءة الخصائص \ (وقراءة مفاتيح API من lib الأخرى)
 
-We have not way to protect this now. Just **not use NON official libs** with CP lib. Well, that now there are no such libraries
+ليس لدينا طريقة لحماية هذا الآن. فقط لا
 {% endhint %}
 
 
 
-**Grant only the really necessary permissions for the Api key.** If yor bot do not need "create\_withdrawal" or etc methods - turn theys off. 
+** قم بمنح الأذونات الضرورية حقًا لمفتاح Api. ** إذا لم تكن برامج bor بحاجة إلى "إنشاء \ _السحب" أو طرق أخرى - فأوقف تشغيلها. 
 
 ![Check all options what you need](../.gitbook/assets/image%20%2818%29.png)
 
-Read more about security [here](https://help.bots.business/scenarios-and-bjs/bjs-security)
+قراءة المزيد عن الأمن [here](https://help.bots.business/scenarios-and-bjs/bjs-security)
 

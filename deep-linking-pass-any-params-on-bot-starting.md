@@ -1,6 +1,6 @@
-# Deep Linking - pass any params on Bot starting
+# الربط العميق - تمرير أي معايير على عدم البدء
 
-You can pass any params on bot starting to BJS with link:
+يمكنك تمرير أي معلمات على bot تبدأ بـ BJS مع الرابط:
 
 [http://t.me/BOT\_NAME?start=PARAMS](http://t.me/BOT_NAME?start=PARAMS)
 
@@ -10,15 +10,15 @@ In BJS:
 Bot.sendMessage(params);
 ```
 
-For example:
+فمثلا:
 
 [http://t.me/botsbusinessadminbot?start=API\_TOKEN](http://t.me/botsbusinessadminbot?start=API_TOKEN)
 
-We pass user's API Token to bot.
+إننا نمرر رمز واجهة برمجة تطبيقات المستخدم إلى الروبوت.
 
 ```javascript
 let api_token = params;
-// do anything what you want with this params
+// افعل أي شيء تريده مع هذه المعلمات
 Bot.sendMessage("Your api token is: " + api_token)
 ```
 

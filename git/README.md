@@ -2,36 +2,37 @@
 
 ![](../.gitbook/assets/image%20%2817%29.png)
 
-## Git support
+## دعم بوابة
 
-* bot exporting to external Git repository \(for Github, for example\)
-* bot importing from external Git repository
+* بوت التصدير إلى مستودع بوابة الخارجية
+\(for Github, for example\)
+* بوت المستوردة من مستودع بوابة الخارجية
 
-## Requirements
+## المتطلبات
 
-#### 1. Need set Git repository on bot
+#### 1. تحتاج مجموعة مستودع جيت على الروبوت
 
-Go to Bot-&gt;Edit-&gt; show Advanced 
+انتقل إلى Bot-> تحرير-> إظهار متقدم 
 
 ![](../.gitbook/assets/image%20%289%29.png)
 
-#### 2. Need set Deploy Key on external repository
+#### 2. تحتاج إلى تعيين مفتاح النشر على مستودع خارجي
 
 {% hint style="success" %}
-You do not need Deploy Key for read access of public repository 
+لا تحتاج إلى "مفتاح النشر" للوصول للقراءة إلى المستودع العام 
 {% endhint %}
 
-Go to Bot-&gt; Sync in menu, then Git Sync -&gt; Deploy Key show
+انتقل إلى Bot-> Sync في القائمة ، ثم Git Sync -> نشر مفتاح العرض
 
 ![](../.gitbook/assets/image%20%2842%29.png)
 
-**Copy Deploy Key**
+** نسخ مفتاح النشر **
 
-Now you need set this Deploy Key on external repository.
+أنت الآن بحاجة إلى تعيين مفتاح النشر هذا على مستودع خارجي.
 
 **Github**
 
-Please see [this](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys). For Git exporting also need "write" access.
+لطفا أنظر [this](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys). For Git exporting also need "write" access.
 
-#### 3. Now you can make exporting or importing with Git
+#### 3. الآن يمكنك جعل التصدير أو الاستيراد مع git
 

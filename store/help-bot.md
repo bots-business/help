@@ -1,26 +1,29 @@
-# Help bot
+# بوت المساعدة
 
 ![](../.gitbook/assets/image%20%2816%29.png)
 
-In Bots.Business chat we have many generic questions. [This bot](https://telegram.me/BBHelpBot) can answer for thems.
+في دردشة Bots.Business لدينا العديد من الأسئلة العامة. 
+[This bot](https://telegram.me/BBHelpBot) 
+يمكن الإجابة عن الموضوع.
 
-Bot have only one command. This command is [Master command](https://help.bots.business/commands#how-to-execute-command-with-any-text-from-user-master-command) - \*.
+بوت لديه امر واحدة فقط. هذا الأمر هو
+[Master command](https://help.bots.business/commands#how-to-execute-command-with-any-text-from-user-master-command) - \*.
 
-### Code description
+### وصف الكود
 
-Bot receive all messages from chat with Master command.
+بوت تلقي جميع الرسائل من الدردشة مع الأمر Master.
 
-So we do not need any notifications about new chat members and etc:
+ لذلك نحن لسنا بحاجة إلى أي إشعارات حول أعضاء الدردشة الجدد وغيرها:
 
 ```javascript
 if(!message){ return }
 ```
 
 {% hint style="info" %}
-Do you have big case for command execution? You can use return.  
+هل لديك حالة كبيرة لتنفيذ الأمر؟ يمكنك استخدام العودة.
 {% endhint %}
 
-Bot have keywords for searching in user's messages. Bot show answer and url on keywoard in message:
+بوت لديه كلمات رئيسية للبحث في رسائل المستخدم.  لا تظهر الإجابة وعنوان url للكلمة الرئيسية في الرسالة:
 
 ```javascript
 list = [
@@ -32,7 +35,7 @@ list = [
 ]
 ```
 
-Also admin can write anything and do not need any help. So we have key - answerToAdmin:
+أيضا المشرف يمكن أن يكتب أي شيء ولا تحتاج إلى أي مساعدة.  لذلك لدينا مفتاح - answerToAdmin:
 
 ```javascript
 let admin_tg_id = 519829299;
@@ -40,27 +43,27 @@ let admin_tg_id = 519829299;
 { url: "status.bots.business", keywords: [ 'status' ], answerToAdmin: true }
 ```
 
-Sometimes we need exact searhing:
+في بعض الأحيان نحتاج إلى البحث الدقيق:
 
 ```javascript
 { url: "help.bots.business", keywords: [ 'help' ], exact:true}
 ```
 
-Message can be in aNyCAse. We need it only in lowercase:
+يمكن أن تكون الرسالة في aNyCAse. نحتاجها فقط في الأحرف الصغيرة:
 
 ```javascript
 let stext = message.toLowerCase();
 ```
 
-We use functions in the code. So code more simple:
+نستخدم وظائف في الكود  لذلك الرمز أكثر بساطة:
 
 ```javascript
-// search keyword in the message (stext)
+// البحث عن الكلمات الرئيسية في الرسالة (stext)
 function haveAnyKeyword(item){
   for(var ind in item.keywords){
-    // exact searhing
+    // البحث الدقيق
     if(item.exact){
-      // exact searching
+      // البحث الدقيق
       if(stext==item.keywords[ind]){ return true }
       continue;
     }
@@ -69,10 +72,10 @@ function haveAnyKeyword(item){
   }
 }
 
-// build answer
+// بناء الجواب
 function getAnswerFor(item){
   if((user.telegramid==admin_tg_id)&&(!item.answerToAdmin)){
-     // no any answer for admin
+     // لا توجد إجابة للمشرف
      return;
   }
   
@@ -85,7 +88,7 @@ function getAnswerFor(item){
   return answer;
 }
 
-// just bust all keywords list 
+// مجرد  قائمة نصفيه جميع قائمة الكلمات الرئيسية 
 function doSearch(){
   let item;
   let answer;
@@ -100,10 +103,10 @@ function doSearch(){
 ```
 
 {% hint style="info" %}
-Functions create your code more simple. It is good for it rewriting and improvement.
+وظائف خلق رمز أكثر بساطة.  انه لامر جيد لإعادة كتابة والتحسين.
 {% endhint %}
 
-Perform searching. And if we get answer - send message:
+إجراء البحث.  وإذا حصلنا على إجابة - أرسل رسالة:
 
 ```javascript
 
@@ -115,8 +118,8 @@ if(answer){
 ```
 
 {% hint style="info" %}
-In this command - we have only one Bot.sendMessage function!
+في هذا الأمر - لدينا دالة Bot.sendMessage واحدة فقط!
 
-It is good - code more simple.
+انها جيدة - رمز أكثر بساطة.
 {% endhint %}
 

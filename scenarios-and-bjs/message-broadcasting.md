@@ -1,12 +1,12 @@
-# Message broadcasting and editing
+# رسالة البث والتحرير
 
 
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Function</th>
-      <th style="text-align:left">Description</th>
+      <th style="text-align:left">الوظيفة</th>
+      <th style="text-align:left">الوصف</th>
     </tr>
   </thead>
   <tbody>
@@ -14,31 +14,30 @@
       <td style="text-align:left"><code>Bot.sendMessage(text)</code>
       </td>
       <td style="text-align:left">
-        <p>Send message to current chat</p>
+        <p>إرسال رسالة إلى الدردشة الحالية</p>
         <p></p>
-        <p><code>Bot.sendMessage(&quot;Hello from bot&quot;)</code>
+        <p><code>Bot.sendMessage ("مرحبا من البوت")</code>
         </p>
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>Bot.sendMessageToChatWithId(chatid, text)</code>
+      <td style="text-align:left"><code>Bot.sendMessageToChatWithId(chatid, النص)</code>
       </td>
       <td style="text-align:left">
-        <p>Send message to chat with id. Current chatid for chat is contained in
+        <p>إرسال رسالة للدردشة مع معرف.  ويرد chatid الحالي للدردشة في
           chat.chatid</p>
         <p></p>
-        <p><code>Bot.sendMessageToChatWithId(&quot;45445454521&quot;, &quot;Hello users!&quot;)</code>
+        <p><code>Bot.sendMessageToChatWithId ("45445454521" ، "مرحبًا بالمستخدمين!")</code>
         </p>
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>Bot.sendMessageToChat(chat_name, text)</code>
+      <td style="text-align:left"><code>Bot.sendMessageToChat (chat_name ، نص)</code>
       </td>
       <td style="text-align:left">
-        <p>Send message to other chat. The bot must be installed in another chat
-          room</p>
+        <p>إرسال رسالة إلى الدردشة الأخرى.  يجب تثبيت الروبوت في دردشة أخرى</p>
         <p></p>
-        <p><code>sendMessageToChat(&quot;OtherTestChat&quot;, &quot;Hello to all!&quot;)</code>
+        <p><code>sendMessageToChat ("OtherTestChat" ، "Hello to all!")</code>
         </p>
       </td>
     </tr>
@@ -46,9 +45,9 @@
       <td style="text-align:left"><code>Bot.sendMessageToAllPrivateChats(text)</code>
       </td>
       <td style="text-align:left">
-        <p>Send message to all private chats</p>
+        <p>إرسال رسالة إلى جميع دردشات خاصة</p>
         <p></p>
-        <p><code>Bot.sendMessageToAllPrivateChats(&quot;Hello user&quot;)</code>
+        <p><code>Bot.sendMessageToAllPrivateChats ("مرحبًا بالمستخدم")</code>
         </p>
       </td>
     </tr>
@@ -56,9 +55,9 @@
       <td style="text-align:left"><code>Bot.sendMessageToAllGroupChats(text)</code>
       </td>
       <td style="text-align:left">
-        <p>Send message to all group chats</p>
+        <p>إرسال رسالة إلى جميع دردشات المجموعة</p>
         <p></p>
-        <p><code>Bot.sendMessageToAllGroupChats(&quot;this is the group chat&quot;)</code>
+        <p><code>Bot.sendMessageToAllGroupChats ("هذه دردشة جماعية")</code>
         </p>
       </td>
     </tr>
@@ -66,9 +65,9 @@
       <td style="text-align:left"><code>Bot.sendMessageToAllSuperGroupChats(text)</code>
       </td>
       <td style="text-align:left">
-        <p>Send message to all super group chat</p>
+        <p>إرسال رسالة إلى جميع دردشة مجموعة سوبر</p>
         <p></p>
-        <p><code>Bot.sendMessageToAllSuperGroupChats(&quot;You in super group!&quot;)</code>
+        <p><code>Bot.sendMessageToAllSuperGroupChats ("أنت في مجموعة رائعة!")</code>
         </p>
       </td>
     </tr>
@@ -76,36 +75,39 @@
       <td style="text-align:left"><code>Bot.sendMessageToAllChats(text)</code>
       </td>
       <td style="text-align:left">
-        <p>Send message to all chat</p>
+        <p>إرسال رسالة إلى جميع الدردشة</p>
         <p></p>
-        <p><code>Bot.sendMessageToAllChats(&quot;This message for all users&quot;)</code>
+        <p><code>Bot.sendMessageToAllChats ("هذه الرسالة لجميع المستخدمين")</code>
         </p>
       </td>
     </tr>
   </tbody>
-</table>**Security**
+</table>**الأمان**
 
 {% hint style="danger" %}
-Please note that the user can create a chat with any name and add to it your bot.
+يرجى ملاحظة أنه يمكن للمستخدم إنشاء دردشة مع أي اسم وإضافة إليها الروبوت الخاص بك.
 
-Therefore, the function `Bot.sendMessageToChatWithId` is more preferable than the function `Bot.sendMessageToChat`.
+لذلك ، وظيفة
+`Bot.sendMessageToChatWithId`
+هو الأفضل من وظيفة
+`Bot.sendMessageToChat`.
 {% endhint %}
 
-## **Message editing**
+## ** تحرير الرسائل **
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left"><b>Function</b>
+      <th style="text-align:left"><b>الوظيفة</b>
       </th>
-      <th style="text-align:left">Description</th>
+      <th style="text-align:left">الوصف</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td style="text-align:left">editMessage(value, message_id, options)</td>
       <td style="text-align:left">
-        <p>edit message with value and message_id</p>
+        <p>تحرير الرسالة ذات القيمة و message_id</p>
         <p></p>
         <p><code>Bot.editMessage(&quot;new text&quot;, 20)</code>
         </p>
@@ -114,7 +116,7 @@ Therefore, the function `Bot.sendMessageToChatWithId` is more preferable than th
     <tr>
       <td style="text-align:left">editMessageInChat(chat_id, value, message_id)</td>
       <td style="text-align:left">
-        <p>edit message with value and message_id in chat</p>
+        <p>تحرير الرسالة ذات القيمة و message_id في الدردشة </p>
         <p></p>
         <p><code>Bot.editMessageInChat(10512154, &quot;new text&quot;, 25)</code>
         </p>
@@ -122,14 +124,15 @@ Therefore, the function `Bot.sendMessageToChatWithId` is more preferable than th
     </tr>
   </tbody>
 </table>{% hint style="info" %}
-message\_id - it is unique identificator for all chats of this bot.
+message\_id - إنه مُعرّف فريد لكل المحادثات في هذا الروبوت.
 {% endhint %}
 
-### **Message\_id for income messages to bot**
+### **Message\_id لرسائل الدخل للبوت **
 
-For income messages to bot: use `request.message_id`
+لرسائل الدخل للبوت: استخدم
+ `request.message_id`
 
-#### Example
+#### مثال
 
 ```javascript
 let msg_id = request.message_id;
@@ -142,16 +145,18 @@ Bot.setProperty("msg_id" + chat.chatid, msg_id, "integer");
 ```
 
 {% hint style="warning" %}
-Message\_id - have unique value for all chats of bot. So we have only one message\_id with value "2" and only in one chat.
+Message\_id - لها قيمة فريدة لجميع الأحاديث من بوت.  لذلك لدينا واحد فقط
+message\_id
+مع القيمة "2" وفقط في دردشة واحدة.
 {% endhint %}
 
-### **Message\_id for** messages from bot
+### **Message\_id for** رسالة من البوت
 
-use `on_result` in options - see [this](https://help.bots.business/scenarios-and-bjs/message-broadcasting#options-for-sendmessage-editmessage-and-sendkeyboard-functionals-reply-disable-notification-disable-web-page-preview)
+استخدم `on_result` في الخيارات - انظر [this](https://help.bots.business/scenarios-and-bjs/message-broadcasting#options-for-sendmessage-editmessage-and-sendkeyboard-functionals-reply-disable-notification-disable-web-page-preview)
 
-#### Example
+#### مثال
 
-in first command:
+في الأمر الأول:
 
 ```javascript
 Bot.sendMessage("hello",
@@ -159,24 +164,26 @@ Bot.sendMessage("hello",
 )
 ```
 
-in command `onMessageSending`:
+في القيادة `onMessageSending`:
 
 ```javascript
-// You can inspect all result:
-// Bot.inspect(options)
+// يمكنك فحص جميع النتائج:
+// Bot.inspect (خيارات)
 
 let msg_id = options.result.message_id;
 Bot.editMessage("new text", msg_id);
 
-// Also you can save message_id for future:
-// Bot.setProperty( "MSG-for-edit" + chat.chatid, msg_id, "integer");
+// كما يمكنك حفظ message_id للمستقبل:
+// Bot.setProperty ("MSG-for-edit" + chat.chatid، msg_id، "integer")؛
 ```
 
 
 
-### **Options for sendMessage, editMessage and sendKeyboard functionals: Reply, Disable Notification, Disable web page preview**
+### ** خيارات لوظائف sendMessage و editMessage و
+sendKeyboard: الرد ، تعطيل الإخطار ، تعطيل معاينة صفحة الويب **
 
-You can pass options parameter to any `sendMessageXXX`, `sendKeyboard`, `editMesage`, `editMessageInChat` and`sendInlineKeyboard` functions:
+يمكنك تمرير خيارات المعلمة إلى أي
+`sendMessageXXX`, `sendKeyboard`, `editMesage`, `editMessageInChat` و`sendInlineKeyboard` وظيفة:
 
 ```javascript
   let options = { disable_notification: true, reply_to_message_id: request.message_id };
@@ -185,15 +192,15 @@ You can pass options parameter to any `sendMessageXXX`, `sendKeyboard`, `editMes
   Bot.sendKeyboard("about, help,\ncontacts", "send keyboard now", options)
 ```
 
-| Parameter | Type | Description |
+| المعلمة | اكتب | الوصف |
 | :--- | :--- | :--- |
-| disable\_web\_page\_preview | Boolean | Disables link previews for links in this message |
-| disable\_notification | Boolean | Sends the message silently. Users will receive a notification with no sound. |
-| reply\_to\_message\_id | Integer | If the message is a reply, ID of the original message |
-| is\_reply | Boolean | If the message is a reply for previous message |
-| parse\_mode | String | Send `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. Default `Markdown`. Can be `Markdown`, `HTML` or `null` |
-| result\_to\_bot\_property | String | It is preferable to use "on\_result". Store result of message sending in bot property with this name.  You can read this result later in other commands by Bot.getProperty |
-| on\_result | String | Call this command after method with result  |
+| تعطيل \ _web \ _page \ _ معاينة | منطقية | تعطيل معاينات الارتباط للارتباطات في هذه الرسالة |
+| تعطيل \ _ الإشعار | منطقية | يرسل الرسالة بصمت. سيتلقى المستخدمون إشعارًا بدون صوت. |
+| رد \ _to \ _message \ _id | عدد صحيح | إذا كانت الرسالة ردًا ، فقم بمعرف الرسالة الأصلية |
+| هو \ _reply | منطقية | إذا كانت الرسالة ردًا على الرسالة السابقة |
+| parse\_mode | String | Send `Markdown` or `HTML`, إذا كنت تريد أن تعرض تطبيقات Telegram نصًا غامقًا أو مائلًا أو ذا عرض ثابت أو عناوين URL مضمّنة في رسالة الروبوت الخاصة بك. إفتراضي `Markdown`. يمكن ان يكون `Markdown`, `HTML` or `null` |
+| result\_to\_bot\_property | String | فمن الأفضل للاستخدام "on\_result". تخزين نتيجة إرسال رسالة في خاصية bot بهذا الاسم. يمكنك قراءة هذه النتيجة لاحقًا في أوامر أخرى بواسطة Bot.getProperty |
+| on\_result | String | استدعاء هذا الأمر بعد الطريقة مع النتيجة |
 
 \`\`
 

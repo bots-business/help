@@ -2,48 +2,49 @@
 
 ![](../.gitbook/assets/image.png)
 
-You can post and read data from GoogleSpreadSheet with this lib.
+يمكنك نشر وقراءة البيانات من Google SpreadSheet مع هذه المكتبة.
 
-## Demo bot
+## بوت التجريبي
 
 {% embed url="https://telegram.me/BBGoogleSpreadsheetBot" %}
 
 
 
-## Getting started
+## بدء
 
-**1.**Make new spreadsheet. 
+** 1 **. .صنع جدول بيانات جديد.
 
 ![](../.gitbook/assets/image%20%2826%29.png)
 
-You definitely need a table header. Make it.
+تحتاج بالتأكيد رأس الجدول.  أصنعها.
 
-**2.** From your Google Sheet, from the _Tools_ menu select _Script Editor_
+** 2. ** من ورقة Google الخاصة بك ، من قائمة _ أدوات_ ، حدد _Script Editor_
 
-**3.** Paste the script from [above](https://gist.github.com/bots-business/b627418423a2c5df3b4ed329181077f0) into the script code editor and hit _Save._
+** 3 ** لصق البرنامج النصي من [above](https://gist.github.com/bots-business/b627418423a2c5df3b4ed329181077f0) into _محرر رمز البرنامج النصي واضغط على _Save._
 
 ![](../.gitbook/assets/image%20%281%29.png)
 
-**4.**  From the _Publish_ menu, select _Deploy as web app…_  
+** 4.. ** من قائمة _Publish_ ، حدد _Deploy كتطبيق ويب ... _ 
   
-**5.** Choose to execute the app as yourself, and allow _Anyone, even anonymous_ to execute the script. \(Note, depending on your Google Apps instance, this option may not be available. You will need to contact your Google Apps administrator, or else use a Gmail account.\) Now click _Deploy_. You may be asked to review permissions now.
+** 5.. ** اختر تنفيذ التطبيق بنفسك ، واسمح لـ _Anyone ، حتى المجهول_ بتنفيذ البرنامج النصي.  \ (ملاحظة ، بناءً على مثيل تطبيقات Google ، قد لا يكون هذا الخيار متاحًا. ستحتاج إلى الاتصال بمشرف تطبيقات Google ، أو استخدام حساب Gmail آخر. \) انقر الآن على _Deploy_.  قد تتم مطالبتك بمراجعة الأذونات الآن.
 
-![The pop-up shown once you&apos;re in the Google Script editor, and you select &quot;Publish&quot;, and &quot;Deploy as a web app...&quot;. It shows a message saying &quot;This project is now deployed as a web app.&quot;, and a &quot;Current web app URL:&quot; with a link for the user to access their web app.](https://static1.squarespace.com/static/51814c87e4b0c1fda9c1fc50/t/5ab15222758d468109439ada/1521570432794/2-google-sheets-script-deploy.png?format=500w)
+! [يظهر الإطار المنبثق بمجرد وجودك في محرر Google Script ، واخترت "نشر" ، و "نشر كتطبيق ويب ...". يعرض رسالة تقول "تم نشر هذا المشروع الآن 
+[app](https://static1.squarespace.com/static/51814c87e4b0c1fda9c1fc50/t/5ab15222758d468109439ada/1521570432794/2-google-sheets-script-deploy.png?format=500w)
 
-**6.** The URL that you get will be the webhook that you need use in this Lib. You can test this webhook in your browser first by pasting it. Note that depending on your Google Apps instance, you may need to adjust the URL to make it work. 
+** 6. ** سيكون عنوان URL الذي تحصل عليه هو webhook التي تحتاج إلى استخدامها في هذا Lib.  يمكنك اختبار هذا webhook في متصفحك أولاً عن طريق لصقه.  لاحظ أنه وفقًا لمثيل تطبيقات Google ، قد تحتاج إلى ضبط عنوان URL لجعله يعمل.
 
 **`/setup`**
 
 ```javascript
-// replace with your URL, obtained in step 6
+// استبدل عنوان URL الخاص بك ، الذي تم الحصول عليه في الخطوة 6
 Libs.GoogleSpreadSheet.setUrl("https://script.google.com/macros/*******");
 ```
 
 
 
-## Using
+## باستخدام
 
-### Add new row to spreadsheet.
+ ### أضف صفًا جديدًا إلى جدول البيانات.
 
 command /add
 
@@ -55,10 +56,11 @@ let newRow = {
 }
 
 let prms = {
-  sheetName: "Users",  // sheet name
+  sheetName: "Users",  // اسم الورقة
   row: newRow,
-  onSuccess: "onSuccess",  // this command will be executed on Success
-  onError: "onError"       // this command will be executed on Error
+  onSuccess: "onSuccess",  // هذا الأمر سوف يتم تنفيذها بنجاح
+  onError: "onError"       // سيتم تنفيذ هذا الأمر على خطأ
+
 }
 
 Libs.GoogleSpreadSheet.addRow(prms)
@@ -67,11 +69,11 @@ Libs.GoogleSpreadSheet.addRow(prms)
 ### `onSucess` command
 
 ```javascript
-// You can inspect options:
+// يمكنك فحص الخيارات:
 // Bot.sendMessage(inspect(options));
 
 let rowIndex = options.rowIndex;
-User.setProperty("rowIndex", rowIndex, "integer"); // You can set row index to options
+User.setProperty("rowIndex", rowIndex, "integer"); // يمكنك ضبط فهرس الصفوف على الخيارات
 
 Bot.sendMessage("Posted at row: " + rowIndex + 
     "\nInserted values: " + options.inserted);
@@ -93,24 +95,23 @@ let newRow = {
 }
 
 let prms = {
-  sheetName: "Users",  // sheet name
+  sheetName: "Users",  // اسم الورقة
   row: newRow,
-  onSuccess: "onSuccess",  // this command will be executed on Success
-  onError: "onError"       // this command will be executed on Error
+  onSuccess: "onSuccess",  // سيتم تنفيذ هذا الأمر بنجاح
+  onError: "onError"       // سيتم تنفيذ هذا الأمر على خطأ
 }
 
 
-prms.rowIndex = 3;  // row index for editing
+prms.rowIndex = 3;  // مؤشر الصف للتحرير
 Libs.GoogleSpreadSheet.editRow(prms);
 
 ```
 
-### Get data from spreadsheet
-
-Row can be changed on Spreadsheed.
+### الحصول على البيانات من جدول البيانات
+ يمكن تغيير الصف في جدول البيانات.
 
 ```javascript
-var rowIndex = 3; // row index for reading
+var rowIndex = 3; // مؤشر الصف للقراءة
 
 Libs.GoogleSpreadSheet.getRow({
   sheetName: "Users",

@@ -2,68 +2,76 @@
 
 ![](../.gitbook/assets/image%20%282%29.png)
 
-Integration with external services can be possible with webhooks notifications. This lib generate url for webhooks.
+يمكن أن يكون التكامل مع الخدمات الخارجية ممكنًا مع إشعارات webhooks.  هذا lib يولد رابط ل webhooks.
 
-## Example bot
+## مثال بوت
 
-See [example bot](https://t.me/BBWebhookBot)
+نرى
+[example bot](https://t.me/BBWebhookBot)
 
 {% hint style="info" %}
-From [wikipedia](https://en.wikipedia.org/wiki/Webhook): a **webhook** is a method of augmenting or altering the behavior of bot, with custom [callbacks](https://en.wikipedia.org/wiki/Callback_%28computer_programming%29).
+من عند [wikipedia](https://en.wikipedia.org/wiki/Webhook): a **webhook** is a method of augmenting or altering the behavior of bot, with custom [callbacks](https://en.wikipedia.org/wiki/Callback_%28computer_programming%29).
 
-These callbacks may be maintained, modified, and managed by third-party users and developers who may not necessarily be affiliated with the originating website or application.
+قد تتم المحافظة على عمليات الاسترجاعات هذه وتعديلها وإدارتها من قِبل المستخدمين والمطورين من الجهات الخارجية الذين قد لا ينتمون بالضرورة إلى موقع الويب أو التطبيق الأصلي.
 
- The term "webhook" was coined by Jeff Lindsay in 2007 from the computer programming term [hook](https://en.wikipedia.org/wiki/Hooking).
+ صاغ المصطلح "webhook" من قبل جيف ليندساي في عام 2007 من مصطلح برمجة الكمبيوتر [hook](https://en.wikipedia.org/wiki/Hooking).
 {% endhint %}
 
-Webhooks is more simple way for integration. Other libs also use webhooks notifications already: CoinPayments, FreeKassa.
+Webhooks هي طريقة أكثر بساطة للتكامل.  تستخدم libs الأخرى أيضًا إشعارات webhooks بالفعل: CoinPayments ، FreeKassa.
 
-## Get Webhook Url
+## احصل على Webhook Url
 
 ```javascript
 let webhookUrl = Libs.Webhooks.getUrlFor({
-  // this command will be runned on webhook
+  // سيتم تشغيل هذا الأمر على webhook
   command: "/onWebhook",
-  // this text will be passed to command
-  content: "Did you see the cat?",
-  // execute for this (current) user
+  // سيتم تمرير هذا النص إلى الأمر
+  content: "هل رأيت القط?",
+  // تنفيذ لهذا المستخدم (الحالي)
   user_id: user.id,
-  // redirect to page with cat after calling webhook
-  // you need remove this for external service
+  // إعادة توجيه إلى الصفحة مع القط بعد الاتصال webhook
+  // تحتاج إلى إزالة هذا للخدمة الخارجية
   redirect_to: "https://cataas.com/cat"
 })
 
 ```
 
-This code will generate Webhook url. 
+سيقوم هذا الرمز بإنشاء رابط Webhook.
 
-After loading page via this url:
+ بعد تحميل الصفحة عبر هذا الرابط:
 
-* web page with cat will be loaded \(Thank for cat to [https://cataas.com](https://cataas.com/cat)\)
-* command `/onWebhook` will be execute on Bot for user with user.id
-* content "Did you see the cat?" will be passed for command `/onWebhook`
+ * سيتم تحميل صفحة الويب مع القط
+\(شكرا على القط ل)\
+[https://cataas.com](https://cataas.com/cat)
+* command `/onWebhook`
+سيتم تنفيذها على Bot للمستخدم مع user.id
+* content "هل رأيت القط?"
+سيتم تمرير الأمر
+`/onWebhook`
 
-###  More useful for external services
+###  أكثر فائدة للخدمات الخارجية
 
-As a rule, the webhook URL must be set from the admin panel on the external service. So we can not set it for just one user: 
+ كقاعدة عامة ، يجب تعيين عنوان URL لـ webhook من لوحة المشرف على الخدمة الخارجية.  لذلك لا يمكننا تعيينه لمستخدم واحد فقط:
 
 ```javascript
 let webhookUrl = Libs.Webhooks.getUrlFor({
-  // this command will be runned on webhook
+  // سيتم تشغيل هذا الأمر على webhook
   command: "/onWebhook"
 })
 ```
 
 {% hint style="warning" %}
-Webhooks can be with GET and POST methods only. All passed data contains on content variable
+يمكن أن تكون Webhooks باستخدام أساليب GET و POST فقط.  جميع البيانات التي تم تمريرها تحتوي على متغير المحتوى
 {% endhint %}
 
-On command `/onWebhook` we can get posted content from external service
+On command `/onWebhook`
+يمكننا الحصول على المحتوى المنشور من الخدمة الخارجية service
 
 ```javascript
 Bot.sendMessage(inspect(content))
-// also you can read data with Bot.getProperty - you need store it before
+// كما يمكنك قراءة البيانات مع Bot.getProperty - تحتاج إلى تخزينها من قبل
 ```
 
-As a rule, external service must pass useful data on webhook. For example info about payments: order\_id, user\_id. Use it!
+كقاعدة عامة، يجب على الخدمة الخارجية تمرير بيانات مفيدة حول ويبهوك. على سبيل المثال معلومات عن الدفعات:
+ order\_id, user\_id. Use it!
 

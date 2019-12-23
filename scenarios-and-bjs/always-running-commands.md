@@ -1,29 +1,34 @@
-# Always running commands
+#دائما تشغيل الأوامر
 
-Sometimes code execution is always required.
+أحيانًا يكون تنفيذ التعليمات البرمجية مطلوبًا دائمًا.
 
 ## Master command
 
-This command executed only when there are no others commands.
+يتم تنفيذ هذا الأمر فقط عند عدم وجود أوامر أخرى.
 
-Just use `*` in command name. 
+مجرد استخدام `*` في اسم الأمر.
 
-## BeforeAll and AfterAll commands
+## أوامر BeforeAll و AfterAll
 
-Code of this commands executed always before \(and after\) all others commands codes. 
+شفرة هذه الأوامر تنفذ دائما من قبل
+\(and after\)
+جميع أوامر الأوامر الأخرى.
 
-**Example.** You need add important alert in all commands. You can create only one BeforeAll command with code `Bot.sendMessage("Important alert")`
+** مثال. ** تحتاج إلى إضافة تنبيه مهم في جميع الأوامر.  يمكنك إنشاء أمر BeforeAll واحد فقط برمز
+`Bot.sendMessage("تنبيه مهم")`
 
-For `BeforeAll` command use `@` in command name
+من أجل أمر `BeforeAll` ، استخدم` @ `في اسم الأمر
 
-For `AfterAll` command use `@@` in command name
+للأمر `AfterAll` ، استخدم`@@`في اسم الأمر
 
 {% hint style="danger" %}
-Please note. Only BJS for `BeforeAll` and `AfterAll` commands runned. No any answer and keyboard here.
+يرجى الملاحظة.  BJS فقط لأوامر `BeforeAll` و
+` AfterAll` 
+يتم تشغيله. لا توجد إجابة ولوحة المفاتيح هنا.
 {% endhint %}
 
 {% hint style="info" %}
-You can share functions, variables and etc with `BeforeAll` and `AfterAll` commands. It is effective for common code parts.
+يمكنك مشاركة الدوال والمتغيرات وغيرها باستخدام أوامر "BeforeAll" و "AfterAll".  إنه فعال لأجزاء الكود الشائعة.
 {% endhint %}
 
 ```javascript
@@ -34,56 +39,57 @@ function myName(){
 ```
 
 ```javascript
-// code for /test command
+// رمز ل / اختبار الامر
 Bot.sendMessage(
   myName()  // result will be "Peter"
 )
 
-// myName is defined in BeforeAll command
+// يتم تعريف myName في أمر BeforeAll
 ```
 
 {% hint style="danger" %}
-Please note. If you need `*`, `@`, `@@ as command names you can use it in aliases`
+يرجى الملاحظة.  اذا احتجت
+`*`, `@`, `@@ كأسماء الأوامر التي يمكنك استخدامها في aliases`
 {% endhint %}
 
-## Return methods.
+## طرق العودة.
 
-`return` in BeforeAll command works also for all commands
+`return`
+في BeforeAll يعمل الأمر أيضا لجميع الأوامر
+إذا كان لديك `return` في أي أمر ، فلن يتم تنفيذ أوامر AfterAll
 
-If you have `return` in any command AfterAll commands do not executed
+مثال: عمل نظام الحظر باستخدام BeforeAll
 
-## Example: Making ban system with BeforeAll command
-
-In command BeforeAll: with `@` name
+ في الأمر BeforeAll: باسم `@`
 
 ```javascript
 badUsers = Bot.getProperty("badUsers", { list: {} })
 
 if(badUsers.list[user.telegramid]){
   Bot.sendMessage("You are blocked!");
-  return // this is worked for all command
-  // because it is in BeforeAll command
+  return // وهذا يعمل لجميع الاوامر
+  // لأنه في الأمر BeforeAll
 }
 ```
 
 In command `/block`:
 
 ```javascript
-tgID = 1111111;  // any tgID for ban. You can pass it via message with wait for reply
+tgID = 1111111;  // أي tgID للحظر. يمكنك تمريرها عبر رسالة مع انتظار الرد
 badUsers = Bot.getProperty("badUsers", { list: {} });
 badUsers.list[tgID] = true;
 
-// for unban:
+// لإلغاء الحظر:
 // badUsers.list[tgID] = false;
 
 Bot.setProperty("badUsers", badUsers, "json");
 
 Bot.sendMessage("User with TG id: " + tgID + " banned");
 
-// You can also use hard block
-// It is save your iterations:
-// Bot.blockChat(chat.id);
+// يمكنك أيضا استخدام كتلة الثابت
+// إنه يحفظ التكرار الخاص بك:
+// Bot.blockChat (chat.id) ;
 
-// But with this BeforeAll will be also not working
+// ولكن مع هذا BeforeAll سوف لا تعمل أيضا
 ```
 

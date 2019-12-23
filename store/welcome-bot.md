@@ -1,33 +1,35 @@
 # Welcome bot
 
-This bot greeting all new members in chat and say "Good morning" every day.
+هذا الروبوت يحيي جميع الأعضاء الجدد في الدردشة ويقول "صباح الخير" كل يوم.
 
-### Good morning every day
+### صباح الخير كل يوم
 
-We use [Auto Retry](https://help.bots.business/commands/auto-retry) for this. Every 50 minutes we check time. If current hour is 6 AM - bot send greeting message to all chat.
+استخدم
+[Auto Retry](https://help.bots.business/commands/auto-retry)
+لهذا.  كل 50 دقيقة نتحقق من الوقت.  إذا كانت الساعة الحالية 6 صباحًا - سيقوم البوت بإرسال رسالة تحية إلى جميع الدردشة.
 
 {% hint style="info" %}
-Auto retry run periodically.
+تشغيل إعادة المحاولة التلقائية بشكل دوري.
 
-We have 50 minutes - so we iterate every hour without repeating.
+لدينا 50 دقيقة - لذلك نكرر كل ساعة دون تكرار.
 {% endhint %}
 
-Set 3000 to Auto Retry:
+تعيين 3000 إلى إعادة المحاولة التلقائية:
 
 ![](../.gitbook/assets/image%20%2810%29.png)
 
-#### Users can not run this command.
+####لا يمكن للمستخدمين تشغيل هذا الأمر.
 
-Bot send message to ALL chats. If user run this command at 6 AM - bot send message too! 
+بوت إرسال رسالة إلى جميع الدردشات.  إذا كان المستخدم يشغل هذا الأمر في الساعة 6 صباحًا - فيُرسل رسالة أيضًا!
 
-We need check for auto retry only. Auto Retry do not have chat variable. Execution breaks if chat exist.
+نحن بحاجة إلى التحقق من إعادة المحاولة التلقائية فقط.  لا تحتوي إعادة المحاولة التلقائية على متغير الدردشة.  توقف التنفيذ في حالة وجود دردشة.
 
 ```javascript
-// can be runned with Auto Retry only!
+//يمكن تشغيلها باستخدام ميزة "إعادة المحاولة التلقائية" فقط!
 if(chat){ return }
 ```
 
-Then other code:
+ثم رمز آخر:
 
 ```javascript
 let time = new Date()
@@ -38,7 +40,7 @@ curTime = "Time: " + hours + ":" + minutes + " GMT-0";
 msg = "";
 
 if(hours==6){
-  msg = "Good morning!\n" + curTime;
+  msg = "صباح الخير!\n" + curTime;
 }
 
 Bot.sendMessageToAllChats(msg);
@@ -46,17 +48,17 @@ Bot.sendMessageToAllChats(msg);
 
 
 
-### Greeting all new member
+### تحية كل عضو جديد:
 
-We use Master commad "\*" for this. it capture all messages.
+نستخدم الأمر الرئيسي "*/" لهذا الغرض.  انها التقاط جميع الرسائل.
 
-Request can have information about new members:
+يمكن أن يحتوي الطلب على معلومات حول الأعضاء الجدد:
 
 ```javascript
 let new_members = request.new_chat_members;
 ```
 
-We need build greetings for all users:
+نحتاج إلى بناء التحية لجميع المستخدمين:
 
 ```javascript
 if(new_members.length > 0){
@@ -68,7 +70,7 @@ if(new_members.length > 0){
 }
 ```
 
-User can have username or first name. Or have not:
+يمكن للمستخدم الحصول على اسم المستخدم أو الاسم الأول.  أو لم تفعل:
 
 ```javascript
 function getNameFor(member){
@@ -85,7 +87,7 @@ function getNameFor(member){
 
 ```javascript
 let new_members = request.new_chat_members;
-let msg = "Hello, ";
+let msg = "مرحبا, ";
 let comma = "";
 
 function getNameFor(member){
@@ -105,7 +107,7 @@ if(new_members.length > 0){
 
 if(request.left_chat_member){
   Bot.sendMessage(
-    "Goodbye, " + getNameFor(request.left_chat_member)
+    "وداعا, " + getNameFor(request.left_chat_member)
   );
 }
 

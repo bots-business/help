@@ -1,27 +1,28 @@
-# Scenarios and BJS
+# سيناريوهات و BJS
 
-### What are these scenarios in the command?
+ ### ما هي هذه السيناريوهات في الأمر؟
 
-Command can have some scenarios with BJS code. 
+يمكن أن يحتوي الأمر على بعض السيناريوهات برمز BJS.
 
 {% hint style="info" %}
-BJS - it is "Bot Java Script" code.
+BJS - أنه "Bot Java Script" الرمز.
 
-It is Java Script!
+إنه جافا سكريبت!
 {% endhint %}
 
-Example. Calculating `2+2` and send result to the chat:
+مثال.
+حساب `2 + 2` وإرسال النتيجة إلى الدردشة:
 
 ```javascript
 Bot.sendMessage(2+2);
 ```
 
-On command executing, its scenarios are executed sequentially and isolated.
+عند تنفيذ الأوامر ، يتم تنفيذ سيناريوهاته بالتتابع والعزل.
 
 
 
 {% hint style="success" %}
-In BJS, you can use all the usual JS functions except setTimeout, setInterval
+في BJS ، يمكنك استخدام جميع وظائف JS المعتادة باستثناء setTimeout ، setInterval
 {% endhint %}
 
 

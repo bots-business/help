@@ -1,6 +1,6 @@
-# Send HTTP request
+# إرسال طلب HTTP
 
-Get page on [example.com](http://example.com)
+الحصول على الصفحة من [example.com](http://example.com)
 
 ```javascript
   HTTP.get( {
@@ -31,6 +31,6 @@ Bot.sendMessage(content)
 Command `onError`
 
 ```javascript
-Bot.sendMessage("Error on downloading")
+Bot.sendMessage("خطأ في التنزيل")
 ```
 

@@ -1,39 +1,40 @@
 ---
-description: Lib for multi language support
+الوصف: Lib لدعم متعدد اللغات
 ---
 
 # Lang
 
-## Getting started
+## البدء
 
-First - need to setup languages. For example with **/setup** command:
+أولا - تحتاج إلى إعداد اللغات.  على سبيل المثال مع الامر
+** /setup **
 
 ```javascript
 enLang = { user: { whatIsYourName: "What is your name?", }, hello: "Hello!" }
 ruLang = { user: { whatIsYourName: "Как тебя зовут?", }, hello: "Привет!" }
 
-// first language is default language
+// اللغة الأولى هي اللغة الافتراضية
 Libs.Lang.setup("en", enLang);
 Libs.Lang.setup("ru", ruLang);
 ```
 
-Now default language is "english".
+اللغة الافتراضية الآن هي "الإنجليزية".
 
-You can use lib now:
+ يمكنك استخدام lib الآن:
 
 ```javascript
 Bot.sendMessage(Libs.Lang.get().hello)
 Bot.sendMessage(Libs.Lang.get().user.whatIsYourName)
 ```
 
-## Functions
+## المهام
 
-### Change user lang
+ ### تغيير لغة المستخدم
 
 `Libs.Lang.user.setLang("ru")`
 
 {% hint style="info" %}
-`You can get user language code. For example in /start:`
+`يمكنك الحصول على كود لغة المستخدم.  على سبيل المثال في /start:`
 
 ```javascript
 // in /start command
@@ -42,11 +43,11 @@ Libs.Lang.user.setLang(lang_code)
 ```
 {% endhint %}
 
-### Get cur lang
+### الحصول على cur طويلة
 
 `var lang = Libs.Lang.user.getLang()`
 
-### Change default lang
+### تغيير اللغة الافتراضية
 
 ```javascript
 Libs.Lang.default.setLang("en")
@@ -54,7 +55,7 @@ var default = Libs.Lang.default.getCurLang()
 ```
 
 {% hint style="info" %}
-Tips. Also you can use multi lang command.
+نصائح.  كما يمكنك استخدام قيادة متعددة اللغة
 
 For example: /hello\_en and /hello\_ru
 {% endhint %}
@@ -66,11 +67,11 @@ For example: /hello\_en and /hello\_ru
 `Bot.runCommand("/hello_" + Libs.Lang.user.getLang())`
 
 {% hint style="success" %}
-Also you can use 
+كما يمكنك استخدام
 
 `Libs.Lang.get("ru")` 
 
-for non user actions: in webhooks and etc
+لإجراءات غير المستخدم: في webhooks وغيرها
 {% endhint %}
 
 

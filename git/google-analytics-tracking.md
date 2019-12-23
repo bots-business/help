@@ -1,13 +1,13 @@
-# Google Analytics tracking
+# تتبع تحليلات جوجل
 
-Use [Google Analytics](https://analytics.google.com/analytics/web/) for tracking bot statistic.
+استعمال [Google Analytics](https://analytics.google.com/analytics/web/) for tracking bot statistic.
 
-## Usage
+## استعمال
 
-Track  events can be more usefull for bot
+يمكن أن تكون أحداث المسار أكثر فائدة للبوت
 
 ```javascript
-// Track an Event (all values optional)
+// Track an Event (جميع القيم اختياري)
 GoogleAnalytics.event(ua_key: "UA-XXXXXX-1",
   category: 'refferal', action: 'attracted by', label: user.id, value: 1)
 ```
@@ -15,7 +15,7 @@ GoogleAnalytics.event(ua_key: "UA-XXXXXX-1",
 
 
 ```javascript
-// Track exceptions (all values optional)
+// Track exceptions (جميع القيم اختياري)
 GoogleAnalytics.exception(ua_key: "UA-XXXXXX-1",
   description: 'No money', fatal: false)
 ```
@@ -23,7 +23,7 @@ GoogleAnalytics.exception(ua_key: "UA-XXXXXX-1",
 
 
 ```javascript
-// Track timing (all values optional, but should include time)
+// Track timing (جميع القيم اختيارية ، ولكن يجب أن تشمل الوقت)
 // time in milliseconds
 GoogleAnalytics.timing(ua_key: "UA-XXXXXX-1",
   category: 'downloading', variable: 'external-api', label: 'coinpayments', time: 50)
@@ -32,7 +32,7 @@ GoogleAnalytics.timing(ua_key: "UA-XXXXXX-1",
 
 
 ```javascript
-// Track a Pageview (all values optional)
+// Track a Pageview (جميع القيم اختياري)
 GoogleAnalytics.pageview(ua_key: "UA-XXXXXX-1",
   path: '/vip-area', hostname: 'bots.business', title: 'Vip Area')
 ```
@@ -40,12 +40,12 @@ GoogleAnalytics.pageview(ua_key: "UA-XXXXXX-1",
 
 
 ```javascript
-// Track social activity (all values REQUIRED)
+// Track social activity (جميع القيم المطلوبة)
 GoogleAnalytics.social(ua_key: "UA-XXXXXX-1",
   action: 'like', network: 'bot', target: '/article_1')
 ```
 
-## Track transactions
+## تتبع المعاملات
 
 ```javascript
 // Track transaction (transaction_id REQUIRED)

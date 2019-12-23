@@ -1,16 +1,16 @@
-# How to link chat account with BB account?
+# كيفية ربط حساب الدردشة بحساب BB؟
 
-Linked account is needed for integration. For example, you can transfer BB Points from your chat account to BB Account.
+هناك حاجة إلى حساب مرتبط للتكامل. على سبيل المثال ، يمكنك نقل BB Points من حساب الدردشة الخاص بك إلى حساب BB.
 
-For linking go to Side Menu &gt; Account options:
+للرابط ، انتقل إلى القائمة الجانبية> خيارات الحساب:
 
 ![](.gitbook/assets/image%20%2825%29.png)
 
-Go to block Linked accounts:
+انتقل إلى حظر الحسابات المرتبطة:
 
 ![](.gitbook/assets/image%20%2839%29.png)
 
-Press on button "Add account" and go to BotsBusinessAdminBot.
+اضغط على زر "إضافة حساب" وانتقل إلى BotsBusinessAdminBot.
 
 
 

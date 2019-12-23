@@ -1,10 +1,10 @@
-# User functions
+# وظائف المستخدم
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Function</th>
-      <th style="text-align:left">Description</th>
+      <th style="text-align:left">وظيفة</th>
+      <th style="text-align:left">الوصف</th>
     </tr>
   </thead>
   <tbody>
@@ -12,22 +12,22 @@
       <td style="text-align:left"><code>User.setProperty(name, value, type)</code>
       </td>
       <td style="text-align:left">
-        <p>Set property with name for user. Name is case sensitive.</p>
+        <p>تعيين خاصية مع اسم للمستخدم.  الاسم حساس لحالة الأحرف.</p>
         <p></p>
-        <p><code>User.setProperty(&quot;city&quot;, &quot;London&quot;, &quot;string&quot;)</code>
+        <p><code>User.setProperty ("المدينة" ، "لندن" ، "السلسلة")</code>
         </p>
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>User.getProperty(name)</code>
+      <td style="text-align:left"><code>User.getProperty (الاسم)</code>
       </td>
       <td style="text-align:left">
-        <p>Read property with name. Name is case sensitive.</p>
+        <p>قراءة الممتلكات مع الاسم.  الاسم حساس لحالة الأحرف.</p>
         <p></p>
-        <p><code>User.getProperty(&quot;city&quot;)</code>
+        <p><code>User.getProperty ( "المدينة")</code>
           <br />
-          <br />can get property with default value for non exist property:</p>
-        <p><code>User.getProperty(&quot;city&quot;, &quot;London&quot;)</code>
+          <br />يمكن الحصول على خاصية ذات قيمة افتراضية لخاصية غير موجودة:</p>
+        <p><code>User.getProperty ("المدينة" ، "لندن")</code>
         </p>
       </td>
     </tr>
@@ -35,7 +35,7 @@
       <td style="text-align:left"><code>User.addToGroup(group_name)</code>
       </td>
       <td style="text-align:left">
-        <p>Add user to group with group_name</p>
+        <p>إضافة مستخدم إلى مجموعة مع group_name</p>
         <p></p>
         <p><code>User.addToGroup(&quot;guests&quot;)</code>
         </p>
@@ -49,14 +49,16 @@
     <tr>
       <td style="text-align:left"><code>User.removeGroup()</code>
       </td>
-      <td style="text-align:left">Remove user from current group</td>
+      <td style="text-align:left">إزالة المستخدم من المجموعة الحالية</td>
     </tr>
   </tbody>
-</table>**Access to property** in answer:
+</table>:الوصول إلى الممتلكات ** في الإجابة**
 
-> You can also use the properties in the command's answer. For example, you can do this with the / hello command:`Hello, <UserRole>!`
+> يمكنك أيضًا استخدام الخصائص في إجابة الأمر.  على سبيل المثال ، يمكنك القيام بذلك مع
+/ hello command:`Hello, <UserRole>!`
 
 in BJS:
 
-> And you can use it in `Bot.sendMessage("Hello, <UserRole>")`
+> ويمكنك استخدامها في
+`Bot.sendMessage("Hello, <UserRole>")`
 

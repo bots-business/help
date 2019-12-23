@@ -2,18 +2,18 @@
 
 ## BBAdmin.attractUser
 
-| Function | Description |
+| وظيفة | الوصف |
 | :--- | :--- |
-| `BBAdmin.attractUser(options)` | Attract new user.  |
+| `BBAdmin.attractUser(خيارات)` | جذب مستخدم جديد. |
 
-Bot owner attract new user with email "test@example.com" to Bots.Business. Email must be valid. 
+يجذب مالك Bot مستخدمًا جديدًا بالبريد الإلكتروني "test@example.com" إلى Bots.Business.  يجب ان يكون البريد الاكتروني صحيح.
 
-* User will be received email with password and information for start.
-* Bot owner can see new user in App -&gt; Account -&gt; Attracted Users List
-* Bot owner have rewards for each attracted user with paid Plan
+* سيتم تلقي المستخدم البريد الإلكتروني مع كلمة المرور والمعلومات للبدء.
+ * مالك بوت يمكن أن يرى مستخدم جديد في التطبيق -> الحساب -> قائمة المستخدمين الجذابة
+ * صاحب بوت لديه مكافآت لكل مستخدم جذبت مع خطة مدفوعة
 
 {% hint style="info" %}
-This function work only for new users. For old users - no any attraction and no email.
+هذه الوظيفة تعمل فقط للمستخدمين الجدد.  للمستخدمين القدامى - لا يوجد أي جاذبية ولا بريد إلكتروني.
 {% endhint %}
 
 ```javascript
@@ -22,7 +22,8 @@ BBAdmin.attractUser(
 )
 ```
 
-Also it is possible pass owner\_id \(If not defined - used bot owner ID\)
+كما أنه من الممكن تمرير
+owner\_id \(إذا لم يتم تعريفه - يستخدم معرف مالك bot\)
 
 ```javascript
 BBAdmin.attractUser(
@@ -35,35 +36,35 @@ BBAdmin.attractUser(
 
 ## BBAdmin.installBot
 
-| Function | Description |
+| وظيفة | الوصف |
 | :--- | :--- |
-| BBAdmin.installBot\(options\) | Install bot for other user |
+| BBAdmin.installBot \ (خيارات \) | تثبيت بوت للمستخدم الآخر |
 
-You can install copy of yours exist bot for user with email.
+يمكنك تثبيت نسخة لك موجودة بوت للمستخدم مع البريد الإلكتروني.
 
 {% hint style="info" %}
-If user is new user - they will be attracted as yours referral.
+إذا كان المستخدم مستخدمًا جديدًا - فسيتم جذبهم كإحالة لك.
 {% endhint %}
 
 {% hint style="warning" %}
-You can install only your bot for other users
+يمكنك تثبيت الروبوت الخاص بك فقط للمستخدمين الآخرين
 {% endhint %}
 
 {% hint style="info" %}
-You can pass bot properties for new bot
+يمكنك تمرير خصائص bot لبوت جديد
 {% endhint %}
 
 ```javascript
 BBAdmin.installBot(
   { email: 'test@example.com',
-    bot_id: 15025, // see bot id in the app -> Bots -> Bot
-    // you can pass properties to bot:
+    bot_id: 15025, // رؤية معرف الروبوت في التطبيق -> السير -> بوت
+    // يمكنك تمرير الخصائص إلى bot:
     // bot_properties: [{ name: 'test', value:'hello world', type:'string' }]
   }
 )
 ```
 
 {% hint style="info" %}
-You can clone your own bot with this function
+يمكنك استنساخ الروبوت الخاص بك مع هذه الوظيفة
 {% endhint %}
 

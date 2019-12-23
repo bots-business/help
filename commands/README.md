@@ -1,124 +1,126 @@
 ---
-description: What it is "bot command"?
+الوصف: ما هو "bot command"؟
 ---
 
 # Commands
 
-Command - it is text from user. Bot can sent answer for command or do something. Usually command start with `"/"`, e.g. `/hello`. But it is not always required.
+Command:
+إنه نص من المستخدم.  يمكن أن ترسل بوت الجواب عن القيادة أو القيام بشيء ما.  عادة ما تبدأ الأمر مع
+`"/"`, e.g. `/hello`.
+لكن هذا ليس مطلوبًا دائمًا.
 
 {% hint style="warning" %}
-`/start` and `/START` - it is not same commands. Command is case sensitive
+`/start` and `/START` -
+انها ليست نفس الأوامر.  القيادة حساسة لحالة الأحرف
 {% endhint %}
 
-### How to execute command with any text from user? \(Master command\)
+### كيفية تنفيذ الأوامر مع أي نص من المستخدم؟
+\(Master command\)
 
-Just use `*` in command name. 
+مجرد استخدام `*` في اسم الأمر.
 
-See [more](https://help.bots.business/scenarios-and-bjs/always-running-commands)
+انظر [more](https://help.bots.business/scenarios-and-bjs/always-running-commands)
 
 
 
-### Command's fields
+### مجالات القيادة
 
-Command can have:
+القيادة يمكن ان تكون:
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Field</th>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Example</th>
+      <th style="text-align:left">حقل</th>
+      <th style="text-align:left">وصف</th>
+      <th style="text-align:left">مثال</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left"><code>command</code>
+      <td style="text-align:left"><code>الامر</code>
       </td>
-      <td style="text-align:left">use for command call</td>
+      <td style="text-align:left">استخدام لنداء القيادة</td>
       <td style="text-align:left">
-        <p><code>&quot;/start&quot;</code>, <code>&quot;/run&quot;</code>. For any
-          text use <code>&quot;*&quot;</code>
+        <p><code>"/start"</code>, <code>&quot;/run&quot;</code>لاي نص استخدم<code>"*"</code>
         </p>
-        <p><b>case sensitive</b>
+        <p><b>حساسية الموضوع</b>
         </p>
       </td>
     </tr>
     <tr>
       <td style="text-align:left"><code>help</code>
       </td>
-      <td style="text-align:left">command&apos;s description</td>
-      <td style="text-align:left"><code>&quot;Welcome to RentBot. See /help or /order now&quot;</code>
+      <td style="text-align:left">وصف الامر</td>
+      <td style="text-align:left"><code>&quot;مرحبا بكم في RentBot. انظر /help or /order now&quot;</code>
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>answer</code>
+      <td style="text-align:left"><code>الجواب</code>
       </td>
-      <td style="text-align:left">text answer</td>
-      <td style="text-align:left"><code>&quot;Hello. You need /register before continue&quot;</code>
+      <td style="text-align:left">نص الجواب</td>
+      <td style="text-align:left"><code>مرحبا تحتاج الى /register قبل المتابعة</code>
       </td>
     </tr>
     <tr>
       <td style="text-align:left"><code>aliases</code>
       </td>
-      <td style="text-align:left">use for alternative command call</td>
-      <td style="text-align:left"><code>&quot;/welcome, /hello, ?, help&quot;</code>
+      <td style="text-align:left">استخدام لدعوة القيادة البديلة</td>
+      <td style="text-align:left"><code>/welcome, /hello, ?, help</code>
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>keyboard</code>
+      <td style="text-align:left"><code>لوحة المفاتيح</code>
       </td>
-      <td style="text-align:left">send keyboard to user on command call</td>
-      <td style="text-align:left"><code>&quot;order, about&quot;</code>
+      <td style="text-align:left">إرسال لوحة المفاتيح للمستخدم على دعوة القيادة</td>
+      <td style="text-align:left"><code>&quot;الامر, حول&quot;</code>
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>scenarios</code>
+      <td style="text-align:left"><code>سيناريوهات</code>
       </td>
-      <td style="text-align:left"><code>BJS</code> code for execution</td>
+      <td style="text-align:left"><code>BJS</code> رمز للتنفيذ</td>
       <td style="text-align:left"><code>2+2</code>
       </td>
     </tr>
     <tr>
       <td style="text-align:left"><code>group</code>
       </td>
-      <td style="text-align:left">command allowed only for this user&apos;s group</td>
+      <td style="text-align:left">الامر متاح فقط لمستخدمي هذة المجموعة</td>
       <td style="text-align:left"><code>guests</code>, <code>clients</code>
       </td>
     </tr>
     <tr>
       <td style="text-align:left"><code>need_reply</code>
       </td>
-      <td style="text-align:left">command wait for answer from user. Can be true, false or blank. If <code>true</code> BJS
-        code execute after users&apos;answer</td>
+      <td style="text-align:left">الامر انتظر الجواب من المستخدم.  يمكن أن تكون صحيحة أو خاطئة أو فارغة. If <code>true</code> BJS
+        تنفيذ التعليمات البرمجية بعد اجابة المستخدم</td>
       <td style="text-align:left"><code>true</code>, <code>false</code>
       </td>
     </tr>
     <tr>
       <td style="text-align:left"><code>auto_retry</code>
       </td>
-      <td style="text-align:left">command can be runs with interval in secs</td>
-      <td style="text-align:left"><code>600</code> - repeated once at 10 minutes</td>
+      <td style="text-align:left">يمكن تشغيل الأمر مع فاصل زمني في ثوان</td>
+      <td style="text-align:left"><code>600</code> - كرر مرة واحدة في 10 دقيقة</td>
     </tr>
   </tbody>
-</table>### How to create and edit commands?
+</table>كيفية إنشاء وتحرير الأوامر؟###
 
-**You can edit command directly from application.**
+**يمكنك تعديل الأمر مباشرة من التطبيق.**
 
 ![Screen from App for command creation](../.gitbook/assets/image%20%2812%29.png)
 
 ### Commands importing
 
-Make all commands with [Google Table. ](https://help.bots.business/create-bot-from-google-table)
+اصنع كل الاوامر باستخدام [Google Table. ](https://help.bots.business/create-bot-from-google-table)
 
-Also you can copy Template table from [http://bit.ly/bb\_table\_template](http://bit.ly/bb_table_template) into your own table. 
+كما يمكنك نسخ جدول القالب من [http://bit.ly/bb\_table\_template](http://bit.ly/bb_table_template) into your own table. 
 
-This is an ideal option: everything is quite simple. Go to `Main menu > File > Make a copy`. You will need a separate sheet for the commands that will contain the commands. Then you can add commands in rows and do the CSV import from application.
-
+هذا خيار مثالي: كل شيء بسيط للغاية.  اذهب إلى
+`Main menu > File > Make a copy`.
+ستحتاج إلى ورقة منفصلة للأوامر التي ستحتوي على الأوامر.  ثم يمكنك إضافة أوامر في الصفوف والقيام باستيراد ملف CSV من التطبيق.
 
 
 
 
 ### 
-
-
-

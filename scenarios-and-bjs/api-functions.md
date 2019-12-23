@@ -1,10 +1,10 @@
-# Api functions
+# Api وظائف
 
-Api functions it all functions from [https://core.telegram.org/bots/api](https://core.telegram.org/bots/api)
+Api وظائف كل شيء من وظائف [https://core.telegram.org/bots/api](https://core.telegram.org/bots/api)
 
-You can use it with BJS. 
+يمكنك استخدامه مع BJS.
 
-### **Example 1.** Send audio to current chat
+ ### ** مثال 1. ** إرسال الصوت إلى الدردشة الحالية
 
 ```javascript
 Api.sendAudio({
@@ -13,7 +13,7 @@ Api.sendAudio({
 
 ```
 
-send audio to other chat: 
+إرسال الصوت إلى الدردشة الأخرى:
 
 ```javascript
 Api.sendAudio({
@@ -25,7 +25,7 @@ Api.sendAudio({
 
 
 
-You can pass allowed parameters. For example for [sendAudio](https://core.telegram.org/bots/api#sendaudio) it can be title and disable\_notification
+يمكنك تمرير المعلمات المسموح بها.  على سبيل المثال ل [sendAudio](https://core.telegram.org/bots/api#sendaudio) يمكن أن يكون العنوان و disable\_notification
 
 ```javascript
 Api.sendAudio({
@@ -35,12 +35,12 @@ Api.sendAudio({
 });
 ```
 
-### **Example 2.** Send photo with inline keyboard
+### ** مثال 2. ** إرسال الصور مع لوحة المفاتيح المضمنة
 
 ![](../.gitbook/assets/image%20%2824%29.png)
 
 ```javascript
-// see all parameters in https://core.telegram.org/bots/api#sendphoto
+// رؤية جميع المعلمات في https://core.telegram.org/bots/api#sendphoto
 Api.sendPhoto({
   photo: "https://cataas.com/cat", // it is picture!
   caption: "Test photo",
@@ -48,14 +48,14 @@ Api.sendPhoto({
   reply_markup: { inline_keyboard: [
     // line 1
     [
-      // open the link on button pressing
-      { text: "button1", url: "http://example.com" },
+      // فتح الرابط على زر الضغط
+      { text: "زر 1", url: "http://example.com" },
       // run command /onButton2 on button pressing
-      { text: "button2", callback_data: "/onButton2" }
+      { text: "2زر", callback_data: "/onButton2" }
     ],
     // line 2
     [
-       // see all params in
+       // رؤية جميع المعلمات في
        // https://core.telegram.org/bots/api#inlinekeyboardbutton
        { text: "button3", callback_data: "/onButton3" }
     ]
@@ -63,11 +63,14 @@ Api.sendPhoto({
 });
 ```
 
-## Get methods
+## الحصول على الأساليب
 
-You can call Api get methods \(and others methods too\). Need pass `on_result` key. 
+يمكنك استدعاء أساليب الحصول على Api
+\(and others methods too\).
+تحتاج تمرير
+`on_result` key. 
 
-For example get all user's profile photos:
+على سبيل المثال الحصول على جميع صور الملف الشخصي للمستخدم:
 
 #### Command `/get`
 
@@ -75,7 +78,7 @@ For example get all user's profile photos:
 Api.getUserProfilePhotos({
     user_id: user.telegramid,
     
-    // this command will be executed after getting photos
+    // سيتم تنفيذ هذا الأمر بعد الحصول على الصور
     on_result: "onGetProfilePhotos"
 });
 ```
@@ -93,7 +96,7 @@ if(!options.ok){
 }
 
 if(options.result.total_count==0){
-   return Bot.sendMessage("You have no photos in profile")
+   return Bot.sendMessage("ليس لديك صور في الملف الشخصي")
 }
 
 let photos = options.result.photos;
@@ -103,9 +106,10 @@ for(let i in photos){
 
 ```
 
-## Error handling
+## معالجة الأخطاء
 
-It is possible to capture error with `on_error` param
+ من الممكن التقاط الخطأ مع التوقف
+`on_error`
 
 ```javascript
 Api.sendAudio({
@@ -117,7 +121,7 @@ Api.sendAudio({
 In command `on_error`:
 
 ```javascript
-Bot.sendMessage("We have error with sending audio");
+Bot.sendMessage("لدينا خطأ في إرسال الصوت");
 Bot.inspect(options)
 ```
 
