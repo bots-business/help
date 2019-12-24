@@ -60,4 +60,5 @@
 * [BlockIOBot](store/blockiobot.md)
 * [Welcome bot](store/welcome-bot.md)
 * [Help bot](store/help-bot.md)
+* [SRB Demo Keyboard Tools](store/srb-demo-keyboard-tools.md)
 

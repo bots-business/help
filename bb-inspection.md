@@ -17,7 +17,7 @@ Do you have paymernts in your bot? Inspection can help you not to lose money
 
 ## See example inspection
 
-![](.gitbook/assets/image%20%2822%29.png)
+![](.gitbook/assets/image%20%2824%29.png)
 
 See full report by this [link](https://docs.google.com/document/d/16QCbOTo_c02Gra9zBknFAR5zxtFiKSXmcL5_9iA_RAU/edit#)
 

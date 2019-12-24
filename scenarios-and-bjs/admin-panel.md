@@ -16,7 +16,7 @@
 * can run any BJS logic from panel. For example: it will be possible create text field with button "Send this message to all chats" from App.
 * make any quick statistic and information. Bot dashboards and etc
 
-![](../.gitbook/assets/image%20%2829%29.png)
+![](../.gitbook/assets/image%20%2831%29.png)
 
 ## Methods
 
@@ -32,7 +32,7 @@ PANEL\_OPTIONS - it is JSON option for this panel
 
 **Example**
 
-![](../.gitbook/assets/image%20%2850%29.png)
+![](../.gitbook/assets/image%20%2854%29.png)
 
 ```javascript
 var panel = {

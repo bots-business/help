@@ -104,7 +104,7 @@ Command can have:
 
 **You can edit command directly from application.**
 
-![Screen from App for command creation](../.gitbook/assets/image%20%2812%29.png)
+![Screen from App for command creation](../.gitbook/assets/image%20%2814%29.png)
 
 ### Commands importing
 

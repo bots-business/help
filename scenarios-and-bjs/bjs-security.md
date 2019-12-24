@@ -30,7 +30,7 @@ So need check execute this command only for admin:
 
 **1.Add this command to** [**group**](https://help.bots.business/commands/groups)
 
-![](../.gitbook/assets/image%20%2834%29.png)
+![](../.gitbook/assets/image%20%2836%29.png)
 
 add admin to group "admin": 
 

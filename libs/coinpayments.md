@@ -9,11 +9,11 @@ Need to setup public and private key:
 1. [Register](https://www.coinpayments.net/index.php?ref=5418303a5fc165090ee8a9177a3982de)
 2. Go to this [page](https://www.coinpayments.net/acct-api-keys) and generate new key.
 
-![](../.gitbook/assets/image%20%2847%29.png)
+![](../.gitbook/assets/image%20%2850%29.png)
 
 Press on button "Edit Permissions" and add API Key Permissions:
 
-![Check all options what you need](../.gitbook/assets/image%20%2818%29.png)
+![Check all options what you need](../.gitbook/assets/image%20%2820%29.png)
 
 Then on bot `/setup` command:
 
@@ -367,7 +367,7 @@ Bot.sendMessage(inspect(options))
 
 You can view IPN History by link [https://www.coinpayments.net/acct-ipn-history](https://www.coinpayments.net/acct-ipn-history)
 
-![](../.gitbook/assets/image%20%2845%29.png)
+![](../.gitbook/assets/image%20%2848%29.png)
 
 Also you can resend IPN by checkin "Resend" checkbox and button "Re-send checked IPN\(s\)"
 
@@ -441,7 +441,7 @@ We have not way to protect this now. Just **not use NON official libs** with CP 
 
 **Grant only the really necessary permissions for the Api key.** If yor bot do not need "create\_withdrawal" or etc methods - turn theys off. 
 
-![Check all options what you need](../.gitbook/assets/image%20%2818%29.png)
+![Check all options what you need](../.gitbook/assets/image%20%2820%29.png)
 
 Read more about security [here](https://help.bots.business/scenarios-and-bjs/bjs-security)
 

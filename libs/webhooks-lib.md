@@ -1,6 +1,6 @@
 # Webhooks lib
 
-![](../.gitbook/assets/image%20%282%29.png)
+![](../.gitbook/assets/image%20%283%29.png)
 
 Integration with external services can be possible with webhooks notifications. This lib generate url for webhooks.
 
