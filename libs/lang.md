@@ -123,7 +123,7 @@ enLang = {
 Libs.Lang.setup("en", enLang);
 ```
 
-For Master command \* :
+For [Master command](https://help.bots.business/scenarios-and-bjs/always-running-commands#master-command) \* :
 
 ```javascript
 // find multilanguage aliases
@@ -195,6 +195,8 @@ Bot.sendKeyboard(
 ```
 
 ### Use aliases translations
+
+See [this](https://help.bots.business/libs/lang#using-aliases)
 
 
 
