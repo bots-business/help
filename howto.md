@@ -106,27 +106,32 @@ You can see it with `inspect` function:
   Bot.inspect(request)   // if have issue with markdown
 ```
 
-## Q: I would like to create bjs for time limit! Example in a bot you can only use the command every 24hrs!
+## Q: I would like to create bjs for time limit! Example in a bot you can use the command only every 24hrs!
 
 BJS code:
 
 ```javascript
-var last_run_at = User.getProperty("last_run_at");
-if(last_run_at){
-   duration_in_hours = ((new Date) - last_run_at) / 1000/60/60;
-}else{
-   // It is the first time!
-   duration_in_hours = 99;
-}
-if(duration_in_hours>=24){
-   User.setProperty("last_run_at", (new Date), "datetime")
-   Bot.sendMessage("You run command now!");
-   // add your code
-   ...
 
-}else{
+function canRun(){
+  var last_run_at = User.getProperty("last_run_at");
+  if(!last_run_at){ return true }
+  
+  var minutes = (Date.now() - last_run_at) /1000/60;
+  
+  var minutes_in_day = 24*60
+  
+  if(minutes < minutes_in_day){
    Bot.sendMessage("Please return later. ")
+   return
+  }
+  return true;
 }
+
+if(!canRun()){ return }
+User.setProperty("last_run_at", Date.now(), "integer");
+
+// your code here:
+// ...
 ```
 
 ## Q: How i can create bjs that if you click button it directs to open a link in web?
