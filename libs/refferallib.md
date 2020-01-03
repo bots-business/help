@@ -142,7 +142,7 @@ Libs.ReferralLib.currentUser.track({
 
 ```javascript
 let res = Libs.ResourcesLib.userRes("money");
-let referrer = Libs.ReferralLib.currentUser.AttractedByUser();
+let referrer = Libs.ReferralLib.currentUser.attractedByUser();
 
 // if current user was attracted by referrer
 if(referrer){
