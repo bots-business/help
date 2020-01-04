@@ -21,5 +21,7 @@ Make protected bots with [Admin Panels](https://help.bots.business/scenarios-and
 
 If you want to sell your bot - just start develop it.
 
+You can [install protected bot](https://help.bots.business/scenarios-and-bjs/bb-admin-functions#bbadmin-installbot) for another users via BJS
+
 Contact the administrator to start selling this bot.
 

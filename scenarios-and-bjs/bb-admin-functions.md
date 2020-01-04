@@ -46,19 +46,30 @@ If user is new user - they will be attracted as yours referral.
 {% endhint %}
 
 {% hint style="warning" %}
-You can install only your bot for other users
+You can install only **your** bot for other users
+{% endhint %}
+
+{% hint style="success" %}
+Bot can be installed as [protected](https://help.bots.business/protected-bot) bot.
 {% endhint %}
 
 {% hint style="info" %}
-You can pass bot properties for new bot
+You can pass bot properties for new bot.
 {% endhint %}
 
 ```javascript
 BBAdmin.installBot(
   { email: 'test@example.com',
-    bot_id: 15025, // see bot id in the app -> Bots -> Bot
+    // see bot id in the app -> Bots -> Bot
+    bot_id: 15025,
+    // bot can be installed as protected
+    // as_protected: true,
     // you can pass properties to bot:
-    // bot_properties: [{ name: 'test', value:'hello world', type:'string' }]
+    // bot_properties: [
+    //     { name: 'test',
+    //       value:'hello world',
+    //      type:'string' }
+    // ]
   }
 )
 ```
