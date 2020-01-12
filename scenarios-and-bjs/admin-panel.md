@@ -191,7 +191,7 @@ You can launch any bot command on panel saving. It is good for making any admin 
 
 ```javascript
 var panel = {
-  // Pabel title
+  // Panel title
   title: "Call secure command",
   description: "It is secure command",
   // order index
