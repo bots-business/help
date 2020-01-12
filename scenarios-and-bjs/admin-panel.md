@@ -36,7 +36,7 @@ PANEL\_OPTIONS - it is JSON option for this panel
 
 ```javascript
 var panel = {
-  // Pabel title
+  // Panel title
   title: "Admin Information",
   description: "Please fill here your admin id",
   // order index
