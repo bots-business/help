@@ -53,7 +53,8 @@
         <p><code>Bot.runAll({ command: &quot;/broadcast&quot; })</code>
         </p>
         <p></p>
-        <p>see more</p>
+        <p><a href="https://help.bots.business/scenarios-and-bjs/bot-functions#bot-runall-options">see more</a>
+        </p>
       </td>
     </tr>
     <tr>

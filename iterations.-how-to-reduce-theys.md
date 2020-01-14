@@ -9,13 +9,14 @@ Each payment plan has its own iteration limit.
 **1 iteration it is:**
 
 * income message to bot
-* [Bot.runCommand](https://help.bots.business/scenarios-and-bjs/bot-functions)\(command\) or Bot.run in the BJS spend 1 iteration
+* [Bot.runCommand](https://help.bots.business/scenarios-and-bjs/bot-functions)\(command\) or `Bot.run` in the BJS spend 1 iteration
 * Pressing the keyboard button
 * Pressing the inline keyboard button
 * 1 Auto Retry - it is 1 iteration
 * 1 received webhook - it is 1 iteration
-* **5** **sended message** on mass broadcasting - 1 iterations
-* **5** **chats** on [Information refreshing](https://help.bots.business/bot-information) \(in Bot dashboard\) - spend 1 iterations
+* **5 chats** in [`Bot.runAll`](https://help.bots.business/scenarios-and-bjs/bot-functions#bot-runall-options) command - 1 iteration
+* **5** **sended message** on mass broadcasting - 1 iteration
+* **5** **chats** on [Information refreshing](https://help.bots.business/bot-information) \(in Bot dashboard\) - spend 1 iteration
 * **100 incoming messages** in blocked chat with method `Bot.blockChat(chat.id)`
 
 

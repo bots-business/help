@@ -83,7 +83,13 @@
       </td>
     </tr>
   </tbody>
-</table>**Security**
+</table>## Do you want broadcast photo, video and etc?
+
+See [Bot.runAll](https://help.bots.business/scenarios-and-bjs/bot-functions#bot-runall-options) command
+
+
+
+**Security**
 
 {% hint style="danger" %}
 Please note that the user can create a chat with any name and add to it your bot.
