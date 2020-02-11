@@ -6,7 +6,8 @@
 ## الشروع في العمل
 
 {% hint style="warning" %}
-تحتاج Api token من [https://qiwi.com/api](https://qiwi.com/api)
+تحتاج Api token من 
+[https://qiwi.com/api](https://qiwi.com/api)
 {% endhint %}
 
 ### Set Api Token to lib:
@@ -36,7 +37,8 @@ Libs.QiwiPayment.acceptPayment({
 })
 ```
 
-If payment recived command `/onacceptpayment` executed.
+إذا تلقى الدفع القيادة
+`/onacceptpayment` نفذ.
 
 تحتوي البارامس على مبلغ في RUB:
 `let amount = parseFloat(params);`

@@ -4,7 +4,7 @@
 
 # RefferalLib
 
-Demo bot: [https://telegram.me/DemoReferalTrackingBot?start=FromLibPage](https://telegram.me/DemoReferalTrackingBot?start=FromLibPage)
+بوت التجريبي: [https://telegram.me/DemoReferalTrackingBot?start=FromLibPage](https://telegram.me/DemoReferalTrackingBot?start=FromLibPage)
 
 ## ابدء
 
@@ -57,7 +57,7 @@ See @[DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=F
 
 `Libs.ReferralLib.currentUser.getRefLink(bot.name);` 
 
-will generate link kind **http://t.me/botname?start=userUSER\_ID**
+سوف تولد نوع الارتباط **http://t.me/botname?start=userUSER\_ID**
 
 كما يمكنك تغيير البادئة.  على سبيل المثال إزالة "المستخدم"
 
@@ -135,15 +135,17 @@ Libs.ReferralLib.currentUser.track({
 
 **Answer:**
 
-1. تحتاج الإعداد [track](https://help.bots.business/libs/refferallib#getting-started) in first
-2. يبدو أنك بحاجة إلى استخدام [ResourcesLib](https://help.bots.business/libs/resourceslib)
+1. تحتاج الإعداد في في البداية
+[track](https://help.bots.business/libs/refferallib#getting-started)
+2. يبدو أنك بحاجة إلى استخدام 
+[ResourcesLib](https://help.bots.business/libs/resourceslib)
 3. على رصيد مجموعة المستخدم:
 
 ```javascript
 let res = Libs.ResourcesLib.userRes("money");
 let referrer = Libs.ReferralLib.currentUser.AttractedByUser();
 
-// if current user was attracted by referrer
+// إذا تم جذب المستخدم الحالي من قبل المرجع
 if(referrer){
    let referrerRes = Libs.ResourcesLib.anotherUserRes(
        "money", referrer.telegramid);
@@ -154,6 +156,7 @@ if(referrer){
 ```
 
 {% hint style="info" %}
-في هذا المثال ، نستخدم userRes.  كما أنه من الممكن استخدام chatRes.  نرى [ResourcesLib](https://help.bots.business/libs/resourceslib) for details
+في هذا المثال ، نستخدم userRes.  كما أنه من الممكن استخدام chatRes.  نرى 
+[ResourcesLib](https://help.bots.business/libs/resourceslib) for details
 {% endhint %}
 

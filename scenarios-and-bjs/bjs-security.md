@@ -1,6 +1,8 @@
 # BJS الأمن
 
-BJS قوية جدا ومرنة.  لكن مع هذا.  ولكن ببساطة اجعل الكود
+BJS
+قوية جدا ومرنة.  لكن مع هذا.
+ولكن ببساطة اجعل الكود
 ** ضعيفًا**
 
 {% hint style="danger" %}
@@ -31,7 +33,8 @@ Bot.sendMessage("Added 100$ for user");
 
 لذلك تحتاج التحقق من تنفيذ هذا الأمر فقط للمشرف:
 
-**1.Add this command to** [**group**](https://help.bots.business/commands/groups)
+**1.إضافة هذا الأمر إلى** 
+[**group**](https://help.bots.business/commands/groups)
 
 ![](../.gitbook/assets/image%20%2834%29.png)
 
@@ -77,9 +80,11 @@ Bot.sendMessage("أضاف 100 دولار للمستخدم");
 
 على سبيل المثال ، لديك
 أمر
-`/payment` \(have "Wait for answer"\) with 
-تنفيذ آخر
-"secret" command `/setBalance` :
+`/payment`
+\(have "Wait for answer"\)
+ مع تنفيذ آخر
+"secret" command
+`/setBalance` :
 
 ```javascript
 // أمر /payment
@@ -108,7 +113,7 @@ if(oneTimePassword==message){
   User.setProperty("oneTimePassword", "already taked", "string")
   // run "secret" command
   Bot.runCommand("/setBalance");
-  Bot.sendMessage("Thank you for payment!");
+  Bot.sendMessage("شكرا لك على الدفع!");
 }
 ```
 
@@ -148,7 +153,7 @@ if(oneTimePassword==message){
   var secret = "GJHURFVJLHF"
 // استخدام السرية الخاصة. يمكنك تخزينها في الممتلكات
   Bot.runCommand("/setBalance");
-  Bot.sendMessage("Thank you for payment!");
+  Bot.sendMessage("شكرا لك على الدفع");
 }
 ```
 
@@ -259,4 +264,3 @@ first\_name, last\_name and etc
 ## انظر تقارير BB
 
 [Read info](https://help.bots.business/bb-inspection) حول تقرير BB. تقرير تجريبي لديك توصيات لطيفة. 
-

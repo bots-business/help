@@ -19,7 +19,8 @@ Command:
 
 مجرد استخدام `*` في اسم الأمر.
 
-انظر [more](https://help.bots.business/scenarios-and-bjs/always-running-commands)
+انظر 
+[more](https://help.bots.business/scenarios-and-bjs/always-running-commands)
 
 
 
@@ -51,14 +52,14 @@ Command:
       <td style="text-align:left"><code>help</code>
       </td>
       <td style="text-align:left">وصف الامر</td>
-      <td style="text-align:left"><code>&quot;مرحبا بكم في RentBot. انظر /help or /order now&quot;</code>
+      <td style="text-align:left"><code>"مرحبا بكم في RentBot. انظر /help أو /order الآن"</code>
       </td>
     </tr>
     <tr>
       <td style="text-align:left"><code>الجواب</code>
       </td>
       <td style="text-align:left">نص الجواب</td>
-      <td style="text-align:left"><code>مرحبا تحتاج الى /register قبل المتابعة</code>
+      <td style="text-align:left"><code>مرحبا تحتاج الى register/ قبل المتابعة</code>
       </td>
     </tr>
     <tr>
@@ -92,8 +93,7 @@ Command:
     <tr>
       <td style="text-align:left"><code>need_reply</code>
       </td>
-      <td style="text-align:left">الامر انتظر الجواب من المستخدم.  يمكن أن تكون صحيحة أو خاطئة أو فارغة. If <code>true</code> BJS
-        تنفيذ التعليمات البرمجية بعد اجابة المستخدم</td>
+      <td style="text-align:left">الامر انتظر الجواب من المستخدم.  يمكن أن تكون صحيحة أو خاطئة أو فارغة. <code>true</code> BJS  تنفيذ التعليمات البرمجية بعد اجابة المستخدم</td>
       <td style="text-align:left"><code>true</code>, <code>false</code>
       </td>
     </tr>
@@ -114,7 +114,9 @@ Command:
 
 اصنع كل الاوامر باستخدام [Google Table. ](https://help.bots.business/create-bot-from-google-table)
 
-كما يمكنك نسخ جدول القالب من [http://bit.ly/bb\_table\_template](http://bit.ly/bb_table_template) into your own table. 
+كما يمكنك نسخ جدول القالب من 
+[http://bit.ly/bb\_table\_template](http://bit.ly/bb_table_template)
+ في الجدول الخاص بك. 
 
 هذا خيار مثالي: كل شيء بسيط للغاية.  اذهب إلى
 `Main menu > File > Make a copy`.

@@ -1,6 +1,7 @@
 # تتبع تحليلات جوجل
 
-استعمال [Google Analytics](https://analytics.google.com/analytics/web/) for tracking bot statistic.
+استعمال
+[Google Analytics](https://analytics.google.com/analytics/web/) لتتبع إحصائية بوت.
 
 ## استعمال
 
@@ -101,7 +102,8 @@ GoogleAnalytics.transaction_item({
 
 ### خيارات "عالمية"
 
-أي من الخيارات في قائمة المعلمات \([https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters)\) that are accepted on ALL hit types can be set as options on any of the hits.
+أي من الخيارات في قائمة المعلمات \([https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters)\)
+التي يتم قبولها على جميع أنواع الزيارات يمكن تعيينها كخيارات على أي من الزيارات.
 
 ```javascript
 GoogleAnalytics.pageview({ path: '/video/1235', user_id: user.id })
@@ -153,7 +155,9 @@ GoogleAnalytics.pageview({ path: '/video/1235', user_id: user.id })
 ```
 
 خيارات منطقية مثل
-`anonymize_ip` سيتم تحويل من `true`/`false` into `1`/`0` وفقًا لمستندات تتبع التتبع.
+`anonymize_ip` سيتم تحويل من
+`true`/`false` into `1`/`0`
+وفقًا لمستندات تتبع التتبع.
 
 
 
@@ -167,7 +171,8 @@ GoogleAnalytics.event({ category: 'webhook', action: 'send', non_interactive: tr
 تعد الأحداث غير التفاعلية مفيدة لتتبع أشياء مثل رسائل البريد الإلكتروني المرسلة ، أو الأحداث الأخرى التي لا تكون مباشرة نتيجة تفاعل المستخدم.
 
 الخيار
-`non_interactive` مقبول لجميع الطرق على `tracker`.
+`non_interactive`
+مقبول لجميع الطرق على `tracker`.
 
 ### **التحكم في الجلسة**
 

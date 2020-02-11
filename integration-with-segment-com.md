@@ -1,12 +1,12 @@
-# التكامل مع Segment.com
+#التكامل مع Segment.com
 
-## التكامل مع Segment.com
+##التكامل مع Segment.com
 
-### 1. إنشاء حساب في Segment.com وتسجيل الدخول: [https://app.segment.com/login](https://app.segment.com/login)
+###1. إنشاء حساب في Segment.com وتسجيل الدخول: [https://app.segment.com/login](https://app.segment.com/login)
 
-### 2. انتقل إلى مساحة العمل الخاصة بك
+2###.انتقل إلى مساحة العمل الخاصة بك
 
-### 3. انقر على "المصادر"
+3###.انقر على "المصادر"
 
 [![](https://camo.githubusercontent.com/3edc620a7b362530a6724b30cc94de002177dc1d/68747470733a2f2f692e696d6775722e636f6d2f6e574c657a74642e706e67)](https://camo.githubusercontent.com/3edc620a7b362530a6724b30cc94de002177dc1d/68747470733a2f2f692e696d6775722e636f6d2f6e574c657a74642e706e67)
 

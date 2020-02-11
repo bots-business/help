@@ -2,7 +2,8 @@
 
 ## شروط مسبقة
 
-لطفا أنظر [this](https://help.bots.business/git#requirements) before. \(Need set repository and Deploy Key in external repository\)
+لطفا أنظر 
+[this](https://help.bots.business/git#requirements) before. \(تحتاج إلى تعيين مستودع التخزين و Deploy Key في مستودع التخزين الخارجي\)
 
 ## استيراد
 

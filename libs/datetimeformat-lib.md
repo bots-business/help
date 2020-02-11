@@ -2,7 +2,8 @@
 
 تحويل الوقت إلى سلسلة الوقت عن طريق القناع.
 
-نفذت من [http://blog.stevenlevithan.com/archives/date-time-format](http://blog.stevenlevithan.com/archives/date-time-format)
+نفذت من 
+[http://blog.stevenlevithan.com/archives/date-time-format](http://blog.stevenlevithan.com/archives/date-time-format)
 
 ```javascript
 Libs.DateTimeFormat.format(time, mask);
@@ -26,10 +27,10 @@ Libs.DateTimeFormat.format(now, "h:MM TT");
 | :--- | :--- |
 | `D` | يوم الشهر كرقم ؛ لا يوجد صفر بادئة للأيام المكونة من رقم واحد. |
 | `DD` | يوم الشهر كرقم ؛ يؤدي صفر للأيام المكونة من رقم واحد. |
-| `DDD` | يوم من أيام الأسبوع abbr ثلاثة أحرف
-| `dddd` | Day of the week as its full name. |
+| `DDD` | يوم من أيام الأسبوع اختصار ثلاثة أحرف |
+| `dddd` | يوم الأسبوع كاسمها الكامل. |
 | `m` | الشهر كرقم ؛ لا يوجد صفر بادئة للأشهر المكونة من رقم واحد. |
-| `mm` |  | الشهر كرقم ؛ لا يوجد صفر بادئة للأشهر المكونة من رقم واحد. |
+| `mm` | الشهر كرقم ؛ لا يوجد صفر بادئة للأشهر المكونة من رقم واحد. |
 | `mmm` | الشهر كاختصار ثلاثة أحرف. |
 | `mmmm` | شهر باسمه الكامل. |
 | `yy` | السنة مثل آخر رقمين ؛ يؤدي صفر لسنوات أقل من 10. |

@@ -1,9 +1,10 @@
 # Auto Retry \(AR\)
 
 يمكن تشغيل الأمر بشكل دوري.  فمثلا:
-* bot send [message "Hello" ](https://help.bots.business/store/welcome-bot#good-morning-every-day)
+* البوت يرسل [الرسالة "مرحبا" ](https://help.bots.business/store/welcome-bot#good-morning-every-day)
 كل 24 ساعة
-* قم بتنزيل صفحة الويب كل 1 ساعة وتحليلها.  انظر لدينا [PlayMarketNewsBot](https://telegram.me/PlayMarketNewsBot)
+* قم بتنزيل صفحة الويب كل 1 ساعة وتحليلها.  انظر لدينا 
+[PlayMarketNewsBot](https://telegram.me/PlayMarketNewsBot)
 
 {% hint style="danger" %}
 إعادة المحاولة التلقائية قضى 1 التكرار على كل شوط.  وبالتالي ، إذا وضعت AR لمرة واحدة في الدقيقة
@@ -24,7 +25,10 @@
 
 
 {% hint style="warning" %}
-إعادة المحاولة التلقائية تعمل فقط مع [BJS](https://help.bots.business/scenarios-and-bjs). There are now [Variables](https://help.bots.business/scenarios-and-bjs/variables): chat, user, request.
+إعادة المحاولة التلقائية تعمل فقط مع 
+[BJS](https://help.bots.business/scenarios-and-bjs)
+ هناك الان 
+[Variables](https://help.bots.business/scenarios-and-bjs/variables): chat, user, request.
 {% endhint %}
 
 ### التعامل معها فقط على BJS!
@@ -48,7 +52,7 @@ Bot.sendMessage({text: "Hello", chat_id: YOUR_CHAT_ID});
 #### كيف يمكنني معرفة معرف الدردشة؟
 
 إنشاء أمر بسيط
-\(without Auto Reply\): `/chat` with BJS:
+\(بدون الرد التلقائي\): `/chat` مع BJS:
 
 ```javascript
 Bot.sendMessage(chat.chatid);
@@ -71,12 +75,3 @@ Bot.sendMessage(chat.chatid);
 
  لا يوجد مستخدم على إعادة المحاولة التلقائية!
 {% endhint %}
-
-
-
-
-
-
-
-
-

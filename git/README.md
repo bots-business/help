@@ -5,7 +5,7 @@
 ## دعم بوابة
 
 * بوت التصدير إلى مستودع بوابة الخارجية
-\(for Github, for example\)
+\(githup ، على سبيل المثال\)
 * بوت المستوردة من مستودع بوابة الخارجية
 
 ## المتطلبات
@@ -32,7 +32,9 @@
 
 **Github**
 
-لطفا أنظر [this](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys). For Git exporting also need "write" access.
+لطفا أنظر 
+[this](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys)
+لتصدير بوابة تحتاج أيضا الوصول "الكتابة".
 
 #### 3. الآن يمكنك جعل التصدير أو الاستيراد مع git
 

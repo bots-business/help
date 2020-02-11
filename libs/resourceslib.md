@@ -6,7 +6,7 @@
 
 ## الموارد يمكن أن يكون
 
-* توازن \(in USD, BTC or any other\)
+* توازن \(في USD ، BTC أو أي دولة أخرى\)
 * أي موارد اللعبة: الذهب ، الغابة ، الحجر ، الخ
  * الخ ، أي قيم تعويم
 
@@ -235,7 +235,7 @@ usd.growth.addCompoundInterest({
 
 `res.growth.progress()` - التقدم الحالي للتكرار المقبل
 
-`res.growth.willCompletedAfter()` - will الانتهاء من التكرار بعد هذا الوقت في ثوان
+`res.growth.willCompletedAfter()` - سوف ينتهي من التكرار بعد هذا الوقت في ثوان
 
 ### 
 
@@ -297,7 +297,8 @@ bankDeposit.set(baseValue);
 
 ### ** س: كيفية إعطاء للإحالة 5 ٪ من إيداع المستخدم الإحالة؟ **
 
-لطفا أنظر [https://help.bots.business/libs/refferallib\#how-to](https://help.bots.business/libs/refferallib#how-to)
+لطفا أنظر 
+[https://help.bots.business/libs/refferallib\#how-to](https://help.bots.business/libs/refferallib#how-to)
 
 
 

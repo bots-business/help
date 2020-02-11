@@ -2,7 +2,8 @@
 
 ![](../.gitbook/assets/image%20%282%29.png)
 
-يمكن أن يكون التكامل مع الخدمات الخارجية ممكنًا مع إشعارات webhooks.  هذا lib يولد رابط ل webhooks.
+يمكن أن يكون التكامل مع الخدمات الخارجية ممكنًا مع إشعارات webhooks.
+هذا lib يولد رابط ل webhooks.
 
 ## مثال بوت
 
@@ -10,7 +11,8 @@
 [example bot](https://t.me/BBWebhookBot)
 
 {% hint style="info" %}
-من عند [wikipedia](https://en.wikipedia.org/wiki/Webhook): a **webhook** is a method of augmenting or altering the behavior of bot, with custom [callbacks](https://en.wikipedia.org/wiki/Callback_%28computer_programming%29).
+من عند 
+[wikipedia](https://en.wikipedia.org/wiki/Webhook): a **webhook** هي وسيلة لزيادة أو تغيير سلوك الروبوت ، مع العرف [callbacks](https://en.wikipedia.org/wiki/Callback_%28computer_programming%29).
 
 قد تتم المحافظة على عمليات الاسترجاعات هذه وتعديلها وإدارتها من قِبل المستخدمين والمطورين من الجهات الخارجية الذين قد لا ينتمون بالضرورة إلى موقع الويب أو التطبيق الأصلي.
 

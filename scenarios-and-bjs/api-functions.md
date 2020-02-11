@@ -25,7 +25,8 @@ Api.sendAudio({
 
 
 
-يمكنك تمرير المعلمات المسموح بها.  على سبيل المثال ل [sendAudio](https://core.telegram.org/bots/api#sendaudio) يمكن أن يكون العنوان و disable\_notification
+يمكنك تمرير المعلمات المسموح بها.  على سبيل المثال ل 
+[sendAudio](https://core.telegram.org/bots/api#sendaudio) يمكن أن يكون العنوان و disable\_notification
 
 ```javascript
 Api.sendAudio({
@@ -42,7 +43,7 @@ Api.sendAudio({
 ```javascript
 // رؤية جميع المعلمات في https://core.telegram.org/bots/api#sendphoto
 Api.sendPhoto({
-  photo: "https://cataas.com/cat", // it is picture!
+  photo: "https://cataas.com/cat", // انها صورة
   caption: "Test photo",
 
   reply_markup: { inline_keyboard: [
@@ -66,7 +67,7 @@ Api.sendPhoto({
 ## الحصول على الأساليب
 
 يمكنك استدعاء أساليب الحصول على Api
-\(and others methods too\).
+\(وغيرها من الأساليب أيضا\).
 تحتاج تمرير
 `on_result` key. 
 
@@ -88,7 +89,7 @@ Api.getUserProfilePhotos({
 #### Command `onGetProfilePhotos`
 
 ```javascript
-// you can inspect result:
+// يمكنك فحص النتيجة:
 // Bot.inspect(options) 
 
 if(!options.ok){
@@ -118,7 +119,8 @@ Api.sendAudio({
 });
 ```
 
-In command `on_error`:
+في القيادة
+`on_error`:
 
 ```javascript
 Bot.sendMessage("لدينا خطأ في إرسال الصوت");

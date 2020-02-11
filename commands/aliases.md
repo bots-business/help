@@ -1,10 +1,13 @@
 # Aliases
 
-### ما هو الأسماء المستعارة؟
+### ما هي الأسماء المستعارة؟
 
-في بعض الأحيان أنها مريحة لتعيين مستعرض. على سبيل المثال، تشمل 
-aliases `/phone, /email` to command `/contacts`.  
-Then `/contacts` - إنه اسم الأمر.
+في بعض الأحيان أنها مريحة لتعيين مستعرض.
+على سبيل المثال، تشمل:
+aliases:
+`/phone, /email` الى command `/contacts`.  
+عند
+`/contacts` - إنه اسم الأمر.
 الآخرين (aliases) - إنها الأسماء المستعارة.
 
 ![Aliases can be modified on command editing ](../.gitbook/assets/image%20%284%29.png)

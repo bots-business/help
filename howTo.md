@@ -46,7 +46,7 @@ pre-formatted fixed-width code block
 ## س: كيف يمكنني استخدام لوحة المفاتيح المضمنة؟
 
 لطفا أنظر
-[demo bot](https://telegram.me/DemoInlineKeyboardBot). It avaible in the Store.
+[demo bot](https://telegram.me/DemoInlineKeyboardBot). وهي متوفرة في المتجر.
 
 BJS code:
 
@@ -62,13 +62,17 @@ Bot.sendInlineKeyboard(buttons, "يرجى اتخاذ خيار.
 `/touch` سوف تبدأ مع المعلمات");
 ```
 
-`buttons` - انها مجموعة. أنه يحتوي على أزرار. كل زر هو كائن مع
+`buttons` -
+انها مجموعة. أنه يحتوي على أزرار. كل زر هو كائن مع
 `title` \(required\), `url` or `command`.
 
 يجب أن يكون الزر
 `url` or `command`. `url` - أي رابط.
 
-`command` - سيتم تنفيذ هذا الأمر بعد الضغط على زر. يمكن أن تحتوي على المعلمات من خلال مسافة. `Command` لا يمكن أن يكون أكثر من 64 بايت.
+`command` - 
+سيتم تنفيذ هذا الأمر بعد الضغط على زر. يمكن أن تحتوي على المعلمات من خلال مسافة.
+`Command`
+لا يمكن أن يكون أكثر من 64 بايت.
 
 ## س: كيفية الروبوت يمكن أن ترسل الرد لرسالة المستخدمين؟
 
@@ -138,7 +142,8 @@ if(duration_in_hours>=24){
 
 ## س: كيف يمكنني إنشاء bjs أنه إذا قمت بالنقر فوق الزر ، فإنه يعيد التوجيه لفتح رابط في الويب؟
 
-لسوء الحظ ، هذا غير معتمد من قبل Telegram API. ولكن يمكنك إرسال رابط إلى الدردشة: الإجابة:
+لسوء الحظ ، هذا غير معتمد من قبل Telegram API. ولكن يمكنك إرسال رابط إلى الدردشة:
+الإجابة:
 
 ```text
 [Open](http://example.com)
@@ -201,7 +206,7 @@ BJS code:
    }
 ```
 
-**2. In** _**الاوامر الاخرى**_ **تحتاج الاتصال** `tracking` **أمر** Bjs code:
+**2. في** _**الاوامر الاخرى**_ **تحتاج الاتصال** `tracking` **أمر** Bjs code:
 
 ```javascript
    Bot.runCommand("تتبع");
@@ -234,7 +239,8 @@ BJS:
 ## س: هل من الممكن وضع بعض رموز BJS في روبوتنا الذي يخطر المستخدم بسعر العملة المشفرة؟
 
 يمكنك استخدام
-[Coinmarketcap API](https://coinmarketcap.com/api/). For example page [https://api.coinmarketcap.com/v2/ticker/1/](https://api.coinmarketcap.com/v2/ticker/1/) have information about Bitcoin. We need load it with BJS.
+[Coinmarketcap API](https://coinmarketcap.com/api/).
+على سبيل المثال الصفحة [https://api.coinmarketcap.com/v2/ticker/1/](https://api.coinmarketcap.com/v2/ticker/1/) لديك معلومات حول البيتكوين. نحن بحاجة إلى تحميله مع BJS.
 
 BJS:
 
@@ -283,7 +289,8 @@ Bot.sendKeyboard(String(balance) + ",\nHelp, Contacts" );
 Bot.sendMessageToChatWithId(user.telegramid, "اجابة البوت")
 ```
 
-كما أنه من الممكن إظهار رسالة تنبيه للمستخدم في الدردشة الجماعية مع [answerCallbackQuery](https://core.telegram.org/bots/api#answercallbackquery) 
+كما أنه من الممكن إظهار رسالة تنبيه للمستخدم في الدردشة الجماعية مع 
+[answerCallbackQuery](https://core.telegram.org/bots/api#answercallbackquery) 
 بعد الضغط على زر مضمنة.
 
 ## س: ما هو bjs للحصول على عدد الأعضاء الكلي؟
@@ -310,7 +317,8 @@ Bot.sendMessage(
 يجب على المستخدم إرفاق موقعه للدردشة.
 
 تحتاج القيادة مع
-"Wait for answer" option \(أو يمكنك استخدام القيادة ماجستير وقبض على الموقع\)
+"Wait for answer" خيار
+\(أو يمكنك استخدام القيادة ماجستير وقبض على الموقع\)
 
 BJS:
 

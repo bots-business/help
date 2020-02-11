@@ -8,7 +8,8 @@
 
 ### bot.json ملف
 
-لطفا أنظر [this](https://help.bots.business/git/file-bot-json)
+لطفا أنظر 
+[this](https://help.bots.business/git/file-bot-json)
 
 ### الأوامر - في مجلد الأوامر
 
@@ -17,11 +18,14 @@
 
 {% hint style="warning" %}
 للأوامر مع
-"/" \(for example command "/start"\) file name is "\_start"
+"/" \ (على سبيل المثال command "/ start" \)
+اسم الملف هو 
+"\ _start"
+
 {% endhint %}
 
 القيادة يمكن أن يكون:
-`name`, `help`, `aliases` \(second names\), `answer`, `keyboard`, `scnarios` \(for simple logic\) وغيرها من الخيارات.
+`name`, `help`, `aliases` \(الأسماء الثانية\), `answer`, `keyboard`, `scnarios` \(لمنطق بسيط\) وغيرها من الخيارات.
 
 {% hint style="success" %}
 إذا كان الأمر يحتوي على مجلد - فهو موجود في مجلد على القرص بنفس الاسم

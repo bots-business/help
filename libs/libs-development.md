@@ -2,7 +2,8 @@
 
 يمكنك إنشاء Lib ​​الخاصة.  الآن من الممكن إنشاء lib فقط مع Git [importing](https://help.bots.business/git/import-bot-from-git-repository).
 
-Official Bots.Business repository available [here](https://github.com/bots-business/store-libs)
+مستودع Bots.Business الرسمي متاح 
+[here](https://github.com/bots-business/store-libs)
 
 يمكنك تخزين الكود الشائع في المكتبة.
 
@@ -97,6 +98,3 @@ Libs.myLib.load();
 ```
 
 See [more](https://help.bots.business/scenarios-and-bjs/send-http-request)
-
-
-

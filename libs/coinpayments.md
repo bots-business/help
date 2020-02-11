@@ -1,13 +1,16 @@
 # CoinPayments \(CP\)
 
-هذا ليب جعل التكامل مع [https://www.coinpayments.net](https://www.coinpayments.net/index.php?ref=5418303a5fc165090ee8a9177a3982de) in easy way.
+هذا lib جعل التكامل مع 
+[https://www.coinpayments.net](https://www.coinpayments.net/index.php?ref=5418303a5fc165090ee8a9177a3982de)
+بطريقة سهلة
 
 ## الإعداد الأولي
 
 تحتاج إلى إعداد المفتاح العام والخاص:
 
-1. [Register](https://www.coinpayments.net/index.php?ref=5418303a5fc165090ee8a9177a3982de)
-2. Go to this [page](https://www.coinpayments.net/acct-api-keys) وتوليد مفتاح جديد.
+1.[Register](https://www.coinpayments.net/index.php?ref=5418303a5fc165090ee8a9177a3982de)
+2. اذهب الى 
+[page](https://www.coinpayments.net/acct-api-keys) وتوليد مفتاح جديد.
 
 ![](../.gitbook/assets/image%20%2847%29.png)
 
@@ -16,7 +19,7 @@
 ![Check all options what you need](../.gitbook/assets/image%20%2818%29.png)
 
 ثم على الروبوت
-`/ setup` command:
+`/setup` command:
 
 ```javascript
 // الحصول على المفاتيح الخاصة بك في https://www.coinpayments.net/index.php?cmd=acct_api_keys
@@ -30,10 +33,13 @@ Libs.CoinPayments.setBBApiKey('YOUR API KEY');
 
 ## استدعاء أساليب API
 
-كل طريقة CoinPayments API متاحة [here](https://www.coinpayments.net/apidoc-intro).
+كل طريقة CoinPayments API متاحة 
+[here](https://www.coinpayments.net/apidoc-intro).
 
 على سبيل المثال للطريقة
-[Get Basic Account Information](https://www.coinpayments.net/apidoc-get-basic-info) we need 2 commands: `/info` and `/onInfo`
+[Get Basic Account Information](https://www.coinpayments.net/apidoc-get-basic-info)
+نحتاج 2 أوامر:
+`/info` و `/onInfo`
 
 `/info` command:
 
@@ -59,7 +65,8 @@ Bot.sendMessage("CoinPayments owner email:" + options.body.result.email);
 
 لا تملك CoinPayments API بعض الطرق. على سبيل المثال الحصول على التوازن حسب العنوان ، والتحقق من صحة العنوان ، والحصول على المعاملات للعنوان وغيرها.
 
-Use Block.io [Lib](https://help.bots.business/libs/blockio) with CP Lib together!
+Use Block.io [Lib](https://help.bots.business/libs/blockio)
+مع CP Lib معا!
 
 Block.io مجاني إذا كنت لا تستخدم محافظ هناك.
 
@@ -68,7 +75,8 @@ Block.io مجاني إذا كنت لا تستخدم محافظ هناك.
 ## تلقي المدفوعات
 
 {% hint style="success" %}
-See [demo bot](https://telegram.me/BBDemoStoreBot). Available in the Store.
+انظر
+[demo bot](https://telegram.me/BBDemoStoreBot). Available in the Store.
 {% endhint %}
 
 من الممكن تلقي الدفع مقابل محفظة مؤقتة أو دائمة.
@@ -89,7 +97,9 @@ See [demo bot](https://telegram.me/BBDemoStoreBot). Available in the Store.
 ### الإعداد: ضبط IPN Secret
 
 {% hint style="warning" %}
-The first step is to go to the [My Settings](https://www.coinpayments.net/index.php?cmd=acct_settings) صفحة> ** إعدادات التاجر ** وتعيين IPN Secret.
+الخطوة الأولى هي الذهاب إلى
+[My Settings](https://www.coinpayments.net/index.php?cmd=acct_settings)
+صفحة> ** إعدادات التاجر ** وتعيين IPN Secret.
 
 يعد IPN Secret الخاص بك سلسلة من ** اختيارك **. يوصى أن تكون سلسلة عشوائية من الحروف والأرقام والأحرف الخاصة.
 
@@ -105,11 +115,13 @@ See [more](https://www.coinpayments.net/merchant-tools-ipn)
 
 ## محفظة مؤقتة
 
-نحن نستخدم الأمر "create \ _transaction" مع IPN.
+نحن نستخدم الأمر "create\ _transaction" مع IPN.
 
 لطفا أنظر [https://www.coinpayments.net/apidoc-create-transaction](https://www.coinpayments.net/apidoc-create-transaction) for details.
 
-نعم ، يمكنك كتابتها عبر `Libs.CoinPayments.apiCall`method too. But هناك طريقة أسهل.
+نعم ، يمكنك كتابتها عبر
+`Libs.CoinPayments.apiCall`
+الطريقة أيضا. لكن هناك طريقة أسهل.
 
 ### 
 
@@ -450,5 +462,5 @@ if(!options){
 
 ![Check all options what you need](../.gitbook/assets/image%20%2818%29.png)
 
-قراءة المزيد عن الأمن [here](https://help.bots.business/scenarios-and-bjs/bjs-security)
-
+قراءة المزيد عن الأمن 
+[here](https://help.bots.business/scenarios-and-bjs/bjs-security)

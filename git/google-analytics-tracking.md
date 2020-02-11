@@ -1,6 +1,7 @@
 # تتبع تحليلات جوجل
 
-استعمال [Google Analytics](https://analytics.google.com/analytics/web/) for tracking bot statistic.
+استعمال
+[Google Analytics](https://analytics.google.com/analytics/web/) لتتبع إحصائية بوت.
 
 ## استعمال
 
@@ -24,7 +25,7 @@ GoogleAnalytics.exception(ua_key: "UA-XXXXXX-1",
 
 ```javascript
 // Track timing (جميع القيم اختيارية ، ولكن يجب أن تشمل الوقت)
-// time in milliseconds
+// الوقت بالميلي ثانية
 GoogleAnalytics.timing(ua_key: "UA-XXXXXX-1",
   category: 'downloading', variable: 'external-api', label: 'coinpayments', time: 50)
 ```

@@ -6,7 +6,9 @@
 [here](https://docs.google.com/spreadsheets/d/1hLEeCGqT5zTtT7hFs0HP20v5BrRj1y70Qhz4bOItO-c/edit?usp=sharing).
 
 يمكنك عمل نسخة من هذا الجدول 
-\(File-&gt;Copy in Google Table\) أو نسخ قائمة إلى الجدول الخاص بك. \(Ctrl+C and Ctrl + V\)
+\(ملف> نسخ في جدول جوجل\)
+ أو نسخ قائمة إلى الجدول الخاص بك.
+\(Ctrl+C and Ctrl + V\)
 
 ![](.gitbook/assets/image%20%2830%29.png)
 
