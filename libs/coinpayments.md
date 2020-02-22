@@ -107,7 +107,7 @@ Please see [https://www.coinpayments.net/apidoc-create-transaction](https://www.
 
 Yes, you can write it via `Libs.CoinPayments.apiCall`method too. But there is an easier way.
 
-### 
+#### 
 
 ### Command `/pay`
 
@@ -120,6 +120,7 @@ options = {
      currency: "BTC",  // currency1 = currency2 = BTC
      // currency1: "BTC",   // The original currency of the transaction
      // currency2: "LTC"  //The currency the buyer will be sending
+     // buyer_email: "user@example.com",
      // you can use another fields also
      // except custom and ipn_url (it used by Lib)
      // See https://www.coinpayments.net/apidoc-create-transaction
@@ -206,6 +207,20 @@ Bot.sendMessage("added to balance, BTC: " + amount);
 ### Finished!
 
 Now you can  receive payments
+
+
+
+### Information about extra payments and refunds.
+
+It is possible to define buyer email in fields for options \([see](https://help.bots.business/libs/coinpayments#command-pay) code for command /pay \)
+
+{% hint style="danger" %}
+**Please note:** CoinPayments do not send you extra payments. CoinPayments send just email to buyer \(or you\) about refund for that extra.
+
+Also no any information about such extra in CP Panel or IPN. Be careful
+{% endhint %}
+
+
 
 ### Additional Information
 
