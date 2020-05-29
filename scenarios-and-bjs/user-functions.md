@@ -29,6 +29,10 @@
           <br />can get property with default value for non exist property:</p>
         <p><code>User.getProperty(&quot;city&quot;, &quot;London&quot;)</code>
         </p>
+        <p>&lt;code&gt;&lt;/code&gt;</p>
+        <p>can get property of another bot:</p>
+        <p><code>  </code>Bot.getProperty({ name: &quot;propName&quot;, other_bot_id: <code>OTHER_BOT_ID })</code>
+        </p>
       </td>
     </tr>
     <tr>
@@ -52,7 +56,9 @@
       <td style="text-align:left">Remove user from current group</td>
     </tr>
   </tbody>
-</table>**Access to property** in answer:
+</table>
+
+**Access to property** in answer:
 
 > You can also use the properties in the command's answer. For example, you can do this with the / hello command:`Hello, <UserRole>!`
 

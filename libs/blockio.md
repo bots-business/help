@@ -2,7 +2,7 @@
 
 This Lib make integration with [block.io](blockio.md) in easy way.
 
-![](../.gitbook/assets/image%20%2843%29.png)
+![](../.gitbook/assets/image%20%2841%29.png)
 
 ## With Block.io you can
 
@@ -185,7 +185,9 @@ You can also use Testnet: Libs.BlockIO.testNet.XXXcoin
         to upto 2500 destination addresses, or labels.</td>
     </tr>
   </tbody>
-</table> Full methods docs [here](https://block.io/api/)
+</table>
+
+ Full methods docs [here](https://block.io/api/)
 
 So if you need, for example, getTransactions method for Litecoin change this code:
 
@@ -233,7 +235,7 @@ For example: "Actions for Handling Addresses"
 
 From block.io [help](https://block.io/api/): 
 
-![from Block.io help - https://block.io/api](../.gitbook/assets/image%20%2839%29.png)
+![from Block.io help - https://block.io/api](../.gitbook/assets/image%20%2837%29.png)
 
 So we have API method "Get New Address":
 
@@ -265,7 +267,7 @@ Bot.sendMessage(
 
 ### Example for making Withdraw
 
-![from Block.io help - https://block.io/api](../.gitbook/assets/image%20%2813%29.png)
+![from Block.io help - https://block.io/api](../.gitbook/assets/image%20%2811%29.png)
 
 {% hint style="success" %}
 We know about params: `to_addresses` and `from_labels` from block.io [help](https://block.io/api/). See "Withdraw From Labels" method there

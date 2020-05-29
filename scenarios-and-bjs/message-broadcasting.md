@@ -83,7 +83,9 @@
       </td>
     </tr>
   </tbody>
-</table>## Do you want broadcast photo, video and etc?
+</table>
+
+## Do you want broadcast photo, video and etc?
 
 See [Bot.runAll](https://help.bots.business/scenarios-and-bjs/bot-functions#bot-runall-options) command
 
@@ -127,7 +129,9 @@ Therefore, the function `Bot.sendMessageToChatWithId` is more preferable than th
       </td>
     </tr>
   </tbody>
-</table>{% hint style="info" %}
+</table>
+
+{% hint style="info" %}
 message\_id - it is unique identificator for all chats of this bot.
 {% endhint %}
 

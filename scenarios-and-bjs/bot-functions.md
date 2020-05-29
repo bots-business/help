@@ -134,6 +134,11 @@
         <p>can get property with default value for non exist property:</p>
         <p><code>Bot.getProperty(&quot;TotalScore&quot;, 100)</code> 
         </p>
+        <p>
+          <br />can get property of another bot:
+          <br /><code>Bot.getProperty({ name: &quot;propName&quot;, other_bot_id: OTHER_BOT_ID })</code>
+        </p>
+        <p></p>
       </td>
     </tr>
     <tr>
@@ -167,6 +172,8 @@
     </tr>
   </tbody>
 </table>
+
+
 
 **Access to property** in answer:
 
@@ -316,7 +323,9 @@ Bot.runAll(params)
       </td>
     </tr>
   </tbody>
-</table>**Example**:
+</table>
+
+**Example**:
 
 Command: `/news`
 

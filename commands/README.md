@@ -100,11 +100,13 @@ Command can have:
       <td style="text-align:left"><code>600</code> - repeated once at 10 minutes</td>
     </tr>
   </tbody>
-</table>### How to create and edit commands?
+</table>
+
+### How to create and edit commands?
 
 **You can edit command directly from application.**
 
-![Screen from App for command creation](../.gitbook/assets/image%20%2814%29.png)
+![Screen from App for command creation](../.gitbook/assets/image%20%2812%29.png)
 
 ### Commands importing
 

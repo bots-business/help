@@ -44,7 +44,9 @@ params `trackOptions` - it is object with callback functions for:
       </td>
     </tr>
   </tbody>
-</table>{% hint style="info" %}
+</table>
+
+{% hint style="info" %}
 See @[DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=FromLibPage) for details
 {% endhint %}
 

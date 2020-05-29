@@ -1,6 +1,6 @@
 # GoogleSpreadSheet
 
-![](../.gitbook/assets/image%20%281%29.png)
+![](../.gitbook/assets/image%20%2854%29.png)
 
 You can post and read data from GoogleSpreadSheet with this lib.
 
@@ -14,7 +14,7 @@ You can post and read data from GoogleSpreadSheet with this lib.
 
 **1.**Make new spreadsheet. 
 
-![](../.gitbook/assets/image%20%2828%29.png)
+![](../.gitbook/assets/image%20%2826%29.png)
 
 You definitely need a table header. Make it.
 
@@ -22,7 +22,7 @@ You definitely need a table header. Make it.
 
 **3.** Paste the script from [above](https://gist.github.com/bots-business/b627418423a2c5df3b4ed329181077f0) into the script code editor and hit _Save._
 
-![](../.gitbook/assets/image%20%282%29.png)
+![](../.gitbook/assets/image%20%281%29.png)
 
 **4.**  From the _Publish_ menu, select _Deploy as web app…_  
   
