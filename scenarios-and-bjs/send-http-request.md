@@ -34,3 +34,9 @@ Command `onError`
 Bot.sendMessage("Error on downloading")
 ```
 
+{% hint style="info" %}
+Http request performed in background with bigger [timeout](../limitations.md).
+{% endhint %}
+
+
+
