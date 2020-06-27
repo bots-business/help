@@ -10,7 +10,7 @@ Each command can be executed only a certain time
 | Business | 20 |
 | Big Business | 25 |
 
-[Http request](https://help.bots.business/scenarios-and-bjs/send-http-request) have bigger limits:
+[Http request](https://help.bots.business/scenarios-and-bjs/send-http-request) on background have bigger limits:
 
 | Plan | Timeout \(sec\) |
 | :--- | :--- |

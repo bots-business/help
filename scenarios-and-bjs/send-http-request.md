@@ -8,6 +8,7 @@ Get page on [example.com](http://example.com)
     success: '/onLoading',
     error: '/onError'
     // headers: headers - if you need headers
+    // background: "true" - if you have timeout error
   } )
 
 /* also you can send POST request
@@ -35,8 +36,10 @@ Bot.sendMessage("Error on downloading")
 ```
 
 {% hint style="info" %}
-Http request performed in background with bigger [timeout](../limitations.md).
+Http request can be performed in background with bigger [timeout](../limitations.md).
 {% endhint %}
+
+Pass `background: "true"` if you need request from slow web page. Task on backgroud is more slowly but it have bigger timeout limit.
 
 
 
