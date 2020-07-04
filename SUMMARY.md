@@ -23,6 +23,7 @@
   * [Send HTTP request](scenarios-and-bjs/send-http-request.md)
   * [Inline Bot](scenarios-and-bjs/inline-bot.md)
   * [BJS Security](scenarios-and-bjs/bjs-security.md)
+  * [Good coding practices](scenarios-and-bjs/good-coding-practices.md)
 * [Git](git/README.md)
   * [Import bot from Git repository](git/import-bot-from-git-repository.md)
   * [Export bot to Git repository](git/export-bot-to-git-repository.md)
