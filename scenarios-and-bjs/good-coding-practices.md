@@ -36,7 +36,7 @@ So why do you call your variables like that?
 
 ![](../.gitbook/assets/image%20%2862%29.png)
 
-## Do not use many methods of getProperty
+## Do not use many methods of getProperty or setProperty
 
 **Bad code:**
 
