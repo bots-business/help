@@ -56,6 +56,7 @@
 * [GoogleSpreadSheet](libs/googlespreadsheet.md)
 * [Webhooks lib](libs/webhooks-lib.md)
 * [DateTimeFormat Lib](libs/datetimeformat-lib.md)
+* [MembershipChecker](libs/membershipchecker.md)
 
 ## Store
 
