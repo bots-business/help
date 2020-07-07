@@ -363,6 +363,10 @@ Api.answerCallbackQuery({
 
 ## Q: How to check if a user joins a channel?
 
+{% hint style="success" %}
+Strongly recommended use [MembershipChecker](libs/membershipchecker.md) Lib for this
+{% endhint %}
+
 Command: `/isJoined`
 
 ```javascript
