@@ -44,11 +44,13 @@ Libs.Coinbase.apiCall({
   onSuccess: "/onApi",
   // onError: "/onApiError"  // onError command
   // background: true // perform api call in background for big timeout limit
+  // apiKey - if you need custom Api Key
+  // secretApiKey - if you need custom Api Key
 })
 ```
 
 {% hint style="info" %}
-In fields you can pass all fields from Coinbase api.
+In body you can pass all fields from Coinbase api.
 {% endhint %}
 
 `/onCreate` command:

@@ -54,6 +54,7 @@
 * [BlockIO](libs/blockio.md)
 * [Coinbase \(CB\)](libs/coinbase.md)
 * [CoinPayments \(CP\)](libs/coinpayments.md)
+* [CryptoJS](libs/cryptojs.md)
 * [GoogleSpreadSheet](libs/googlespreadsheet.md)
 * [Webhooks lib](libs/webhooks-lib.md)
 * [DateTimeFormat Lib](libs/datetimeformat-lib.md)
