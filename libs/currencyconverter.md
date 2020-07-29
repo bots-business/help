@@ -12,6 +12,16 @@ Currency values are refreshed every 60 minutes.
 * Shared with all users who are acccessing it for free.
 * Downtime when there's a need to restart the server for bug fixes and enhancements
 
+## PAID
+
+Register in [https://www.currencyconverterapi.com/pricing](https://www.currencyconverterapi.com/pricing)
+
+Get your API key and run in `/setup`
+
+```javascript
+Libs.CurrencyConverter.setupApiKey(API_KEY);
+```
+
 ## Example bot @DemoCurrencyConverterBot
 
 ## Example code
