@@ -95,7 +95,7 @@ You can pass bot properties for new bot.
 {% endhint %}
 
 ```javascript
-BBAdmin.installBot(
+BBAdmin.cloneBot(
   { 
     // see bot id in the app -> Bots -> Bot
     bot_id: 15025,
