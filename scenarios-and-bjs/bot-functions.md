@@ -221,6 +221,7 @@ Bot.run( {
     // options: { amount: 5, currency: "BTC" }  // you can pass data
     chat_id: chat.id  // or use another chat_id
     user_id: user.id  // or use another user.id
+    // bot_id: ANOTHER_BOT_ID // to run command for your another bot 
 } )
 ```
 
