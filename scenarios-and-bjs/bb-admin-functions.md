@@ -68,13 +68,48 @@ BBAdmin.installBot(
     // bot_properties: [
     //     { name: 'test',
     //       value:'hello world',
-    //      type:'string' }
+    //       type:'string' }
     // ]
   }
 )
 ```
 
 {% hint style="info" %}
-You can clone your own bot with this function
+You can also clone your own bot with this function or use BBAdmin.cloneBot
 {% endhint %}
+
+## BBAdmin.cloneBot
+
+| Function | Description |
+| :--- | :--- |
+| BBAdmin.cloneBot\(options\) | Clone own bot |
+
+You can create copy of yours exist bot
+
+{% hint style="success" %}
+Bot can be cloned as [protected](https://help.bots.business/protected-bot) bot.
+{% endhint %}
+
+{% hint style="info" %}
+You can pass bot properties for new bot.
+{% endhint %}
+
+```javascript
+BBAdmin.installBot(
+  { 
+    // see bot id in the app -> Bots -> Bot
+    bot_id: 15025,
+    // bot can be installed as protected
+    // as_protected: true,
+    // you can pass properties to bot:
+    // bot_properties: [
+    //     { name: 'test',
+    //       value:'hello world',
+    //       type:'string' }
+    // ]
+  }
+)
+```
+
+
 
