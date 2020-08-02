@@ -27,12 +27,18 @@ Command `onLoading`
 ```javascript
 // downloaded page stored on content field
 Bot.sendMessage(content)
+
+Bot.inspect(http_status)   // "200"
+Bot.inspect(cookies) // is blank for example.com
 ```
 
 Command `onError`
 
 ```javascript
-Bot.sendMessage("Error on downloading")
+Bot.sendMessage("Error on downloading");
+
+Bot.inspect(http_status);
+Bot.inspect(cookies);
 ```
 
 {% hint style="info" %}
