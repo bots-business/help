@@ -117,6 +117,26 @@ var admin_id = AdminPanel.getFieldValue({
 Bot.sendMessage(admin_id)
 ```
 
+
+
+### Setting field value to Panel
+
+{% hint style="success" %}
+Use this method for setting one value to panel
+{% endhint %}
+
+```javascript
+var result = AdminPanel.setFieldValue({
+  panel_name: "AdminInfo", // panel name
+  field_name: "ADMIN_ID", // field name
+  value: 15236125
+})
+
+Bot.sendMessage(result) // true
+```
+
+### 
+
 ### Getting all fields values from Panel
 
 {% hint style="success" %}
