@@ -68,6 +68,10 @@ Bot.sendMessage(
   "We have error with Coinbase API. Please try later. " +
   options.error // error message from Coinbase Api
 )
+
+Bot.sendMessage(
+  options.http_status + " " + options.content
+)
 ```
 
 {% hint style="warning" %}
