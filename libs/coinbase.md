@@ -59,7 +59,18 @@ In body you can pass all fields from Coinbase api.
 Bot.inspect(options.content)
 ```
 
-## 
 
 
+`/onError` command:
+
+```javascript
+Bot.sendMessage(
+  "We have error with Coinbase API. Please try later. " +
+  options.error // error message from Coinbase Api
+)
+```
+
+{% hint style="warning" %}
+if you do not have onError command error will be tracked in Eror Tab. 
+{% endhint %}
 
