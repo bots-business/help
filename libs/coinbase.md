@@ -19,9 +19,11 @@ Libs.Coinbase.setup();
 
 3. Go to Admin Panel and fill Api Key and Secret Api Key:
 
-![](../.gitbook/assets/image%20%2866%29.png)
+![](../.gitbook/assets/image%20%2868%29.png)
 
 4. If you need notifications copy Notifications url and fill it on step 2
+
+5. Fill command to be called on notifications if you need it
 
 ## Call API methods
 
