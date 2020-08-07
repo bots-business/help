@@ -56,7 +56,7 @@ In body you can pass all fields from Coinbase api.
 `/onCreate` command:
 
 ```javascript
-Bot.inspect(options.content)
+Bot.inspect(options.result)
 ```
 
 
@@ -70,7 +70,7 @@ Bot.sendMessage(
 )
 
 Bot.sendMessage(
-  options.http_status + " " + options.content
+  options.http_status + " " + JSON.stringify(options.result)
 )
 ```
 
