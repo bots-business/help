@@ -94,13 +94,57 @@ Bot.run({
 })
 ```
 
-Command /longBackroundTask
+Command `/longBackroundTask`
 
 ```javascript
 // make your long task here...
+Bot.getProperty("myJSON_1");
+Bot.getProperty("myJSON_1");
+// ... and etc...
+Bot.getProperty("myJSON_100");
 
 User.setCache(
   60*60*24*7 // time in seconds - 60*60*24*7 it is week
 )
 ```
+
+## Examples
+
+command `/time`: 
+
+```javascript
+var date = new Date(); 
+
+var time = "Time: " + 
+   + date.getHours() + ":"  
+   + date.getMinutes() + ":" 
+   + date.getSeconds();
+
+Bot.sendMessage(time);
+```
+
+We have such result \(without caching\) - take 250 ms:
+
+![](../.gitbook/assets/image%20%2870%29.png)
+
+Edit command for caching:
+
+```javascript
+var date = new Date(); 
+
+var time = "Time: " + 
+   + date.getHours() + ":"  
+   + date.getMinutes() + ":" 
+   + date.getSeconds();
+
+Bot.sendMessage(time);
+
+Bot.setCache(120);  // caching for 120 seconds
+```
+
+Now we have such result - take 120 ms \(instead 250 ms without caching\):
+
+![](../.gitbook/assets/image%20%2869%29.png)
+
+Command result is changed only after 120 seconds. During that 120 seconds answer is same.
 
