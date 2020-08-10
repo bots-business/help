@@ -79,7 +79,19 @@ User.clearCache(
 )
 ```
 
-## Advanced techniques
+## What can be cached?
+
+Caching is a powerful method for speeding up a bot. But you can't cache everything.
+
+Criteria for caching:
+
+* messages from the bot to this command do not change, or rarely change
+* command accepts no params `(/command any param)` or options `(Bot.run(command: "/cmd", options: options))`, or accepts them, but they rarely change
+* the result of the command is not critical. Even if the old, not updated value is returned, this is not critical
+
+If your command does not meet these requirements try to devide it for several commands. One or more of them can be cached. To run them use methods: `Bot.run` or `Bot.runCommand`
+
+##  Advanced techniques
 
 You can PRE run caching in background for long command.
 
