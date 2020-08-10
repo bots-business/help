@@ -21,6 +21,7 @@
   * [BB Admin functions](scenarios-and-bjs/bb-admin-functions.md)
   * [Admin Panel](scenarios-and-bjs/admin-panel.md)
   * [Send HTTP request](scenarios-and-bjs/send-http-request.md)
+  * [Caching](scenarios-and-bjs/caching.md)
   * [Inline Bot](scenarios-and-bjs/inline-bot.md)
   * [BJS Security](scenarios-and-bjs/bjs-security.md)
   * [Good coding practices](scenarios-and-bjs/good-coding-practices.md)
