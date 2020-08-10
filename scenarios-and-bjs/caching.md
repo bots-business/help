@@ -39,7 +39,9 @@ Thus, the response to the first message will only be sent in a second. And the a
 
 ## Caching methods
 
-Example of command caching for 1 hour \(for all bot users\):
+### setCache
+
+Example set command caching for 1 hour \(for all bot users\):
 
 ```javascript
 Bot.sendMessage("Hello!");
@@ -56,6 +58,24 @@ User.sendMessage("Hello, " + user.first_name);
 
 User.setCache(
   60*60 // time in seconds 60*60 = 1 hour
+)
+```
+
+### clearCache
+
+you can clear Cache \(it can be usefull on changing data\)
+
+```javascript
+Bot.clearCache(
+  "/command" // command Name
+)
+```
+
+clear for user caching
+
+```javascript
+User.clearCache(
+  "/command" // command Name
 )
 ```
 
