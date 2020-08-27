@@ -6,7 +6,7 @@ This Lib make integration with [coinbase.com](http://coinbase.com) in easy way.
 
 ## Initial setup
 
-1. [Register](https://www.coinpayments.net/index.php?ref=5418303a5fc165090ee8a9177a3982de)
+1. [Register](https://www.coinbase.com/signup)
 2. Go to this [page](https://www.coinbase.com/settings/api) and generate new key. Select needed rights:
 
 ![](../.gitbook/assets/image%20%2867%29.png)
