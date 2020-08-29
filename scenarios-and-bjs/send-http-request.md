@@ -34,10 +34,11 @@ Command `onLoading`
 
 ```javascript
 // downloaded page stored on content field
-Bot.sendMessage(content)
+Bot.sendMessage(content);
 
-Bot.inspect(http_status)   // "200"
-Bot.inspect(cookies) // is blank for example.com
+Bot.inspect(http_status);   // "200"
+Bot.inspect(http_headers);  // headers from response
+Bot.inspect(cookies); // it is blank for example.com
 ```
 
 Command `onError`
@@ -46,6 +47,7 @@ Command `onError`
 Bot.sendMessage("Error on downloading");
 
 Bot.inspect(http_status);
+Bot.inspect(http_headers);  // headers from response
 Bot.inspect(cookies);
 ```
 
