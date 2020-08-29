@@ -7,7 +7,11 @@ Get page on [example.com](http://example.com)
     url: "http://example.com",
     success: '/onLoading',
     error: '/onError'
-    // headers: headers - if you need headers
+    
+    // if you need pass headers.
+    // By default header "content-type" = 'application/json'
+    // headers: { "content-type": null }
+    
     // background: true - if you have timeout error
   } )
 
@@ -16,11 +20,15 @@ Get page on [example.com](http://example.com)
     url: "http://example.com",
     success: '/onLoading ',
     body: {},  // body params
-    // cookies: "" // cookies   
-    // headers: headers - if you need headers
+    // cookies: "" // cookies
+    // headers: { "content-type": null } // - if you need headers
   } )
 */
 ```
+
+{% hint style="warning" %}
+By default header "content-type" is 'application/json'. Some api may have a bug with this. Try set `headers: { "content-type": null }`
+{% endhint %}
 
 Command `onLoading`
 
