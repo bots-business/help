@@ -168,3 +168,5 @@ Stack Overflow [answers](http://stackoverflow.com/questions/tagged/google-apps-s
 
 [Videos](https://developers.google.com/apps-script/guides/videos) -  Check out the Apps Script videos on YouTube
 
+[Reference](https://developers.google.com/apps-script/reference) - The reference documentation provided in this section describes the various Apps Script services and the Apps Script manifest file structure.
+
