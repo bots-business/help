@@ -2,17 +2,17 @@
 
 Use this lib to connect BJS with [Google App Script](https://developers.google.com/apps-script)
 
-![](../.gitbook/assets/image%20%2876%29.png)
+![](../.gitbook/assets/image%20%2878%29.png)
 
 ## Getting started
 
 1. Go to [https://script.google.com](https://script.google.com) and create new project by button:
 
-![](../.gitbook/assets/image%20%2875%29.png)
+![](../.gitbook/assets/image%20%2877%29.png)
 
 2. Paste the script from [above](https://gist.github.com/bots-business/0635dfc5ee3b28328e93239a607d680c) into the script code editor and hit _Save._
 
-![](../.gitbook/assets/image%20%2874%29.png)
+![](../.gitbook/assets/image%20%2876%29.png)
 
 **3.**  From the _Publish_ menu, select _Deploy as web app…_  
   
@@ -35,7 +35,7 @@ Libs.GoogleApp.setUrl("https://script.google.com/macros/*******");
 
 ## Using
 
-### Use any Google App script in BJS now
+Use any Google App script in BJS now
 
 ```javascript
 function GACode(){
@@ -92,7 +92,7 @@ command `onRun`
 Bot.sendMessage(inspect(options))
 ```
 
-### Permissions
+## Permissions
 
 {% hint style="warning" %}
 You need set permissions for Google App Script
@@ -104,17 +104,67 @@ Run `Libs.GoogleAppLib.run`in first time. You can have like such error:
 >
 > "The script does not have permission to perform that action. Required permissions: \([https://www.googleapis.com/auth/calendar](https://www.googleapis.com/auth/calendar) \|\| [https://www.googleapis.com/auth/calendar.readonly](https://www.googleapis.com/auth/calendar.readonly) \|\| [https://www.google.com/calendar/feeds](https://www.google.com/calendar/feeds)\)"
 
-If you have such error:
+If you have such error you need set access rigths.
 
-* go to Google App Script Editor \(See step 2\)
+### Granting access rights
+
+* go to Google App Script Editor \(See [step 2](googleapp.md#getting-started)\)
 * select "Debug" function on Tab
 * press "Run" button:
 
-![](../.gitbook/assets/image%20%2873%29.png)
+![](../.gitbook/assets/image%20%2875%29.png)
 
-After this grant all needed permissions for your script
+After this [grant all](https://developers.google.com/apps-script/guides/services/authorization#granting_access_rights) needed permissions for your script:
+
+![](https://developers.google.com/apps-script/images/new-auth-1.png)![](https://developers.google.com/apps-script/images/new-auth-2.png)
+
+if it is not works - set that scopes via manifest file
+
+### Granting access rights via manifest file
+
+Full help available [here](https://developers.google.com/apps-script/concepts/scopes#setting_explicit_scopes). From that help:
+
+You can explicitly set the scopes your script project uses by editing its [manifest](https://developers.google.com/apps-script/concepts/manifests) file. The manifest field `oauthScopes` is an array of all scopes used by the project. To set your project's scopes, do the following:
+
+1. Open the [script project](googleapp.md#getting-started) \(script from step 2\) in the Apps Script editor.
+2. In the menu, select **File &gt; Project properties**.
+3. Select the **Scopes** tab.
+4. Review the scopes your script currently requires and determine what changes need to be made. Click **Cancel** when finished.
+5. If the manifest file `appsscript.json` isn't visible in the left nav bar, select the **View &gt; Show manifest file** menu item.
+6. Select the `appsscript.json` file in the left nav to open it.
+7. Locate the top-level field labeled `oauthScopes`. If it is not present, you can add it.
+8. The `oauthScopes` field specifies an array of strings. To set the scopes your project uses, replace the contents of this array with the scopes you want it to use. For example:
+
+   ```text
+   {
+     ...
+     "oauthScopes": [
+       "https://www.googleapis.com/auth/spreadsheets.readonly",
+       "https://www.googleapis.com/auth/userinfo.email"
+     ],
+     ...
+   }
+   ```
+
+9. Save the manifest file using **Ctrl+S** or the Save file icon in the menu bar.
+
+![](../.gitbook/assets/image%20%2874%29.png)
+
+10. Run script - see [this](googleapp.md#granting-access-rights)
+
+
 
 {% hint style="success" %}
 You can use "debug" function anytime for debugging
 {% endhint %}
+
+## Links
+
+[Google App script](https://developers.google.com/apps-script) home page
+
+Google App Script [examples](https://github.com/gsuitedevs/apps-script-samples) - good examples for inspiration
+
+Stack Overflow [answers](http://stackoverflow.com/questions/tagged/google-apps-script) - ask your questions on SO
+
+[Videos](https://developers.google.com/apps-script/guides/videos) -  Check out the Apps Script videos on YouTube
 
