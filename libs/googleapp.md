@@ -104,7 +104,7 @@ Run `Libs.GoogleAppLib.run`in first time. You can have like such error:
 >
 > "The script does not have permission to perform that action. Required permissions: \([https://www.googleapis.com/auth/calendar](https://www.googleapis.com/auth/calendar) \|\| [https://www.googleapis.com/auth/calendar.readonly](https://www.googleapis.com/auth/calendar.readonly) \|\| [https://www.google.com/calendar/feeds](https://www.google.com/calendar/feeds)\)"
 
-If you have such error you need set access rigths.
+If you have such error you need set access rights.
 
 ### Granting access rights via manifest file
 
@@ -140,6 +140,7 @@ You can explicitly set the scopes your script project uses by editing its [manif
 
 9. [https://www.googleapis.com/auth/script.send\_mail](https://www.googleapis.com/auth/script.send_mail)", "[https://www.googleapis.com/auth/script.external\_request](https://www.googleapis.com/auth/script.external_request) - is mandatory scope
 10. Save the manifest file using **Ctrl+S** or the Save file icon in the menu bar.
+11. Publish your app again \(see [step 3](googleapp.md#getting-started)\)
 
 ![](../.gitbook/assets/image%20%2879%29.png)
 
