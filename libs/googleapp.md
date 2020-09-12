@@ -106,20 +106,6 @@ Run `Libs.GoogleAppLib.run`in first time. You can have like such error:
 
 If you have such error you need set access rigths.
 
-### Granting access rights
-
-* go to Google App Script Editor \(See [step 2](googleapp.md#getting-started)\)
-* select "Debug" function on Tab
-* press "Run" button:
-
-![](../.gitbook/assets/image%20%2875%29.png)
-
-After this [grant all](https://developers.google.com/apps-script/guides/services/authorization#granting_access_rights) needed permissions for your script:
-
-![](https://developers.google.com/apps-script/images/new-auth-1.png)![](https://developers.google.com/apps-script/images/new-auth-2.png)
-
-if it is not works - set that scopes via manifest file
-
 ### Granting access rights via manifest file
 
 Full help available [here](https://developers.google.com/apps-script/concepts/scopes#setting_explicit_scopes). From that help:
@@ -137,22 +123,39 @@ You can explicitly set the scopes your script project uses by editing its [manif
 
    ```text
    {
-     ...
-     "oauthScopes": [
-       "https://www.googleapis.com/auth/spreadsheets.readonly",
-       "https://www.googleapis.com/auth/userinfo.email"
-     ],
-     ...
+     "timeZone": "Asia/Tokyo",
+     "dependencies": {
+     },
+     "webapp": {
+       "access": "ANYONE_ANONYMOUS",
+       "executeAs": "USER_DEPLOYING"
+     },
+     "exceptionLogging": "STACKDRIVER",
+     "oauthScopes": ["https://www.googleapis.com/auth/script.send_mail",
+                     "https://www.googleapis.com/auth/script.external_request",
+                     "https://www.googleapis.com/auth/spreadsheets"],
+     "runtimeVersion": "V8"
    }
    ```
 
-9. Save the manifest file using **Ctrl+S** or the Save file icon in the menu bar.
+9. [https://www.googleapis.com/auth/script.send\_mail](https://www.googleapis.com/auth/script.send_mail)", "[https://www.googleapis.com/auth/script.external\_request](https://www.googleapis.com/auth/script.external_request) - is mandatory scope
+10. Save the manifest file using **Ctrl+S** or the Save file icon in the menu bar.
 
-![](../.gitbook/assets/image%20%2874%29.png)
-
-10. Run script - see [this](googleapp.md#granting-access-rights)
+![](../.gitbook/assets/image%20%2879%29.png)
 
 
+
+## Debugging
+
+Run `Libs.GoogleAppLib.run`in first time. Then:
+
+* go to Google App Script Editor \(See [step 2](googleapp.md#getting-started)\)
+* select "Debug" function on Tab
+* press "Run" button:
+
+![](../.gitbook/assets/image%20%2875%29.png)
+
+Google app is runs. Bot will sent execution result to you. Also you can receive email with error description.
 
 {% hint style="success" %}
 You can use "debug" function anytime for debugging
