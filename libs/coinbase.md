@@ -55,7 +55,7 @@ Libs.Coinbase.apiCall({
 In body you can pass all fields from Coinbase api.
 {% endhint %}
 
-`/onCreate` command:
+`/onApi` command:
 
 ```javascript
 Bot.inspect(options.result)
@@ -63,7 +63,7 @@ Bot.inspect(options.result)
 
 
 
-`/onError` command:
+`/onApiError` command:
 
 ```javascript
 Bot.sendMessage(
