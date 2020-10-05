@@ -9,42 +9,59 @@ description: Lib for multi language support
 First - need to setup languages. For example with **/setup** command:
 
 ```javascript
-enLang = {
+var enLang = {
     user: { whatIsYourName: "What is your name?" },
     hello: "Hello!",
     onlyOnEnglish: "Only on english"
+    keyboards: {
+        mainMenu: { buttons: "Bonus, Friends", text: "menu" }
+        bonusMenu: { buttons: "Get bonus, Back", text: "Get your bonus now" }
+    }
 }
 
-ruLang = {
+var ruLang = {
     user: { whatIsYourName: "Как тебя зовут?" },
-    hello: "Привет!"
+    hello: "Привет!",
     // not translated yet:
     // onlyOnEnglish: "Only on english"
+    keyboards: {
+        mainMenu: { buttons: "Бонус, Друзья", text: "меню"}
+        bonusMenu: { buttons: "Получить бонус, Назад", text: "получи бонус"}
+    }
 }
 
 // first language is default language
-Libs.Lang.setup("en", enLang);
+Libs.Lang.setup("en", enLang);  // english is default now
 Libs.Lang.setup("ru", ruLang);
 ```
 
 Now default language is "english".
 
-You can use lib now:
+You can use lib now \(for example, in command `/test`\):
 
 ```javascript
-Bot.sendMessage(Libs.Lang.t("hello"))   // Hello!
-Bot.sendMessage(Libs.Lang.t("user.whatIsYourName"))  // What is your name?
+var lang = Libs.Lang;
+// send messages on default language
+Bot.sendMessage(lang.t("hello"))   // Hello!
+Bot.sendMessage(lang.t("user.whatIsYourName"))  // What is your name?
 
-Bot.sendMessage(Libs.Lang.t("hello", "ru"))   // Привет!
-
-Bot.sendMessage(Libs.Lang.t("onlyOnEnglish")) // "Only on english"
-// Default language text is used
+Bot.sendMessage(lang.t("onlyOnEnglish")) // "Only on english"
+// Default language text always is used
 //  for non translated keys yet
 
-Bot.sendMessage(Libs.Lang.t("onlyOnEnglish", "ru")) // "Only on english"
+
+// send keyboard for Main menu:
+Bot.sendKeyboard(
+  lang.t("keyboards.mainMenu.buttons"),
+  lang.t("keyboards.mainMenu.text")
+)
+
+// or send Bonus menu:
+Bot.sendKeyboard(
+  lang.t("keyboards.bonusMenu.buttons"),
+  lang.t("keyboards.bonusMenu.text")
+)
 ```
-
-
 
 ## How to use
 
@@ -57,7 +74,7 @@ Bot.sendMessage(Libs.Lang.t("onlyOnEnglish", "ru")) // "Only on english"
 
 ```javascript
 // in /start command
-lang_code = request.from.language_code;
+var lang_code = request.from.language_code;
 Libs.Lang.user.setLang(lang_code)
 ```
 {% endhint %}
@@ -91,6 +108,27 @@ Also you can use
 for non user actions: in webhooks and etc
 {% endhint %}
 
+### Get translation by language code
+
+Sometimes we do not have user object. For example, on income [webhooks](webhooks-lib.md) or with Bot.runAll command and etc. Therefore, we cannot determine the current language.
+
+The following code might be helpful in such cases.
+
+```javascript
+// command /test
+// you can pass language code in params
+var lng = params;
+// or in options with Bot.run(command: "/test", options: {lngCode: "fr"} )
+var lng = options.lngCode
+
+// So now:
+// lng = "fr"
+
+Bot.sendMessage(
+    Libs.Lang.t("hello", lng)
+)   // Привет!
+```
+
 
 
 ### Get all language json
@@ -112,7 +150,7 @@ You can set aliases for language.
 For `/setup`
 
 ```javascript
-enLang = {
+var enLang = {
     aliases: {
        "home, dashboard, /main": "/start",
        "alias1,alias2": "/otherCommand"
@@ -147,6 +185,8 @@ In `/setup` you can make something like this:
 
 ```javascript
 var languages = ["en", "es", "cn", "ru"];
+var cmdName;
+
 for(var i in languages){
     cmdName = "lng-" + languages[i].code;
     Bot.run({ command: cmdName })
@@ -158,14 +198,38 @@ Bot.sendMessage("Multi Languages - installed");
 ### Make a simple command based structure
 
 ```javascript
-enLang = {
+var enLang = {
     command1: {
+      text: "your text",
       // keys
+      ...
+      }
+      ...
     }
     command2: {
-      // keys
+      text: "your text"
+      // keys,
+      ...
     }
-    //...
+    // bot menus
+    menus: {
+      mainMenu: {
+        keyboard: 
+        text: 
+      },
+      helpMenu: {
+        keyboad:
+        text: 
+      }
+    },
+    // common links
+    links: {
+      homePage: "<a href='example.com'>Home page</a>",
+    },
+    alert: {
+      error: "sorry, we have error"
+    }
+    ...
 }
 
 Libs.Lang.setup("en", enLang);
@@ -174,10 +238,19 @@ Libs.Lang.setup("en", enLang);
 ### Make translation for text and keyboard:
 
 ```javascript
-enLang = {
+var enLang = {
     command1: {
        text: "Please confirm",
-       keyboard: "Yes, Cancel" 
+       keyboard: "Yes, Cancel",
+       
+       // you can also attach Inline keyboard:
+       inlineKeyboard: {
+         buttons: [ 
+           {title: "google", url: "http://google.com" },
+           {title: "other command", command: "/othercommand"}
+          ],
+          text: "Please make a choice."
+        }
     }
     //...
 }
@@ -191,6 +264,12 @@ So in `/command1` you can make:
 Bot.sendKeyboard(
    Libs.Lang.t("command1.keyboard"),
    Libs.Lang.t("command1.text"),
+)
+
+// send inline keyboard:
+Bot.sendInlineKeyboard(
+   Libs.Lang.t("command1.inlineKeyboard.buttons"),
+   Libs.Lang.t("command1.inlineKeyboard.text"),
 )
 ```
 
