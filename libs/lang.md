@@ -91,9 +91,7 @@ var default = Libs.Lang.default.getCurLang()
 ```
 
 {% hint style="info" %}
-Tips. Also you can use multi lang command.
-
-For example: /hello\_en and /hello\_ru
+Tips. Also you can use multi lang command. This **is not recommended** but sometimes a good solution
 {% endhint %}
 
 **In BJS for command /hello:**
