@@ -152,7 +152,12 @@ For `/setup`
 ```javascript
 var enLang = {
     aliases: {
+       // Command /start have aliases:
+       //       home, dashboard and /main:
        "home, dashboard, /main": "/start",
+       
+       // command /otherCommand have aliases:
+       //       alias1, alias2
        "alias1,alias2": "/otherCommand"
     }
     user: { whatIsYourName: "What is your name?" },
