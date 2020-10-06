@@ -4,6 +4,21 @@ description: Lib for multi language support
 
 # Lang
 
+## introduction
+
+It is important to understand:
+
+* Any bot can be translated
+* The bot consists of commands in which there are no untranslated places.
+* All commands are multilingual
+* There are no commands like `/menuEn`,  `/menuFr, /menuRu`. There is only one `/menu` command
+* All multilingual texts must be placed in each language files \(command\), for example, in lng-en, lng-ru. This will make them easier to translate.
+* everything can be translated: any text, answer, keyboard, inline keyboard, alert...
+
+{% hint style="danger" %}
+This is especially important for large bots
+{% endhint %}
+
 ## Getting started
 
 First - need to setup languages. For example with **/setup** command:
