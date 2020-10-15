@@ -62,7 +62,8 @@ var panel = {
       description: "you can get your admin_id with BJS Bot.sendMessage(user.id)",
       type: "string",
       placeholder: "your admin id",
-      // value: 100
+      // value: 100,   // default value
+      // hidden: true  // if you need hidden field. By default - false
     }
     // another fields here
     // if needed
