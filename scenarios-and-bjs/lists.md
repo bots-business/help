@@ -1,6 +1,6 @@
 # Lists
 
-Use Lists to store large amounts of data. List is a quick way to get and search data. Also list is preferred way for organize statistics.
+Use Lists to store large amounts of data. List is a quick way to [get](lists.md#getting-data) and [search](lists.md#searching) data. Also list is preferred way for organize [statistics](lists.md#statistics).
 
 List - it is a collection of **properties** or **users**.
 
