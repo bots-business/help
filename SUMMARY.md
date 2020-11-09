@@ -17,6 +17,7 @@
   * [Command](scenarios-and-bjs/command.md)
   * [Always running commands](scenarios-and-bjs/always-running-commands.md)
   * [Variables](scenarios-and-bjs/variables.md)
+  * [Lists](scenarios-and-bjs/lists.md)
   * [Api functions](scenarios-and-bjs/api-functions.md)
   * [BB Admin functions](scenarios-and-bjs/bb-admin-functions.md)
   * [Admin Panel](scenarios-and-bjs/admin-panel.md)
