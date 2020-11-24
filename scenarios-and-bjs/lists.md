@@ -55,7 +55,19 @@ list.create();
 list.remove();
 ```
 
+## Recount list
+
+Recalculate all statistical data in list.
+
+Can spent 5-30 seconds and more for big list. So you need perform this task on background once in week/day or hour.
+
+```javascript
+list.recount();
+```
+
 ## Calculate the amount of all props and users
+
+Need [recount](lists.md#recount-list) before
 
 ```javascript
 list.total();  // integer value
@@ -285,6 +297,8 @@ list.haveUser({ id: user.id })
 ## Statistics
 
 Is available for integer and float props
+
+Need [recount](lists.md#recount-list) before
 
 ```javascript
 list.count  // total props + users count 
