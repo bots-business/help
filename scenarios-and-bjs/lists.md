@@ -62,7 +62,10 @@ Recalculate all statistical data in list.
 Can spent 5-30 seconds and more for big list. So you need perform this task on background once in week/day or hour.
 
 ```javascript
-list.recount();
+list.recount({
+    // this command will be runned after recount
+    // onComplete: 'onCompleteListRecount'
+});
 ```
 
 ## Calculate the amount of all props and users
