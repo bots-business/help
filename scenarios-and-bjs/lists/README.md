@@ -1,6 +1,6 @@
 # Lists
 
-Use Lists to store large amounts of data. List is a quick way to [get](lists.md#getting-data) and [search](lists.md#searching) data. Also list is preferred way for organize [statistics](lists.md#statistics).
+Use Lists to store large amounts of data. List is a quick way to [get](./#getting-data) and [search](./#searching) data. Also list is preferred way for organize [statistics](./#statistics).
 
 List - it is a collection of **properties** or **users**.
 
@@ -9,7 +9,7 @@ Examples:
 * history \(orders history, transactions, payments history, locations history, etc\)
 * large price lists
 * table of cities with population
-* results for [Inline Bot](inline-bot.md)
+* results for [Inline Bot](../inline-bot.md)
 * referrals list
 
 {% hint style="danger" %}
@@ -70,7 +70,7 @@ list.recount({
 
 ## Calculate the amount of all props and users
 
-Need [recount](lists.md#recount-list) before
+Need [recount](./#recount-list) before
 
 ```javascript
 list.total();  // integer value
@@ -301,7 +301,7 @@ list.haveUser({ id: user.id })
 
 Is available for integer and float props
 
-Need [recount](lists.md#recount-list) before
+Need [recount](./#recount-list) before
 
 ```javascript
 list.count  // total props + users count 
