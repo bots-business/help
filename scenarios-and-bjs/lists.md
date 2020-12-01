@@ -27,7 +27,7 @@ Before using the list \(new or existing\), you need to initialize it.
 List can be global for Bot:
 
 ```javascript
-let list = new List.new({ name: "MyList" })
+let list = new List({ name: "MyList" })
 
 Bot.inspect(list.exist) // false for new List, true for already exist list
 ```
@@ -35,10 +35,10 @@ Bot.inspect(list.exist) // false for new List, true for already exist list
 or can be personal for user:
 
 ```javascript
-let list = new List.new({ name: "MyList", user: user })
+let list = new List({ name: "MyList", user: user })
 
 // or for user id
-let list = new List.new({ name: "MyList", user_id: user.id })
+let list = new List({ name: "MyList", user_id: user.id })
 ```
 
 After it you can perform another list methods
