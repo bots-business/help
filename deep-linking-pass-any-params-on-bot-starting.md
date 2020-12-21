@@ -4,7 +4,7 @@ You can pass any params on bot starting to BJS with link:
 
 [http://t.me/BOT\_NAME?start=PARAMS](http://t.me/BOT_NAME?start=PARAMS)
 
-In BJS:
+In BJS command `/start`:
 
 ```javascript
 Bot.sendMessage(params);
