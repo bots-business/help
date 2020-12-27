@@ -107,7 +107,7 @@ function GACode(){
    myVar = 5; // Error! myVar is not defined in GA only in BB side
    
    // this will be works:
-   var myVar;
+   let myVar;
    myVar = 5;
    
    Bot.sendMessage("ok")  // Error! It is BJS not GA code!
