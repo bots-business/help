@@ -40,6 +40,7 @@ Use any Google App script in BJS now
 ```javascript
 function GACode(){
    // Google App Script code here
+   // Please note: this function is runs on GA not BB
    // ...
 }
 
@@ -143,6 +144,23 @@ You can explicitly set the scopes your script project uses by editing its [manif
 11. Publish your app again \(see [step 3](googleapp.md#getting-started)\)
 
 ![](../.gitbook/assets/image%20%2879%29.png)
+
+{% hint style="warning" %}
+**GACode** - it is isolated function with Google App code. It can not have BJS code like Bot.sendMessage and etc. Only GA code!
+
+```javascript
+let myVar;
+
+function GACode(){
+   // Google App Script code here
+   // Please note: this function is runs on GA not BB
+   // ...
+   
+   myVar = 5; // Error! myVar is not defined in GA only in BB side
+   Bot.sendMessage("ok")  // Error! It is BJS not GA code!
+}
+```
+{% endhint %}
 
 
 
