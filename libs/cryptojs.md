@@ -1,6 +1,6 @@
 # CryptoJS
 
-JavaScript library of crypto standards.
+JavaScript library of crypto standards. It is **included by default** - installation is not required.
 
 ## Usage
 
@@ -12,5 +12,5 @@ hash = CryptoJS.HmacSHA256("Message", "Secret Passphrase");
 Bot.sendMessage(String(hash));
 ```
 
-Documentation: [https://cryptojs.gitbook.io/docs](https://cryptojs.gitbook.io/docs/)
+**Documentation**: [https://cryptojs.gitbook.io/docs](https://cryptojs.gitbook.io/docs/)
 
