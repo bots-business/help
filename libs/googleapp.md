@@ -94,7 +94,7 @@ Bot.sendMessage(inspect(options))
 ```
 
 {% hint style="warning" %}
-**GACode** - it is isolated function with Google App code. It can not have BJS code like Bot.sendMessage and etc. Only GA code!
+**GACode** - it is isolated function with Google App code. It can not have BJS code like `Bot.sendMessage` and etc. Only GA code!
 
 ```javascript
 let myVar;
