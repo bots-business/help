@@ -113,6 +113,11 @@ function GACode(){
    myVar = 5;
    
    Bot.sendMessage("ok")  // Error! It is BJS not GA code!
+   
+   let botName = bot.name; // Will be worked
+   let myData = options.myData; // Will be worked if you pass 
+   // options.myData with Bot.run(
+   //    { command: "/thisCmd", options: { myData: "test" } })
 }
 ```
 {% endhint %}
