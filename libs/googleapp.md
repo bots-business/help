@@ -96,6 +96,8 @@ Bot.sendMessage(inspect(options))
 {% hint style="warning" %}
 **GACode** - it is isolated function with Google App code. It can not have BJS code like `Bot.sendMessage` and etc. Only GA code!
 
+**But you can** use [variables](../scenarios-and-bjs/variables.md) and pass data with [options](../scenarios-and-bjs/bot-functions.md#bot-run-options) for Bot.run method.
+
 ```javascript
 let myVar;
 

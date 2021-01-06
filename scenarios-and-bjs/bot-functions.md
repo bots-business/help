@@ -185,7 +185,7 @@ in BJS:
 
 
 
-## Bot.run\(options\)
+## Bot.run\(params\)
 
 Run other command
 
