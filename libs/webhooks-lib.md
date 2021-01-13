@@ -33,6 +33,7 @@ let webhookUrl = Libs.Webhooks.getUrlFor({
   redirect_to: "https://cataas.com/cat"
 })
 
+Bot.inspect(webhookUrl);
 ```
 
 This code will generate Webhook url. 
