@@ -31,7 +31,7 @@
         <p>Run other command</p>
         <p>Bot.run({ command: &quot;/contact&quot; })</p>
         <p></p>
-        <p><a href="https://help.bots.business/scenarios-and-bjs/bot-functions#bot-run-options">see more</a>
+        <p><a href="bot-functions.md#bot-run-params">see more</a>
         </p>
       </td>
     </tr>
@@ -41,7 +41,7 @@
       <td style="text-align:left">
         <p>Clear other command with run_after by label</p>
         <p></p>
-        <p><a href="https://help.bots.business/scenarios-and-bjs/bot-functions#bot-clearrunafter-options">see more</a>
+        <p><a href="bot-functions.md#bot-clearrunafter-options">see more</a>
         </p>
       </td>
     </tr>
@@ -53,7 +53,7 @@
         <p><code>Bot.runAll({ command: &quot;/broadcast&quot; })</code>
         </p>
         <p></p>
-        <p><a href="https://help.bots.business/scenarios-and-bjs/bot-functions#bot-runall-options">see more</a>
+        <p><a href="bot-functions.md#bot-runall-options">see more</a>
         </p>
       </td>
     </tr>
