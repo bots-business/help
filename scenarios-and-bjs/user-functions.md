@@ -16,6 +16,9 @@
         <p></p>
         <p><code>User.setProperty(&quot;city&quot;, &quot;London&quot;, &quot;string&quot;)</code>
         </p>
+        <p></p>
+        <p>Type can be: <code>integer, float, string, text, json, datetime</code>
+        </p>
       </td>
     </tr>
     <tr>

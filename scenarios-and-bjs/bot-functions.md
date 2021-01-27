@@ -119,7 +119,8 @@
         <p><code>Bot.setProperty(&quot;TotalScore&quot;, 100, &quot;integer&quot;)</code> 
         </p>
         <p></p>
-        <p>Type can be integer, float, string, text, json, datetime</p>
+        <p>Type can be: <code>integer, float, string, text, json, datetime</code>
+        </p>
       </td>
     </tr>
     <tr>
