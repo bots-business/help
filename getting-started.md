@@ -14,9 +14,9 @@ Now go to app and fill this token in bot creation form.
 
 ![](.gitbook/assets/image%20%2836%29.png)
 
-## Help video
+## Help videos by community
 
-See [video](https://youtu.be/MZixi8oIdaA)
+See [video](https://youtu.be/MZixi8oIdaA) - how to get bot token
 
-![](.gitbook/assets/image%20%2851%29%20%281%29.png)
+[How to make](https://www.youtube.com/watch?v=2-bR54obN4w) simple bot
 

@@ -18,3 +18,9 @@ Press on button "Export to git rep" and wait.
 
 After some minutes new branch with name "BB\_Export\_TIME" will be created on your external repository. 
 
+## Video by Community
+
+[How to export to Github](https://www.youtube.com/watch?v=07MYMPAVT4c&ab_channel=Kp%27sSpecials)
+
+
+
