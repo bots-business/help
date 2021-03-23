@@ -142,7 +142,7 @@ if(oneTimePassword==message){
 {% hint style="danger" %}
 Do not use "GJHURFVJLHF" secret! 
 
-It is not secret world already
+It is not secret world already: hacker can read this doc too!
 {% endhint %}
 
 command `/setBalance`
@@ -167,11 +167,17 @@ Bot token and BB API Key - are is very vulnerability data. Do not share theys an
 
 
 
+### Do not share your BB Bot ID
+
+This can sometimes be unsafe.
+
+
+
 ### Do not use default command names "/onIncome", "/onTransaction" for important commands
 
 Hacker can brute force such command names and try to execute it
 
-### \*\*\*\*
+
 
 ### **Remove /test command**
 
@@ -216,7 +222,9 @@ Do not use any non official libs now.
 We have not way to protect this now. Just **not use NON official libs** with CP lib. Well, that now there are no such libraries
 {% endhint %}
 
-## Bad practice
+## Bad practice 
+
+### User can change nickname
 
 Bad BJS:
 
@@ -235,7 +243,28 @@ Any user can set any first\_name, last\_name and etc
 Hacker can change or create account with this field
 {% endhint %}
 
+### 
 
+### Use eval method with care
+
+You can use eval for calculation
+
+```javascript
+// with Wait for Answer
+
+// message from user is: 2+2
+// eval - it js execution from string
+let result = eval(message);
+
+// 2+2 = 4. So we have 4 in result now
+Bot.sendMessage(result)
+```
+
+With such code you can make math calculator. 
+
+But it is very danger! User can run anything!
+
+For example, user can pass BJS code:  `bot.token`. And bot will send your bot token!
 
 ## See BB reports
 
