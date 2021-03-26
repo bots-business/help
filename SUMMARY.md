@@ -14,7 +14,6 @@
   * [Bot functions](scenarios-and-bjs/bot-functions.md)
   * [Message broadcasting and editing](scenarios-and-bjs/message-broadcasting.md)
   * [User functions](scenarios-and-bjs/user-functions.md)
-  * [Command](scenarios-and-bjs/command.md)
   * [Always running commands](scenarios-and-bjs/always-running-commands.md)
   * [Variables](scenarios-and-bjs/variables.md)
   * [Lists](scenarios-and-bjs/lists/README.md)

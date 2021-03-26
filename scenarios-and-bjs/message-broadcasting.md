@@ -42,48 +42,12 @@
         </p>
       </td>
     </tr>
-    <tr>
-      <td style="text-align:left"><code>Bot.sendMessageToAllPrivateChats(text)</code>
-      </td>
-      <td style="text-align:left">
-        <p>Send message to all private chats</p>
-        <p></p>
-        <p><code>Bot.sendMessageToAllPrivateChats(&quot;Hello user&quot;)</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>Bot.sendMessageToAllGroupChats(text)</code>
-      </td>
-      <td style="text-align:left">
-        <p>Send message to all group chats</p>
-        <p></p>
-        <p><code>Bot.sendMessageToAllGroupChats(&quot;this is the group chat&quot;)</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>Bot.sendMessageToAllSuperGroupChats(text)</code>
-      </td>
-      <td style="text-align:left">
-        <p>Send message to all super group chat</p>
-        <p></p>
-        <p><code>Bot.sendMessageToAllSuperGroupChats(&quot;You in super group!&quot;)</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left"><code>Bot.sendMessageToAllChats(text)</code>
-      </td>
-      <td style="text-align:left">
-        <p>Send message to all chat</p>
-        <p></p>
-        <p><code>Bot.sendMessageToAllChats(&quot;This message for all users&quot;)</code>
-        </p>
-      </td>
-    </tr>
   </tbody>
 </table>
+
+## Do you want broadcast text?
+
+See [Bot.runAll](https://help.bots.business/scenarios-and-bjs/bot-functions#bot-runall-options) command
 
 ## Do you want broadcast photo, video and etc?
 
