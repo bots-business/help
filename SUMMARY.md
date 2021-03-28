@@ -64,6 +64,7 @@
 
 ## Store
 
+* [BB Point Bot 💎](store/bbpointbot.md)
 * [BlockIOBot](store/blockiobot.md)
 * [Welcome bot](store/welcome-bot.md)
 * [Help bot](store/help-bot.md)
