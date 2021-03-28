@@ -7,6 +7,10 @@ Also it is possible:
 * Accept BB Points 💎 in your bot from users
 * Transfer BB Points 💎 from your bot to users
 
+{% hint style="success" %}
+This functionality is built with [WebhookLib](../libs/webhooks-lib.md). You can do some pretty cool stuff in your bots to share data too.
+{% endhint %}
+
 ## Accept BB Points in your bot
 
 ![](https://telegra.ph/file/31b497c82e26a1dc2d8d3.png)
@@ -132,4 +136,6 @@ Bot.sendMessage(
 
 
 ```
+
+
 
