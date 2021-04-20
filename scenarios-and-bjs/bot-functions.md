@@ -337,7 +337,8 @@ Bot.runAll( {
     // this command will be executed
     // for each private chat (user)
     command: "/broadcast",
-    for_chats: "private-chats"
+    for_chats: "private-chats",
+    // options: { any_data: "here" }
 } )
 ```
 
@@ -348,5 +349,17 @@ Command: `/broadcast`
 // so we can send any information now: message, keyboard, photo and etc
 
 Bot.sendKeyboard("New news", "hello!")
+
+// we can get brodcast task info
+/*
+let task = options.task;
+Bot.sendMessage(
+   "Task progress: " + task.progress +
+   "\n total: " + task.total +
+   "\n cur index: " + task.cur_position +
+   "\n status: " + task.status +
+   "\n errors: " + task.errors_count
+)
+*/
 ```
 
