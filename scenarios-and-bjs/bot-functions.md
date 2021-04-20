@@ -288,6 +288,10 @@ Run other command for all chats
 Use this command for broadcasting any information: message, photo, video, keyboard and etc
 {% endhint %}
 
+{% hint style="warning" %}
+**Bot.runAll** works for worked bots only. 
+{% endhint %}
+
 ```javascript
 Bot.runAll(params)
 ```
@@ -362,4 +366,6 @@ Bot.sendMessage(
 )
 */
 ```
+
+
 
