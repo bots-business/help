@@ -460,3 +460,15 @@ We have not way to protect this now. Just **not use NON official libs** with CP 
 
 Read more about security [here](https://help.bots.business/scenarios-and-bjs/bjs-security)
 
+### Do not process any before payment!
+
+Any API commands can have errors: API errors, timeout errors, network errors, and other errors.
+
+You need to withdraw, make deposit income only on success!
+
+Because if you get an error, such a conclusion, replenishment of the deposit, etc. - will always be!
+
+![Here the balance will always be replenished, even if half of the Internet falls](../.gitbook/assets/image%20%2885%29.png)
+
+
+
