@@ -159,6 +159,21 @@ if(params=="GJHURFVJLHF"){
 
 
 
+## User can run secret command on group chat
+
+It can be accidentally or deliberately provoked by a hacker.
+
+If you have a secret command with a secret result, do not run it in a group chat:
+
+```javascript
+// send this link only in PM - secure reason
+if(chat.chat_type!="private"){
+  return
+}
+```
+
+
+
 ## Recommendations
 
 ### Do not share your bot token, BB API Key
