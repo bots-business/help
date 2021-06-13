@@ -63,7 +63,17 @@ https://t.me/BBPointBot?start=req15-**1**-points-to-519829299
 
 #### Step 1
 
-Generate your personal secret webhook link in [@BBPointBot](https://t.me/BBPointBot) by command: `/getTransferUrl`
+Generate your personal secret webhook url in [@BBPointBot](https://t.me/BBPointBot) by command: `/getTransferUrl`
+
+Set **Secret \(**any words or symbols - whatever you want**\)** in [@BBPointBot](https://t.me/BBPointBot) by command: `/setTransferSecret`
+
+{% hint style="warning" %}
+Personal secret webhook url with Secret - is safe information. 
+
+You can reset the Secret at any time via command `/setTransferSecret` 
+{% endhint %}
+
+
 
 #### Step 2
 
@@ -93,7 +103,8 @@ HTTP.post( {
        to_tg_id: user.telegramid,
        // note for @bbpoints channel
        note: "#testTransfer by " + bot.name,
-       webhookUrl: webhookUrl
+       webhookUrl: webhookUrl,
+       secret: "your Secret" // from step 1
     }
 } )
 
