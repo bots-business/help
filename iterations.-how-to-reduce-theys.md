@@ -61,7 +61,7 @@ Reduce Bot.runCommand in BJS
 
 Reduce [Auto Retry](https://help.bots.business/commands/auto-retry) calls
 
-### Beware of endless loops
+## Beware of endless loops
 
 Use `Bot.runCommand`, `Bot.run`, `Bot.runAll` carefully. 
 
@@ -116,4 +116,74 @@ Be very careful with Bot.run methods
 {% endhint %}
 
 \*\*\*\*
+
+## Beware of **big** loops
+
+Very bad example:
+
+![](.gitbook/assets/image%20%2886%29.png)
+
+Command `check:`
+
+```javascript
+var user = options.result.status
+User.setProperty("status", user, "string")
+if ((user == "member") | (user == "administrator") | (user == "creator")) {
+  Bot.runCommand("join2")
+  User.addToGroup("user")
+}
+
+if (user == "left") {
+  Bot.sendMessage("*⚠️ Not Joined :- @Kjtricks_Official *")
+}
+```
+
+Command `join2`
+
+```javascript
+var channel = "@MyChanell1"
+let id = user.telegramid;
+
+Api.getChatMember({ chat_id: channel, user_id: id, on_result: "check2" })
+```
+
+
+
+  
+Command `check2`
+
+```javascript
+var user = options.result.status
+User.setProperty("status", user, "string")
+if ((user == "member") | (user == "administrator") | (user == "creator")) {
+  Bot.runCommand("join3")
+  User.addToGroup("user")
+}
+
+if (user == "left") {
+  Bot.sendMessage("*⚠️ Not Joined :- @Kjtricks_Official *")
+}
+```
+
+and etc!
+
+join1 &gt; check1 &gt; join2 &gt; check2 &gt; ....  join10 &gt;  check10
+
+What is problem?
+
+* each Api.getChatMember spent 1 - 3 sec for execution
+* Bot.runCommand run new BJS immediately!
+
+We have 10 join + 10 check. So it will be 10 - 30 secs per 1 message from 1 user. 
+
+* On Nano Cloud second user must wait this 30 secs!
+* each Bot.runCommand burn 1 iterations. We have 20 iterations here!
+
+**Fix**
+
+* Use [MCLib](libs/membershipchecker.md)
+* Use [Bot.run](scenarios-and-bjs/bot-functions.md#bot-run-params) with run\_after. It run task in background \(Users don't have to wait\)
+* Do not use Bot.run in chain. It is not good. 
+
+ 
 
