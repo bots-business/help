@@ -167,9 +167,9 @@ if (user == "left") {
 
 and etc!
 
-join1 &gt; check1 &gt; join2 &gt; check2 &gt; ....  join10 &gt;  check10
+`join1 > check1 > join2 > check2 > ....  join10 >  check10`
 
-What is problem?
+**What is problem?**
 
 * each Api.getChatMember spent 1 - 3 sec for execution
 * Bot.runCommand run new BJS immediately!
