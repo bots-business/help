@@ -57,6 +57,7 @@
 * [Coinbase \(CB\)](libs/coinbase.md)
 * [CoinPayments \(CP\)](libs/coinpayments.md)
 * [CryptoJS](libs/cryptojs.md)
+* [CurrencyQuote](libs/currencyquote.md)
 * [GoogleApp](libs/googleapp.md)
 * [GoogleSpreadSheet](libs/googlespreadsheet.md)
 * [Webhooks lib](libs/webhooks-lib.md)

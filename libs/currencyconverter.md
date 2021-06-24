@@ -4,6 +4,10 @@ description: Conversion is as easy as a few lines of code!
 
 # CurrencyConverter
 
+{% hint style="warning" %}
+This Lib is deprecated. Use [CurrencyQuote](currencyquote.md) Lib
+{% endhint %}
+
 Currency values are refreshed every 60 minutes.
 
 ## FREE
