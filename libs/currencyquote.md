@@ -22,14 +22,14 @@ Get prices:
 ```javascript
 // get EUR / USD cost
 var eur_price = CurrencyQuote.fiat.EUR;
-var btc_price = CurrencyQuote.cryptos.BTC;
+var btc_price = CurrencyQuote.crypto.BTC;
 ```
 
 Get crypto details:
 
 ```javascript
 // get EUR / USD cost
-var btcDetails = CurrencyQuote.cryptos.details.BTC;
+var btcDetails = CurrencyQuote.crypto.details.BTC;
 Bot.inspect(btcDetails)
 ```
 
