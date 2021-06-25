@@ -99,17 +99,13 @@ Example. 5 users run `/command1` at the same time:
 
 Make small commands. Use background tasks with Bot.run and run\_after
 
- 
-
-
-
 
 
 ## **What will happen if my incoming messages exceed the specifications?**
 
 Your bots will run slower. Timeout errors will occur. You need to upgrade your cloud
 
-\*\*\*\*
+
 
 ## **How to determine when it's time to upgrade?**
 
