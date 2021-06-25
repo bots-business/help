@@ -119,3 +119,12 @@ Contact your admin. It will provide you with complete statistics with graphs.
 
 
 
+## How many users can the cloud support?
+
+* 1 user can run 1000 commands per hour
+* 1000 users can run 1 command per hour
+
+This is the same use. We have no limit on the count of users.
+
+
+
