@@ -176,7 +176,7 @@ and etc!
 
 We have 10 join + 10 check. So it will be 10 - 30 secs per 1 message from 1 user. 
 
-* On Nano Cloud second user must wait this 30 secs! Also Business Cloud is completely down!
+* On Nano Cloud second user must wait this 30 secs! Also even Business Cloud is completely down!
 * each Bot.runCommand burn 1 iterations. We have 20 iterations here!
 
 **Fix**
