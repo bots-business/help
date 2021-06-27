@@ -162,8 +162,11 @@ Bot.inspect(panel);
 // can modify panel
 // panel.fields[0].value = 1000
 // panel.fields[0].tite = "my admin id"
-// AdminPanel.setPanel("AdminInfo", panel);
-```
+AdminPanel.setPanel({
+  panel_name: "AdminInfo",
+  data: panel
+  // force: true // default false - save fields values
+});```
 
 ### 
 
