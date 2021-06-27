@@ -99,7 +99,9 @@ Example. 5 users run `/command1` at the same time:
 
 Make small commands. Use background tasks with Bot.run and run\_after
 
+### Other slowdown issues
 
+Unfortunately, bad code can lead to slowdowns. Check out this [example](iterations.-how-to-reduce-theys.md#beware-of-endless-loops) and also [this](iterations.-how-to-reduce-theys.md#beware-of-big-loops). 
 
 ## **What will happen if my incoming messages exceed the specifications?**
 
