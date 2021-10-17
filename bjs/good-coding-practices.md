@@ -1,5 +1,40 @@
 # Good coding practices
 
+## Use Libs
+
+BB have good [libs](broken-reference). Just install needed library to your bot.
+
+{% hint style="warning" %}
+Don't install unnecessary libraries. Your bot might be slow after that.
+{% endhint %}
+
+## Use folders
+
+You can organize your commands in folders. 
+
+![](<../.gitbook/assets/image (90).png>)
+
+You can use folder in BJS too. For example in [before All](always-running-commands.md#beforeall-and-afterall-commands) command:
+
+```javascript
+// Before all command - @
+
+// set your ADMIN_ID here
+// you can get it via Bot.sendMessage(user.id)
+var isAdmin = (user.id == ADMIN_ID)
+
+if((command.folder=="Admin Panel")&&(!isAdmin){
+  // only admin can run command from Admin Panel's folder
+  Bot.sendMessage("Access denied");
+  return
+}
+
+// other example
+if(command.folder=="Under development"){
+  Bot.sendMessage("Sorry this command on development")
+}
+```
+
 ## Use good names
 
 Do you have children.
