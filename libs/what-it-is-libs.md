@@ -14,11 +14,11 @@ For example Bots.Business have such Libs:
 
 1.Go to Libs Tab in the App
 
-![](../.gitbook/assets/image%20%2821%29.png)
+![](<../.gitbook/assets/image (27).png>)
 
-2. Click on Install button
+2\. Click on Install button
 
-3. Select your bot
+3\. Select your bot
 
 ### How to use Lib?
 
@@ -31,4 +31,3 @@ All public official BB libs avaible in [https://github.com/bots-business/store-l
 
 
  
-

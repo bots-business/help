@@ -42,4 +42,3 @@ If payment recived command `/onacceptpayment` executed.
 Params contain amount in RUB:
 
 `let amount = parseFloat(params);`
-

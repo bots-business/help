@@ -2,7 +2,7 @@
 
 JavaScript library of currency quotes. It is **included by default** - installation is not required.
 
-It is have currencies and crypto currencies \(top 100 list\)
+It is have currencies and crypto currencies (top 100 list)
 
 **Update time:**
 
@@ -104,6 +104,4 @@ if(secsFiat > oneDay){
 var eur_price = CurrencyQuote.fiat.EUR;
 var btc_price = CurrencyQuote.crypto.BTC;
 ```
-
-
 

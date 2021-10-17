@@ -1,4 +1,4 @@
-# CoinPayments \(CP\)
+# CoinPayments (CP)
 
 This Lib make integration with [https://www.coinpayments.net](https://www.coinpayments.net/index.php?ref=5418303a5fc165090ee8a9177a3982de) in easy way.
 
@@ -9,11 +9,11 @@ Need to setup public and private key:
 1. [Register](https://www.coinpayments.net/index.php?ref=5418303a5fc165090ee8a9177a3982de)
 2. Go to this [page](https://www.coinpayments.net/acct-api-keys) and generate new key.
 
-![](../.gitbook/assets/image%20%2847%29.png)
+![](<../.gitbook/assets/image (37).png>)
 
 Press on button "Edit Permissions" and add API Key Permissions:
 
-![Check all options what you need](../.gitbook/assets/image%20%2818%29.png)
+![Check all options what you need](<../.gitbook/assets/image (38).png>)
 
 Then on bot `/setup` command:
 
@@ -88,7 +88,7 @@ It is possible to receive payment for a temporary or permanent wallet.
 ### Setup: set IPN Secret
 
 {% hint style="warning" %}
-The first step is to go to the [My Settings](https://www.coinpayments.net/index.php?cmd=acct_settings) page &gt; **Merchant Settings**  and set a IPN Secret.
+The first step is to go to the [My Settings](https://www.coinpayments.net/index.php?cmd=acct_settings) page > **Merchant Settings**  and set a IPN Secret.
 
 Your IPN Secret is a string of **your choosing**. Recommended to be a random string of letters, numbers, and special characters.
 
@@ -97,17 +97,17 @@ CoinPayments **will not send** any IPNs unless you have an IPN Secret set.
 See [more](https://www.coinpayments.net/merchant-tools-ipn)
 {% endhint %}
 
-**Once more!** You need input **any text \(random text\)** as IPN secret in Merchant Settings page
+**Once more!** You need input **any text (random text)** as IPN secret in Merchant Settings page
 
 ## Temporary wallet
 
-We use command "create\_transaction" with IPN.
+We use command "create_transaction" with IPN.
 
 Please see [https://www.coinpayments.net/apidoc-create-transaction](https://www.coinpayments.net/apidoc-create-transaction) for details.
 
 Yes, you can write it via `Libs.CoinPayments.apiCall`method too. But there is an easier way.
 
-#### 
+####
 
 ### Command `/pay`
 
@@ -212,10 +212,10 @@ Now you can  receive payments
 
 ### Information about extra payments and refunds.
 
-It is possible to define buyer email in fields for options \([see](https://help.bots.business/libs/coinpayments#command-pay) code for command /pay \)
+It is possible to define buyer email in fields for options ([see](https://help.bots.business/libs/coinpayments#command-pay) code for command /pay )
 
 {% hint style="danger" %}
-**Please note:** CoinPayments do not send you extra payments. CoinPayments send just email to buyer \(or you\) about refund for that extra.
+**Please note:** CoinPayments do not send you extra payments. CoinPayments send just email to buyer (or you) about refund for that extra.
 
 Also no any information about such extra in CP Panel or IPN. Be careful
 {% endhint %}
@@ -234,7 +234,7 @@ Libs.CoinPayments.getTxInfo({
 })
 ```
 
-#### `command: /on_txn_id:` 
+#### `command: /on_txn_id: `
 
 ```javascript
 // You can inspect all options:
@@ -268,11 +268,11 @@ Bot.sendMessage("IPN: Payment status: " + options.status_text );
 Bot.sendMessage(inspect(options))
 ```
 
-### 
+###
 
 ## Permanent wallet
 
-We use command "get\_callback\_address" with IPN.
+We use command "get_callback_address" with IPN.
 
 Please see [https://www.coinpayments.net/apidoc-get-callback-address](https://www.coinpayments.net/apidoc-get-callback-address) for details.
 
@@ -374,7 +374,7 @@ Bot.sendMessage(inspect(options))
 ## Troubleshooting & Debuging
 
 * Do not use same CoinPayment account for receiving and transfering funds.
-* Go to [page](https://www.coinpayments.net/index.php?cmd=acct_balances&action=deposits). This list must have history with completed income transaction\(s\)
+* Go to [page](https://www.coinpayments.net/index.php?cmd=acct_balances\&action=deposits). This list must have history with completed income transaction(s)
 * Try to resend IPN - see Debuging
 * Verify that you have [set IPN secret](https://help.bots.business/libs/coinpayments#set-ipn-secret)
 
@@ -382,9 +382,9 @@ Bot.sendMessage(inspect(options))
 
 You can view IPN History by link [https://www.coinpayments.net/acct-ipn-history](https://www.coinpayments.net/acct-ipn-history)
 
-![](../.gitbook/assets/image%20%2845%29%20%281%29.png)
+![](<../.gitbook/assets/image (42).png>)
 
-Also you can resend IPN by checkin "Resend" checkbox and button "Re-send checked IPN\(s\)"
+Also you can resend IPN by checkin "Resend" checkbox and button "Re-send checked IPN(s)"
 
 ### Test methods
 
@@ -400,11 +400,11 @@ options = {
 Libs.CoinPayments.callTestPaymentCompleted(options);
 ```
 
-#### 
+####
 
 #### Permanent wallet:
 
-Also it is possible **make test** callTestPermanentWalletIncome event. It is good if you do not want make test payment.
+Also it is possible **make test **callTestPermanentWalletIncome event. It is good if you do not want make test payment.
 
 ```javascript
 options = {
@@ -447,16 +447,16 @@ if(!options){
 Do not use any non official libs now. 
 
 * Any lib can run command with options.
-* Any libs can read properties \(and read your API Keys from other lib\)
+* Any libs can read properties (and read your API Keys from other lib)
 
 We have not way to protect this now. Just **not use NON official libs** with CP lib. Well, that now there are no such libraries
 {% endhint %}
 
 
 
-**Grant only the really necessary permissions for the Api key.** If yor bot do not need "create\_withdrawal" or etc methods - turn theys off. 
+**Grant only the really necessary permissions for the Api key.** If yor bot do not need "create_withdrawal" or etc methods - turn theys off. 
 
-![Check all options what you need](../.gitbook/assets/image%20%2818%29.png)
+![Check all options what you need](<../.gitbook/assets/image (38).png>)
 
 Read more about security [here](https://help.bots.business/scenarios-and-bjs/bjs-security)
 
@@ -468,7 +468,5 @@ You need to withdraw, make deposit income only on success!
 
 Because if you get an error, such a conclusion, replenishment of the deposit, etc. - will always be!
 
-![Here the balance will always be replenished, even if half of the Internet falls](../.gitbook/assets/image%20%2885%29.png)
-
-
+![Here the balance will always be replenished, even if half of the Internet falls](<../.gitbook/assets/image (88).png>)
 

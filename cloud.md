@@ -1,6 +1,6 @@
 # Cloud
 
-#### What it is BB.Cloud? <a id="What-it-is-BB.Cloud?"></a>
+#### What it is BB.Cloud? <a href="what-it-is-bb.cloud" id="what-it-is-bb.cloud"></a>
 
 BB.Cloud - it is your own server instance. 
 
@@ -18,86 +18,28 @@ We have **monthly** plans of BB.Cloud:
 
 ## Monthly Plans and specifications for BB.Cloud
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"><b>Cloud</b>
-      </th>
-      <th style="text-align:left"><b>Cost, USD</b>
-      </th>
-      <th style="text-align:left">
-        <p><b>Approximate</b>
-        </p>
-        <p><b>daily iterations</b>
-        </p>
-      </th>
-      <th style="text-align:left">
-        <p><b>Approximate</b>
-        </p>
-        <p><b>1 sec iterations</b>
-        </p>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">Cloud.Hobby<b>*</b>
-      </td>
-      <td style="text-align:left">15</td>
-      <td style="text-align:left">70 000</td>
-      <td style="text-align:left">0.8</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Cloud.Nano</td>
-      <td style="text-align:left">28</td>
-      <td style="text-align:left">100 000</td>
-      <td style="text-align:left">1.15</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Cloud.Mini</td>
-      <td style="text-align:left">48</td>
-      <td style="text-align:left">200 000</td>
-      <td style="text-align:left">2.5</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Cloud.Start</td>
-      <td style="text-align:left">95</td>
-      <td style="text-align:left">400 000</td>
-      <td style="text-align:left">5</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Cloud.PRO</td>
-      <td style="text-align:left">180</td>
-      <td style="text-align:left">1 500 000</td>
-      <td style="text-align:left">20</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Cloud.Business</td>
-      <td style="text-align:left">270</td>
-      <td style="text-align:left">3 500 000</td>
-      <td style="text-align:left">40</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Cloud.BigBusiness</td>
-      <td style="text-align:left">400</td>
-      <td style="text-align:left">7 000 000</td>
-      <td style="text-align:left">80</td>
-    </tr>
-  </tbody>
-</table>
+| **Cloud**         | **Cost, USD** | <p><strong>Approximate</strong></p><p><strong>daily iterations</strong></p> | <p><strong>Approximate</strong></p><p><strong>1 sec iterations</strong></p> |
+| ----------------- | ------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| Cloud.Hobby**\*** | 15            | 70 000                                                                      | 0.8                                                                         |
+| Cloud.Nano        | 28            | 100 000                                                                     | 1.15                                                                        |
+| Cloud.Mini        | 48            | 200 000                                                                     | 2.5                                                                         |
+| Cloud.Start       | 95            | 400 000                                                                     | 5                                                                           |
+| Cloud.PRO         | 180           | 1 500 000                                                                   | 20                                                                          |
+| Cloud.Business    | 270           | 3 500 000                                                                   | 40                                                                          |
+| Cloud.BigBusiness | 400           | 7 000 000                                                                   | 80                                                                          |
 
 Please note: values may differ slightly, both up and down, depending on the bot's response time, the complexity of your commands, etc.
 
 {% hint style="info" %}
-\*Cloud.Hobby do not have [brodcasting](scenarios-and-bjs/message-broadcasting.md#do-you-want-broadcast-text) and [auto retry](commands/auto-retry.md) for commands.
+\*Cloud.Hobby do not have [brodcasting](bjs/message-broadcasting.md#do-you-want-broadcast-text) and [auto retry](commands/auto-retry.md) for commands.
 {% endhint %}
 
 ## How does the cloud work?
 
 The cloud consists of 6 components - tasks:
 
-* WEB task \(processes requests from telegram\)
-* BJS-runtime task \(process BJS\)
+* WEB task (processes requests from telegram)
+* BJS-runtime task (process BJS)
 * other 4 tasks for command repetition, for performing background tasks and for brodcasting
 
 {% hint style="info" %}
@@ -106,59 +48,15 @@ There are only 4 tasks in the Hobby Cloud, not 6.
 
 Depending on the tariff plan, the process count changes for WEB and BJS-runtime.
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left"><b>Plan</b>
-      </th>
-      <th style="text-align:left"><b>Web processes</b>
-      </th>
-      <th style="text-align:left">
-        <p><b>BJS-runtime</b>
-        </p>
-        <p><b>processes</b>
-        </p>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">Cloud.Hobby</td>
-      <td style="text-align:left">1</td>
-      <td style="text-align:left">1</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Cloud.Nano</td>
-      <td style="text-align:left">1</td>
-      <td style="text-align:left">2</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Cloud.Mini</td>
-      <td style="text-align:left">2</td>
-      <td style="text-align:left">2</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Cloud.Start</td>
-      <td style="text-align:left">6</td>
-      <td style="text-align:left">3</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Cloud.PRO</td>
-      <td style="text-align:left">10</td>
-      <td style="text-align:left">5</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Cloud.Business</td>
-      <td style="text-align:left">20</td>
-      <td style="text-align:left">10</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Cloud.BigBusiness</td>
-      <td style="text-align:left">40</td>
-      <td style="text-align:left">20</td>
-    </tr>
-  </tbody>
-</table>
+| **Plan**          | **Web processes** | <p><strong>BJS-runtime</strong></p><p><strong>processes</strong></p> |
+| ----------------- | ----------------- | -------------------------------------------------------------------- |
+| Cloud.Hobby       | 1                 | 1                                                                    |
+| Cloud.Nano        | 1                 | 2                                                                    |
+| Cloud.Mini        | 2                 | 2                                                                    |
+| Cloud.Start       | 6                 | 3                                                                    |
+| Cloud.PRO         | 10                | 5                                                                    |
+| Cloud.Business    | 20                | 10                                                                   |
+| Cloud.BigBusiness | 40                | 20                                                                   |
 
 ## **Why we have approximate daily iterations?**
 
@@ -187,7 +85,7 @@ Bot.sendMessage("Hello - 10"); // + 100 ms
 
 Approx execution time for:
 
-*  `/command1` is **0.1 - 0.2 sec** 
+*  `/command1` is **0.1 - 0.2 sec **
 * `/command2` is **1 - 1.5 sec**
 
 {% hint style="info" %}
@@ -196,8 +94,8 @@ Bot can only **execute one command** at a time on Nano Cloud
 
 So in 1 second on Nano Cloud we can run:
 
-* above 5 times /command1 \(5 iterations per 1 second\)
-* 1 time only /command2 \(1 iteration per 1 second\)
+* above 5 times /command1 (5 iterations per 1 second)
+* 1 time only /command2 (1 iteration per 1 second)
 
 {% hint style="info" %}
 So Iterations burns depend from your BJS. So we have approximate daily iterations.
@@ -207,9 +105,9 @@ So Iterations burns depend from your BJS. So we have approximate daily iteration
 
 Please look on `/command1` and `/command2` again
 
-`/command1` - can be runned 5 times in 1 second. **Five users** can run this command in one second 
+`/command1 `- can be runned 5 times in 1 second. **Five users **can run this command in one second 
 
-`/command2` - can be runned 1 times in 1 second only. **Only one user** can run this command in one second.
+`/command2 `- can be runned 1 times in 1 second only. **Only one user** can run this command in one second.
 
 Example. 5 users run `/command1` at the same time:
 
@@ -228,7 +126,7 @@ Example. 5 users run `/command1` at the same time:
 * Don't use too many Bot.runCommand or Bot.run in one command or on chain
 * Don't use too many Api.xxx methods
 
-Make small commands. Use background tasks with Bot.run and run\_after
+Make small commands. Use background tasks with Bot.run and run_after
 
 ### Other slowdown issues
 
@@ -254,6 +152,4 @@ Contact your admin. It will provide you with complete statistics with graphs.
 * 1000 users can run 1 command per hour
 
 This is the same use. We have no limit on the count of users.
-
-
 

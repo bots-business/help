@@ -16,20 +16,20 @@ This bot is demo for integration with [Block.io](https://block.io).
 
 Main menu on /start command:
 
-![](../.gitbook/assets/image%20%2852%29.png)
+![](<../.gitbook/assets/image (17).png>)
 
 Bot addresses menu on aliase "Bot addresses":
 
-![](../.gitbook/assets/image%20%2815%29.png)
+![](<../.gitbook/assets/image (18).png>)
 
-  
+\
 Withdrawals menu:
 
-![](../.gitbook/assets/image%20%2848%29.png)
+![](<../.gitbook/assets/image (19).png>)
 
 Tools menu:
 
-![](../.gitbook/assets/image%20%2827%29.png)
+![](<../.gitbook/assets/image (20).png>)
 
 ### How it is works?
 
@@ -251,7 +251,7 @@ Bot.sendMessage(answer);
 
 Bot need command for addresses archiving.
 
-![](../.gitbook/assets/image%20%2828%29.png)
+![](<../.gitbook/assets/image (22).png>)
 
 We need command /archiveLabel, where Label is label for address
 
@@ -266,8 +266,6 @@ if(message.substring(0, 8)=="/archive"){
    );
 }
 ```
-
-
 
 
 

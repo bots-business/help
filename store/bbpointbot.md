@@ -45,7 +45,7 @@ Api.sendMessage({ text: url });
 
 
 
-#### Step 2 <a id="Step-2"></a>
+#### Step 2 <a href="step-2" id="step-2"></a>
 
 Go to [@BBPointBot](https://t.me/BBPointBot) - **/link** and paste link from step1
 
@@ -53,7 +53,7 @@ You will get such link for request:
 
 https://t.me/BBPointBot?start=req15-**1**-points-to-519829299
 
-> You can change **bb point** amount in url part: **-XXX-points**
+> You can change** bb point **amount in url part: **-XXX-points**
 
 > You can change **user.id** after part: -**to-user-XXX**
 
@@ -65,12 +65,12 @@ https://t.me/BBPointBot?start=req15-**1**-points-to-519829299
 
 Generate your personal secret webhook url in [@BBPointBot](https://t.me/BBPointBot) by command: `/getTransferUrl`
 
-Set **Secret \(**any words or symbols - whatever you want**\)** in [@BBPointBot](https://t.me/BBPointBot) by command: `/setTransferSecret`
+Set **Secret (**any words or symbols - whatever you want**)** in [@BBPointBot](https://t.me/BBPointBot) by command: `/setTransferSecret`
 
 {% hint style="warning" %}
 Personal secret webhook url with Secret - is safe information. 
 
-You can reset the Secret at any time via command `/setTransferSecret` 
+You can reset the Secret at any time via command `/setTransferSecret `
 {% endhint %}
 
 
@@ -147,6 +147,4 @@ Bot.sendMessage(
 
 
 ```
-
-
 

@@ -4,7 +4,7 @@
 
 It is need the `Wait for answer` flag if need a response from the user.
 
-![Can be modified on command editing](../.gitbook/assets/image%20%286%29.png)
+![Can be modified on command editing](<../.gitbook/assets/image (13).png>)
 
 Example of execution of one command:
 
@@ -38,7 +38,7 @@ Bot:
 
 > What is your name?
 
-User \(press "❌ Back" on keybord\):
+User (press "❌ Back" on keybord):
 
 > ❌ Back
 
@@ -62,6 +62,4 @@ if(message=="❌ Back"){
 
 Bot.sendMessage( "Hello, " + message );
 ```
-
-
 

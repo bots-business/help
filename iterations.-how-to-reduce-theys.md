@@ -9,15 +9,15 @@ Each payment plan has its own iteration limit.
 **1 iteration it is:**
 
 * income message to bot
-* [Bot.runCommand](https://help.bots.business/scenarios-and-bjs/bot-functions)\(command\) or `Bot.run` in the BJS spend 1 iteration
+* [Bot.runCommand](https://help.bots.business/scenarios-and-bjs/bot-functions)(command) or `Bot.run` in the BJS spend 1 iteration
 * Pressing the keyboard button
 * Pressing the inline keyboard button
 * 1 Auto Retry - it is 1 iteration
 * 1 received webhook - it is 1 iteration
 * **5 chats** in [`Bot.runAll`](https://help.bots.business/scenarios-and-bjs/bot-functions#bot-runall-options) command - 1 iteration
 * **5** **sended message** on mass broadcasting - 1 iteration
-* **5** **chats** on [Information refreshing](https://help.bots.business/bot-information) \(in Bot dashboard\) - spend 1 iteration
-* **100 incoming messages** in blocked chat with method `Bot.blockChat(chat.id)`
+* **5** **chats** on [Information refreshing](https://help.bots.business/bot-information) (in Bot dashboard) - spend 1 iteration
+* **100 incoming messages **in blocked chat with method `Bot.blockChat(chat.id)`
 
 
 
@@ -105,7 +105,7 @@ Bot.runCommand("/check")
 
 So we have now scheduled `/task` in `/check` with delay for 1 hour. But /task also have run for `/check`
 
-But here we have delay for 1 hour. So we have 1 task per hour \(and per user!\). Is it good?
+But here we have delay for 1 hour. So we have 1 task per hour (and per user!). Is it good?
 
 No! Because user can run `/check` command several times. For example 6 times in one minute. You will be have 6 background tasks during 1 hour instead of 1 tasks. Also any users can execute this command for several times.
 
@@ -115,13 +115,13 @@ You will end up in an infinite loop and your iterations **will quickly end**
 Be very careful with Bot.run methods
 {% endhint %}
 
-\*\*\*\*
+****
 
 ## Beware of **big** loops
 
 Very bad example:
 
-![](.gitbook/assets/image%20%2886%29.png)
+![](<.gitbook/assets/image (89).png>)
 
 Command `check:`
 
@@ -149,7 +149,7 @@ Api.getChatMember({ chat_id: channel, user_id: id, on_result: "check2" })
 
 
 
-  
+\
 Command `check2`
 
 ```javascript
@@ -182,8 +182,7 @@ We have 10 join + 10 check. So it will be 10 - 30 secs per 1 message from 1 user
 **Fix**
 
 * Use [MCLib](libs/membershipchecker.md)
-* Use [Bot.run](scenarios-and-bjs/bot-functions.md#bot-run-params) with run\_after. It run task in background \(Users don't have to wait\)
+* Use [Bot.run](bjs/bot-functions.md#bot-run-params) with run_after. It run task in background (Users don't have to wait)
 * Do not use Bot.run in chain. It is not good. 
 
  
-

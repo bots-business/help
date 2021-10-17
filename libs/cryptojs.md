@@ -13,4 +13,3 @@ Bot.sendMessage(String(hash));
 ```
 
 **Documentation**: [https://cryptojs.gitbook.io/docs](https://cryptojs.gitbook.io/docs/)
-

@@ -14,37 +14,12 @@ Basic function is **track**. Prefer to call it on /start:
 
 params `trackOptions` - it is object with callback functions for:
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">callback function</th>
-      <th style="text-align:left">description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">onTouchOwnLink()</td>
-      <td style="text-align:left">user touch own link</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">onAlreadyAttracted()</td>
-      <td style="text-align:left">user already attracted</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">onAttracted()</td>
-      <td style="text-align:left">user was attracted via chanell</td>
-    </tr>
-    <tr>
-      <td style="text-align:left">onAtractedByUser(refUser)</td>
-      <td style="text-align:left">
-        <p>user was attracted by other user refUser - it is common user data (fields:
-          nickname, first_name and etc)</p>
-        <p></p>
-        <p>Also have field chatId with chat id for this user.</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| callback function         | description                                                                                                                                                                      |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| onTouchOwnLink()          | user touch own link                                                                                                                                                              |
+| onAlreadyAttracted()      | user already attracted                                                                                                                                                           |
+| onAttracted()             | user was attracted via chanell                                                                                                                                                   |
+| onAtractedByUser(refUser) | <p>user was attracted by other user refUser - it is common user data (fields: nickname, first_name and etc) </p><p></p><p>Also have field chatId with chat id for this user.</p> |
 
 {% hint style="info" %}
 See @[DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=FromLibPage) for details
@@ -56,29 +31,29 @@ See @[DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=F
 
 ## Get Referral link for current user
 
-`Libs.ReferralLib.currentUser.getRefLink(bot.name);` 
+`Libs.ReferralLib.currentUser.getRefLink(bot.name); `
 
-will generate link kind **http://t.me/botname?start=userUSER\_ID**
+will generate link kind **http://t.me/botname?start=userUSER_ID**
 
 Also you can change prefix. For example remove "user"
 
-`Libs.ReferralLib.currentUser.getRefLink(bot.name, "");` 
+`Libs.ReferralLib.currentUser.getRefLink(bot.name, ""); `
 
-will generate link kind **http://t.me/botname?start=USER\_ID**
+will generate link kind **http://t.me/botname?start=USER_ID**
 
-### 
+###
 
 ### Get attractor for current user
 
-`Libs.ReferralLib.currentUser.attractedByUser()` 
+`Libs.ReferralLib.currentUser.attractedByUser() `
 
-return user data \(with chatId\) 
+return user data (with chatId) 
 
 
 
 ### Get attracted channel for current user
 
-`Libs.ReferralLib.currentUser.attractedByChannel()` 
+`Libs.ReferralLib.currentUser.attractedByChannel() `
 
 return Channel wich current user was attracted
 
@@ -86,7 +61,7 @@ return Channel wich current user was attracted
 
 ### Get refList
 
-`Libs.ReferralLib.currentUser.refList.get();` 
+`Libs.ReferralLib.currentUser.refList.get(); `
 
 return list with attracted users
 
@@ -96,7 +71,7 @@ return list with attracted users
 
 `Libs.ReferralLib.currentUser.refList.clear();`
 
-### 
+###
 
 ### Get Top Refferal List
 
@@ -159,4 +134,3 @@ if(referrer){
 {% hint style="info" %}
 In this example we use userRes. Also it is possible use chatRes. See [ResourcesLib](https://help.bots.business/libs/resourceslib) for details
 {% endhint %}
-

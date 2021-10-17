@@ -16,15 +16,15 @@ url = Libs.Webhooks.getUrlFor(
 Bot.sendMessage(url);
 ```
 
-execute `/setupGit` copy url and go to Github.com &gt; your repository -&gt; Settings -&gt; Webhooks. Press button "Add webhook"
+execute `/setupGit` copy url and go to Github.com > your repository -> Settings -> Webhooks. Press button "Add webhook"
 
 Past copied url as Payload URL
 
-![](../.gitbook/assets/image%20%2838%29.png)
+![](<../.gitbook/assets/image (47).png>)
 
 Make like this:
 
-![](../.gitbook/assets/image%20%2844%29.png)
+![](<../.gitbook/assets/image (48).png>)
 
 Go to App - create command `onGitPush`
 
@@ -49,8 +49,6 @@ Commands `onGitPush and onGitImportCompleted`must be in repository also. Because
 {% hint style="danger" %}
 Protect onGitPush command if you need this. Anybody can run it. 
 {% endhint %}
-
-
 
 
 

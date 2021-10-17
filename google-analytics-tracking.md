@@ -101,7 +101,7 @@ GoogleAnalytics.transaction_item({
 
 ### "Global" Options
 
-Any of the options on the parameters list \([https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters)\) that are accepted on ALL hit types can be set as options on any of the hits.
+Any of the options on the parameters list ([https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters](https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters)) that are accepted on ALL hit types can be set as options on any of the hits.
 
 ```javascript
 GoogleAnalytics.pageview({ path: '/video/1235', user_id: user.id })
@@ -111,7 +111,7 @@ User id is a global option in the example above.
 
 The complete list at this time:
 
-```text
+```
  anonymize_ip,
  queue_time,
  data_source,
@@ -190,4 +190,3 @@ GoogleAnalytics.pageview({
   experiment_variant: 'a'
 })
 ```
-

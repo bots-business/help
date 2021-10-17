@@ -12,7 +12,7 @@ It is important to understand:
 * The bot consists of commands in which there are no untranslated places.
 * All commands are multilingual
 * There are no commands like `/menuEn`,  `/menuFr, /menuRu`. There is only one `/menu` command
-* All multilingual texts must be placed in each language files \(command\), for example, in lng-en, lng-ru. This will make them easier to translate.
+* All multilingual texts must be placed in each language files (command), for example, in lng-en, lng-ru. This will make them easier to translate.
 * everything can be translated: any text, answer, keyboard, inline keyboard, alert...
 
 {% hint style="danger" %}
@@ -52,7 +52,7 @@ Libs.Lang.setup("ru", ruLang);
 
 Now default language is "english".
 
-You can use lib now \(for example, in command `/test`\):
+You can use lib now (for example, in command `/test`):
 
 ```javascript
 var lang = Libs.Lang;
@@ -195,7 +195,7 @@ if(cmd){ Bot.run({ command: cmd }) }
 
 ## Good practices
 
-### **Use different language files** \(command\) for each language.
+### **Use different language files** (command) for each language.
 
 For example "lng-en.js", "lng-fr.js" and etc. So it's easier to translate. 
 
@@ -294,6 +294,4 @@ Bot.sendInlineKeyboard(
 ### Use aliases translations
 
 See [this](https://help.bots.business/libs/lang#using-aliases)
-
-
 

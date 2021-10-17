@@ -15,4 +15,3 @@ description: Send random message to user with this lib and get random values!
 ## Get random float value beetwen 200 and 400
 
 `Libs.Random.randomFloat(200, 400);`
-

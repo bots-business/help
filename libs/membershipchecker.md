@@ -14,9 +14,9 @@ Install Library and create `/setup` command:
 Libs.MembershipChecker.setup()
 ```
 
-Then go to App &gt; Bot &gt; Admin Panels anf fill options:
+Then go to App > Bot > Admin Panels anf fill options:
 
-![](../.gitbook/assets/image%20%2865%29.png)
+![](<../.gitbook/assets/image (68).png>)
 
 You need create `/onNeedJoining` command. For example:
 
@@ -55,4 +55,3 @@ You can also perfom manuall check if you need button:
 // for all chats and channels:
 Libs.MembershipChecker.check()
 ```
-

@@ -46,5 +46,3 @@ Libs.CurrencyConverter.convert(conversation, amount, onSucces);
 Bot.sendMessage(params);
 ```
 
-
-

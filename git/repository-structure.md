@@ -12,13 +12,13 @@ Please see [this](https://help.bots.business/git/file-bot-json)
 
 ### Commands - in commands folder
 
-File name - it is command name \(But it can be rewritten in command description\)
+File name - it is command name (But it can be rewritten in command description)
 
 {% hint style="warning" %}
-For commands with "/" \(for example command "/start"\) file name is "\_start"
+For commands with "/" (for example command "/start") file name is "\_start"
 {% endhint %}
 
-Command can have: `name`, `help`, `aliases` \(second names\), `answer`, `keyboard`, `scnarios` \(for simple logic\) and other options.
+Command can have: `name`, `help`, `aliases` (second names), `answer`, `keyboard`, `scnarios` (for simple logic) and other options.
 
 {% hint style="success" %}
 If the command has a folder - it is located in a folder on the disk with the same name
@@ -58,7 +58,7 @@ CMD*/
 ```
 
 {% hint style="info" %}
-You can have only answer \(or others\) key in the command description. All keys - optional
+You can have only answer (or others) key in the command description. All keys - optional
 {% endhint %}
 
 See [more](https://help.bots.business/commands)
@@ -80,6 +80,4 @@ See [more](https://help.bots.business/scenarios-and-bjs)
 You can store common code in the libs folder
 
 See [more](https://help.bots.business/git/library)
-
-
 

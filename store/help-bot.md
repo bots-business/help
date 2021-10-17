@@ -1,6 +1,6 @@
 # Help bot
 
-![](../.gitbook/assets/image%20%2816%29.png)
+![](<../.gitbook/assets/image (3).png>)
 
 In Bots.Business chat we have many generic questions. [This bot](https://telegram.me/BBHelpBot) can answer for thems.
 
@@ -119,4 +119,3 @@ In this command - we have only one Bot.sendMessage function!
 
 It is good - code more simple.
 {% endhint %}
-

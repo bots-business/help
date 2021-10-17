@@ -6,7 +6,7 @@ It is Bot JavaScript. It's an ordinary Java with some inserts.
 
 ## Q: I do not know the JavaScript. What should I do?
 
-Usually do not need something complicated for developing bots. You can read a couple of articles about JS: [https://www.w3schools.com/js/js\_syntax.asp](https://www.w3schools.com/js/js_syntax.asp) or [https://en.wikipedia.org/wiki/JavaScript\_syntax](https://en.wikipedia.org/wiki/JavaScript_syntax)
+Usually do not need something complicated for developing bots. You can read a couple of articles about JS: [https://www.w3schools.com/js/js_syntax.asp](https://www.w3schools.com/js/js_syntax.asp) or [https://en.wikipedia.org/wiki/JavaScript_syntax](https://en.wikipedia.org/wiki/JavaScript_syntax)
 
 ## Q: How can I get two answers from one command?
 
@@ -25,7 +25,7 @@ Telegram have markdown for text formating.
 
 samples:
 
-```text
+````
 \n - new line (multi-line text also allowed)
 *bold text*
 _ italics _
@@ -33,11 +33,11 @@ _ italics _
 `inline fixed-width code`
 ```text
 pre-formatted fixed-width code block
-```
+````
 
 So if you have incorrect markdown - you have this warning. Sample text with incorrect markdown:
 
-```text
+```
   bot_name
   price 1*
   "user`s" - wrong. Use "user's"!
@@ -59,7 +59,7 @@ var buttons = [
 Bot.sendInlineKeyboard(buttons, "Please make a choice. After that, another command `/touch` will be started with parameters");
 ```
 
-`buttons` - it is array. It contains buttons. Each button is object with `title` \(required\), `url` or `command`.
+`buttons` - it is array. It contains buttons. Each button is object with `title` (required), `url` or `command`.
 
 Button must have `url` or `command`. `url` - any link.
 
@@ -138,7 +138,7 @@ User.setProperty("last_run_at", Date.now(), "integer");
 
 Unfortunately, this is not supported by the Telegram API. But you can send link to chat: answer:
 
-```text
+```
 [Open](http://example.com)
 ```
 
@@ -160,7 +160,7 @@ Bot:
 
 In this example, the user must enter the correct password. After that, the group `Members` is setted and user can execute all commands of this group. If the password is not correct, a error message is displayed.
 
-**Bot:** answer: `password?` need\_reply: `true`
+**Bot:** answer: `password?` need_reply: `true`
 
 BJS code:
 
@@ -199,7 +199,7 @@ BJS code:
    }
 ```
 
-**2. In** _**others commands**_ **you need call** `tracking` **command** Bjs code:
+**2. In **_**others commands**_** you need call **`tracking`** command** Bjs code:
 
 ```javascript
    Bot.runCommand("tracking");
@@ -260,7 +260,7 @@ Bot.sendKeyboard(String(balance) + ",\nHelp, Contacts" );
 
 #### Command `⚡Balance:`
 
-You need create command "⚡Balance:" \(without space\) or `"⚡"` if you have space beetween "⚡" and "Balance"
+You need create command "⚡Balance:" (without space) or `"⚡"` if you have space beetween "⚡" and "Balance"
 
 **So after button pressing:**
 
@@ -303,7 +303,7 @@ Bot.sendMessage(
 
 User must attach his location to chat.
 
-Need command with "Wait for answer" option \(or you can use Master command and catch location\)
+Need command with "Wait for answer" option (or you can use Master command and catch location)
 
 BJS:
 
@@ -329,7 +329,7 @@ Bot.sendMessage(
 
 Example - command `/askName` have wait for reply. Need to cancel it.
 
-Add keyboard to this command: keyboard "Cancel" \(also can be "Back"\)
+Add keyboard to this command: keyboard "Cancel" (also can be "Back")
 
 BJS:
 
@@ -396,4 +396,3 @@ if(isJoined){
    Bot.sendMessage("You are NOT chanell member!");
 }
 ```
-

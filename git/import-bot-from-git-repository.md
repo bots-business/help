@@ -2,7 +2,7 @@
 
 ## Preconditions
 
-Please see [this](https://help.bots.business/git#requirements) before. \(Need set repository and Deploy Key in external repository\)
+Please see [this](https://help.bots.business/git#requirements) before. (Need set repository and Deploy Key in external repository)
 
 ## Importing
 
@@ -14,11 +14,9 @@ All existing bot's commands will be deleted
 All existing bot's libs will be uninstalled
 {% endhint %}
 
-Go to bot -&gt; Sync
+Go to bot -> Sync
 
-![](../.gitbook/assets/image%20%2849%29.png)
+![](<../.gitbook/assets/image (32).png>)
 
 Press button "Import from Git rep"
-
-
 

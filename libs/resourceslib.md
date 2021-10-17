@@ -6,7 +6,7 @@ description: With lib we can manage any resources in bot.
 
 ## Resource can be
 
-* balance \(in USD, BTC or any other\)
+* balance (in USD, BTC or any other)
 * any game resources: gold, woods, stone, etc
 * etc, any float values
 
@@ -83,7 +83,7 @@ for example: `Libs.ResourcesLib.userRes("wood").set(10);`
 
 ### Take away amount from resource
 
-`res.remove(amount)` -  if have it res.removeAnyway\(amount\) - take away amount anyway.
+`res.remove(amount)` -  if have it res.removeAnyway(amount) - take away amount anyway.
 
 ## Access to another resources
 
@@ -136,7 +136,7 @@ For example "gold" for "wood":
 
 `res.exchangeTo(anotherRes, { remove_amount: 10, add_amount:23 } )`
 
-\`\`
+``
 
 ## Growth for resource.
 
@@ -232,7 +232,7 @@ You can get initial res value by: `res.baseValue()`
 
 `res.growth.title()` - get title. For example "add 5 once at 15 secs" 
 
-`res.growth.isEnabled()` - return true if is enabled 
+`res.growth.isEnabled() `- return true if is enabled 
 
 `res.growth.stop()` - stop growth 
 
@@ -240,7 +240,7 @@ You can get initial res value by: `res.baseValue()`
 
 `res.growth.willCompletedAfter()` - will completed iteration after this time in seconds
 
-### 
+###
 
 ### How to add growth to another resources?
 
@@ -251,7 +251,7 @@ For example we have:
 
 Every year we add bank growth to wallet.
 
-#### **Init:** on `/start` command \(or any other command\)
+#### **Init: **on `/start` command (or any other command)
 
 ```javascript
 let wallet = Libs.ResourcesLib.userRes("wallet");
@@ -299,7 +299,7 @@ bankDeposit.set(baseValue);
 
 ### **Q: How to give to referrer 5% of referral user deposit?**
 
-Please see [https://help.bots.business/libs/refferallib\#how-to](https://help.bots.business/libs/refferallib#how-to)
+Please see [https://help.bots.business/libs/refferallib#how-to](https://help.bots.business/libs/refferallib#how-to)
 
 
 
@@ -345,6 +345,4 @@ Command /addBonus will be executed for each user. It spend 1 iteration every day
 
 For example, for 100 user - it will be 100 iterations per day.
 {% endhint %}
-
-
 

@@ -1,4 +1,4 @@
-# Auto Retry \(AR\)
+# Auto Retry (AR)
 
 Command can be run periodically. For example:
 
@@ -6,19 +6,19 @@ Command can be run periodically. For example:
 * bot download web page every 1 hour and parse it. See our [PlayMarketNewsBot](https://telegram.me/PlayMarketNewsBot)
 
 {% hint style="danger" %}
-Auto Retry spent 1 iteration on each run. Thus, if you put AR for once a minute \(60 secs\), it will be 1440 iterations per day.
+Auto Retry spent 1 iteration on each run. Thus, if you put AR for once a minute (60 secs), it will be 1440 iterations per day.
 {% endhint %}
 
 So it is need set auto retry time:
 
 * for 10 minutes: 60\*10 = **600** secs
 * for 1 hour: 60\*60 = **3600** secs
-* for 24 hours: 60\*60\*24 = **86400** secs.
+* for 24 hours: 60\*60\*24 = **86400 **secs.
 * for 1 year: 86400 \* 365 = **24966000** secs
 
 #### Modify Auto Retry in app on command editing:
 
-![Auto retry time can be modified on command editing](../.gitbook/assets/image%20%2853%29.png)
+![Auto retry time can be modified on command editing](<../.gitbook/assets/image (14).png>)
 
 
 
@@ -46,20 +46,20 @@ Bot.sendMessage({text: "Hello", chat_id: YOUR_CHAT_ID});
 
 #### How I can know chat id?
 
-Create simple command \(without Aoto Retry\): `/chat` with BJS:
+Create simple command (without Aoto Retry): `/chat` with BJS:
 
 ```javascript
 Bot.sendMessage(chat.chatid);
 ```
 
-And run it on that chat where you need Auto Retry later. This command return YOUR\_CHAT\_ID
+And run it on that chat where you need Auto Retry later. This command return YOUR_CHAT_ID
 
 Fill it in previous command with Auto Retry.
 
 
 
 {% hint style="info" %}
-You can use Bot.getProperty and Bot.setProperty. So you can save chat\_id in one command and then get it on Auto Retry command 
+You can use Bot.getProperty and Bot.setProperty. So you can save chat_id in one command and then get it on Auto Retry command 
 {% endhint %}
 
 {% hint style="warning" %}
@@ -67,8 +67,6 @@ You can not use User.getProperty and User.setProperty.
 
 No user on Auto Retry!
 {% endhint %}
-
-
 
 
 

@@ -4,7 +4,7 @@ bot.json - it is file with bot description. It is required for bot import.
 
 bot.json example:
 
-```text
+```
 {
   "bb_sync_version":"1.0",
   "name":"testBot",
@@ -12,6 +12,4 @@ bot.json example:
   "csv_url":"https://example.com/csv"
 }
 ```
-
-
 

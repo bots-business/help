@@ -8,8 +8,8 @@ Forbidden for this bot:
 * edit and remove commands
 * view commands
 * change BJS
-* make bot copy \(via app and BJS\)
-* git exporting \(via app and BJS\). Git importing is allowed
+* make bot copy (via app and BJS)
+* git exporting (via app and BJS). Git importing is allowed
 
 {% hint style="success" %}
 Protected bots - good thing for selling to customers.
@@ -24,4 +24,3 @@ If you want to sell your bot - just start develop it.
 You can [install protected bot](https://help.bots.business/scenarios-and-bjs/bb-admin-functions#bbadmin-installbot) for another users via BJS
 
 Contact the administrator to start selling this bot.
-

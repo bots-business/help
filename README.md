@@ -24,21 +24,21 @@ In the store are available various bots. Do you need referal tracking? Or chat w
 
 ### Commands
 
-Command can have: `name`, `help`, `aliases` \(second names\), `answer`, `keyboard`, `scnarios` \(for simple logic\) and other options.
+Command can have: `name`, `help`, `aliases` (second names), `answer`, `keyboard`, `scnarios` (for simple logic) and other options.
 
-#### 
+####
 
 #### CSV import with Google Table
 
 Do you have much commands? Use Google Table and make import! Generate commands with formulas and do more with Google Table.
 
-**Template table** [http://bit.ly/bb\_table\_template](http://bit.ly/bb_table_template)
+**Template table** [http://bit.ly/bb_table_template](http://bit.ly/bb_table_template)
 
 **Demo bot @DemoFromTableBot from this table** [http://bit.ly/DemoFromTableBot](http://bit.ly/DemoFromTableBot)
 
 #### How to import CSV file
 
-1. Create Google Table with commands for bot \(You can use template\)
+1. Create Google Table with commands for bot (You can use template)
 2. Do publich this Table in CSV format via File menu
 3. Paste CSV url in application and do upload command
 
@@ -66,5 +66,4 @@ See [more](https://help.bots.business/scenarios-and-bjs)
 
 ## Beta version
 
-Bots.business under active development. App very unstable. Sorry :\(
-
+Bots.business under active development. App very unstable. Sorry :(
