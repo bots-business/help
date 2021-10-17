@@ -9,7 +9,6 @@
 | chat                     | data for current chat. Fields: `id`, `chatid`, `title`, `chat_type` (can be: "private", "group", "supergroup"), user_id, created_at, updated_at, bot_id                                           |
 | bot                      | data for bot. Fields: `id`, `name`, `token`, `created_at`, `updated_at`, `csv_url`, `botan_token`, `last_run_at`, `store_bot_id`, `status`                                                        |
 | params                   | command parameters - text                                                                                                                                                                         |
-| statistics               | bot statistics. Fields: `total`, `group_chats_count`, `user_chats_count`, `super_group_chats_count`, `active_during_last_day`, `active_during_last_week`                                          |
 | completed_commands_count | the count of previously completed commands on `Bot.runCommand` calls. Can be used for [security](https://help.bots.business/scenarios-and-bjs/bjs-security#use-completed_commands_count-variable) |
 
 ### You can inspect any variable for debug
