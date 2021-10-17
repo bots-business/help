@@ -14,7 +14,7 @@ In BJS we have useful global variables.
 | completed_commands_count | the count of previously completed commands on `Bot.runCommand` calls. Can be used for [security](https://help.bots.business/scenarios-and-bjs/bjs-security#use-completed_commands_count-variable) |
 | iteration_quota          | current quota information: limit, progress and etc. You can see it by `Bot.sendMessage( inspect(iteration_quota) )`                                                                               |
 | payment_plan             | current bot owner payment plan information                                                                                                                                                        |
-| bb_api_url               | api url: api.bots.business. Each Cloud have own Api Url                                                                                                                                           |
+| BB_API_URL               | api url: api.bots.business. Each Cloud have own Api Url                                                                                                                                           |
 
 ###
 
