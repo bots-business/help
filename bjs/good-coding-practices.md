@@ -26,7 +26,7 @@ var isAdmin = (user.id == ADMIN_ID)
 if((command.folder=="Admin Panel")&&(!isAdmin){
   // only admin can run command from Admin Panel's folder
   Bot.sendMessage("Access denied");
-  return
+  return // exit from command now
 }
 
 // other example
