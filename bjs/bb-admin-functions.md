@@ -67,10 +67,7 @@ BBAdmin.installBot(
     
     // you can pass bot token if you want
     token: BOT_TOKEN,
-    
-    // run bot after installation
-    run_now: true, // default: false
-    
+        
     // bot can be installed as protected
     // as_protected: true,
     
@@ -112,9 +109,6 @@ BBAdmin.cloneBot(
     
     // you can pass bot token if you want
     token: BOT_TOKEN,
-    
-    // run bot after installation
-    run_now: true, // default: false
     
     // bot can be installed as protected
     // as_protected: true,
