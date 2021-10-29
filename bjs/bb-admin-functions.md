@@ -6,7 +6,7 @@
 | ------------------------------ | ------------------ |
 | `BBAdmin.attractUser(options)` | Attract new user.  |
 
-Bot owner attract new user with email "test@example.com" to Bots.Business. Email must be valid. 
+Bot owner attract new user with email "test@example.com" to Bots.Business. Email must be valid.&#x20;
 
 * User will be received email with password and information for start.
 * Bot owner can see new user in App -> Account -> Attracted Users List
@@ -22,7 +22,7 @@ BBAdmin.attractUser(
 )
 ```
 
-Also it is possible pass owner_id (If not defined - used bot owner ID)
+Also it is possible pass owner\_id (If not defined - used bot owner ID)
 
 ```javascript
 BBAdmin.attractUser(
@@ -59,11 +59,21 @@ You can pass bot properties for new bot.
 
 ```javascript
 BBAdmin.installBot(
-  { email: 'test@example.com',
+  { 
+    // bot will be cloned to this email
+    email: 'test@example.com',
     // see bot id in the app -> Bots -> Bot
     bot_id: 15025,
+    
+    // you can pass bot token if you want
+    token: BOT_TOKEN,
+    
+    // run bot after installation
+    run_now: true, // default: false
+    
     // bot can be installed as protected
     // as_protected: true,
+    
     // you can pass properties to bot:
     // bot_properties: [
     //     { name: 'test',
@@ -99,6 +109,13 @@ BBAdmin.cloneBot(
   { 
     // see bot id in the app -> Bots -> Bot
     bot_id: 15025,
+    
+    // you can pass bot token if you want
+    token: BOT_TOKEN,
+    
+    // run bot after installation
+    run_now: true, // default: false
+    
     // bot can be installed as protected
     // as_protected: true,
     // you can pass properties to bot:
