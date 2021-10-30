@@ -22,9 +22,9 @@ Res name is case sensitive. The resources “money”, “Money” and “MONEY�
 {% endhint %}
 
 {% hint style="info" %}
-One user can have same chats with bot. 
+One user can have same chats with bot.&#x20;
 
-**For example:** private and group chat. 
+**For example:** private and group chat.&#x20;
 
 But anywhere he have **simular** resources
 {% endhint %}
@@ -37,7 +37,7 @@ Bot.sendMessage("Cur your money: " + res.value());
 ```
 
 {% hint style="info" %}
-One user can have same chats with bot. 
+One user can have same chats with bot.&#x20;
 
 **For example**: private and group chat.
 
@@ -55,7 +55,7 @@ All methods can be for user's or chat's resources.
 let res = Libs.ResourcesLib.userRes("money");
 ```
 
-`res.name` - current res name. For example: 
+`res.name` - current res name. For example:&#x20;
 
 ```javascript
 Libs.ResourcesLib.chatRes("BTC").name // is "BTC"
@@ -65,17 +65,17 @@ Libs.ResourcesLib.chatRes("BTC").name // is "BTC"
 
 ### Current res amount
 
-`res.value()` 
+`res.value()`&#x20;
 
-### Set amount for this res 
+### Set amount for this res&#x20;
 
-`res.set(amount)` 
+`res.set(amount)`&#x20;
 
 for example: `Libs.ResourcesLib.userRes("wood").set(10);`
 
 ### Add amount for this res
 
-`res.add(amount)` 
+`res.add(amount)`&#x20;
 
 ### Res have such amount?
 
@@ -106,7 +106,7 @@ Bot.sendMessage("Cur your money: " + res.value());
 
 
 
-## Resource transfering 
+## Resource transfering&#x20;
 
 ```javascript
 let res = Libs.ResourcesLib.userRes("gold");
@@ -168,7 +168,7 @@ health.growth.add({
 });
 ```
 
-### Value can be negative. Remove 5 every 30 hours. 
+### Value can be negative. Remove 5 every 30 hours.&#x20;
 
 ```javascript
 //Min value: -20
@@ -192,7 +192,7 @@ health.growth.add(
 });
 ```
 
-### Can growh by percent. 
+### Can growh by percent.&#x20;
 
 For example add 15% every month for 100 USD
 
@@ -226,17 +226,17 @@ usd.growth.addCompoundInterest({
 You can get initial res value by: `res.baseValue()`
 {% endhint %}
 
-### Other methods for res.growth: 
+### Other methods for res.growth:&#x20;
 
 `res.growth.info()` - get info for current growth
 
-`res.growth.title()` - get title. For example "add 5 once at 15 secs" 
+`res.growth.title()` - get title. For example "add 5 once at 15 secs"&#x20;
 
-`res.growth.isEnabled() `- return true if is enabled 
+`res.growth.isEnabled() `- return true if is enabled&#x20;
 
-`res.growth.stop()` - stop growth 
+`res.growth.stop()` - stop growth&#x20;
 
-`res.growth.progress()` - current progress for next iteration 
+`res.growth.progress()` - current progress for next iteration&#x20;
 
 `res.growth.willCompletedAfter()` - will completed iteration after this time in seconds
 
@@ -319,7 +319,7 @@ Bot.run( {
 } )
 ```
 
- Command `/addBonus`
+&#x20;Command `/addBonus`
 
 ```javascript
 if(request){
@@ -345,4 +345,51 @@ Command /addBonus will be executed for each user. It spend 1 iteration every day
 
 For example, for 100 user - it will be 100 iterations per day.
 {% endhint %}
+
+### ****
+
+### **Q: How to make time limit bonus?**
+
+For example, user can get bonus once at 5 hours.
+
+&#x20;Command `/bonus`
+
+```javascript
+let bonusCooldown = Libs.ResourcesLib.userRes("bonusCooldown");
+
+// cooldown in seconds
+let totalCooldown = 60*60*5; // 60*60*5 seconds = 5 hours
+
+function resetCooldown(){
+   bonusCooldown.set(totalCooldown); 
+}
+
+function setupCooldown(){
+  if(bonusCooldown.growth.isEnabled()){
+     // already setupped
+     return
+  }
+  
+  bonusCooldown.growth.add({
+    value: -1,  // just add negative value
+    interval: 1, // -1 once at 1 sec
+    min: 0
+  });
+}
+
+setupCooldown();
+
+if(bonusCooldown.value() > 0){
+   Bot.sendMessage("Please wait: " + bonusCooldown.value() + " secs" );
+   return
+}
+ 
+// can give bonus now
+resetCooldown(); // need to reset cooldown
+
+Bot.sendMessage("You have bonus now");
+// your other code here
+//..
+
+```
 
