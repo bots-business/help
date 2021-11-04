@@ -23,8 +23,11 @@ You can use folder in BJS too. For example in [before All](always-running-comman
 // you can get it via Bot.sendMessage(user.id)
 var isAdmin = ( user && (user.id == ADMIN_ID) )
 
-if((command.folder=="Admin Panel")&&(!isAdmin){
+if((command.folder=="Admin Panel")&&(isAdmin){
   // only admin can run command from Admin Panel's folder
+  // any common bjs here for admin
+  Bot.sendMessage("Hello, admin!")
+}else{
   Bot.sendMessage("Access denied");
   return // exit from command now
 }
