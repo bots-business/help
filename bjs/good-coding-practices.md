@@ -10,7 +10,7 @@ Don't install unnecessary libraries. Your bot might be slow after that.
 
 ## Use folders
 
-You can organize your commands in folders. 
+You can organize your commands in folders.&#x20;
 
 ![](<../.gitbook/assets/image (90).png>)
 
@@ -21,7 +21,7 @@ You can use folder in BJS too. For example in [before All](always-running-comman
 
 // set your ADMIN_ID here
 // you can get it via Bot.sendMessage(user.id)
-var isAdmin = (user.id == ADMIN_ID)
+var isAdmin = ( user && (user.id == ADMIN_ID) )
 
 if((command.folder=="Admin Panel")&&(!isAdmin){
   // only admin can run command from Admin Panel's folder
