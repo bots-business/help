@@ -3,9 +3,9 @@
 | Function                                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Bot.runCommand(command, options)`                              | <p>Run other command</p><p><code>Bot.runCommand("/contact")</code></p><p><br>and with options: </p><p><code>Bot.runCommand("/contact", {phone: "+15424", email: "example@example.com"})</code></p><p><br>in second command /contact:</p><p>Bot.sendMessage("Phone is:" + options.phone);</p>                                                                                                                |
-| `Bot.run(options)`                                              | <p>Run other command</p><p>Bot.run({ command: "/contact" })</p><p></p><p><a href="bot-functions.md#bot-run-params">see more</a></p>                                                                                                                                                                                                                                                                         |
-| `Bot.clearRunAfter(options)`                                    | <p>Clear other command with run_after by label </p><p></p><p><a href="bot-functions.md#bot-clearrunafter-options">see more</a></p>                                                                                                                                                                                                                                                                          |
-| `Bot.runAll(options)`                                           | <p>Run other command for all chats</p><p><code>Bot.runAll({ command: "/broadcast" })</code></p><p></p><p><a href="bot-functions.md#bot-runall-options">see more</a></p>                                                                                                                                                                                                                                     |
+| `Bot.run(options)`                                              | <p>Run other command</p><p>Bot.run({ command: "/contact" })</p><p></p><p><a href="bot-functions.md#bot.run-params">see more</a></p>                                                                                                                                                                                                                                                                         |
+| `Bot.clearRunAfter(options)`                                    | <p>Clear other command with run_after by label </p><p></p><p><a href="bot-functions.md#bot.clearrunafter-options">see more</a></p>                                                                                                                                                                                                                                                                          |
+| `Bot.runAll(options)`                                           | <p>Run other command for all chats</p><p><code>Bot.runAll({ command: "/broadcast" })</code></p><p></p><p><a href="bot-functions.md#bot.runall-options">see more</a></p>                                                                                                                                                                                                                                     |
 | `Bot.sendKeyboard(buttons, message)`                            | <p>send keyboard and message. Message is required</p><p></p><p><code>Bot.sendKeyboard("about, help,\ncontacts", "send keyboard now")</code></p>                                                                                                                                                                                                                                                             |
 | `Bot.sendInlineKeyboard(buttons, message)`                      | <p>Send inline keyboard and message. Message is required. Buttons is array. Button must have text fields: title(required), url or command.</p><p></p><p><code>Bot.sendInlineKeyboard([ {title: "google", url: "http://google.com" }, {title: "other command", command: "/othercommand"} ], "Please make a choice.")</code></p>                                                                              |
 | `Bot.sendInlineKeyboardToChatWithId(chat_id, buttons, message)` | <p>Send inline keyboard and message to chat with chat_id</p><p></p><p><code>Bot.sendInlineKeyboard('852378745487', [ {title: "google", url: "http://google.com" }, {title: "other command", command: "/othercommand"} ], "Please make a choice.")</code></p>                                                                                                                                                |
@@ -43,9 +43,9 @@ Bot.run(params)
 | `command`   | **Required**. Command for run. For example "/start". Can pass params   |
 | `options`   | json for passing to command. Available through options in this command |
 | `run_after` | delay in seconds before command callingName is case sensitive.         |
-| `bot_id`    | bot_id for passing. **By default** this is current bot.id              |
-| `user_id`   | user_id for passing. **By default** this is current user.id            |
-| `chat_id`   | chat_id for passing. **By default** this is current chat.id            |
+| `bot_id`    | bot\_id for passing. **By default** this is current bot.id             |
+| `user_id`   | user\_id for passing. **By default** this is current user.id           |
+| `chat_id`   | chat\_id for passing. **By default** this is current chat.id           |
 | `label`     | can be used for clearing with `Bot.clearRunAfter`                      |
 
 **Example 1**. Run another command `/balance` with delay 1 hour for current user
@@ -78,7 +78,7 @@ Only chat.id or user.id
 {% endhint %}
 
 {% hint style="success" %}
-Store another chat.id or user.id to propertis if you can not pass it imeditally. 
+Store another chat.id or user.id to propertis if you can not pass it imeditally.&#x20;
 {% endhint %}
 
 ## Bot.clearRunAfter(options)
@@ -133,7 +133,7 @@ Use this command for broadcasting any information: message, photo, video, keyboa
 {% endhint %}
 
 {% hint style="warning" %}
-**Bot.runAll** works for worked bots only. 
+**Bot.runAll** works for worked bots only.&#x20;
 {% endhint %}
 
 ```javascript
