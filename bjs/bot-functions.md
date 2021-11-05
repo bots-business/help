@@ -144,6 +144,7 @@ Bot.runAll(params)
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `command`   | **Required**. Command for run. For example "/start". Can pass params                                                                                                                                          |
 | `options`   | json for passing to command. Available through options in this command                                                                                                                                        |
+| `on_create` | run this command on task creation with task information                                                                                                                                                       |
 | `for_chats` | <p>Command will be runned for this chats type only. Can be:</p><p><code>"private-chats"</code></p><p><code>"group-chats"</code></p><p><code>"super-group-chats"</code></p><p><code>"all" </code>- default</p> |
 
 **Example**:
@@ -156,6 +157,7 @@ Bot.runAll( {
     // for each private chat (user)
     command: "/broadcast",
     for_chats: "private-chats",
+    on_create: "on_new_brodcast_task",
     // options: { any_data: "here" }
 } )
 ```
@@ -181,3 +183,38 @@ Bot.sendMessage(
 */
 ```
 
+Command: `on_new_brodcast_task`
+
+```javascript
+var task = options.run_all_task;
+Bot.sendMessage(
+  "Task for brodcasting created. Task id: " + task.id
+);
+
+// save task id:
+Bot.setProperty("curBrodcastTaskID", task.id, "integer")
+
+// Bot.inspect(options.run_all_task);
+```
+
+Command: `/progress`
+
+```javascript
+// show current runAll progress
+
+var taskID = Bot.getProperty("curBrodcastTaskID");
+var task = new RunAllTask({ id: taskID });
+// Bot.inspect(task) // you can check all fields
+
+if(!task.status){
+  Bot.sendMessage("This task not found")
+  return
+}
+
+Bot.sendMessage(
+  "Current brodcast: " + 
+  "/n Status: " + task.status + " " + task.progress + "%" +
+  "/n Progress:" + task.cur_position + "/" + task.total
+)
+
+```
