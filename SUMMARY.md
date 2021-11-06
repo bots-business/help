@@ -50,6 +50,7 @@
 * [Libs development](libs/libs-development.md)
 * [RefferalLib](libs/refferallib.md)
 * [Random](libs/random.md)
+* [Cooldown Lib](libs/cooldown-lib.md)
 * [CurrencyConverter](libs/currencyconverter.md)
 * [ResourcesLib](libs/resourceslib.md)
 * [Lang](libs/lang.md)
