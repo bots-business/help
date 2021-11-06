@@ -2,7 +2,7 @@
 
 ## Bots.business Help
 
-Download from [Play Market](https://play.google.com/store/apps/details?id=bb_app.com.bots.business)
+Download from [Play Market](https://play.google.com/store/apps/details?id=bb\_app.com.bots.business)
 
 ## Create your own bot for Telegram from new app Bots.Business.
 
@@ -10,7 +10,7 @@ Download from [Play Market](https://play.google.com/store/apps/details?id=bb_app
 
 1. Create bot with @BotFather
 2. Now create bot in app: add secret token
-3. Create commands 
+3. Create commands&#x20;
 
 See [more](https://help.bots.business/getting-started)
 
@@ -32,7 +32,7 @@ Command can have: `name`, `help`, `aliases` (second names), `answer`, `keyboard`
 
 Do you have much commands? Use Google Table and make import! Generate commands with formulas and do more with Google Table.
 
-**Template table** [http://bit.ly/bb_table_template](http://bit.ly/bb_table_template)
+**Template table** [http://bit.ly/bb\_table\_template](http://bit.ly/bb\_table\_template)
 
 **Demo bot @DemoFromTableBot from this table** [http://bit.ly/DemoFromTableBot](http://bit.ly/DemoFromTableBot)
 
@@ -60,10 +60,7 @@ See [more](https://help.bots.business/scenarios-and-bjs)
 
 [https://api.bots.business/docs](https://api.bots.business/docs)
 
-## Issues
+## Active Tasks
 
-[https://github.com/bots-business/help/issues](https://github.com/bots-business/help/issues)
+{% embed url="https://trello.com/b/Duel9nLQ/botsbusiness-tasks" %}
 
-## Beta version
-
-Bots.business under active development. App very unstable. Sorry :(
