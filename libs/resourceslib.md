@@ -350,6 +350,10 @@ For example, for 100 user - it will be 100 iterations per day.
 
 ### **Q: How to make time limit bonus?**
 
+{% hint style="success" %}
+Use [Cooldown Lib](cooldown-lib.md)! It is more simple!
+{% endhint %}
+
 For example, user can get bonus once at 5 hours.
 
 &#x20;Command `/bonus`
