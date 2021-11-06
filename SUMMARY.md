@@ -15,6 +15,7 @@
   * [Message broadcasting and editing](bjs/message-broadcasting.md)
   * [User functions](bjs/user-functions.md)
   * [Always running commands](bjs/always-running-commands.md)
+  * [Error command: "!"](bjs/error-command.md)
   * [Variables](bjs/variables.md)
   * [Lists](bjs/lists/README.md)
     * [Migration from properties to list](bjs/lists/migration-from-properties-to-list.md)
