@@ -4,13 +4,47 @@ Sometimes code execution is always required.
 
 ## Master command
 
-This command executed only when there are no others commands.
+This command executed only when there are no others commands or on [updates](https://core.telegram.org/bots/api#update) for Telegram bot.
 
-Just use `*` in command name. 
+Just use `*` in command name.&#x20;
+
+Please see all updates list [here](https://core.telegram.org/bots/api#message)
+
+**Example.**
+
+Command `*`
+
+```javascript
+// you can track any message here
+if(message){
+   Bot.sendMessage("Sorry, bot don't have this command: " + message);
+   return
+}
+
+// you can see all updated data by:
+// Bot.inspect(request);
+
+if(request.edit_date){
+  // user edited message
+  Bot.sendMessage("Text edited to:" + request.new_text);
+  // Please note:
+  // we have request.new_text not request.text here
+  // for backward compatibility
+  // request.text will be nil!
+}
+
+// chat title changed
+if(request.new_chat_title){
+  Bot.sendMessage("New chat title is:" + request.new_chat_title);
+}
+
+// another possible updates in:
+// https://core.telegram.org/bots/api#message
+```
 
 ## BeforeAll and AfterAll commands
 
-Code of this commands executed always before (and after) all others commands codes. 
+Code of this commands executed always before (and after) all others commands codes.&#x20;
 
 **Example. **You need add important alert in all commands. You can create only one BeforeAll command with code `Bot.sendMessage("Important alert")`
 
