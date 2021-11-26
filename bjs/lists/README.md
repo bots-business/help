@@ -13,7 +13,7 @@ Examples:
 * referrals list
 
 {% hint style="danger" %}
-**Do not use JSON property** to collect a large array. This is a very bad practice. 
+**Do not use JSON property** to collect a large array. This is a very bad practice.&#x20;
 
 **"Execution timeout" **error - it is typical error if you use JSON prop for large data.
 
@@ -73,14 +73,14 @@ list.recount({
 Need [recount](./#recount-list) before
 
 ```javascript
-list.total();  // integer value
+list.total;  // integer value
 ```
 
 ## Properties management
 
 ### Add property to bot list
 
-Bot property is always add to List for bot 
+Bot property is always add to List for bot&#x20;
 
 ```javascript
 Bot.setProperty({
@@ -93,7 +93,7 @@ Bot.setProperty({
 
 ### Add property to user list
 
-User property is always add to List for user 
+User property is always add to List for user&#x20;
 
 ```javascript
 User.setProperty({
