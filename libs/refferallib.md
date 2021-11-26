@@ -4,22 +4,21 @@ description: Use this Lib for referral tracking.
 
 # RefferalLib
 
-Demo bot: [https://telegram.me/DemoReferalTrackingBot?start=FromLibPage](https://telegram.me/DemoReferalTrackingBot?start=FromLibPage)
+Demo bot: [https://telegram.me/DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot)
 
 ## Getting started
 
 Basic function is **track**. Prefer to call it on /start:
 
-`Libs.ReferralLib.currentUser.track(trackOptions);`
+`Libs.ReferralLib.track(trackOptions);`
 
 params `trackOptions` - it is object with callback functions for:
 
-| callback function         | description                                                                                                                                                                      |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| onTouchOwnLink()          | user touch own link                                                                                                                                                              |
-| onAlreadyAttracted()      | user already attracted                                                                                                                                                           |
-| onAttracted()             | user was attracted via chanell                                                                                                                                                   |
-| onAtractedByUser(refUser) | <p>user was attracted by other user refUser - it is common user data (fields: nickname, first_name and etc) </p><p></p><p>Also have field chatId with chat id for this user.</p> |
+| **Callback function**  | **Description**                                                                                           |
+| ---------------------- | --------------------------------------------------------------------------------------------------------- |
+| `onTouchOwnLink()`     | user touch own ref link                                                                                   |
+| `onAlreadyAttracted()` | user already attracted                                                                                    |
+| `onAttracted(byUser)`  | user was attracted by other user byUser - it is common user data (fields: nickname, first\_name and etc)  |
 
 {% hint style="info" %}
 See @[DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=FromLibPage) for details
@@ -31,59 +30,49 @@ See @[DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=F
 
 ## Get Referral link for current user
 
-`Libs.ReferralLib.currentUser.getRefLink(bot.name); `
+`Libs.ReferralLib.getLink(); `
 
-will generate link kind **http://t.me/botname?start=userUSER_ID**
+will generate link kind **http://t.me/botname?start=userUSER\_ID**
 
-Also you can change prefix. For example remove "user"
+Also you can pass other bot name and change prefix from ""user. For example - it is link for current bot weithout prefix "user":
 
 `Libs.ReferralLib.currentUser.getRefLink(bot.name, ""); `
 
-will generate link kind **http://t.me/botname?start=USER_ID**
+will generate link kind **http://t.me/botname?start=USER\_ID**
 
 ###
 
 ### Get attractor for current user
 
-`Libs.ReferralLib.currentUser.attractedByUser() `
+`Libs.ReferralLib.getAttractedBy() `
 
-return user data (with chatId) 
+return attractor user data
 
 
-
-### Get attracted channel for current user
-
-`Libs.ReferralLib.currentUser.attractedByChannel() `
-
-return Channel wich current user was attracted
 
 
 
 ### Get refList
 
-`Libs.ReferralLib.currentUser.refList.get(); `
+`Libs.ReferralLib.getRefList(); `
 
-return list with attracted users
+return [list](../bjs/lists/) with attracted users.
 
-
-
-### Clear refList
-
-`Libs.ReferralLib.currentUser.refList.clear();`
+{% hint style="info" %}
+This method return users [list](../bjs/lists/). You can [paginate](../bjs/lists/#paginating) it, [sort](../bjs/lists/#ordering), [recount](../bjs/lists/#recount-list) it and etc.
+{% endhint %}
 
 ###
 
 ### Get Top Refferal List
 
-`Libs.ReferralLib.topList.get(45)`
+`Libs.ReferralLib.getTopList()`
 
-return first 45 users ordering by referrals count
+{% hint style="warning" %}
+This function temporary not worked. We have developing [task](https://trello.com/c/cDSbUVUZ/27-support-for-reflib-toplist) for this method.
+{% endhint %}
 
 
-
-### Clear Top Refferal List
-
-`Libs.ReferralLib.topList.clear()`
 
 ## How to
 
@@ -102,8 +91,8 @@ function onAttracted(refUser){
   refUserBonus.add(100);  // add 100 bonus for friend
 }
 
-Libs.ReferralLib.currentUser.track({
-   onAtractedByUser: onAttracted
+Libs.ReferralLib.track({
+   onAttracted: onAttracted
 });
 ```
 
@@ -119,7 +108,7 @@ Libs.ReferralLib.currentUser.track({
 
 ```javascript
 let res = Libs.ResourcesLib.userRes("money");
-let referrer = Libs.ReferralLib.currentUser.attractedByUser();
+let referrer = Libs.ReferralLib.getAttractedBy();
 
 // if current user was attracted by referrer
 if(referrer){
