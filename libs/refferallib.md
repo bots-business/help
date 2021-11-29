@@ -58,6 +58,12 @@ return attractor user data
 
 return [list](../bjs/lists/) with attracted users.
 
+
+
+Or get for Ref List for another user:
+
+`Libs.ReferralLib.getRefList(another_user_id);`
+
 {% hint style="info" %}
 This method return users [list](../bjs/lists/). You can [paginate](../bjs/lists/#paginating) it, [sort](../bjs/lists/#ordering), [recount](../bjs/lists/#recount-list) it and etc.
 {% endhint %}
