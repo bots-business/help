@@ -46,7 +46,10 @@ After it you can perform another list methods
 ## Create new list
 
 ```javascript
-list.create();
+// for list saving
+if(!list.exist){
+  list.create()
+}
 ```
 
 ## Remove list
@@ -78,31 +81,61 @@ list.total;  // integer value
 
 ## Properties management
 
-### Add property to bot list
+### Add bot property to bot list
 
-Bot property is always add to List for bot&#x20;
+Bot property can be added to List for bot
+
+{% hint style="success" %}
+Example. Bot can have price list.
+{% endhint %}
 
 ```javascript
 Bot.setProperty({
-  name: 'stringProp',
-  value: 'Bad Apple',
+  name: 'product1',
+  value: 'Nano Cloud',
   type: 'string',
-  list: 'MyList'  // bot list will be created if not exist
+  list: 'PaidPlans'  // bot list will be created if not exist
 });
 ```
 
-### Add property to user list
+### Add user property to user list
 
-User property is always add to List for user&#x20;
+User property can be added to List for user&#x20;
+
+{% hint style="success" %}
+Example. User can have Orders list&#x20;
+{% endhint %}
 
 ```javascript
 User.setProperty({
-  name: "stringProp",
-  value: "Bad Apple",
-  type: "string",
-  list: "MyList"  // bot list will be created if not exist
+  name: "order125",
+  value: { product_id: "product1", price: 28 },
+  type: "json",
+  list: "Orders"  // bot list will be created if not exist
 });
 ```
+
+### Add property to bot list
+
+User property can be added to List for bot
+
+{% hint style="success" %}
+Example. Bot can have top customers list.
+{% endhint %}
+
+```javascript
+let list = new List({ name: "TopCustomers" })
+if(!list.exist){ list.create() }
+
+User.setProperty({
+  name: "customer" + user.id,
+  value: 20, // total income in USD
+  type: "float",
+  list: list
+});
+```
+
+
 
 ### Reject property
 
@@ -260,7 +293,7 @@ props[0] // prop with lowest value
 | datetime\_value   | order by datetime value                         |
 | boolean\_value    | order by boolean value                          |
 | string\_value     | order by string value                           |
-| text\_value       | order by text valu                              |
+| text\_value       | order by text value                             |
 | value\_type       | ordering by value type (integer, float and etc) |
 | size              | order by value size                             |
 
