@@ -15,7 +15,7 @@ Examples:
 {% hint style="danger" %}
 **Do not use JSON property** to collect a large array. This is a very bad practice.&#x20;
 
-**"Execution timeout" **error - it is typical error if you use JSON prop for large data.
+**"Execution timeout"** error - it is typical error if you use JSON prop for large data.
 
 Use a List.
 {% endhint %}
@@ -226,7 +226,7 @@ let total_pages = list.total_pages;
 
 ### Ordering
 
-Default order is ascending by id (prop's id or user's id)
+Default order is ascending by id (prop's id)
 
 ```javascript
 // default order is ascending by id
@@ -237,6 +237,32 @@ props[0] // oldest prop in list
 list.order_ascending = false;
 props[0] // newest prop in list
 ```
+
+Ordering method can be changed from id (default) to other method:
+
+```
+list.order_by = "integer_value";
+
+// list.order_by = "user_id";
+// list.order_by = "size";
+// etc - see table
+
+list.order_ascending = true;
+props[0] // prop with lowest value
+```
+
+| list.ordering\_by | Ordering props by                               |
+| ----------------- | ----------------------------------------------- |
+| user\_id          | order by user\_id                               |
+| name              | order by name                                   |
+| integer\_value    | order by integer value                          |
+| float\_value      | order by float value                            |
+| datetime\_value   | order by datetime value                         |
+| boolean\_value    | order by boolean value                          |
+| string\_value     | order by string value                           |
+| text\_value       | order by text valu                              |
+| value\_type       | ordering by value type (integer, float and etc) |
+| size              | order by value size                             |
 
 ## Searching
 
