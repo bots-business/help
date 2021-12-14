@@ -115,7 +115,7 @@ User.setProperty({
 });
 ```
 
-### Add property to bot list
+### Add user property to bot list
 
 User property can be added to List for bot
 
