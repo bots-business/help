@@ -74,15 +74,32 @@ Please read this [article](lists/)
 
 ```javascript
 // get global prop
-Bot.getProperty('myProp');
+var myProp = Bot.getProperty('myProp');
  
 // get prop for user
-User.getProperty('BIO');
+var bio = User.getProperty('BIO');
+```
+
+or get prop with default value:
+
+```javascript
+// prop by default will be 15
+var myProp = Bot.getProperty('myProp', 15);
 ```
 
 
 
-Getting other user's prop:
+### **Access to property in answer**
+
+> You can also use the properties in the command's answer. For example, you can do this with the `/hello` command: `Hello, <UserRole>!`
+
+in BJS:
+
+> And you can use it in `Bot.sendMessage("Hello, <UserRole>")`
+
+
+
+### Getting other user's prop:
 
 {% hint style="info" %}
 Your bot must have this user
@@ -90,7 +107,7 @@ Your bot must have this user
 
 ```javascript
 // get prop for other user
-Bot.getProperty({
+var bio = Bot.getProperty({
   name: 'BIO',
   // you can pass other user.id for getting other user prop
   user_id: other_user_id
@@ -99,7 +116,7 @@ Bot.getProperty({
 
 
 
-Getting other bot prop for current user:
+### Getting other bot prop for current user:
 
 {% hint style="info" %}
 Your account must have this bot
@@ -107,17 +124,15 @@ Your account must have this bot
 
 ```javascript
 // get other bot prop for cur user
-Bot.getProperty({
+var bio = Bot.getProperty({
   name: 'BIO',
   other_bot_id: other_bot_id  // available via bot.id
 });
-
-
 ```
 
 
 
-Getting other bot prop for other user:
+### Getting other bot prop for other user:
 
 {% hint style="info" %}
 Your account must have this bot with this user
@@ -125,7 +140,7 @@ Your account must have this bot with this user
 
 ```javascript
 // get other bot prop for cur user
-Bot.getProperty({
+var bio = Bot.getProperty({
   name: 'BIO',
   other_bot_id: other_bot_id  // available via bot.id
   // you can pass other user.id for getting other user prop
