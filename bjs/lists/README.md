@@ -297,6 +297,16 @@ props[0] // prop with lowest value
 | value\_type       | ordering by value type (integer, float and etc) |
 | size              | order by value size                             |
 
+#### Users ordering
+
+```javascript
+let users = list.getUsers();
+
+// you can order users only by user id
+list.order_ascending = false;
+Bot.inspect(users[0])
+```
+
 ## Searching
 
 ### Searching for text props
