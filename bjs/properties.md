@@ -59,7 +59,8 @@ Bot.setProperty({ name: 'myProp', value: 15, type: "float" });
 Bot.setProperty({
   name: 'otherUserProp',
   value: "test Prop",
-  user_id: other_user.id // you can use user.id for saving user prop for cur user
+  // you can pass other user.id for saving user prop for other user
+  user_id: other_user.id
 });
 ```
 
@@ -68,4 +69,67 @@ Bot.setProperty({
 Please read this [article](lists/)
 
 
+
+## Get property
+
+```javascript
+// get global prop
+Bot.getProperty('myProp');
+ 
+// get prop for user
+User.getProperty('BIO');
+```
+
+
+
+Getting other user's prop:
+
+{% hint style="info" %}
+Your bot must have this user
+{% endhint %}
+
+```javascript
+// get prop for other user
+Bot.getProperty({
+  name: 'BIO',
+  // you can pass other user.id for getting other user prop
+  user_id: other_user_id
+});
+```
+
+
+
+Getting other bot prop for current user:
+
+{% hint style="info" %}
+Your account must have this bot
+{% endhint %}
+
+```javascript
+// get other bot prop for cur user
+Bot.getProperty({
+  name: 'BIO',
+  other_bot_id: other_bot_id  // available via bot.id
+});
+
+
+```
+
+
+
+Getting other bot prop for other user:
+
+{% hint style="info" %}
+Your account must have this bot with this user
+{% endhint %}
+
+```javascript
+// get other bot prop for cur user
+Bot.getProperty({
+  name: 'BIO',
+  other_bot_id: other_bot_id  // available via bot.id
+  // you can pass other user.id for getting other user prop
+  user_id: other_user_id
+});
+```
 
