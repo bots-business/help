@@ -14,6 +14,7 @@
   * [Bot functions](bjs/bot-functions.md)
   * [Message broadcasting and editing](bjs/message-broadcasting.md)
   * [User functions](bjs/user-functions.md)
+  * [Properties](bjs/properties.md)
   * [Always running commands](bjs/always-running-commands.md)
   * [Error command: "!"](bjs/error-command.md)
   * [Variables](bjs/variables.md)
