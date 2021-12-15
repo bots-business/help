@@ -329,7 +329,7 @@ props = list.search("%Apple%");
 * Underscore sign ( `_`)  matches any single character.
 
 {% hint style="info" %}
-Ordering and paginating also works with searching
+[Ordering](./#ordering) and paginating also works with searching
 
 ```javascript
 list.page = 2;
