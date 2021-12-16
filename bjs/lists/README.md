@@ -111,7 +111,7 @@ User.setProperty({
   name: "order125",
   value: { product_id: "product1", price: 28 },
   type: "json",
-  list: "Orders"  // bot list will be created if not exist
+  list: "Orders",  // bot list will be created if not exist
 });
 ```
 
@@ -131,7 +131,9 @@ User.setProperty({
   name: "customer" + user.id,
   value: 20, // total income in USD
   type: "float",
-  list: list
+  list: list,
+  // you can set this prop for other user also:
+  // user_id: other_user.id
 });
 ```
 
