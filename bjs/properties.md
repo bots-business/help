@@ -49,7 +49,7 @@ also you can use old style:
 
 ```javascript
  // set global prop
-Bot.setProperty({ name: 'myProp', value: 15, type: "float" });
+Bot.setProperty("myProp", 15, "float" });
 ```
 
 ### Set prop for other user
