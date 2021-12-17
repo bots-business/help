@@ -87,6 +87,7 @@ function needToWaitForNextRecount(list){
 }
 
 function needRecount(list) {
+  if(!list.last_calc_time){ return true }
   return needToWaitForNextRecount(list) < 0
 }
 
