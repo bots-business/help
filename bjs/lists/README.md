@@ -62,7 +62,7 @@ list.remove();
 
 Recalculate all statistical data in list.
 
-Can spent 5-30 seconds and more for big list. So you need perform this task on background once in week/day or hour.
+Can spent **5-30 seconds** and more for big list. So you need perform this task on background once in week/day or hour.
 
 ```javascript
 list.recount({
@@ -70,6 +70,45 @@ list.recount({
     // onComplete: 'onCompleteListRecount'
 });
 ```
+
+For effective recount you can use this:
+
+```javascript
+// you need to recount list sometimes
+// such recount can be very slowly so we need to perform it not very often
+function delayForNextRecalce(list) {
+  // recalce list not more often then 100 sec per each 0.1 last calc time
+  // so if last calc time is 10 secs we need to wait 24 hours for new calc
+  return (100 * list.last_calc_time) / 0.1
+}
+
+function needToWaitForNextRecalce(list){
+  return delayForNextRecalce(list) - lastUpdatedSecAgo(list)
+}
+
+function needRecalce(list) {
+  return needToWaitForNextRecalce(list) < 0
+}
+
+function lastUpdatedSecAgo(list) {
+  return (new Date() - new Date(list.updated_at)) / 1000
+}
+
+if (needRecalce(list)) {
+  Bot.sendMessage("Recount started...");
+  refList.recount({
+    // this command will be runned after recount
+    // onComplete: 'onCompleteListRecount'
+  })
+} else {
+  Bot.sendMessage("next recount after, sec: " +
+    needToWaitForNextRecalce(refList).toFixed(4)
+  )
+}
+
+```
+
+
 
 ## Calculate the amount of all props and users
 
