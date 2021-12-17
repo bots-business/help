@@ -4,7 +4,7 @@ description: Use this Lib for referral tracking.
 
 # RefferalLib
 
-Demo bot: [https://telegram.me/DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot)
+**Demo bot:** [https://telegram.me/DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot)
 
 ## Getting started
 
@@ -30,13 +30,13 @@ See @[DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=F
 
 ## Get Referral link for current user
 
-`Libs.ReferralLib.getLink(); `
+`Libs.ReferralLib.getLink();`&#x20;
 
 will generate link kind **http://t.me/botname?start=userUSER\_ID**
 
 Also you can pass other bot name and change prefix from ""user. For example - it is link for current bot weithout prefix "user":
 
-`Libs.ReferralLib.currentUser.getRefLink(bot.name, ""); `
+`Libs.ReferralLib.getRefLink(bot.name, "");`&#x20;
 
 will generate link kind **http://t.me/botname?start=USER\_ID**
 
@@ -44,7 +44,7 @@ will generate link kind **http://t.me/botname?start=USER\_ID**
 
 ### Get attractor for current user
 
-`Libs.ReferralLib.getAttractedBy() `
+`Libs.ReferralLib.getAttractedBy()`&#x20;
 
 return attractor user data
 
@@ -54,7 +54,7 @@ return attractor user data
 
 ### Get refList
 
-`Libs.ReferralLib.getRefList(); `
+`Libs.ReferralLib.getRefList();`&#x20;
 
 return [list](../bjs/lists/) with attracted users.
 
