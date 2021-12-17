@@ -76,25 +76,25 @@ For effective recount you can use this:
 ```javascript
 // you need to recount list sometimes
 // such recount can be very slowly so we need to perform it not very often
-function delayForNextRecalce(list) {
-  // recalce list not more often then 100 sec per each 0.1 last calc time
+function delayForNextRecount(list) {
+  // Recount list not more often then 100 sec per each 0.1 last calc time
   // so if last calc time is 10 secs we need to wait 24 hours for new calc
   return (100 * list.last_calc_time) / 0.1
 }
 
-function needToWaitForNextRecalce(list){
-  return delayForNextRecalce(list) - lastUpdatedSecAgo(list)
+function needToWaitForNextRecount(list){
+  return delayForNextRecount(list) - lastUpdatedSecAgo(list)
 }
 
-function needRecalce(list) {
-  return needToWaitForNextRecalce(list) < 0
+function needRecount(list) {
+  return needToWaitForNextRecount(list) < 0
 }
 
 function lastUpdatedSecAgo(list) {
   return (new Date() - new Date(list.updated_at)) / 1000
 }
 
-if (needRecalce(list)) {
+if (needRecount(list)) {
   Bot.sendMessage("Recount started...");
   refList.recount({
     // this command will be runned after recount
@@ -102,7 +102,7 @@ if (needRecalce(list)) {
   })
 } else {
   Bot.sendMessage("next recount after, sec: " +
-    needToWaitForNextRecalce(refList).toFixed(4)
+    needToWaitForNextRecount(refList).toFixed(4)
   )
 }
 
