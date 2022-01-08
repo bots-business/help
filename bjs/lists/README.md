@@ -116,7 +116,7 @@ if (needRecount(list)) {
 Need [recount](./#recount-list) before
 
 ```javascript
-list.total;  // integer value
+list.count;  // integer value
 ```
 
 ## Properties management

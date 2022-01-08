@@ -23,6 +23,16 @@ function onWaiting(waitTime){
   Bot.sendMessage("Please wait: " + waitTime + " secs" );
 }
 
+Libs.CooldownLib.user.watch({
+  // you need name for cooldown
+  name: "GemBonusCooldown",
+  time: 120, // cooldown time, 120 secs - 2 minute
+  onEnding: onEnding,
+  onWaiting: onWaiting
+})
+
+// or cooldown for chat:
+/*
 Libs.CooldownLib.chat.watch({
   // you need name for cooldown
   name: "GemBonusCooldown",
@@ -30,6 +40,7 @@ Libs.CooldownLib.chat.watch({
   onEnding: onEnding,
   onWaiting: onWaiting
 })
+*/
 
 // get current cooldown res for chat
 let cooldown = Libs.CooldownLib.chat.getCooldown("GemBonusCooldown");
