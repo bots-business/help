@@ -44,7 +44,7 @@ let list = new List.new({ name: "priceList" })
 
 let products = list.get();  // get first 100 (by default) products
 
-Bot.sendMessage(products[0].name + ":" + products[0].price)
+Bot.sendMessage(products[0].name + ":" + products[0].value)
 ```
 
 Get next 100 products:
@@ -55,5 +55,5 @@ let list = new List.new({ name: "priceList" })
 list.page = 2;
 let products = list.get();  // get first 100 (by default) products
 
-Bot.sendMessage(products[0].name + ":" + products[0].price)
+Bot.sendMessage(products[0].name + ":" + products[0].value)
 ```
