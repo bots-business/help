@@ -65,51 +65,32 @@ Recalculate all statistical data in list.
 Can spent **5-30 seconds** and more for big list. So you need perform this task on background once in week/day or hour.
 
 ```javascript
-list.recount({
-    // this command will be runned after recount
-    // onComplete: 'onCompleteListRecount'
-});
+if (list.isRecountNeeded()) {
+    list.recount({
+        // this command will be runned after recount
+        // onComplete: 'onCompleteListRecount'
+    });
+}
 ```
 
-For effective recount you can use this:
+you can get delay time in ms:
 
 ```javascript
-// you need to recount list sometimes
-// such recount can be very slowly so we need to perform it not very often
-function delayForNextRecount(list) {
-  // Recount list not more often then 100 sec per each 0.1 last calc time
-  // so if last calc time is 10 secs we need to wait 24 hours for new calc
-  return (100 * list.last_calc_time) / 0.1
-}
+// total delay in ms
+list.recount_delay.total
 
-function needToWaitForNextRecount(list){
-  return delayForNextRecount(list) - lastUpdatedSecAgo(list)
-}
-
-function needRecount(list) {
-  if(!list.last_calc_time){ return true }
-  return needToWaitForNextRecount(list) < 0
-}
-
-function lastUpdatedSecAgo(list) {
-  return (new Date() - new Date(list.updated_at)) / 1000
-}
-
-if (needRecount(list)) {
-  Bot.sendMessage("Recount started...");
-  refList.recount({
-    // this command will be runned after recount
-    // onComplete: 'onCompleteListRecount'
-  })
-} else {
-  Bot.sendMessage("next recount after, sec: " +
-    needToWaitForNextRecount(refList).toFixed(4)
-  )
-}
-
+// need to wait for next recount in ms
+list.recount_delay.current_value
 ```
 
+recount lag:
 
+```
+// you can change lag for next recount
+// it is 1000 ms by default 
+// prefer to use 1000 - 2000
+list.recount_delay.lag = 1000; 
+```
 
 ## Calculate the amount of all props and users
 
