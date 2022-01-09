@@ -21,7 +21,7 @@ params `trackOptions` - it is object with callback functions for:
 | `onAttracted(byUser)`  | user was attracted by other user byUser - it is common user data (fields: nickname, first\_name and etc)  |
 
 {% hint style="info" %}
-See @[DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=FromLibPage) for details
+See [@DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=FromLibPage) for details
 {% endhint %}
 
 ## Functions
@@ -68,17 +68,75 @@ Or get for Ref List for another user:
 This method return users [list](../bjs/lists/). You can [paginate](../bjs/lists/#paginating) it, [sort](../bjs/lists/#ordering), [recount](../bjs/lists/#recount-list) it and etc.
 {% endhint %}
 
-###
+then code  for `/reflist` can be:
+
+```javascript
+let refList = Libs.ReferralLib.getRefList();
+
+if (!refList.exist) {
+  Bot.sendMessage("No any affiliated users")
+  return
+}
+
+let users_rows = ""
+
+// only 100 first users here
+// for other users you need use pagination:
+// https://help.bots.business/bjs/lists#paginating
+let users = refList.getUsers();
+
+for (var ind in users) {
+  users_rows = users_rows + "\n👤 " + Libs.commonLib.getLinkFor( users[ind] )
+}
+
+let msg =
+  "*Total users:* " +
+  refList.count +
+  "\n _the first user was tracked:_ \n" +
+  "   _" +
+  refList.created_at +
+  "_" +
+  "\n----" +
+  users_rows
+  
+Bot.sendMessage(msg);
+ 
+if (refList.isRecountNeeded()) {
+  refList.recount({})
+}
+```
+
+
 
 ### Get Top Refferal List
 
 `Libs.ReferralLib.getTopList()`
 
-{% hint style="warning" %}
-This function temporary not worked. We have developing [task](https://trello.com/c/cDSbUVUZ/27-support-for-reflib-toplist) for this method.
-{% endhint %}
+```javascript
+// It is just List
+// you can order, paginate it!
+// https://help.bots.business/bjs/lists#getting-data 
+let list = Libs.ReferralLib.getTopList();
 
+list.order_by = "integer_value";
+// olso it is possible get newest members:
+list.order_ascending = false;
 
+var items = list.get();
+//Bot.inspect(items);
+
+var msg = 'Top list: ';
+var prop;
+for(var ind in items){
+  prop = items[ind]
+  msg = msg + "\n" +
+    String( parseInt(ind) + 1 ) + ". " + 
+    Libs.commonLib.getLinkFor(prop.user) + ": 👨" +
+    String(prop.value)
+}
+
+Bot.sendMessage(msg);
+```
 
 ## How to
 
