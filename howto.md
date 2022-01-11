@@ -6,7 +6,7 @@ It is Bot JavaScript. It's an ordinary Java with some inserts.
 
 ## Q: I do not know the JavaScript. What should I do?
 
-Usually do not need something complicated for developing bots. You can read a couple of articles about JS: [https://www.w3schools.com/js/js_syntax.asp](https://www.w3schools.com/js/js_syntax.asp) or [https://en.wikipedia.org/wiki/JavaScript_syntax](https://en.wikipedia.org/wiki/JavaScript_syntax)
+Usually do not need something complicated for developing bots. You can read a couple of articles about JS: [https://www.w3schools.com/js/js\_syntax.asp](https://www.w3schools.com/js/js\_syntax.asp) or [https://en.wikipedia.org/wiki/JavaScript\_syntax](https://en.wikipedia.org/wiki/JavaScript\_syntax)
 
 ## Q: How can I get two answers from one command?
 
@@ -160,7 +160,7 @@ Bot:
 
 In this example, the user must enter the correct password. After that, the group `Members` is setted and user can execute all commands of this group. If the password is not correct, a error message is displayed.
 
-**Bot:** answer: `password?` need_reply: `true`
+**Bot:** answer: `password?` need\_reply: `true`
 
 BJS code:
 
@@ -199,7 +199,7 @@ BJS code:
    }
 ```
 
-**2. In **_**others commands**_** you need call **`tracking`** command** Bjs code:
+**2. In **_**others commands**_** you need call** `tracking` **command** Bjs code:
 
 ```javascript
    Bot.runCommand("tracking");
@@ -279,23 +279,6 @@ Bot.sendMessageToChatWithId(user.telegramid, "BOT ANSWER")
 ```
 
 Also it is possible show alert message for user in group chat with [answerCallbackQuery](https://core.telegram.org/bots/api#answercallbackquery) after inline button pressing.
-
-## Q: What is the bjs to get total members count?
-
-It is not "total members count". You can get chats count. Because one user can have several chats with bot: private and several group chats.
-
-This BJS return all bot statistics:
-
-```javascript
-Bot.sendMessage(
-  "Total chats: " + bot.statistics.total +
-  "\n group chats: " + bot.statistics.group_chats_count +
-  "\n super group chats: " + bot.statistics.super_group_chats_count +
-  "\n private chats: " + bot.statistics.user_chats_count +
-  "\n active during last day chats: " + bot.statistics.active_during_last_day +
-  "\n active during last week chats: " + bot.statistics.active_during_last_week +
-)
-```
 
 
 
