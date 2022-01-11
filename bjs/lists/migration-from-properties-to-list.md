@@ -37,7 +37,7 @@ Bot.setProperty({
 And we can get sorted top list now:
 
 ```javascript
-let list = new List.new({ name: "priceList" })
+let list = new List({ name: "priceList" })
 
 let products = list.get();  // get first 100 (by default) products
 
@@ -48,7 +48,7 @@ Get next 100 products:
 
 ```javascript
 // get next 100 products:
-let list = new List.new({ name: "priceList" })
+let list = new List({ name: "priceList" })
 list.page = 2;
 let products = list.get();  // get first 100 (by default) products
 
