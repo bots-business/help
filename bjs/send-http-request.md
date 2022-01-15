@@ -15,7 +15,7 @@ Get page on [example.com](http://example.com)
     // background: true - if you have timeout error
   } )
 
-/* also you can send POST request
+/* also you can send POST, PUT, DELETE, OPTIONS requests:
   HTTP.post( {
     url: "http://example.com",
     success: '/onLoading ',
