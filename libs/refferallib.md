@@ -91,7 +91,7 @@ for (var ind in users) {
 
 let msg =
   "*Total users:* " +
-  refList.count +
+  Libs.ReferralLib.getRefCount() +
   "\n _the first user was tracked:_ \n" +
   "   _" +
   refList.created_at +
@@ -100,10 +100,6 @@ let msg =
   users_rows
   
 Bot.sendMessage(msg);
- 
-if (refList.isRecountNeeded()) {
-  refList.recount({})
-}
 ```
 
 
