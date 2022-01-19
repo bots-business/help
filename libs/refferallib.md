@@ -104,6 +104,16 @@ Bot.sendMessage(msg);
 
 
 
+### Get refferals count
+
+`Libs.ReferralLib.getRefCount()`
+
+or for another user:
+
+`Libs.ReferralLib.getRefCount(another_user_id)`
+
+``
+
 ### Get Top Refferal List
 
 `Libs.ReferralLib.getTopList()`
