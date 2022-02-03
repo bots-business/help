@@ -148,36 +148,44 @@ If you have such error you need set access rights.
 
 Full help available [here](https://developers.google.com/apps-script/concepts/scopes#setting\_explicit\_scopes). From that help:
 
-You can explicitly set the scopes your script project uses by editing its [manifest](https://developers.google.com/apps-script/concepts/manifests) file. The manifest field `oauthScopes` is an array of all scopes used by the project. To set your project's scopes, do the following:
 
-1. Open the [script project](googleapp.md#getting-started) (script from step 2) in the Apps Script editor.
-2. In the menu, select **File > Project properties**.
-3. Select the **Scopes** tab.
-4. Review the scopes your script currently requires and determine what changes need to be made. Click **Cancel** when finished.
-5. If the manifest file `appsscript.json` isn't visible in the left nav bar, select the **View > Show manifest file** menu item.
-6. Select the `appsscript.json` file in the left nav to open it.
-7. Locate the top-level field labeled `oauthScopes`. If it is not present, you can add it.
-8.  The `oauthScopes` field specifies an array of strings. To set the scopes your project uses, replace the contents of this array with the scopes you want it to use. For example:
 
-    ```
-    {
-      "timeZone": "Asia/Tokyo",
-      "dependencies": {
-      },
-      "webapp": {
-        "access": "ANYONE_ANONYMOUS",
-        "executeAs": "USER_DEPLOYING"
-      },
-      "exceptionLogging": "STACKDRIVER",
-      "oauthScopes": ["https://www.googleapis.com/auth/script.send_mail",
-                      "https://www.googleapis.com/auth/script.external_request",
-                      "https://www.googleapis.com/auth/spreadsheets"],
-      "runtimeVersion": "V8"
-    }
-    ```
-9. [https://www.googleapis.com/auth/script.send\_mail](https://www.googleapis.com/auth/script.send\_mail)", "[https://www.googleapis.com/auth/script.external\_request](https://www.googleapis.com/auth/script.external\_request) - is mandatory scope
-10. Save the manifest file using **Ctrl+S** or the Save file icon in the menu bar.
-11. Publish your app again (see [step 3](googleapp.md#getting-started))
+1. Open the script project.
+2. At the left, click **Project Settings** settings.
+3. Select the **Show "appsscript.json" manifest file in editor** checkbox:
+
+![](<../.gitbook/assets/image (90).png>)
+
+
+
+At the left, click **Editor** code.
+
+At the left, click the `appsscript.json` file.
+
+Locate the top-level field labeled `oauthScopes`. If it's not present, you can add it.
+
+The `oauthScopes` field specifies an array of strings. To set the scopes your project uses, replace the contents of this array with the scopes you want it to use. For example:
+
+```
+{
+  "timeZone": "Asia/Tokyo",
+  "dependencies": {
+  },
+  "webapp": {
+    "access": "ANYONE_ANONYMOUS",
+    "executeAs": "USER_DEPLOYING"
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "oauthScopes": ["https://www.googleapis.com/auth/script.send_mail",
+                  "https://www.googleapis.com/auth/script.external_request",
+                  "https://www.googleapis.com/auth/spreadsheets"],
+  "runtimeVersion": "V8"
+}
+```
+
+1. [https://www.googleapis.com/auth/script.send\_mail](https://www.googleapis.com/auth/script.send\_mail)", "[https://www.googleapis.com/auth/script.external\_request](https://www.googleapis.com/auth/script.external\_request) - is mandatory scope
+2. Save the manifest file using **Ctrl+S** or the Save file icon in the menu bar.
+3. Publish your app again (see [step 3](googleapp.md#getting-started))
 
 ![](<../.gitbook/assets/image (82).png>)
 
@@ -203,7 +211,7 @@ You can use "debug" function anytime for debugging
 
 Also you can open web app by url (see [step 5](googleapp.md#getting-started)) in incognito mode. And look for any errors. For example we have permission error here:
 
-![](<../.gitbook/assets/image (94).png>)
+![](<../.gitbook/assets/image (94) (1).png>)
 
 
 
