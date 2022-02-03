@@ -17,7 +17,7 @@ Each payment plan has its own iteration limit.
 * **5 chats** in [`Bot.runAll`](https://help.bots.business/scenarios-and-bjs/bot-functions#bot-runall-options) command - 1 iteration
 * **5** **sended message** on mass broadcasting - 1 iteration
 * **5** **chats** on [Information refreshing](https://help.bots.business/bot-information) (in Bot dashboard) - spend 1 iteration
-* **100 incoming messages **in blocked chat with method `Bot.blockChat(chat.id)`
+* **100 incoming messages** in blocked chat with method `Bot.blockChat(chat.id)`
 
 
 
@@ -63,7 +63,7 @@ Reduce [Auto Retry](https://help.bots.business/commands/auto-retry) calls
 
 ## Beware of endless loops
 
-Use `Bot.runCommand`, `Bot.run`, `Bot.runAll` carefully. 
+Use `Bot.runCommand`, `Bot.run`, `Bot.runAll` carefully.&#x20;
 
 **Example 1**
 
@@ -174,7 +174,7 @@ and etc!
 * each Api.getChatMember spent 1 - 3 sec for execution
 * Bot.runCommand run new BJS immediately!
 
-We have 10 join + 10 check. So it will be 10 - 30 secs per 1 message from 1 user. 
+We have 10 join + 10 check. So it will be 10 - 30 secs per 1 message from 1 user.&#x20;
 
 * On Nano Cloud second user must wait this 30 secs! Also even Business Cloud is completely down!
 * each Bot.runCommand burn 1 iterations. We have 20 iterations here!
@@ -182,7 +182,7 @@ We have 10 join + 10 check. So it will be 10 - 30 secs per 1 message from 1 user
 **Fix**
 
 * Use [MCLib](libs/membershipchecker.md)
-* Use [Bot.run](bjs/bot-functions.md#bot-run-params) with run_after. It run task in background (Users don't have to wait)
-* Do not use Bot.run in chain. It is not good. 
+* Use [Bot.run](bjs/bot-functions.md#bot-run-params) with run\_after. It run task in background (Users don't have to wait)
+* Do not use Bot.run in chain. It is not good.&#x20;
 
- 
+&#x20;

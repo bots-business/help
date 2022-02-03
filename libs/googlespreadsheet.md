@@ -12,7 +12,7 @@ You can post and read data from GoogleSpreadSheet with this lib.
 
 ## Getting started
 
-**1.**Make new spreadsheet. 
+**1.**Make new spreadsheet.&#x20;
 
 ![](<../.gitbook/assets/image (41).png>)
 
@@ -24,13 +24,13 @@ You definitely need a table header. Make it.
 
 ![](<../.gitbook/assets/image (40).png>)
 
-**4. ** From the _Publish_ menu, select _Deploy as web app…_\
+**4.** From the _Publish_ menu, select _Deploy as web app…_\
 \
 **5.** Choose to execute the app as **yourself**, and allow _**Anyone**, even **anonymous**_ to execute the script. (Note, depending on your Google Apps instance, this option may not be available. You will need to contact your Google Apps administrator, or else use a Gmail account.) Now click _Deploy_. You may be asked to review permissions now. **Project version** - always "New".
 
 ![](<../.gitbook/assets/image (75).png>)
 
-**6.** The URL that you get will be the webhook that you need use in this Lib. You can test this webhook in your browser first by pasting it. Note that depending on your Google Apps instance, you may need to adjust the URL to make it work. 
+**6.** The URL that you get will be the webhook that you need use in this Lib. You can test this webhook in your browser first by pasting it. Note that depending on your Google Apps instance, you may need to adjust the URL to make it work.&#x20;
 
 **`/setup`**
 

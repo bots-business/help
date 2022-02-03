@@ -232,7 +232,7 @@ You can get initial res value by: `res.baseValue()`
 
 `res.growth.title()` - get title. For example "add 5 once at 15 secs"&#x20;
 
-`res.growth.isEnabled() `- return true if is enabled&#x20;
+`res.growth.isEnabled()` - return true if is enabled&#x20;
 
 `res.growth.stop()` - stop growth&#x20;
 
@@ -251,7 +251,7 @@ For example we have:
 
 Every year we add bank growth to wallet.
 
-#### **Init: **on `/start` command (or any other command)
+#### **Init:** on `/start` command (or any other command)
 
 ```javascript
 let wallet = Libs.ResourcesLib.userRes("wallet");

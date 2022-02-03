@@ -1,8 +1,8 @@
 # Cloud
 
-#### What it is BB.Cloud? <a href="what-it-is-bb.cloud" id="what-it-is-bb.cloud"></a>
+#### What it is BB.Cloud? <a href="#what-it-is-bb.cloud" id="what-it-is-bb.cloud"></a>
 
-BB.Cloud - it is your own server instance. 
+BB.Cloud - it is your own server instance.&#x20;
 
 We have **monthly** plans of BB.Cloud:
 
@@ -85,7 +85,7 @@ Bot.sendMessage("Hello - 10"); // + 100 ms
 
 Approx execution time for:
 
-*  `/command1` is **0.1 - 0.2 sec **
+* &#x20;`/command1` is **0.1 - 0.2 sec**&#x20;
 * `/command2` is **1 - 1.5 sec**
 
 {% hint style="info" %}
@@ -105,13 +105,13 @@ So Iterations burns depend from your BJS. So we have approximate daily iteration
 
 Please look on `/command1` and `/command2` again
 
-`/command1 `- can be runned 5 times in 1 second. **Five users **can run this command in one second 
+`/command1` - can be runned 5 times in 1 second. **Five users** can run this command in one second&#x20;
 
-`/command2 `- can be runned 1 times in 1 second only. **Only one user** can run this command in one second.
+`/command2` - can be runned 1 times in 1 second only. **Only one user** can run this command in one second.
 
 Example. 5 users run `/command1` at the same time:
 
-* bot replied to all users within 1-2 seconds 
+* bot replied to all users within 1-2 seconds&#x20;
 
 5 users run `/command2` at the same time:
 
@@ -126,11 +126,11 @@ Example. 5 users run `/command1` at the same time:
 * Don't use too many Bot.runCommand or Bot.run in one command or on chain
 * Don't use too many Api.xxx methods
 
-Make small commands. Use background tasks with Bot.run and run_after
+Make small commands. Use background tasks with Bot.run and run\_after
 
 ### Other slowdown issues
 
-Unfortunately, bad code can lead to slowdowns. Check out this [example](iterations.-how-to-reduce-theys.md#beware-of-endless-loops) and also [this](iterations.-how-to-reduce-theys.md#beware-of-big-loops). 
+Unfortunately, bad code can lead to slowdowns. Check out this [example](iterations.-how-to-reduce-theys.md#beware-of-endless-loops) and also [this](iterations.-how-to-reduce-theys.md#beware-of-big-loops).&#x20;
 
 ## **What will happen if my incoming messages exceed the specifications?**
 

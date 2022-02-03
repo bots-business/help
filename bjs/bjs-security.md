@@ -28,11 +28,11 @@ Any user can run /setBalance \[telegramid]
 
 So need check execute this command only for admin:
 
-**1.Add this command to **[**group**](https://help.bots.business/commands/groups)
+**1.Add this command to** [**group**](https://help.bots.business/commands/groups)
 
 ![](<../.gitbook/assets/image (45).png>)
 
-add admin to group "admin": 
+add admin to group "admin":&#x20;
 
 ```javascript
 // create any temporary command with this code
@@ -46,7 +46,7 @@ User.addToGroup("admin")
 
 **2. Or you can check admin in BJS**
 
-first you need get ADMIN_TELEGRAM_ID
+first you need get ADMIN\_TELEGRAM\_ID
 
 ```javascript
 Bot.sendMessage(user.telegramid)
@@ -140,7 +140,7 @@ if(oneTimePassword==message){
 ```
 
 {% hint style="danger" %}
-Do not use "GJHURFVJLHF" secret! 
+Do not use "GJHURFVJLHF" secret!&#x20;
 
 It is not secret world already: hacker can read this doc too!
 {% endhint %}
@@ -229,7 +229,7 @@ if(completed_commands_count==0){ return }
 ## Do not use any non official libs now.
 
 {% hint style="danger" %}
-Do not use any non official libs now. 
+Do not use any non official libs now.&#x20;
 
 * Any lib can run command with options.
 * Any libs can read properties (and read your API Keys from other lib)
@@ -237,7 +237,7 @@ Do not use any non official libs now.
 We have not way to protect this now. Just **not use NON official libs** with CP lib. Well, that now there are no such libraries
 {% endhint %}
 
-## Bad practice 
+## Bad practice&#x20;
 
 ### User can change nickname
 
@@ -253,7 +253,7 @@ if (user.first_name==admin){
 ```
 
 {% hint style="danger" %}
-Any user can set any first_name, last_name and etc 
+Any user can set any first\_name, last\_name and etc&#x20;
 
 Hacker can change or create account with this field
 {% endhint %}
@@ -275,7 +275,7 @@ let result = eval(message);
 Bot.sendMessage(result)
 ```
 
-With such code you can make math calculator. 
+With such code you can make math calculator.&#x20;
 
 But it is very danger! User can run anything!
 
@@ -283,4 +283,4 @@ For example, user can pass BJS code:  `bot.token`. And bot will send your bot to
 
 ## See BB reports
 
-[Read info](https://help.bots.business/bb-inspection) about BB report. Demo report have nice recommendations. 
+[Read info](https://help.bots.business/bb-inspection) about BB report. Demo report have nice recommendations.&#x20;

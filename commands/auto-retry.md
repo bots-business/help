@@ -13,7 +13,7 @@ So it is need set auto retry time:
 
 * for 10 minutes: 60\*10 = **600** secs
 * for 1 hour: 60\*60 = **3600** secs
-* for 24 hours: 60\*60\*24 = **86400 **secs.
+* for 24 hours: 60\*60\*24 = **86400** secs.
 * for 1 year: 86400 \* 365 = **24966000** secs
 
 #### Modify Auto Retry in app on command editing:
@@ -28,7 +28,7 @@ Auto retry works only with [BJS](https://help.bots.business/scenarios-and-bjs). 
 
 ### Handled only on BJS!
 
-Because Auto Retry initialized by automatic there are no current chat, user and request. 
+Because Auto Retry initialized by automatic there are no current chat, user and request.&#x20;
 
 So we can not use:
 
@@ -52,18 +52,18 @@ Create simple command (without Aoto Retry): `/chat` with BJS:
 Bot.sendMessage(chat.chatid);
 ```
 
-And run it on that chat where you need Auto Retry later. This command return YOUR_CHAT_ID
+And run it on that chat where you need Auto Retry later. This command return YOUR\_CHAT\_ID
 
 Fill it in previous command with Auto Retry.
 
 
 
 {% hint style="info" %}
-You can use Bot.getProperty and Bot.setProperty. So you can save chat_id in one command and then get it on Auto Retry command 
+You can use Bot.getProperty and Bot.setProperty. So you can save chat\_id in one command and then get it on Auto Retry command&#x20;
 {% endhint %}
 
 {% hint style="warning" %}
-You can not use User.getProperty and User.setProperty. 
+You can not use User.getProperty and User.setProperty.&#x20;
 
 No user on Auto Retry!
 {% endhint %}

@@ -46,7 +46,7 @@ if(request.new_chat_title){
 
 Code of this commands executed always before (and after) all others commands codes.&#x20;
 
-**Example. **You need add important alert in all commands. You can create only one BeforeAll command with code `Bot.sendMessage("Important alert")`
+**Example.** You need add important alert in all commands. You can create only one BeforeAll command with code `Bot.sendMessage("Important alert")`
 
 For `BeforeAll` command use `@` in command name
 

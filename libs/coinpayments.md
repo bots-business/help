@@ -43,7 +43,7 @@ Libs.CoinPayments.apiCall({
 ```
 
 {% hint style="info" %}
-In fields you can pass all fields from CoinPayments api. Just read [help](https://www.coinpayments.net/apidoc-intro). 
+In fields you can pass all fields from CoinPayments api. Just read [help](https://www.coinpayments.net/apidoc-intro).&#x20;
 {% endhint %}
 
 `/onInfo` command:
@@ -88,11 +88,11 @@ It is possible to receive payment for a temporary or permanent wallet.
 ### Setup: set IPN Secret
 
 {% hint style="warning" %}
-The first step is to go to the [My Settings](https://www.coinpayments.net/index.php?cmd=acct_settings) page > **Merchant Settings**  and set a IPN Secret.
+The first step is to go to the [My Settings](https://www.coinpayments.net/index.php?cmd=acct\_settings) page > **Merchant Settings**  and set a IPN Secret.
 
 Your IPN Secret is a string of **your choosing**. Recommended to be a random string of letters, numbers, and special characters.
 
-CoinPayments **will not send** any IPNs unless you have an IPN Secret set. 
+CoinPayments **will not send** any IPNs unless you have an IPN Secret set.&#x20;
 
 See [more](https://www.coinpayments.net/merchant-tools-ipn)
 {% endhint %}
@@ -101,7 +101,7 @@ See [more](https://www.coinpayments.net/merchant-tools-ipn)
 
 ## Temporary wallet
 
-We use command "create_transaction" with IPN.
+We use command "create\_transaction" with IPN.
 
 Please see [https://www.coinpayments.net/apidoc-create-transaction](https://www.coinpayments.net/apidoc-create-transaction) for details.
 
@@ -150,7 +150,7 @@ Libs.CoinPayments.createTransaction(options);
 {% endhint %}
 
 {% hint style="info" %}
-It is preferable to use method  **`onPaymentCompleted`** and not method **`onIPN`**. 
+It is preferable to use method  **`onPaymentCompleted`** and not method **`onIPN`**.&#x20;
 
 Since the method **`onPaymentCompleted`** completely covers the IPN and solves the problem with [IPN Retries / Duplicate IPNs](https://www.coinpayments.net/merchant-tools-ipn)
 {% endhint %}
@@ -234,7 +234,7 @@ Libs.CoinPayments.getTxInfo({
 })
 ```
 
-#### `command: /on_txn_id: `
+#### `command: /on_txn_id:`&#x20;
 
 ```javascript
 // You can inspect all options:
@@ -272,7 +272,7 @@ Bot.sendMessage(inspect(options))
 
 ## Permanent wallet
 
-We use command "get_callback_address" with IPN.
+We use command "get\_callback\_address" with IPN.
 
 Please see [https://www.coinpayments.net/apidoc-get-callback-address](https://www.coinpayments.net/apidoc-get-callback-address) for details.
 
@@ -305,7 +305,7 @@ Libs.CoinPayments.createPermanentWallet({
 {% endhint %}
 
 {% hint style="info" %}
-It is preferable to use method  **`onIncome`** and not method **`onIPN`**. 
+It is preferable to use method  **`onIncome`** and not method **`onIPN`**.&#x20;
 
 Since the method **`onIncome`** completely covers the IPN and solves the problem with [IPN Retries / Duplicate IPNs](https://www.coinpayments.net/merchant-tools-ipn)
 {% endhint %}
@@ -374,7 +374,7 @@ Bot.sendMessage(inspect(options))
 ## Troubleshooting & Debuging
 
 * Do not use same CoinPayment account for receiving and transfering funds.
-* Go to [page](https://www.coinpayments.net/index.php?cmd=acct_balances\&action=deposits). This list must have history with completed income transaction(s)
+* Go to [page](https://www.coinpayments.net/index.php?cmd=acct\_balances\&action=deposits). This list must have history with completed income transaction(s)
 * Try to resend IPN - see Debuging
 * Verify that you have [set IPN secret](https://help.bots.business/libs/coinpayments#set-ipn-secret)
 
@@ -404,7 +404,7 @@ Libs.CoinPayments.callTestPaymentCompleted(options);
 
 #### Permanent wallet:
 
-Also it is possible **make test **callTestPermanentWalletIncome event. It is good if you do not want make test payment.
+Also it is possible **make test** callTestPermanentWalletIncome event. It is good if you do not want make test payment.
 
 ```javascript
 options = {
@@ -444,7 +444,7 @@ if(!options){
 ```
 
 {% hint style="danger" %}
-Do not use any non official libs now. 
+Do not use any non official libs now.&#x20;
 
 * Any lib can run command with options.
 * Any libs can read properties (and read your API Keys from other lib)
@@ -454,7 +454,7 @@ We have not way to protect this now. Just **not use NON official libs** with CP 
 
 
 
-**Grant only the really necessary permissions for the Api key.** If yor bot do not need "create_withdrawal" or etc methods - turn theys off. 
+**Grant only the really necessary permissions for the Api key.** If yor bot do not need "create\_withdrawal" or etc methods - turn theys off.&#x20;
 
 ![Check all options what you need](<../.gitbook/assets/image (38).png>)
 

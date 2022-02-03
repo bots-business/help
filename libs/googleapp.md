@@ -10,19 +10,19 @@ Use this lib to connect BJS with [Google App Script](https://developers.google.c
 
 ![](<../.gitbook/assets/image (77).png>)
 
-2\. Paste the script from [above](https://gist.github.com/bots-business/0635dfc5ee3b28328e93239a607d680c) into the script code editor and hit _Save._
+2\. Paste the script from [above](https://github.com/bots-business/store-libs/blob/master/GoogleAppSync.gs) into the script code editor and hit _Save._
 
-![](<../.gitbook/assets/image (78).png>)
+![](<../.gitbook/assets/image (95).png>)
 
-**3. ** From the _Publish_ menu, select _Deploy as web app…_\
-\
-4**.** Choose to execute the app as **yourself**, and allow _**Anyone**, even **anonymous**_ to execute the script. (Note, depending on your Google Apps instance, this option may not be available. You will need to contact your Google Apps administrator, or else use a Gmail account.) Now click _Deploy_. You may be asked to review permissions now. **Project version** - always "New".
+You will need to contact your Google Apps administrator, or else use a Gmail account.)
+
+Now click _Deploy_. You may be asked to review permissions now. **Project version** - always "New".
 
 ![](<../.gitbook/assets/image (75).png>)
 
-**5.** The URL that you get will be the webhook that you need use in this Lib. You can test this webhook in your browser first by pasting it. Note that depending on your Google Apps instance, you may need to adjust the URL to make it work. 
+**5.** The URL that you get will be the webhook that you need use in this Lib. You can test this webhook in your browser first by pasting it. Note that depending on your Google Apps instance, you may need to adjust the URL to make it work.&#x20;
 
-6\. Install GoogleAppLib and WebhooksLib to bot
+6\. Install _GoogleAppLib_ and _WebhooksLib_ to bot
 
 7\. Create setup command:
 
@@ -87,6 +87,12 @@ Libs.GoogleApp.run({
 });
 ```
 
+{% hint style="warning" %}
+You can turn on debug flag with true
+
+Then you can [debug](googleapp.md#debugging) code
+{% endhint %}
+
 command `onRun`
 
 ```javascript
@@ -140,7 +146,7 @@ If you have such error you need set access rights.
 
 ### Granting access rights via manifest file
 
-Full help available [here](https://developers.google.com/apps-script/concepts/scopes#setting_explicit_scopes). From that help:
+Full help available [here](https://developers.google.com/apps-script/concepts/scopes#setting\_explicit\_scopes). From that help:
 
 You can explicitly set the scopes your script project uses by editing its [manifest](https://developers.google.com/apps-script/concepts/manifests) file. The manifest field `oauthScopes` is an array of all scopes used by the project. To set your project's scopes, do the following:
 
@@ -169,7 +175,7 @@ You can explicitly set the scopes your script project uses by editing its [manif
       "runtimeVersion": "V8"
     }
     ```
-9. [https://www.googleapis.com/auth/script.send_mail](https://www.googleapis.com/auth/script.send_mail)", "[https://www.googleapis.com/auth/script.external_request](https://www.googleapis.com/auth/script.external_request) - is mandatory scope
+9. [https://www.googleapis.com/auth/script.send\_mail](https://www.googleapis.com/auth/script.send\_mail)", "[https://www.googleapis.com/auth/script.external\_request](https://www.googleapis.com/auth/script.external\_request) - is mandatory scope
 10. Save the manifest file using **Ctrl+S** or the Save file icon in the menu bar.
 11. Publish your app again (see [step 3](googleapp.md#getting-started))
 
@@ -182,16 +188,26 @@ You can explicitly set the scopes your script project uses by editing its [manif
 Run `Libs.GoogleAppLib.run`in first time. Then:
 
 * go to Google App Script Editor (See [step 2](googleapp.md#getting-started))
-* select "Debug" function on Tab
-* press "Run" button:
+* select "debug" function on Tab
+* press "Debug" button:
 
-![](<../.gitbook/assets/image (79).png>)
+![](<../.gitbook/assets/image (93).png>)
 
 Google app is runs. Bot will sent execution result to you. Also you can receive email with error description.
 
 {% hint style="success" %}
 You can use "debug" function anytime for debugging
 {% endhint %}
+
+
+
+Also you can open web app by url (see [step 5](googleapp.md#getting-started)) in incognito mode. And look for any errors. For example we have permission error here:
+
+![](<../.gitbook/assets/image (94).png>)
+
+
+
+
 
 ## Links
 

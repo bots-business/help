@@ -2,9 +2,9 @@
 
 Api functions it all functions from [https://core.telegram.org/bots/api](https://core.telegram.org/bots/api)
 
-You can use it with BJS. 
+You can use it with BJS.&#x20;
 
-### **Example 1. **Send audio to current chat
+### **Example 1.** Send audio to current chat
 
 ```javascript
 Api.sendAudio({
@@ -13,7 +13,7 @@ Api.sendAudio({
 
 ```
 
-send audio to other chat: 
+send audio to other chat:&#x20;
 
 ```javascript
 Api.sendAudio({
@@ -25,7 +25,7 @@ Api.sendAudio({
 
 
 
-You can pass allowed parameters. For example for [sendAudio](https://core.telegram.org/bots/api#sendaudio) it can be title and disable_notification
+You can pass allowed parameters. For example for [sendAudio](https://core.telegram.org/bots/api#sendaudio) it can be title and disable\_notification
 
 ```javascript
 Api.sendAudio({
@@ -65,7 +65,7 @@ Api.sendPhoto({
 
 ## Get methods
 
-You can call Api get methods (and others methods too). Need pass `on_result` key. 
+You can call Api get methods (and others methods too). Need pass `on_result` key.&#x20;
 
 For example get all user's profile photos:
 
