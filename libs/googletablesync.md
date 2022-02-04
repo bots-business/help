@@ -6,9 +6,11 @@ You can post, update and read data from GoogleSpreadSheet with this lib.
 
 ### Setup
 
-Please see setup for [GoogleApp lib](googleapp.md). This lib requires GoogleApp lib.
+1\. Please see setup for [GoogleApp lib](googleapp.md). This lib requires GoogleApp lib.
 
-also you need to run code too:
+2\. Create blank Google table. You don't need any headers. Headers will be added automatically.
+
+3\. Also you need to run code too:
 
 `Libs.GoogleApp.setUrl("https://script.google.com/*************/exec");`
 
