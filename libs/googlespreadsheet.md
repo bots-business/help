@@ -1,6 +1,10 @@
-# GoogleSpreadSheet
+# GoogleSpreadSheet - Deprecated
 
 ![](<../.gitbook/assets/image (39).png>)
+
+{% hint style="danger" %}
+This lib deprecated
+{% endhint %}
 
 You can post and read data from GoogleSpreadSheet with this lib.
 
