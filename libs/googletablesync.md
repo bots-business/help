@@ -2,7 +2,7 @@
 
 You can post, update and read data from GoogleSpreadSheet with this lib.
 
-![](<../.gitbook/assets/image (95).png>)
+![](<../.gitbook/assets/image (95) (1).png>)
 
 ### Setup
 
@@ -29,6 +29,10 @@ Use `index` for magic!
 
 With index key exist row will be updated!
 {% endhint %}
+
+You need tableID. You can get it from table url. It is selected here:
+
+![](<../.gitbook/assets/image (95).png>)
 
 ```javascript
 Bot.sendMessage("Saving...");

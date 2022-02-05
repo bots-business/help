@@ -12,7 +12,7 @@ Use this lib to connect BJS with [Google App Script](https://developers.google.c
 
 2\. Paste the script from [above](https://github.com/bots-business/store-libs/blob/master/GoogleAppSync.gs) into the script code editor and hit _Save._
 
-![](<../.gitbook/assets/image (95) (1).png>)
+![](<../.gitbook/assets/image (95) (1) (1).png>)
 
 You will need to contact your Google Apps administrator, or else use a Gmail account.)
 
