@@ -66,6 +66,29 @@ Libs.GoogleTableSync.sync(syncOptions);
 You can store any data like users, chats, products, resources and etc
 {% endhint %}
 
+```
+Bot.sendMessage("Saving...");
+
+var syncOptions = {
+  tableID: "1_NldI2**********ank1B9c",
+  sheetName: "Orders",
+  // this column will be used as index for updates or reading
+  index: "orderId",
+  datas: [],
+  // this command will be runned after sync
+  onRun: "/onSync"
+}
+
+var order = {
+   orderId: 10,
+   title: "Order - " + String(user.id),
+   amount: 15
+}
+
+syncOptions.datas.push(order);
+Libs.GoogleTableSync.sync(syncOptions);
+```
+
 ### Read data
 
 ```javascript
