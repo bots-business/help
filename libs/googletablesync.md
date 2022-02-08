@@ -66,7 +66,7 @@ Libs.GoogleTableSync.sync(syncOptions);
 You can store any data like users, chats, products, resources and etc
 {% endhint %}
 
-```
+```javascript
 Bot.sendMessage("Saving...");
 
 var syncOptions = {
