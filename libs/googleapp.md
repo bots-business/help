@@ -80,7 +80,7 @@ function GACode(){
 }
 
 Libs.GoogleApp.run({
-  func: GACode,
+  code: GACode,
   onRun: "onRun",
   // email: "test@example.com" // email for errors
   // debug: true // default false
