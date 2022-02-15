@@ -111,7 +111,7 @@ BBAdmin.cloneBot(
     token: BOT_TOKEN,
     
     // run the bot immediately after cloning
-    run_now: true,
+    // run_now: true,
     
     // bot can be installed as protected
     // as_protected: true,
