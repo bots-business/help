@@ -110,6 +110,9 @@ BBAdmin.cloneBot(
     // you can pass bot token if you want
     token: BOT_TOKEN,
     
+    // run the bot immediately after cloning
+    run_now: true,
+    
     // bot can be installed as protected
     // as_protected: true,
     // you can pass properties to bot:
