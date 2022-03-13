@@ -182,6 +182,12 @@ Bot token and BB API Key - are is very vulnerability data. Do not share theys an
 
 
 
+### Avoid using safe data in protected bot
+
+See full article [here](../protected-bot.md)
+
+###
+
 ### Do not share your BB Bot ID
 
 This can sometimes be unsafe.
