@@ -1,6 +1,6 @@
 # Welcome
 
-## Bots.business Help
+## Bots.Business Help
 
 Download from [Play Market](https://play.google.com/store/apps/details?id=bb\_app.com.bots.business)
 
