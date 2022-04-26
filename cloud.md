@@ -18,15 +18,26 @@ We have **monthly** plans of BB.Cloud:
 
 ## Monthly Plans and specifications for BB.Cloud
 
-| **Cloud**         | **Cost, USD** | <p><strong>Approximate</strong></p><p><strong>daily iterations</strong></p> | <p><strong>Approximate</strong></p><p><strong>1 sec iterations</strong></p> |
-| ----------------- | ------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| Cloud.Hobby**\*** | 15            | 70 000                                                                      | 0.8                                                                         |
-| Cloud.Nano        | 28            | 100 000                                                                     | 1.15                                                                        |
-| Cloud.Mini        | 48            | 200 000                                                                     | 2.5                                                                         |
-| Cloud.Start       | 95            | 400 000                                                                     | 5                                                                           |
-| Cloud.PRO         | 180           | 1 500 000                                                                   | 20                                                                          |
-| Cloud.Business    | 270           | 3 500 000                                                                   | 40                                                                          |
-| Cloud.BigBusiness | 400           | 7 000 000                                                                   | 80                                                                          |
+| **Cloud**         | **Cost, USD** | **Monthly iterations** |
+| ----------------- | ------------- | ---------------------- |
+| Cloud.Hobby**\*** | 15            | 1 million              |
+| Cloud.Nano        | 28            | 2 million              |
+| Cloud.Mini        | 48            | 5 million              |
+| Cloud.Start       | 95            | 10 million             |
+| Cloud.PRO         | 180           | 45 million             |
+| Cloud.Business    | 270           | 100 million            |
+| Cloud.BigBusiness | 400           | 200 million            |
+
+| **Cloud**         | **Approximate iterations:** | ****        |             |
+| ----------------- | --------------------------- | ----------- | ----------- |
+|                   | **daily**                   | **minutes** | **seconds** |
+| Cloud.Hobby**\*** | 32 250                      | 22.4        | 0.37        |
+| Cloud.Nano        | 64 500                      | 44.8        | 0.74        |
+| Cloud.Mini        | 160 000                     | 112         | 1.86        |
+| Cloud.Start       | 320 000                     | 224         | 3.73        |
+| Cloud.PRO         | 1 450 000                   | 1008        | 16.8        |
+| Cloud.Business    | 2 225 000                   | 2240        | 37.33       |
+| Cloud.BigBusiness | 6 450 000                   | 4480        | 74.67       |
 
 Please note: values may differ slightly, both up and down, depending on the bot's response time, the complexity of your commands, etc.
 
