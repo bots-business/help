@@ -63,6 +63,7 @@
 * [CurrencyQuote](libs/currencyquote.md)
 * [GoogleApp](libs/googleapp.md)
 * [GoogleTableSync](libs/googletablesync.md)
+* [Guard](libs/guard.md)
 * [GoogleSpreadSheet - Deprecated](libs/googlespreadsheet.md)
 * [Webhooks lib](libs/webhooks-lib.md)
 * [DateTimeFormat Lib](libs/datetimeformat-lib.md)
