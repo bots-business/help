@@ -34,11 +34,29 @@ See [@DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=F
 
 will generate link kind **http://t.me/botname?start=userUSER\_ID**
 
-Also you can pass other bot name and change prefix from ""user. For example - it is link for current bot weithout prefix "user":
+Also you can pass other bot name. For example - it is link for current bot:
 
-`Libs.ReferralLib.getRefLink(bot.name, "");`&#x20;
+`Libs.ReferralLib.getRefLink(bot.name);`&#x20;
 
-will generate link kind **http://t.me/botname?start=USER\_ID**
+will generate link kind **http://t.me/botname?start=userUSER\_ID**
+
+****
+
+#### Do you want to change link prefix?
+
+For example you want link without "user" prefix. Use this code once:
+
+`Libs.ReferralLib.setLinkPrefix("")`
+
+then code:
+
+`Libs.ReferralLib.getLink()`
+
+will generate link kind:
+
+**http://t.me/botname?start=USER\_ID**
+
+
 
 ###
 
