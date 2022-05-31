@@ -122,6 +122,7 @@ Libs.GoogleTableSync.read(syncOptions)
 
 
 
-### Command /onRun
+### Command /onSync
 
 `Bot.inspect(options)`
+
