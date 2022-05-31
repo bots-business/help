@@ -105,7 +105,9 @@ Bot.sendMessage(inspect(options))
 **But you can** use [variables](../bjs/variables.md) and pass data with [options](../bjs/bot-functions.md#bot-run-options) for Bot.run method.
 
 ```javascript
-let myVar;
+let myVar = "will not works";
+
+options.myVar = "will be works";
 
 function GACode(){
    // Google App Script code here
@@ -121,9 +123,7 @@ function GACode(){
    Bot.sendMessage("ok")  // Error! It is BJS not GA code!
    
    let botName = bot.name; // Will be worked
-   let myData = options.myData; // Will be worked if you pass 
-   // options.myData with Bot.run(
-   //    { command: "/thisCmd", options: { myData: "test" } })
+   let myVar = options.myVar; // Will be worked
 }
 ```
 {% endhint %}
