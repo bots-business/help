@@ -136,7 +136,7 @@ function GACode(){
 You need set permissions for Google App Script
 {% endhint %}
 
-Run `Libs.GoogleAppLib.run`in first time. You can have like such error:
+Run `Libs.GoogleApp.run()`in first time. You can have like such error:
 
 > Error on Google App script: "Exception"
 >
