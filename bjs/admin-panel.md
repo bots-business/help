@@ -28,7 +28,7 @@ For adding panel:
 
 `AdminPanel.setPanel({ panel_name: PANEL_NAME, data: PANEL_OPTIONS });`
 
-PANEL_OPTIONS - it is JSON option for this panel
+PANEL\_OPTIONS - it is JSON option for this panel
 
 **Example**
 
@@ -151,7 +151,7 @@ Bot.inspect(values);
 // { ADMIN_ID: 100 }
 ```
 
-###  
+### &#x20;
 
 ### Getting panel data
 
@@ -180,7 +180,7 @@ Bot.inspect(panel_field);
 
 ### Icons
 
-You can use all icons from [https://ionicons.com](https://ionicons.com)
+You can use all icons from [https://ionicons.com](https://ionicons.com/)
 
 
 
@@ -208,7 +208,7 @@ Panel without fields can dispay any informations. Use this.
 Use admin panels to create admin reactions
 {% endhint %}
 
-You can launch any bot command on panel saving. It is good for making any admin command execution. Use `on_saving`: 
+You can launch any bot command on panel saving. It is good for making any admin command execution. Use `on_saving`:&#x20;
 
 ```javascript
 var panel = {

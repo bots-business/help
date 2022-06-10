@@ -12,7 +12,7 @@ Don't install unnecessary libraries. Your bot might be slow after that.
 
 You can organize your commands in folders.&#x20;
 
-![](<../.gitbook/assets/image (90) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (90) (1) (1) (1) (1).png>)
 
 You can use folder in BJS too. For example in [before All](always-running-commands.md#beforeall-and-afterall-commands) command:
 

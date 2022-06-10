@@ -154,7 +154,7 @@ Full help available [here](https://developers.google.com/apps-script/concepts/sc
 2. At the left, click **Project Settings** settings.
 3. Select the **Show "appsscript.json" manifest file in editor** checkbox:
 
-![](<../.gitbook/assets/image (90) (1).png>)
+![](<../.gitbook/assets/image (90) (1) (1).png>)
 
 
 

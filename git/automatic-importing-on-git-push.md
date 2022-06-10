@@ -1,6 +1,6 @@
 # Automatic importing on Git push
 
-You can make automatic bot deploying on git push. 
+ou can make automatic bot deploying on git push.&#x20;
 
 This possible with [Webhooks](https://help.bots.business/libs/webhooks-lib). Make install for this lib.
 
@@ -20,11 +20,11 @@ execute `/setupGit` copy url and go to Github.com > your repository -> Settings 
 
 Past copied url as Payload URL
 
-![](<../.gitbook/assets/image (47).png>)
+![](<../.gitbook/assets/image (91).png>)
 
 Make like this:
 
-![](<../.gitbook/assets/image (48).png>)
+![](<../.gitbook/assets/image (92).png>)
 
 Go to App - create command `onGitPush`
 
@@ -47,7 +47,7 @@ Commands `onGitPush and onGitImportCompleted`must be in repository also. Because
 {% endhint %}
 
 {% hint style="danger" %}
-Protect onGitPush command if you need this. Anybody can run it. 
+Protect onGitPush command if you need this. Anybody can run it.&#x20;
 {% endhint %}
 
 

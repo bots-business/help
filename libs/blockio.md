@@ -68,7 +68,7 @@ Libs.BlockIO.XXXcoin.methodYYY(
 ```
 
 {% hint style="info" %}
-XXXCoin - it is Bitcoin, Litecoin or Dogecoin 
+XXXCoin - it is Bitcoin, Litecoin or Dogecoin&#x20;
 {% endhint %}
 
 {% hint style="success" %}
@@ -97,7 +97,7 @@ You can also use Testnet: Libs.BlockIO.testNet.XXXcoin
 | withdrawFromAddresses                          | Withdraws AMOUNT coins from upto 2500 addresses at a time, and deposits it to up to 2500 destination addresses.                                                                                                                                                                                                             |
 | withdrawFromLabels                             | Withdraws AMOUNT coins from upto 2500 labels at a time, and deposits it to upto 2500 destination addresses, or labels.                                                                                                                                                                                                      |
 
- Full methods docs [here](https://block.io/api/)
+&#x20;Full methods docs [here](https://block.io/api/)
 
 So if you need, for example, getTransactions method for Litecoin change this code:
 
@@ -125,12 +125,12 @@ Libs.BlockIO.Litecoin.getTransactions(
 
 It can be:
 
-* api_key and pin. If you do not set [here](https://help.bots.business/libs/blockio#initial-setup)  (for all methods)
+* api\_key and pin. If you do not set [here](https://help.bots.business/libs/blockio#initial-setup)  (for all methods)
 * label, address (for getNewAddress methods and etc)
 * labels, addresses
-* to_addresses, from_addresses, from_labels (for withdraw )
+* to\_addresses, from\_addresses, from\_labels (for withdraw )
 * page
-* transaction_ids (for isGreenTransaction method)
+* transaction\_ids (for isGreenTransaction method)
 * type (for getTransactions method)
 
 {% hint style="info" %}
@@ -143,7 +143,7 @@ See available params in [https://block.io/api](https://block.io/api/) page
 
 For example: "Actions for Handling Addresses"
 
-From block.io [help](https://block.io/api/): 
+From block.io [help](https://block.io/api/):&#x20;
 
 ![from Block.io help - https://block.io/api](<../.gitbook/assets/image (24).png>)
 
@@ -158,7 +158,7 @@ Libs.BlockIO.Bitcoin.getNewAddress(
 
 This function getNewAddress have 2 callbacks: `onSuccess` and `onError`.
 
-`onSuccess` callback command` /onNewAddress` will be runned:
+`onSuccess` callback command `/onNewAddress` will be runned:
 
 ```javascript
 let wallet = options;  // we have Block.io response in options
@@ -194,7 +194,7 @@ Libs.BlockIO.Bitcoin.withdrawFromLabels(
 });
 ```
 
-onWithdraw command: 
+onWithdraw command:&#x20;
 
 ```javascript
 Bot.sendMessage(inspect(options))
@@ -247,9 +247,9 @@ Bot.sendMessage("Error happens on wallet creation");
 
 
 
-### How can I check any payment by user on [block.io](http://block.io) if I know him bitcoin address and payment will be 0,0001 Bitcoin?
+### How can I check any payment by user on [block.io](http://block.io/) if I know him bitcoin address and payment will be 0,0001 Bitcoin?
 
-Looks like you need to receive payments on one own wallet from several users. 
+Looks like you need to receive payments on one own wallet from several users.&#x20;
 
 It is bad practice:
 
@@ -261,7 +261,7 @@ It is bad practice:
 Thus, users will have incorrect operations. You should check them in manual mode. It will be very difficult for you to verify incorrect transactions in the blockchain.
 {% endhint %}
 
-More good practice it is generate new income address for each payment. It is more secure. 
+More good practice it is generate new income address for each payment. It is more secure.&#x20;
 
 
 

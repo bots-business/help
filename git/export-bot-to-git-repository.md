@@ -12,13 +12,13 @@ Please see [this](https://help.bots.business/git#requirements) before. (Need set
 
 Go to bot -> Sync
 
-![](<../.gitbook/assets/image (32).png>)
+![](<../.gitbook/assets/image (90).png>)
 
 Press on button "Export to git rep" and wait.
 
-After some minutes new branch with name "BB_Export_TIME" will be created on your external repository. 
+After some minutes new branch with name "BB\_Export\_TIME" will be created on your external repository.&#x20;
 
 ## Video by Community
 
-[How to export to Github](https://www.youtube.com/watch?v=07MYMPAVT4c\&ab_channel=Kp%27sSpecials)
+[How to export to Github](https://www.youtube.com/watch?v=07MYMPAVT4c\&ab\_channel=Kp%27sSpecials)
 

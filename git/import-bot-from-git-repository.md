@@ -16,7 +16,7 @@ All existing bot's libs will be uninstalled
 
 Go to bot -> Sync
 
-![](<../.gitbook/assets/image (32).png>)
+![](<../.gitbook/assets/image (98).png>)
 
 Press button "Import from Git rep"
 
