@@ -9,7 +9,7 @@ This possible with [Webhooks](https://help.bots.business/libs/webhooks-lib). Mak
 command `/setupGit`
 
 ```javascript
-url = Libs.Webhooks.getUrlFor(
+var url = Libs.Webhooks.getUrlFor(
    { command: "onGitPush", user_id: user.id }
 )
 
