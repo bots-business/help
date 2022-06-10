@@ -16,7 +16,7 @@ var url = Libs.Webhooks.getUrlFor(
 Api.sendMessage({
   text: "Github webhook: " +
      "\n<pre>" + url + "</pre>",
-  parse_mode: "html"
+  parse_mode: "html",
   disable_web_page_preview: true
 })
 
