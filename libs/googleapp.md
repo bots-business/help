@@ -6,25 +6,63 @@ Use this lib to connect BJS with [Google App Script](https://developers.google.c
 
 ## Getting started
 
-1\. Go to [https://script.google.com](https://script.google.com) and create new project by button:
+### **Easy setup**
+
+1. Copy this [table](https://docs.google.com/spreadsheets/d/1aOIYlwRqiCFWxeTTkhE31pBFTOeByrl3FRusGc1pZZ0/edit#gid=0) to your Google account
+2. [Deploy](googleapp.md#3.-deploy-as-web-app) as web app
+3. Try to open web app via app [Public App url](googleapp.md#4.-public-app-url)
+4. Install _GoogleAppLib_ and _WebhooksLib_ to your bot
+5. Create [setup](googleapp.md#7.-create-setup-command) command
+
+After this step you can [use](googleapp.md#using) this Lib and [debug](googleapp.md#debugging).
+
+### ****
+
+### **Detail setup**
+
+{% hint style="info" %}
+This is detail setup description. Please try to use [easy setup](googleapp.md#easy-setup) before it.
+{% endhint %}
+
+#### **1. Create new App Script project**
+
+Go to [https://script.google.com](https://script.google.com) and create new project by button:
 
 ![](<../.gitbook/assets/image (77).png>)
 
-2\. Paste the script from [above](https://github.com/bots-business/store-libs/blob/master/GoogleAppSync.gs) into the script code editor and hit _Save._
+#### 2. Add Code.gs
+
+Paste the script from [above](https://github.com/bots-business/store-libs/blob/master/GoogleAppSync.gs) into the script code editor and hit _Save._
 
 ![](<../.gitbook/assets/image (95) (1) (1).png>)
 
 You will need to contact your Google Apps administrator, or else use a Gmail account.)
 
+
+
+#### **3. Deploy as web app**
+
 Now click _Deploy_. You may be asked to review permissions now. **Project version** - always "New".
 
-![](<../.gitbook/assets/image (75).png>)
+![](<../.gitbook/assets/Снимок экрана от 2022-06-14 14-11-17.png>)
 
-**5.** The URL that you get will be the webhook that you need use in this Lib. You can test this webhook in your browser first by pasting it. Note that depending on your Google Apps instance, you may need to adjust the URL to make it work.&#x20;
+Cloick in Deploy button. You will have Public App url.
 
-6\. Install _GoogleAppLib_ and _WebhooksLib_ to bot
+#### 4. Public App URL
 
-7\. Create setup command:
+The URL that you get will be the webhook that you need use in this Lib. You can test this webhook in your browser first by pasting it. Note that depending on your Google Apps instance, you may need to adjust the URL to make it work.&#x20;
+
+#### 5. Add permissions
+
+You need to add [permissions](googleapp.md#permissions)
+
+
+
+#### 6. Install _GoogleAppLib_ and _WebhooksLib_ to bot
+
+Go to App > Libs and install _GoogleAppLib_ and _WebhooksLib_&#x20;
+
+#### 7. Create setup command:
 
 **`/setup`**
 
