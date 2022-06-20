@@ -18,6 +18,11 @@ function onEnding(time){
   return true; // if false - cooldown is not restarted
 }
 
+function onStarting(){
+  // cooldown just started
+  Bot.sendMessage("You will have bonus later");
+}
+
 function onWaiting(waitTime){
   // we have active cooldown
   Bot.sendMessage("Please wait: " + waitTime + " secs" );
@@ -27,6 +32,7 @@ Libs.CooldownLib.user.watch({
   // you need name for cooldown
   name: "GemBonusCooldown",
   time: 120, // cooldown time, 120 secs - 2 minute
+  onStarting: onStarting,
   onEnding: onEnding,
   onWaiting: onWaiting
 })
@@ -37,6 +43,20 @@ Libs.CooldownLib.chat.watch({
   // you need name for cooldown
   name: "GemBonusCooldown",
   time: 120, // cooldown time, 120 secs - 2 minute
+  onStarting: onStarting,
+  onEnding: onEnding,
+  onWaiting: onWaiting
+})
+*/
+
+// or global bot cooldown
+// it can be used with Auto Retry (then chat or user are null)
+/*
+Libs.CooldownLib.watch({
+  // you need name for cooldown
+  name: "GemBonusCooldown",
+  time: 120, // cooldown time, 120 secs - 2 minute
+  onStarting: onStarting,
   onEnding: onEnding,
   onWaiting: onWaiting
 })
@@ -47,6 +67,9 @@ let cooldown = Libs.CooldownLib.chat.getCooldown("GemBonusCooldown");
 
 // for user:
 // let cooldown = Libs.CooldownLib.user.getCooldown("GemBonusCooldown");
+
+// global
+// let cooldown = Libs.CooldownLib.getCooldown("GemBonusCooldown");
 
 cooldown.value(); // current cooldown in second
 cooldown.set(60 + cooldown.value()) // add 60 sec to cooldown
@@ -60,6 +83,9 @@ let cooldown = Libs.CooldownLib.chat.getCooldown("GemBonusCooldown");
 
 // for user:
 // let cooldown = Libs.CooldownLib.user.getCooldown("GemBonusCooldown");
+
+// global
+// let cooldown = Libs.CooldownLib.getCooldown("GemBonusCooldown");
 
 var curValue = cooldown.value(); // current cooldown in second
 cooldown.set(curValue - 40) // reduce 40 sec from cooldown
