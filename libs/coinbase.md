@@ -84,6 +84,6 @@ if you do not have onError command error will be tracked in Eror Tab.&#x20;
 
 ## Typical errors
 
-![](<../.gitbook/assets/image (96).png>)
+![](<../.gitbook/assets/image (96) (1).png>)
 
 You need to setup Api key. Please see step 3 in [setup](coinbase.md#initial-setup).

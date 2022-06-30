@@ -2,7 +2,7 @@
 
 By default we have such error message:
 
-<img src="../.gitbook/assets/image (91) (1) (1).png" alt="" data-size="original">
+<img src="../.gitbook/assets/image (91) (1) (1) (1).png" alt="" data-size="original">
 
 You can customize this message. Just create command with name "!"
 

@@ -34,7 +34,7 @@ Go to [https://script.google.com](https://script.google.com) and create new proj
 
 Paste the script from [above](https://github.com/bots-business/store-libs/blob/master/GoogleAppSync.gs) into the script code editor and hit _Save._
 
-![](<../.gitbook/assets/image (95) (1) (1).png>)
+![](<../.gitbook/assets/image (95) (1) (1) (1).png>)
 
 You will need to contact your Google Apps administrator, or else use a Gmail account.)
 

@@ -24,6 +24,7 @@
   * [BB Admin functions](bjs/bb-admin-functions.md)
   * [Admin Panel](bjs/admin-panel.md)
   * [Send HTTP request](bjs/send-http-request.md)
+  * [Web App](bjs/web-app.md)
   * [Caching](bjs/caching.md)
   * [Inline Bot](bjs/inline-bot.md)
   * [BJS Security](bjs/bjs-security.md)

@@ -27,11 +27,11 @@ execute `/setupGit` copy url and go to Github.com > your repository -> Settings 
 
 Past copied url as Payload URL
 
-![](<../.gitbook/assets/image (91).png>)
+![](<../.gitbook/assets/image (91) (1).png>)
 
 Make like this:
 
-![](<../.gitbook/assets/image (92).png>)
+![](<../.gitbook/assets/image (92) (1).png>)
 
 Go to App - create command `onGitPush`
 
