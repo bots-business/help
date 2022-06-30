@@ -126,7 +126,7 @@ command "`example.css`":
 // It is CSS file
 body {
     font-family: 'Share Tech', sans-serif;
-    font-size: 30px;
+    font-size: 15px;
     color: white;
     display: flex;
     jsutify-content: center;
@@ -148,3 +148,29 @@ h1 {
 Our result now:
 
 ![](<../.gitbook/assets/image (92).png>)
+
+## Deployment in Telegram
+
+You can install Web App in [several ways](https://core.telegram.org/bots/webapps#implementing-web-apps)
+
+![](<../.gitbook/assets/image (98).png>)
+
+For example - Inline button:
+
+```javascript
+var webExample = WebApp.getUrl({ command: "webExample" });
+
+Api.sendMessage({
+  text: "🤑 Try our web page",
+  reply_markup: { inline_keyboard: [
+    [
+      // open the any web page on button pressing
+      { text: "open Demo Page (from help)", web_app: { url: webExample } },
+    ]
+  ]}
+});
+```
+
+{% hint style="success" %}
+For another ways please see Telegram [Help](https://core.telegram.org/bots/webapps#implementing-web-apps)
+{% endhint %}
