@@ -155,7 +155,7 @@ You can install Web App in [several ways](https://core.telegram.org/bots/webapps
 
 ![](<../.gitbook/assets/image (98).png>)
 
-For example - Inline button:
+### Inline button
 
 ```javascript
 var webExample = WebApp.getUrl({ command: "webExample" });
@@ -169,6 +169,27 @@ Api.sendMessage({
     ]
   ]}
 });
+```
+
+### Keyboard button
+
+```javascript
+var webExample = WebApp.getUrl({ command: "webExample" });
+
+Api.sendMessage({
+  text: "It is example for BB Web App",
+
+  reply_markup: {
+    resize_keyboard: true,
+    keyboard: [
+      // line 1
+      [
+        { text: "🤑 Open Web App" },
+        { text: "Open App", web_app: { url: webExample } }
+      ]
+    ]
+  }
+})
 ```
 
 {% hint style="success" %}
