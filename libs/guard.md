@@ -26,3 +26,21 @@ Add the commands you want to restrict access to to the "admins" folder (by defau
 You can add/remove admins, change the folder for admin commands and add a command for unauthorized access attempts in the admin panel:&#x20;
 
 `App > Bot > Admin Panels > Guard.`
+
+### Checking access
+
+{% hint style="success" %}
+Just put all your admin commands in one folder.
+
+The check will be automatic.
+{% endhint %}
+
+For manuall checking mode use:
+
+```javascript
+if (Libs.Guard.isAdmin(user.id)){
+   // admin
+}else{
+   // not admin
+}
+```

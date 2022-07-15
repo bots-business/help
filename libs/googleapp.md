@@ -237,7 +237,7 @@ Run `Libs.GoogleAppLib.run`in first time. Then:
 * select "debug" function on Tab
 * press "Debug" button:
 
-![](<../.gitbook/assets/image (93).png>)
+![](<../.gitbook/assets/image (93) (1).png>)
 
 Google app is runs. Bot will sent execution result to you. Also you can receive email with error description.
 

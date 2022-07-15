@@ -6,7 +6,7 @@ By default we have such error message:
 
 You can customize this message. Just create command with name "!"
 
-![](<../.gitbook/assets/image (93) (1).png>)
+![](<../.gitbook/assets/image (93) (1) (1).png>)
 
 {% hint style="success" %}
 You also can use BJS in error command
