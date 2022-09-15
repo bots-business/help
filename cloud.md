@@ -20,13 +20,13 @@ We have **monthly** plans of BB.Cloud:
 
 | **Cloud**         | **Cost, USD** | **Monthly iterations** |
 | ----------------- | ------------- | ---------------------- |
-| Cloud.Hobby**\*** | 15            | 1 million              |
-| Cloud.Nano        | 28            | 2 million              |
-| Cloud.Mini        | 48            | 5 million              |
-| Cloud.Start       | 95            | 10 million             |
-| Cloud.PRO         | 180           | 45 million             |
-| Cloud.Business    | 270           | 100 million            |
-| Cloud.BigBusiness | 400           | 200 million            |
+| Cloud.Hobby**\*** | 22            | 1 million              |
+| Cloud.Nano        | 33            | 2 million              |
+| Cloud.Mini        | 55            | 5 million              |
+| Cloud.Start       | 99            | 10 million             |
+| Cloud.PRO         | 220           | 45 million             |
+| Cloud.Business    | 300           | 100 million            |
+| Cloud.BigBusiness | 440           | 200 million            |
 
 | **Cloud**         | **Approximate iterations:** | ****        |             |
 | ----------------- | --------------------------- | ----------- | ----------- |
