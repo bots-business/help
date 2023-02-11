@@ -1,6 +1,6 @@
 # Create bot from Google Table
 
-## Do you have any Google Table? You can create Bot from it! 
+## Do you have any Google Table? You can create Bot from it!&#x20;
 
 You need the list with commands. See demo table [here](https://docs.google.com/spreadsheets/d/1hLEeCGqT5zTtT7hFs0HP20v5BrRj1y70Qhz4bOItO-c/edit?usp=sharing).
 
@@ -14,9 +14,9 @@ See [demo bot](https://telegram.me/DemoFromTableBot) from this Demo Table
 
 ### How to do import from table?
 
-Publish list (prefer to use computer) with commands in the web as CSV file: 
+Publish list (prefer to use computer) with commands in the web as CSV file:&#x20;
 
-![](<.gitbook/assets/image (2).png>)
+![](<.gitbook/assets/image (2) (1).png>)
 
 ###
 

@@ -44,6 +44,7 @@
 * [How to link chat account with BB account?](how-to-link-chat-account-with-bb-account.md)
 * [BB Inspection](bb-inspection.md)
 * [Protected bot](protected-bot.md)
+* [VS Code](vs-code.md)
 * [How to...](howto.md)
 
 ## Libs
