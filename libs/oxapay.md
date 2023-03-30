@@ -11,6 +11,14 @@ Try out the sample bot and see for yourself how OxaPay can simplify your crypto 
 
 
 
+{% hint style="success" %}
+You can install and test **demo bot** with this lib.&#x20;
+
+Please see Store > Crypto > OxapayLibSampleBot
+{% endhint %}
+
+
+
 ## Initial setup <a href="#_rcp7sut13qql" id="_rcp7sut13qql"></a>
 
 1. [Register](https://oxapay.com/?ref=53389) in OxaPay
@@ -20,7 +28,7 @@ Try out the sample bot and see for yourself how OxaPay can simplify your crypto 
 
 `Libs.OxaPayLib.setMerchantKey("YOUR_MERCHANT_KEY");`
 
-{% hint style="info" %}
+{% hint style="success" %}
 You can use ‘oxapay’ as the merchant key to test the merchants webservice (Crypto Payment Gateway).
 {% endhint %}
 
