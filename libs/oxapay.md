@@ -167,12 +167,12 @@ You can query the entire payment information by the getTxInfo method. for this p
 
 #### Transactions status table
 
-| -2 | Unsuccessful payment |
+| -3 | Canceled by the user |
 | -- | -------------------- |
+| -2 | Unsuccessful payment |
 | -1 | Payment pending      |
 | 1  | Paid, verified       |
 | 2  | Paid, Not verified   |
-| 3  | Canceled by the user |
 
 
 
