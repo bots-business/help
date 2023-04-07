@@ -9,13 +9,16 @@ To transfer funds from your account, you must first create a payment API key fro
 Libs.OxaPayLib.setPaymentApiKey("YOUR_PAYMENT_API_KEY");
 ```
 
+{% hint style="success" %}
+You can send the assets of your OxaPay wallet to another account. This feature is **only available for OxaPay users** who register with OxaPay and have a unique address as OxaPay address (starting with OXA).&#x20;
+{% endhint %}
 
+{% hint style="info" %}
+You can send any funds (Bitcoin, Ethereum, Tron, etc.) through this address **without any fee**.
+{% endhint %}
 
-You can send the assets of your OxaPay wallet to another account. This feature is only available for OxaPay users who register with OxaPay and have a unique address as OxaPay address (starting with OXA). You can send any funds (Bitcoin, Ethereum, Tron, etc.) through this address without any fee.
+**Read more** about internal transfer [here](https://docs.oxapay.com/internal-payment-api)
 
-Read more about internal transfer [here](https://docs.oxapay.com/internal-payment-api)
-
-\
 
 
 After setting the payment API key, you can submit a request by executing the transfer method with these parameters:\
