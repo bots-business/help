@@ -1,5 +1,5 @@
 ---
-cover: ../../.gitbook/assets/botsbusiness.jpg
+cover: ../.gitbook/assets/botsbusiness.jpg
 coverY: 0
 ---
 
@@ -40,12 +40,12 @@ Just run the bot and execute this command `/setup`. Then you can remove it.
 
 ## Methods
 
-| setMerchantKey                      | Set your merchant key to setup the merchant gateway                                                                 |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| <p>createTransaction</p><p><br></p> | Register order informations and returns payment info such as trackId and payLink to connect OxaPay payment gateway. |
-| transfer                            | Transfer funds to other accounts without fee (OxaPay internal transaction).                                         |
-| getTxInfo                           | Returns report of a payment session such as status, pay time, amount, etc.                                          |
-| getAcceptedCoins                    | Returns the list of your merchant's accepted coins.                                                                 |
+| setMerchantKey                        | Set your merchant key to setup the merchant gateway                                                                 |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| <p>createTransaction</p><p><br></p>   | Register order informations and returns payment info such as trackId and payLink to connect OxaPay payment gateway. |
+| [transfer](oxapay/oxapay-transfer.md) | Transfer funds to other accounts without fee (OxaPay internal transaction).                                         |
+| getTxInfo                             | Returns report of a payment session such as status, pay time, amount, etc.                                          |
+| getAcceptedCoins                      | Returns the list of your merchant's accepted coins.                                                                 |
 
 ### &#x20;<a href="#_rcp7sut13qql" id="_rcp7sut13qql"></a>
 
@@ -54,7 +54,7 @@ Just run the bot and execute this command `/setup`. Then you can remove it.
 
 ## Receiving Payments <a href="#_l95wxke42czb" id="_l95wxke42czb"></a>
 
-To create a payment link, you must first install [Webhook Lib](../webhooks-lib.md) from the Libs and then receive your payment link by executing the createTransaction method with sending payment parameters!
+To create a payment link, you must first install [Webhook Lib](webhooks-lib.md) from the Libs and then receive your payment link by executing the createTransaction method with sending payment parameters!
 
 The payment parameters are as follows:
 
