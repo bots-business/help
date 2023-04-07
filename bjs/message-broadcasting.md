@@ -28,16 +28,16 @@ Therefore, the function `Bot.sendMessageToChatWithId` is more preferable than th
 
 ## **Message editing**
 
-| **Function**                                  | Description                                                                                                                     |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| editMessage(value, message_id, options)       | <p>edit message with value and message_id</p><p></p><p><code>Bot.editMessage("new text", 20)</code></p>                         |
-| editMessageInChat(chat_id, value, message_id) | <p>edit message with value and message_id in chat</p><p></p><p><code>Bot.editMessageInChat(10512154, "new text", 25)</code></p> |
+| **Function**                                    | Description                                                                                                                     |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| editMessage(value, message\_id, options)        | <p>edit message with value and message_id</p><p></p><p><code>Bot.editMessage("new text", 20)</code></p>                         |
+| editMessageInChat(chat\_id, value, message\_id) | <p>edit message with value and message_id in chat</p><p></p><p><code>Bot.editMessageInChat(10512154, "new text", 25)</code></p> |
 
 {% hint style="info" %}
-message_id - it is unique identificator for all chats of this bot.
+message\_id - it is unique identificator for all chats of this bot.
 {% endhint %}
 
-### **Message_id for income messages to bot**
+### **Message\_id for income messages to bot**
 
 For income messages to bot: use `request.message_id`
 
@@ -54,10 +54,10 @@ Bot.setProperty("msg_id" + chat.chatid, msg_id, "integer");
 ```
 
 {% hint style="warning" %}
-Message_id - have unique value for all chats of bot. So we have only one message_id with value "2" and only in one chat.
+Message\_id - have unique value for all chats of bot. So we have only one message\_id with value "2" and only in one chat.
 {% endhint %}
 
-### **Message_id for** messages from bot
+### **Message\_id for** messages from bot
 
 use `on_result` in options - see [this](https://help.bots.business/scenarios-and-bjs/message-broadcasting#options-for-sendmessage-editmessage-and-sendkeyboard-functionals-reply-disable-notification-disable-web-page-preview)
 
@@ -97,14 +97,13 @@ You can pass options parameter to any `sendMessageXXX`, `sendKeyboard`, `editMes
   Bot.sendKeyboard("about, help,\ncontacts", "send keyboard now", options)
 ```
 
-| Parameter                | Type    | Description                                                                                                                                                                               |
-| ------------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| disable_web_page_preview | Boolean | Disables link previews for links in this message                                                                                                                                          |
-| disable_notification     | Boolean | Sends the message silently. Users will receive a notification with no sound.                                                                                                              |
-| reply_to_message_id      | Integer | If the message is a reply, ID of the original message                                                                                                                                     |
-| is_reply                 | Boolean | If the message is a reply for previous message                                                                                                                                            |
-| parse_mode               | String  | Send `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. Default `Markdown`. Can be `Markdown`, `HTML` or `null` |
-| result_to_bot_property   | String  | It is preferable to use "on_result". Store result of message sending in bot property with this name.  You can read this result later in other commands by Bot.getProperty                 |
-| on_result                | String  | Call this command after method with result                                                                                                                                                |
+| Parameter                   | Type    | Description                                                                                                                                                                               |
+| --------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| disable\_web\_page\_preview | Boolean | Disables link previews for links in this message                                                                                                                                          |
+| disable\_notification       | Boolean | Sends the message silently. Users will receive a notification with no sound.                                                                                                              |
+| reply\_to\_message\_id      | Integer | If the message is a reply, ID of the original message                                                                                                                                     |
+| is\_reply                   | Boolean | If the message is a reply for previous message                                                                                                                                            |
+| parse\_mode                 | String  | Send `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. Default `Markdown`. Can be `Markdown`, `HTML` or `null` |
+| result\_to\_bot\_property   | String  | It is preferable to use "on\_result". Store result of message sending in bot property with this name.  You can read this result later in other commands by Bot.getProperty                |
+| on\_result                  | String  | Call this command after method with result                                                                                                                                                |
 
-``

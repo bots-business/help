@@ -16,7 +16,7 @@ Use this lib to connect BJS with [Google App Script](https://developers.google.c
 
 After this step you can [use](googleapp.md#using) this Lib and [debug](googleapp.md#debugging).
 
-### ****
+###
 
 ### **Detail setup**
 

@@ -72,7 +72,7 @@ So why do you call your variables like that?
 
 ![](<../.gitbook/assets/image (60).png>)
 
-****
+
 
 **Good code:**
 

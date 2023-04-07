@@ -28,7 +28,7 @@ We have **monthly** plans of BB.Cloud:
 | Cloud.Business    | 300           | 100 million            |
 | Cloud.BigBusiness | 440           | 200 million            |
 
-| **Cloud**         | **Approximate iterations:** | ****        |             |
+| **Cloud**         | **Approximate iterations:** |             |             |
 | ----------------- | --------------------------- | ----------- | ----------- |
 |                   | **daily**                   | **minutes** | **seconds** |
 | Cloud.Hobby**\*** | 32 250                      | 22.4        | 0.37        |

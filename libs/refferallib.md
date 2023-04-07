@@ -40,7 +40,7 @@ Also you can pass other bot name. For example - it is link for current bot:
 
 will generate link kind **http://t.me/botname?start=userUSER\_ID**
 
-****
+
 
 #### Do you want to change link prefix?
 
@@ -130,7 +130,7 @@ or for another user:
 
 `Libs.ReferralLib.getRefCount(another_user_id)`
 
-``
+
 
 ### Get Top Refferal List
 

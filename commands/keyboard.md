@@ -10,7 +10,7 @@ Example:
 register, about, \n contacts
 ```
 
-****
+
 
 **The text of the button will be placed in the chat after touching this button.** Use commands aliase on button. Quite pleasant "contact" on the button, than "/contacts"
 

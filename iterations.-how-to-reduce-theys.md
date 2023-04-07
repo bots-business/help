@@ -116,7 +116,7 @@ You will end up in an infinite loop and your iterations **will quickly end**
 Be very careful with Bot.run methods
 {% endhint %}
 
-****
+
 
 ## Beware of **big** loops
 

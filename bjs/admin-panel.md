@@ -1,6 +1,6 @@
 # Admin Panel
 
-****
+
 
 **You can create a custom admin panel.**
 

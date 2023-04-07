@@ -136,7 +136,7 @@ For example "gold" for "wood":
 
 `res.exchangeTo(anotherRes, { remove_amount: 10, add_amount:23 } )`
 
-``
+
 
 ## Growth for resource.
 
@@ -346,7 +346,7 @@ Command /addBonus will be executed for each user. It spend 1 iteration every day
 For example, for 100 user - it will be 100 iterations per day.
 {% endhint %}
 
-### ****
+###
 
 ### **Q: How to make time limit bonus?**
 
