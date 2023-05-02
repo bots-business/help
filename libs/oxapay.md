@@ -140,14 +140,36 @@ Api.sendMessage({
 **Command /onCompletePayment**
 
 ```javascript
+
+// for security we need to check that this command runned only by lib
+// user can not run command with options
+if(!options) return
+
+Libs.OxaPayLib.getTxInfo(
+  { fields: { trackId: options.trackId },
+  onSuccess: "/onTxSuccess" }
+)
+```
+
+
+
+**Command /onTxSuccess**
+
+```javascript
 // for security we need to check that this command runned only by lib
 // user can not run command with options
 if (!options) return
 
-// You can inspect all options or send related message to user
-Bot.inspect(options)
+// 100 - payment done
+if (options.result == 100){
+  Bot.sendMessage(options.transaction.amount + " " + 
+  options.transaction.coin + " paid successfully!")
+}
 
-Bot.sendMessage("Payment completed")
+// 203 - Invalid trackId
+if (options.result == 203){
+  Bot.sendMessage(options.message)
+}
 ```
 
 
