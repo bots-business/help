@@ -230,16 +230,9 @@ BJS:
 
 ## Q: Is it possible to put some BJS code in our bot that notify user for cryptocurrency price?
 
-You can use [Coinmarketcap API](https://coinmarketcap.com/api/). For example page [https://api.coinmarketcap.com/v2/ticker/1/](https://api.coinmarketcap.com/v2/ticker/1/) have information about Bitcoin. We need load it with BJS.
+You can use [CurrencyQuote](libs/currencyquote.md) Lib
 
-BJS:
 
-```javascript
-  ->(https://api.coinmarketcap.com/v2/ticker/1/)
-  var result = JSON.parse(content);
-  var BTC_USD_Price = result.quotes.USD.price;
-  Bot.sendMessage("Current Bitcoin price: " + String(BTC_USD_Price) + " $");
-```
 
 ## Q: Is it posible that bot button can have value? How to create like on the screenshot below:
 

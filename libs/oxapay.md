@@ -269,4 +269,26 @@ Bot.sendMessage("Your merchant's accepted coins are " + options.allowed.join(','
 
 
 
-\
+## Customize callback url
+
+You can change callback url:
+
+```javascript
+// Define the callback URL for the transaction
+  let callbackUrl = Libs.Webhooks.getUrlFor({
+    command: libPrefix + "onCallback",
+    user_id: user.id,
+  })
+
+data = {
+  fields: {
+    merchant: 'YOUR-MERCHANT-KEY',
+    callbackUrl: callbackUrl,
+    amount: 100, 
+    currency: 'trx'
+  },
+  url: ‘merchants/request’,
+  onSuccess: ‘/onCreatePayment’
+}
+Libs.OxaPayLib.apiCall(data);// Some code
+```
