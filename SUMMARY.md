@@ -35,7 +35,6 @@
   * [Repository structure](git/repository-structure.md)
   * [File: bot.json](git/file-bot-json.md)
   * [Automatic importing on Git push](git/automatic-importing-on-git-push.md)
-* [Google Analytics tracking](google-analytics-tracking.md)
 * [Iterations. How to reduce theys?](iterations.-how-to-reduce-theys.md)
 * [Limitations](limitations.md)
 * [Cloud](cloud.md)
