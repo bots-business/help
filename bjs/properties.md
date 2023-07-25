@@ -75,9 +75,11 @@ Please read this [article](lists/)
 ```javascript
 // get global prop
 var myProp = Bot.getProperty('myProp');
+Bot.sendMessage("prop: " + myProp);
  
 // get prop for user
 var bio = User.getProperty('BIO');
+Bot.sendMessage("Hello, " + bio);
 ```
 
 or get prop with default value:
@@ -86,16 +88,6 @@ or get prop with default value:
 // prop by default will be 15
 var myProp = Bot.getProperty('myProp', 15);
 ```
-
-
-
-### **Access to property in answer**
-
-> You can also use the properties in the command's answer. For example, you can do this with the `/hello` command: `Hello, <UserRole>!`
-
-in BJS:
-
-> And you can use it in `Bot.sendMessage("Hello, <UserRole>")`
 
 
 
