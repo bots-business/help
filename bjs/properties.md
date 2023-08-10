@@ -76,6 +76,10 @@ Bot.setProperty({
 });
 ```
 
+{% hint style="success" %}
+You can set (or read) property via bot\_id and read (or set) it via telegramid. It doesn't matter and it will be the same value.
+{% endhint %}
+
 ### You can save prop in the List
 
 Please read this [article](lists/)
@@ -120,7 +124,11 @@ var bio = Bot.getProperty({
 });
 ```
 
+{% hint style="success" %}
+You can set (or read) property via bot\_id and read (or set) it via telegramid. It doesn't matter and it will be the same value.
+{% endhint %}
 
+###
 
 ### Getting other bot prop for current user:
 
@@ -133,6 +141,9 @@ Your account must have this bot
 var bio = Bot.getProperty({
   name: 'BIO',
   other_bot_id: other_bot_id  // available via bot.id
+  // if needed:
+  // user_id: userID // for user's prop
+  // user_telegramid: tgID // for user by telegramid
 });
 ```
 
