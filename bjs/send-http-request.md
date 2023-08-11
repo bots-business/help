@@ -31,6 +31,13 @@ Get page on [example.com](http://example.com)
 By default header "content-type" is 'application/json'. Some api may have a bug with this. Try set `headers: { "content-type": null }`
 {% endhint %}
 
+{% hint style="success" %}
+You can use `GET`, `POST`, `PUT`, `DELETE`, `OPTIONS` methods.\
+`Http.post`, `HTTP.put` and etc
+{% endhint %}
+
+\
+\
 Command `onLoading`
 
 ```javascript
