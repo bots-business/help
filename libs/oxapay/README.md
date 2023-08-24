@@ -24,35 +24,27 @@ Libs.OxaPayLib.setMerchantKey("YOUR_MERCHANT_KEY");
 Libs.OxaPayLib.setPayoutApiKey("YOUR_PAYOUT_API_KEY");
 ```
 
-
-
 For testing purposes, you can use 'sandbox' as the merchant key to access the OxaPay merchant web service in a sandbox environment.
 
 \
 Try Out the Sample Bot
 ----------------------
 
-Experience the convenience of OxaPay integration by trying our sample bot. Install and test the demo bot using the OxapayLibSampleBot library. Visit Store > Crypto > OxapayLibSampleBot to get started.
+Experience the convenience of OxaPay integration by trying our sample bot. Install and test the demo bot using the OxapayLibSampleBot library.&#x20;
 
-\
+Visit Store > Crypto > OxapayLibSampleBot to get started.\
 
 
 ## Calling API Methods
 
 You can interact with the OxaPay API by using the \`apiCall\` method. This method accepts three parameters:
 
-
-
-\- \`url\`: Specify OxaPay endpoints, such as '/merchants/request' or '/api/send' (refer to the OxaPay [documentation](https://docs.oxapay.com/api-reference) for a full list of endpoints).\
-
+\- \`url\`: Specify OxaPay endpoints, such as '/merchants/request' or '/api/send' (refer to the OxaPay [documentation](https://docs.oxapay.com/api-reference) for a full list of endpoints).
 
 \- \`fields\`: Provide an object containing input parameters relevant to the chosen endpoint. Refer to the API documentation for specific details.
 
-
-
 \- \`onSuccess\`: Define your custom logic to handle the output of the method.
 
-\
 
 
 ### Available URLs
@@ -87,7 +79,6 @@ Here is a list of commonly used OxaPay endpoints:
 
 \- \`/monitor\`: Monitor OxaPay service availability.
 
-\
 
 
 Feel free to explore these endpoints to build powerful crypto payment solutions with Bots.business and OxaPay.
@@ -110,7 +101,6 @@ Explore practical examples of integrating Bots.business with OxaPay.
 
 \- The \`onCreatePaymentWithTRX\` command handles the output, generating a QR code and providing payment details.
 
-\
 
 
 Command /paytrx
@@ -176,17 +166,13 @@ Api.sendPhoto({
 
 
 
-\
-
-
 #### Payment Callback
 
 \- When payment status changes, the \`/onCallbackPayment\` command processes the status and notifies users accordingly.
 
-\
 
 
-command /onCallbackPayment
+command `/onCallbackPayment`
 
 {% code lineNumbers="true" %}
 ```javascript
@@ -211,21 +197,19 @@ Api.sendMessage({
 ```
 {% endcode %}
 
-\
 
 
 ### Creating Payout
 
-\- Use the command \`/transfer\` to initiate a payout.
+\- Use the command `/transfer` to initiate a payout.
 
-\- Specify options like amount, currency, address, and onCallback.
+\- Specify options like amount, currency, address, and `onCallback`.
 
-\- The \`onTransfer\` command captures the result, notifying users about the payout status.
-
-\
+\- The `onTransfer` command captures the result, notifying users about the payout status.
 
 
-commend /transfer
+
+commend `/transfer`
 
 {% code lineNumbers="true" %}
 ```javascript
@@ -244,10 +228,9 @@ Libs.OxaPayLib.apiCall(options);
 ```
 {% endcode %}
 
-\
 
 
-command /onTransfer
+command `/onTransfer`
 
 {% code lineNumbers="true" %}
 ```javascript
@@ -268,17 +251,13 @@ if (options.status == "complete"){
 
 
 
-\
-
-
 ### Payout Callback
 
-The \`/onCallbackPayout\` command reacts to payout status changes and keeps users informed.
-
-\
+The `/onCallbackPayout` command reacts to payout status changes and keeps users informed.
 
 
-command /onCallbackPayout
+
+command `/onCallbackPayout`
 
 {% code lineNumbers="true" %}
 ```javascript
@@ -300,17 +279,3 @@ Api.sendMessage({
 ```
 {% endcode %}
 
-
-
-
-
-\
-
-
-
-
-## &#x20;<a href="#_jqlj0m8g0vjx" id="_jqlj0m8g0vjx"></a>
-
-
-
-##
