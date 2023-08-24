@@ -2,11 +2,11 @@
 
 By default we have such error message:
 
-<img src="../.gitbook/assets/image (91) (1) (1) (1).png" alt="" data-size="original">
+<img src="../.gitbook/assets/image (56).png" alt="" data-size="original">
 
 You can customize this message. Just create command with name "!"
 
-![](<../.gitbook/assets/image (93) (1) (1).png>)
+![](<../.gitbook/assets/image (100).png>)
 
 {% hint style="success" %}
 You also can use BJS in error command

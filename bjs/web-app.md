@@ -40,7 +40,7 @@ WebApp.render({ content: content });
 
 Go to bot and sent text `webExample`. You will have link to this page:
 
-![](<../.gitbook/assets/image (95).png>)
+![](<../.gitbook/assets/image (92).png>)
 
 ### Templates
 
@@ -68,7 +68,7 @@ You can use bjs tag: `<% your BJS code %>` in this template.
 
 We have:
 
-![](<../.gitbook/assets/image (91).png>)
+![](<../.gitbook/assets/image (98).png>)
 
 #### Passing Variables
 
@@ -147,13 +147,13 @@ h1 {
 
 Our result now:
 
-![](<../.gitbook/assets/image (92).png>)
+![](<../.gitbook/assets/image (82).png>)
 
 ## Deployment in Telegram
 
 You can install Web App in [several ways](https://core.telegram.org/bots/webapps#implementing-web-apps)
 
-![](<../.gitbook/assets/image (98).png>)
+![](<../.gitbook/assets/image (30).png>)
 
 ### Inline button
 

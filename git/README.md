@@ -1,6 +1,6 @@
 # Git
 
-![](<../.gitbook/assets/image (29).png>)
+![](<../.gitbook/assets/image (93).png>)
 
 ## Git support
 
@@ -11,19 +11,19 @@
 
 #### 1. Need set Git repository on bot
 
-Go to Bot->Edit-> show Advanced 
+Go to Bot->Edit-> show Advanced&#x20;
 
-![](<../.gitbook/assets/image (30).png>)
+![](<../.gitbook/assets/image (2).png>)
 
 #### 2. Need set Deploy Key on external repository
 
 {% hint style="success" %}
-You do not need Deploy Key for read access of public repository 
+You do not need Deploy Key for read access of public repository&#x20;
 {% endhint %}
 
 Go to Bot-> Sync in menu, then Git Sync -> Deploy Key show
 
-![](<../.gitbook/assets/image (31).png>)
+![](<../.gitbook/assets/image (47).png>)
 
 **Copy Deploy Key**
 

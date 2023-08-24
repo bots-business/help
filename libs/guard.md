@@ -13,7 +13,7 @@ Libs.Guard.setup();
 
 You will have such admin panel:
 
-![](<../.gitbook/assets/image (91) (1) (1).png>)
+![](<../.gitbook/assets/image (111).png>)
 
 * Create the @ command or add to an existing one the following code (at the very beginning):
 

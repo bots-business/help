@@ -8,7 +8,7 @@ For linking go to Side Menu > Account options:
 
 Go to block Linked accounts:
 
-![](<.gitbook/assets/image (36).png>)
+![](<.gitbook/assets/image (4).png>)
 
 Press on button "Add account" and go to BotsBusinessAdminBot.
 

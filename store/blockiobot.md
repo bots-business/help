@@ -1,6 +1,6 @@
 # BlockIOBot
 
-This bot is demo for integration with [Block.io](https://block.io). 
+This bot is demo for integration with [Block.io](https://block.io).&#x20;
 
 ### See also related [Lib](https://help.bots.business/libs/blockio)
 
@@ -16,24 +16,24 @@ This bot is demo for integration with [Block.io](https://block.io).
 
 Main menu on /start command:
 
-![](<../.gitbook/assets/image (17).png>)
+![](<../.gitbook/assets/image (116).png>)
 
 Bot addresses menu on aliase "Bot addresses":
 
-![](<../.gitbook/assets/image (18).png>)
+![](<../.gitbook/assets/image (84).png>)
 
 \
 Withdrawals menu:
 
-![](<../.gitbook/assets/image (19).png>)
+![](<../.gitbook/assets/image (5).png>)
 
 Tools menu:
 
-![](<../.gitbook/assets/image (20).png>)
+![](<../.gitbook/assets/image (16).png>)
 
 ### How it is works?
 
-Bot use BlockIo lib. 
+Bot use BlockIo lib.&#x20;
 
 Typical code for command `/getXXX` is:
 
@@ -251,7 +251,7 @@ Bot.sendMessage(answer);
 
 Bot need command for addresses archiving.
 
-![](<../.gitbook/assets/image (22).png>)
+![](<../.gitbook/assets/image (53).png>)
 
 We need command /archiveLabel, where Label is label for address
 

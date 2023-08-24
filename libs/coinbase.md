@@ -9,7 +9,7 @@ This Lib make integration with [coinbase.com](http://coinbase.com) in easy way.
 1. [Register](https://www.coinbase.com/signup)
 2. Go to this [page](https://www.coinbase.com/settings/api) and generate new key. Select needed rights:
 
-![](<../.gitbook/assets/image (69).png>)
+![](<../.gitbook/assets/image (77).png>)
 
 Install lib and make `/setup` command with code:
 
@@ -19,7 +19,7 @@ Libs.Coinbase.setup();
 
 3\. Go to Admin Panel and fill Api Key and Secret Api Key:
 
-![](<../.gitbook/assets/image (71).png>)
+![](<../.gitbook/assets/image (104).png>)
 
 4\. If you need notifications copy Notifications url and fill it on step 2
 
@@ -84,6 +84,6 @@ if you do not have onError command error will be tracked in Eror Tab.&#x20;
 
 ## Typical errors
 
-![](<../.gitbook/assets/image (96) (1).png>)
+![](<../.gitbook/assets/image (13).png>)
 
 You need to setup Api key. Please see step 3 in [setup](coinbase.md#initial-setup).

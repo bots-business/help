@@ -1,6 +1,6 @@
 # Help bot
 
-![](<../.gitbook/assets/image (3).png>)
+![](<../.gitbook/assets/image (65).png>)
 
 In Bots.Business chat we have many generic questions. [This bot](https://telegram.me/BBHelpBot) can answer for thems.
 
@@ -17,7 +17,7 @@ if(!message){ return }
 ```
 
 {% hint style="info" %}
-Do you have big case for command execution? You can use return.  
+Do you have big case for command execution? You can use return. &#x20;
 {% endhint %}
 
 Bot have keywords for searching in user's messages. Bot show answer and url on keywoard in message:

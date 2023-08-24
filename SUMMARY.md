@@ -60,7 +60,7 @@
 * [BlockIO](libs/blockio.md)
 * [Coinbase (CB)](libs/coinbase.md)
 * [CoinPayments (CP)](libs/coinpayments.md)
-* [OxaPay](libs/oxapay.md)
+* [OxaPay](libs/oxapay/README.md)
   * [OxaPay: Transfer](libs/oxapay/oxapay-transfer.md)
 * [CryptoJS](libs/cryptojs.md)
 * [CurrencyQuote](libs/currencyquote.md)

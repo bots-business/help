@@ -12,7 +12,7 @@ Don't install unnecessary libraries. Your bot might be slow after that.
 
 You can organize your commands in folders.&#x20;
 
-![](<../.gitbook/assets/image (90) (1) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (37).png>)
 
 You can use folder in BJS too. For example in [before All](always-running-commands.md#beforeall-and-afterall-commands) command:
 
@@ -64,25 +64,25 @@ So why do you call your variables like that?
 
 ## Use simular names!
 
-![](<../.gitbook/assets/image (58).png>)
+![](<../.gitbook/assets/image (43).png>)
 
 ## Use JSON property
 
 **Bad code:**
 
-![](<../.gitbook/assets/image (60).png>)
+![](<../.gitbook/assets/image (79).png>)
 
 
 
 **Good code:**
 
-![](<../.gitbook/assets/image (61).png>)
+![](<../.gitbook/assets/image (22).png>)
 
 ## Do not use many methods of getProperty or setProperty
 
 **Bad code:**
 
-![](<../.gitbook/assets/image (65).png>)
+![](<../.gitbook/assets/image (25).png>)
 
 {% hint style="warning" %}
 Each getProperty method spent above 10-100 ms for execution. So if you have 10 getProperty methods bot can spent above 1 sec for execution! It is slowly
@@ -90,7 +90,7 @@ Each getProperty method spent above 10-100 ms for execution. So if you have 10 g
 
 **Use JSON type:**
 
-![](<../.gitbook/assets/image (66).png>)
+![](<../.gitbook/assets/image (67).png>)
 
 ## Use functions!
 
@@ -98,10 +98,10 @@ Do not repeat youself!
 
 Bad code:![](https://telegra.ph/file/31bc228cf1f6f793ff034.png)
 
-![](<../.gitbook/assets/image (64).png>)
+![](<../.gitbook/assets/image (10).png>)
 
 
 
 Good code:![](https://telegra.ph/file/aa3021f92fbd73e5c9ede.png)
 
-![](<../.gitbook/assets/image (63).png>)
+![](<../.gitbook/assets/image (3).png>)

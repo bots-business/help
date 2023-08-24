@@ -2,7 +2,7 @@
 
 Use this lib to connect BJS with [Google App Script](https://developers.google.com/apps-script)
 
-![](<../.gitbook/assets/image (76).png>)
+![](<../.gitbook/assets/image (12).png>)
 
 ## Getting started
 
@@ -28,13 +28,13 @@ This is detail setup description. Please try to use [easy setup](googleapp.md#ea
 
 Go to [https://script.google.com](https://script.google.com) and create new project by button:
 
-![](<../.gitbook/assets/image (77).png>)
+![](<../.gitbook/assets/image (81).png>)
 
 #### 2. Add Code.gs
 
 Paste the script from [above](https://github.com/bots-business/store-libs/blob/master/GoogleAppSync.gs) into the script code editor and hit _Save._
 
-![](<../.gitbook/assets/image (95) (1) (1) (1).png>)
+![](<../.gitbook/assets/image (112).png>)
 
 You will need to contact your Google Apps administrator, or else use a Gmail account.)
 
@@ -192,7 +192,7 @@ Full help available [here](https://developers.google.com/apps-script/concepts/sc
 2. At the left, click **Project Settings** settings.
 3. Select the **Show "appsscript.json" manifest file in editor** checkbox:
 
-![](<../.gitbook/assets/image (90) (1) (1).png>)
+![](<../.gitbook/assets/image (38).png>)
 
 
 
@@ -225,7 +225,7 @@ The `oauthScopes` field specifies an array of strings. To set the scopes your pr
 2. Save the manifest file using **Ctrl+S** or the Save file icon in the menu bar.
 3. Publish your app again (see [step 3](googleapp.md#getting-started))
 
-![](<../.gitbook/assets/image (82).png>)
+![](<../.gitbook/assets/image (59).png>)
 
 
 
@@ -237,7 +237,7 @@ Run `Libs.GoogleAppLib.run`in first time. Then:
 * select "debug" function on Tab
 * press "Debug" button:
 
-![](<../.gitbook/assets/image (93) (1).png>)
+![](<../.gitbook/assets/image (76).png>)
 
 Google app is runs. Bot will sent execution result to you. Also you can receive email with error description.
 
@@ -249,7 +249,7 @@ You can use "debug" function anytime for debugging
 
 Also you can open web app by url (see [step 5](googleapp.md#getting-started)) in incognito mode. And look for any errors. For example we have permission error here:
 
-![](<../.gitbook/assets/image (94) (1).png>)
+![](<../.gitbook/assets/image (36).png>)
 
 
 

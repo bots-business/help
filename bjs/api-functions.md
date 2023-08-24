@@ -37,7 +37,7 @@ Api.sendAudio({
 
 ### **Example 2.** Send photo with inline keyboard
 
-![](<../.gitbook/assets/image (49).png>)
+![](../.gitbook/assets/image.png)
 
 ```javascript
 // see all parameters in https://core.telegram.org/bots/api#sendphoto

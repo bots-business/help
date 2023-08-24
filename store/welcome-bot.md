@@ -14,11 +14,11 @@ We have 50 minutes - so we iterate every hour without repeating.
 
 Set 3000 to Auto Retry:
 
-![](<../.gitbook/assets/image (15).png>)
+![](<../.gitbook/assets/image (33).png>)
 
 #### Users can not run this command.
 
-Bot send message to ALL chats. If user run this command at 6 AM - bot send message too! 
+Bot send message to ALL chats. If user run this command at 6 AM - bot send message too!&#x20;
 
 We need check for auto retry only. Auto Retry do not have chat variable. Execution breaks if chat exist.
 
@@ -81,7 +81,7 @@ function getNameFor(member){
 
 
 
-#### All code: 
+#### All code:&#x20;
 
 ```javascript
 let new_members = request.new_chat_members;
@@ -111,5 +111,5 @@ if(request.left_chat_member){
 
 ```
 
-![](<../.gitbook/assets/image (16).png>)
+![](<../.gitbook/assets/image (23).png>)
 

@@ -12,7 +12,7 @@ Please see [this](https://help.bots.business/git#requirements) before. (Need set
 
 Go to bot -> Sync
 
-![](<../.gitbook/assets/image (90).png>)
+![](<../.gitbook/assets/image (114).png>)
 
 Press on button "Export to git rep" and wait.
 

@@ -8,7 +8,7 @@ It is recommended to use this library, since it allows you to make the bot work 
 
 ## Initial setup
 
-Install Library and create `/setup` command: 
+Install Library and create `/setup` command:&#x20;
 
 ```javascript
 Libs.MembershipChecker.setup()
@@ -16,7 +16,7 @@ Libs.MembershipChecker.setup()
 
 Then go to App > Bot > Admin Panels anf fill options:
 
-![](<../.gitbook/assets/image (68).png>)
+![](<../.gitbook/assets/image (28).png>)
 
 You need create `/onNeedJoining` command. For example:
 

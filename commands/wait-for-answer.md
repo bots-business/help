@@ -4,7 +4,7 @@
 
 It is need the `Wait for answer` flag if need a response from the user.
 
-![Can be modified on command editing](<../.gitbook/assets/image (13).png>)
+![Can be modified on command editing](<../.gitbook/assets/image (66).png>)
 
 Example of execution of one command:
 

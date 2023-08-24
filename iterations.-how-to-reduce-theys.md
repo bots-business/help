@@ -122,7 +122,7 @@ Be very careful with Bot.run methods
 
 Very bad example:
 
-![](<.gitbook/assets/image (89).png>)
+![](<.gitbook/assets/image (54).png>)
 
 Command `check:`
 

@@ -1,6 +1,6 @@
 # Webhooks lib
 
-![](<../.gitbook/assets/image (43).png>)
+![](<../.gitbook/assets/image (105).png>)
 
 Integration with external services can be possible with webhooks notifications. This lib generate url for webhooks.
 
@@ -9,11 +9,11 @@ Integration with external services can be possible with webhooks notifications. 
 See [example bot](https://t.me/BBWebhookBot)
 
 {% hint style="info" %}
-From [wikipedia](https://en.wikipedia.org/wiki/Webhook): a **webhook** is a method of augmenting or altering the behavior of bot, with custom [callbacks](https://en.wikipedia.org/wiki/Callback_\(computer_programming\)).
+From [wikipedia](https://en.wikipedia.org/wiki/Webhook): a **webhook** is a method of augmenting or altering the behavior of bot, with custom [callbacks](https://en.wikipedia.org/wiki/Callback\_\(computer\_programming\)).
 
 These callbacks may be maintained, modified, and managed by third-party users and developers who may not necessarily be affiliated with the originating website or application.
 
- The term "webhook" was coined by Jeff Lindsay in 2007 from the computer programming term [hook](https://en.wikipedia.org/wiki/Hooking).
+&#x20;The term "webhook" was coined by Jeff Lindsay in 2007 from the computer programming term [hook](https://en.wikipedia.org/wiki/Hooking).
 {% endhint %}
 
 Webhooks is more simple way for integration. Other libs also use webhooks notifications already: CoinPayments, FreeKassa.
@@ -37,7 +37,7 @@ let webhookUrl = Libs.Webhooks.getUrlFor({
 Bot.inspect(webhookUrl);
 ```
 
-This code will generate Webhook url. 
+This code will generate Webhook url.&#x20;
 
 After loading page via this url:
 
@@ -45,9 +45,9 @@ After loading page via this url:
 * command `/onWebhook` will be execute on Bot for user with user.id
 * content "Did you see the cat?" will be passed for command `/onWebhook`
 
-###  More useful for external services
+### &#x20;More useful for external services
 
-As a rule, the webhook URL must be set from the admin panel on the external service. So we can not set it for just one user: 
+As a rule, the webhook URL must be set from the admin panel on the external service. So we can not set it for just one user:&#x20;
 
 ```javascript
 // global bot webhook
@@ -69,7 +69,7 @@ Bot.sendMessage(inspect(content))
 // also you can read data with Bot.getProperty - you need store it before
 ```
 
-As a rule, external service must pass useful data on webhook. For example info about payments: order_id, user_id. Use it!
+As a rule, external service must pass useful data on webhook. For example info about payments: order\_id, user\_id. Use it!
 
 On command `/onWebhook` for bot's webhook we do not have user:
 

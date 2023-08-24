@@ -12,7 +12,7 @@ Command - it is text from user. Bot can sent answer for command or do something.
 
 ### How to execute command with any text from user? (Master command)
 
-Just use `*` in command name. 
+Just use `*` in command name.&#x20;
 
 See [more](https://help.bots.business/scenarios-and-bjs/always-running-commands)
 
@@ -38,13 +38,13 @@ Command can have:
 
 **You can edit command directly from application.**
 
-![Screen from App for command creation](<../.gitbook/assets/image (4).png>)
+![Screen from App for command creation](<../.gitbook/assets/image (97).png>)
 
 ### Commands importing
 
 Make all commands with [Google Table. ](https://help.bots.business/create-bot-from-google-table)
 
-Also you can copy Template table from [http://bit.ly/bb_table_template](http://bit.ly/bb_table_template) into your own table. 
+Also you can copy Template table from [http://bit.ly/bb\_table\_template](http://bit.ly/bb\_table\_template) into your own table.&#x20;
 
 This is an ideal option: everything is quite simple. Go to `Main menu > File > Make a copy`. You will need a separate sheet for the commands that will contain the commands. Then you can add commands in rows and do the CSV import from application.
 
