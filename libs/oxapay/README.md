@@ -86,7 +86,7 @@ Feel free to explore these endpoints to build powerful crypto payment solutions 
 \
 
 
-### Examples
+## Examples
 
 Explore practical examples of integrating Bots.business with OxaPay.
 
@@ -142,17 +142,12 @@ if (options.result!= 100) {
 let toDate = new Date(options.expiredAt * 1000).toISOString();
 let caption = 
   "📨Address <code>" + options.address + "</code>" +
-  "\<br>—————————" +
   "\<br>Coin" + options.currency +
-  "\<br>—————————" +
   "\<br>Network" +
   "\<br>" + options.network +
-  "\<br>—————————-" +
-  "\<br>Amount" +
-  "\<br><code>" + options.payAmount + "</code> " + 
+  "\<br>Amount <code>" + options.payAmount + "</code> " + 
     options.payCurrency + "" +
   "\<br>‼️ Sending less may result fund loss" +
-  "\<br>—————————-" +
   "\<br>‼️ Please only send " + options.currency + " on " + options.network +
   "\n network to the address until " + toDate
 
@@ -251,7 +246,7 @@ if (options.status == "complete"){
 
 
 
-### Payout Callback
+#### Payout Callback
 
 The `/onCallbackPayout` command reacts to payout status changes and keeps users informed.
 
