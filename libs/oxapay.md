@@ -1,294 +1,276 @@
 ---
-cover: ../.gitbook/assets/botsbusiness.jpg
+cover: ../../.gitbook/assets/botsbusiness.jpg
 coverY: 0
 ---
 
 # OxaPay
 
-With the [OxaPay](https://oxapay.com/?ref=53389) merchant webservice, you can accept crypto payments from your customers in a fast, secure and hassle-free way, without the need for KYC.&#x20;
+With the [OxaPay](https://oxapay.com/?ref=53389) merchant web service, Bots.Business enables you to seamlessly accept crypto payments from your customers and facilitate hassle-free crypto payouts.&#x20;
 
-Try out the sample bot and see for yourself how OxaPay can simplify your crypto payment experience
-
-
-
-{% hint style="success" %}
-You can install and test **demo bot** with this lib.&#x20;
-
-Please see Store > Crypto > OxapayLibSampleBot
-{% endhint %}
+This integration empowers you to provide efficient, secure, and quick transactions, all without the need for extensive KYC procedures
 
 
 
-## Initial setup <a href="#_rcp7sut13qql" id="_rcp7sut13qql"></a>
+## Getting Started
 
-1. [Register](https://oxapay.com/?ref=53389) in OxaPay
-2. Log in to your OxaPay account and create a merchant key by filling in the fields and selecting accepted coins on the merchants [page](https://account.oxapay.com/merchants).
-3. In “your merchant keys” table, copy the generated merchant key.
-4. Install OxaPay lib and write /setup command that run the below code:
+To get started with the Bots.business integration with OxaPay, follow these steps:
 
-`Libs.OxaPayLib.setMerchantKey("YOUR_MERCHANT_KEY");`
+1\. Generate an OxaPay account and obtain your API key by referring to the [OxaPay Getting Started Guide](https://docs.oxapay.com/getting-started).
 
-{% hint style="success" %}
-You can use ‘oxapay’ as the merchant key to test the merchants webservice (Crypto Payment Gateway).
-{% endhint %}
-
-Just run the bot and execute this command `/setup`. Then you can remove it.
-
-
-
-
-
-## Methods
-
-| setMerchantKey                        | Set your merchant key to setup the merchant gateway                                                                 |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| <p>createTransaction</p><p><br></p>   | Register order informations and returns payment info such as trackId and payLink to connect OxaPay payment gateway. |
-| [transfer](oxapay/oxapay-transfer.md) | Transfer funds to other accounts without fee (OxaPay internal transaction).                                         |
-| getTxInfo                             | Returns report of a payment session such as status, pay time, amount, etc.                                          |
-| getAcceptedCoins                      | Returns the list of your merchant's accepted coins.                                                                 |
-
-### &#x20;<a href="#_rcp7sut13qql" id="_rcp7sut13qql"></a>
-
-\
-
-
-## Receiving Payments <a href="#_l95wxke42czb" id="_l95wxke42czb"></a>
-
-To create a payment link, you must first install [Webhook Lib](webhooks-lib.md) from the Libs and then receive your payment link by executing the createTransaction method with sending payment parameters!
-
-The payment parameters are as follows:
-
-| Amount (require) | Float  | Total amount (as dollar if currency filed was not filled. Otherwise amount should be filled with your specified currency amount)                                        |
-| ---------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| currency         | String | If you want that your invoice to be paid by a specified currency fill in this field with its symbols (Find the list of currencies symbol in the accepted coins section) |
-| description      | String | Order details (will be shown in different reports)                                                                                                                      |
-| orderId          | String | Your unique order ID (optional - used in reports)                                                                                                                       |
-| email            | String | User's email for the report                                                                                                                                             |
-
-\
-
-
-The above parameters are set in the \`fields\` property and `onCreatePayment` property is also needed to be run after creating the payment. It will return the payment information including the following fields.
-
-\
-
-
-| result  | Request result. [Read more](https://docs.oxapay.com/merchants-payment-gateway#result-table-1)                                                                                  |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| message | The message containing the result of the request.                                                                                                                              |
-| trackId | The unique identifier of each payment session of the OxaPay payment gateway, which can be used to query the payment status and report requests (if the request be successful). |
-| payLink | The set payment page link according to the trackId field (if the request is successful).                                                                                       |
-
-\
-
-
-You need to define the command that should be called when the payment is created and in that command, you will get the above information.
-
-You also need the onCompletePayment command to get the transaction information after the payment has been made to the address.
-
-
-
-#### For example: <a href="#_qaw5xjh1ngjg" id="_qaw5xjh1ngjg"></a>
-
-**Command /pay**
-
-<pre class="language-javascript"><code class="lang-javascript">let amount = 100; // amount in TRX
-
-options = {
-    fields: {
-<strong>        amount: amount, // amount in TRX
-</strong>        // you can set the rest of the fields as optiona
-        // currency: "trx",
-        // description: "Hello World!",
-        // orderId: "AB-1122",
-        // email: "example@gmail.com"
-    },
-    onCreatePayment: '/onCreatePayment',
-}
-
-Libs.OxaPayLib.createTransaction(options);
-</code></pre>
-
-
-
-**Command /onCreatePayment**
+2\. Set your generated API keys with the following sample codes:
 
 ```javascript
-// for security we need to check that this command runned only by lib
-// user can not run command with options
-if (!options) return
+Libs.OxaPayLib.setMerchantKey("YOUR_MERCHANT_KEY");
+Libs.OxaPayLib.setPayoutApiKey("YOUR_PAYOUT_API_KEY");
+```
 
-// You can inspect all options:
-Bot.inspect(options)
+For testing purposes, you can use 'sandbox' as the merchant key to access the OxaPay merchant web service in a sandbox environment.
 
-// You can send message with pay link
-Bot.sendMessage("Payment link:\n" + options.payLink)
+\
+Try Out the Sample Bot
+----------------------
 
-// You can send message with web app
+Experience the convenience of OxaPay integration by trying our sample bot. Install and test the demo bot using the OxapayLibSampleBot library.&#x20;
+
+Visit Store > Crypto > OxapayLibSampleBot to get started.\
+
+
+## Calling API Methods
+
+You can interact with the OxaPay API by using the \`apiCall\` method. This method accepts three parameters:
+
+\- \`url\`: Specify OxaPay endpoints, such as '/merchants/request' or '/api/send' (refer to the OxaPay [documentation](https://docs.oxapay.com/api-reference) for a full list of endpoints).
+
+\- \`fields\`: Provide an object containing input parameters relevant to the chosen endpoint. Refer to the API documentation for specific details.
+
+\- \`onSuccess\`: Define your custom logic to handle the output of the method.
+
+
+
+### Available URLs
+
+Here is a list of commonly used OxaPay endpoints:
+
+\- \`/merchants/request\`: Request crypto payments.
+
+\- \`/merchants/request/whitelabel\`: Request crypto payments with white-label options.
+
+\- \`/merchants/request/staticaddress\`: Request crypto payments with static addresses.
+
+\- \`/merchants/revoke/staticaddress\`: Revoke static addresses.
+
+\- \`/merchants/inquiry\`: Make inquiries about crypto payments.
+
+\- \`/merchants/list\`: Listof your crypto payments.
+
+\- \`/merchants/allowedcoins\`: Get a list of your allowed cryptocurrencies.
+
+\- \`/merchants/rate\`: Check exchange rates.
+
+\- \`/api/send\`: Send crypto payments.
+
+\- \`/api/list\`: List of your pauout transactions.
+
+\- \`/api/balance\`: Check your account balance.
+
+\- \`/api/currencies\`: Get a list of supported cryptocurrencies by OxaPay.
+
+\- \`/api/networks\`: List of supported networks.
+
+\- \`/monitor\`: Monitor OxaPay service availability.
+
+
+
+Feel free to explore these endpoints to build powerful crypto payment solutions with Bots.business and OxaPay.
+
+\
+
+
+## Examples
+
+Explore practical examples of integrating Bots.business with OxaPay.
+
+\
+
+
+### Creating White-Label Payment
+
+\- Execute the command \`/paytrx\` to create a white-label payment.
+
+\- Provide necessary options such as amount, currency, payCurrency, lifeTime, orderId, and onCallback.
+
+\- The \`onCreatePaymentWithTRX\` command handles the output, generating a QR code and providing payment details.
+
+
+
+Command /paytrx
+
+{% code lineNumbers="true" fullWidth="false" %}
+```javascript
+let options = {
+  url: "merchants/request/whitelabel",
+  fields: {
+    amount: 100,
+    currency: "TRX",
+    payCurrency: "TRX",
+    lifeTime: 90,
+    orderId: "ORD-124",
+    onCallback: "/onCallbackPayment",
+  },
+  onSuccess: "/onCreatePaymentWithTRX",
+};
+
+Libs.OxaPayLib.apiCall(options);
+```
+{% endcode %}
+
+
+
+command /onCreatePaymentWithTRX
+
+{% code lineNumbers="true" %}
+```javascript
+if (!options) { return }
+
+if (options.result!= 100) {
+  // not success
+  Bot.sendMessage(options.message);
+  return
+}
+
+// result is 100 / success
+let toDate = new Date(options.expiredAt * 1000).toISOString();
+let caption = 
+  "📨Address <code>" + options.address + "</code>" +
+  "\<br>Coin" + options.currency +
+  "\<br>Network" +
+  "\<br>" + options.network +
+  "\<br>Amount <code>" + options.payAmount + "</code> " + 
+    options.payCurrency + "" +
+  "\<br>‼️ Sending less may result fund loss" +
+  "\<br>‼️ Please only send " + options.currency + " on " + options.network +
+  "\n network to the address until " + toDate
+
+Api.sendPhoto({
+  photo: options.QRCode,
+  caption: caption,
+  parse_mode: "HTML",
+});
+```
+{% endcode %}
+
+
+
+#### Payment Callback
+
+\- When payment status changes, the \`/onCallbackPayment\` command processes the status and notifies users accordingly.
+
+
+
+command `/onCallbackPayment`
+
+{% code lineNumbers="true" %}
+```javascript
+const ADMIN_TELEGRAM_ID = "PUT YOUR TELEGRAM ID HERE";
+
+if (!options) return;
+
+if (options.status == "Confirming"){
+  Bot.sendMessage(
+    `📢 Your paid ${options.payAmount} ${options.payCurrency} is confirming...`
+  );
+}else if (options.status == "Paid") {
+  Bot.sendMessage(`📢 Your payment was successful`);
+}
+
 Api.sendMessage({
-  text: "Pay in web app",
-  reply_markup: {
-    inline_keyboard: [[{ text: "Pay", web_app: { url: options.payLink } }]]
-  }
-})
+  chat_id: ADMIN_TELEGRAM_ID,
+  text: "📢 Your invoice with trackId " + 
+      `${options.trackId} and orderId ${options.orderId} ${options.status}`
+});
 
-// You can store this information for future inquiries
 ```
+{% endcode %}
 
 
 
-**Command /onCompletePayment**
+### Creating Payout
 
+\- Use the command `/transfer` to initiate a payout.
+
+\- Specify options like amount, currency, address, and `onCallback`.
+
+\- The `onTransfer` command captures the result, notifying users about the payout status.
+
+
+
+commend `/transfer`
+
+{% code lineNumbers="true" %}
 ```javascript
-
-// for security we need to check that this command runned only by lib
-// user can not run command with options
-if(!options) return
-
-Libs.OxaPayLib.getTxInfo(
-  { fields: { trackId: options.trackId },
-  onSuccess: "/onTxSuccess" }
-)
+let amount = 10;
+let options = {
+  url: "api/send",
+  fields: {
+    amount: amount,
+    currency: "TRX",
+    address: "YOUR_PRIVATE_ADDRESS",
+    onCallback: "/onCallbackPayout",
+  },
+  onSuccess: "/onTransfer " + amount +" TRX",
+};
+Libs.OxaPayLib.apiCall(options);
 ```
+{% endcode %}
 
 
 
-**Command /onTxSuccess**
+command `/onTransfer`
 
+{% code lineNumbers="true" %}
 ```javascript
-// for security we need to check that this command runned only by lib
-// user can not run command with options
+if (!options) return;
+if (options.result == 100){
+  Bot.sendMessage(
+    `Send ${params} was submited!\nYour trackId: ${options.trackId}`
+  );
+} else {
+  Bot.sendMessage(`Your send request failed. ${options.message}`);
+}
+
+if (options.status == "complete"){
+  Bot.sendMessage("Your transfer was successful");
+}
+```
+{% endcode %}
+
+
+
+#### Payout Callback
+
+The `/onCallbackPayout` command reacts to payout status changes and keeps users informed.
+
+
+
+command `/onCallbackPayout`
+
+{% code lineNumbers="true" %}
+```javascript
 if (!options) return
 
-// 100 - payment done
-if (options.result == 100){
-  Bot.sendMessage(options.transaction.amount + " " + 
-  options.transaction.coin + " paid successfully!")
+const ADMIN_TELEGRAM_ID = 'PUT YOUR TELEGRAM ID HERE'
+
+if (options.status == 'Confirming'){
+  Bot.sendMessage(`📢 Your withdrawal is confirming...`)
+} else if(options.status == 'Complete'){
+  Bot.sendMessage(`📢 Your withdrawal was successfully complete!`)
 }
 
-// 203 - Invalid trackId
-if (options.result == 203){
-  Bot.sendMessage(options.message)
-}
+Api.sendMessage({
+  chat_id: ADMIN_TELEGRAM_ID,
+  text: "📢 Your client withdraw " +
+   `${options.amount} ${options.currency} ${options.status} `
+})
 ```
+{% endcode %}
 
-
-
-## Transaction Info <a href="#_hctqkgy4fl35" id="_hctqkgy4fl35"></a>
-
-You can query the entire payment information by the getTxInfo method. for this purpose, you need payment trackId. The information includes the following fields.\
-
-
-| message     | The message containing the result of the request                                                                                                                       |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| result      | Request result. [Read more](https://docs.oxapay.com/merchants-payment-gateway#result-table-2)                                                                          |
-| paidAt      | Order payment date - in ISODate format (if the payment is successful)                                                                                                  |
-| verifiedAt  | Order verify date - in ISODate format (if the payment is successful)                                                                                                   |
-| status      | Payment status (you can check the status values through the status table)                                                                                              |
-| amount      | Order amount (as dollar, if currency filed was not filled. Otherwise, amount should be filled with your specified currency amount)                                     |
-| currency    | If you want that your invoice to be paid by a specified currency fill in this field with its symbol (Find the list of currencies symbol in the accepted coins section) |
-| orderId     | Order ID (if the payment is successful and sent in the request gateway)                                                                                                |
-| description | Transaction description (if the payment is successful and sent in the request gateway)                                                                                 |
-| email       | User's email for report (if the payment is successful and sent in the request gateway)                                                                                 |
-| wage        | How to deduct fees 0: deduction from the transaction, 1: Deduction from the fee wallet, 2: In charge of the customer                                                   |
-| createdAt   | Order create date - in ISODate format                                                                                                                                  |
-| transaction | <p>This property contains 3 fields:<br>Coin // Paid currency symbol</p><p>Amount // Paid currency amount</p><p>txId // Paid transaction hash</p>                       |
-
-
-
-#### Transactions status table
-
-| -3 | Canceled by the user |
-| -- | -------------------- |
-| -2 | Unsuccessful payment |
-| -1 | Payment pending      |
-| 1  | Paid, verified       |
-| 2  | Paid, Not verified   |
-
-
-
-#### For example: <a href="#_m1sqzhtrg668" id="_m1sqzhtrg668"></a>
-
-**Command /txInfo**
-
-```javascript
-options = {
-  fields: {
-    trackId: YOUR_TRACK_ID
-  },
-  onSuccess: "/onTxInfo"
-}
-
-Libs.OxaPayLib.getTxInfo(options)
-```
-
-\
-**Command /onTxInfo**
-
-```javascript
-// for security we need to check that this command runned only by lib
-// user can not run command with options
-if(!options) return
-
-
-// You can inspect all options
-Bot.inspect(options)
-```
-
-\
-
-
-## Accepted coins <a href="#_jqlj0m8g0vjx" id="_jqlj0m8g0vjx"></a>
-
-Use `getAcceptedCoins` method to get the list of your merchant's accepted coins.
-
-
-
-#### For example: <a href="#_2qbe8tcpwul1" id="_2qbe8tcpwul1"></a>
-
-**Command /acceptedCoins**
-
-```javascript
-Libs.OxaPayLib.getAcceptedCoins({ onSuccess: "/onAcceptedCoins" })
-```
-
-\
-
-
-**Command /onAcceptedCoins**
-
-```javascript
-// for security we need to check that this command runned only by lib
-// user can not run command with options
-if(!options) return
-
-Bot.sendMessage("Your merchant's accepted coins are " + options.allowed.join(','))
-
-// You can also send the list to the user to choose the coins for payment
-```
-
-
-
-## Customize callback url
-
-You can change callback url:
-
-```javascript
-// Define the callback URL for the transaction
-  let callbackUrl = Libs.Webhooks.getUrlFor({
-    command: libPrefix + "onCallback",
-    user_id: user.id,
-  })
-
-data = {
-  fields: {
-    merchant: 'YOUR-MERCHANT-KEY',
-    callbackUrl: callbackUrl,
-    amount: 100, 
-    currency: 'trx'
-  },
-  url: ‘merchants/request’,
-  onSuccess: ‘/onCreatePayment’
-}
-Libs.OxaPayLib.apiCall(data);// Some code
-```
