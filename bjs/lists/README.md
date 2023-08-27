@@ -280,96 +280,7 @@ list.per_page = 10 // 100 by default
 let total_pages = list.total_pages;
 ```
 
-### Ordering
-
-Default order is ascending by id (prop's id)
-
-```javascript
-// default order is ascending by id
-let props = list.get();
-props[0] // oldest prop in list
-
-// Change order to descending:
-list.order_ascending = false;
-props[0] // newest prop in list
-```
-
-Ordering method can be changed from id (default) to other method:
-
-```
-list.order_by = "integer_value";
-
-// list.order_by = "user_id";
-// list.order_by = "size";
-// etc - see table
-
-list.order_ascending = true;
-props[0] // prop with lowest value
-```
-
-| list.ordering\_by | Ordering props by                               |
-| ----------------- | ----------------------------------------------- |
-| user\_id          | order by user\_id                               |
-| name              | order by name                                   |
-| integer\_value    | order by integer value                          |
-| float\_value      | order by float value                            |
-| datetime\_value   | order by datetime value                         |
-| boolean\_value    | order by boolean value                          |
-| string\_value     | order by string value                           |
-| text\_value       | order by text value                             |
-| value\_type       | ordering by value type (integer, float and etc) |
-| size              | order by value size                             |
-
-#### Users ordering
-
-```javascript
-let users = list.getUsers();
-
-// you can order users only by user id
-list.order_ascending = false;
-Bot.inspect(users[0])
-```
-
-## Searching
-
-### Searching for text props
-
-Searching is available for list's properties. (String and text props)
-
-```javascript
-// search prop with text value "Apple"
-// case sensetive by default
-let props = list.search("Apple");
-
-// case insensentive
-list.case_sensitive = false;
-// search props with text value "Apple", "apple", "aPpLe" and etc
-props = list.search("Apple");
-
-// search props started with text "apple"
-props = list.search("%Apple");
-
-// search props ended with text "apple"
-props = list.search("Apple%");
-
-// search props contains text "apple"
-props = list.search("%Apple%");
-
-
-```
-
-* Percent sign ( `%`) matches any sequence of zero or more characters.
-* Underscore sign ( `_`)  matches any single character.
-
-{% hint style="info" %}
-[Ordering](./#ordering) and paginating also works with searching
-
-```javascript
-list.page = 2;
-list.order_ascending = false;
-let props = list.search("Apple");
-```
-{% endhint %}
+###
 
 ## User searching
 
@@ -396,10 +307,7 @@ Is available for integer and float props
 Need [recount](./#recount-list) before
 
 ```javascript
-list.count  // total props + users count 
-list.total_value  // sum of all props
-list.average_value  // average of all props 
-list.max_value
-list.min_value
+list.count  // total props + users count
+
 ```
 
