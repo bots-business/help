@@ -65,6 +65,16 @@ api.bots.business/v2/bots/BOT\_ID/web-app/index?secret=SECRET**\&key=value\&anot
 
 
 
+In BJS you can access to this data via options:
+
+```javascript
+let key = options.key
+let anotherKey = options.anoteher_key
+
+// or more simple:
+// let {key, anotherKey } = options
+```
+
 
 
 ### Templates
