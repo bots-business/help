@@ -111,13 +111,13 @@ Bot.sendMessage(
 );
 ```
 
-| Key             | Value                                                                  |
-| --------------- | ---------------------------------------------------------------------- |
-| options.url     | webhook url                                                            |
-| method          | request method ("GET" or "POST")                                       |
-| params          | request params                                                         |
-| options.headers | headers for this request like Ip,  User-Agent, Accept-Language and etc |
-| options.ip      | client IP                                                              |
+| Key               | Value                                                                  |
+| ----------------- | ---------------------------------------------------------------------- |
+| `options.url`     | webhook url                                                            |
+| `options.method`  | request method ("GET" or "POST")                                       |
+| options.params    | request params                                                         |
+| `options.headers` | headers for this request like Ip,  User-Agent, Accept-Language and etc |
+| `options.ip`      | client IP                                                              |
 
 
 
