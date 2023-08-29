@@ -42,6 +42,31 @@ Go to bot and sent text `webExample`. You will have link to this page:
 
 ![](<../.gitbook/assets/image (92).png>)
 
+###
+
+### Passing data to BJS
+
+It is possible to pass data from web via url params. For example your url is:
+
+api.bots.business/v2/bots/**BOT\_ID**/**web-app**/**index**?secret=SECRET
+
+you can add data with:
+
+api.bots.business/v2/bots/BOT\_ID/web-app/index?secret=SECRET**\&key=value\&another\_key=another\_value**
+
+{% hint style="info" %}
+**Please note:**
+
+* You can use any text for key or value
+* **key** and **value** must be encoded (it can not have this symbols: " ", "?", "&" and others). You can use encodeURIComponent JS method or another accord your language.&#x20;
+
+
+{% endhint %}
+
+
+
+
+
 ### Templates
 
 It is hard to edit html in Java Script. Templates are a good way to organize your web application.
