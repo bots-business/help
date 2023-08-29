@@ -101,7 +101,7 @@ Bot.run({
 
 You can use options on BJS on webhook request
 
-`/onWebhook` command`:`
+`/onWebhook` command:
 
 ```javascript
 Bot.sendMessage(
@@ -113,7 +113,7 @@ Bot.sendMessage(
 | ----------------- | ---------------------------------------------------------------------- |
 | `options.url`     | webhook url                                                            |
 | `options.method`  | request method ("GET" or "POST")                                       |
-| options.params    | request params                                                         |
+| `options.params`  | request params                                                         |
 | `options.headers` | headers for this request like Ip,  User-Agent, Accept-Language and etc |
 | `options.ip`      | client IP                                                              |
 
