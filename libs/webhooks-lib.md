@@ -1,7 +1,5 @@
 # Webhooks lib
 
-![](<../.gitbook/assets/image (105).png>)
-
 Integration with external services can be possible with webhooks notifications. This lib generate url for webhooks.
 
 ## Example bot
