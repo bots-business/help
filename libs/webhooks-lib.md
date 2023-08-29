@@ -45,7 +45,9 @@ After loading page via this url:
 * command `/onWebhook` will be execute on Bot for user with user.id
 * content "Did you see the cat?" will be passed for command `/onWebhook`
 
-### &#x20;More useful for external services
+### &#x20;
+
+## Receive webhook for user
 
 As a rule, the webhook URL must be set from the admin panel on the external service. So we can not set it for just one user:&#x20;
 
@@ -53,7 +55,8 @@ As a rule, the webhook URL must be set from the admin panel on the external serv
 // global bot webhook
 let webhookUrl = Libs.Webhooks.getUrlFor({
   // this command will be runned on webhook
-  command: "/onWebhook"
+  command: "/onWebhook",
+  user_id: user.id
 })
 ```
 
@@ -71,6 +74,10 @@ Bot.sendMessage(inspect(content))
 
 As a rule, external service must pass useful data on webhook. For example info about payments: order\_id, user\_id. Use it!
 
+
+
+## Receive global webhook for bot
+
 On command `/onWebhook` for bot's webhook we do not have user:
 
 ```javascript
@@ -83,9 +90,67 @@ On command `/onWebhook` for bot's webhook we do not have user:
 // ...
 
 // We can pass user_id in content (it is depend from external service)
-Bot.run({ command: "/userCommand", user_id: JSON.parse(content).user_id })
+Bot.run({
+   command: "/userCommand",
+   user_id: JSON.parse(content).user_id
+})
 
 // in /userCommand we can now use Bot.sendMessage function
 
 ```
+
+## Call options
+
+You can use options on BJS on webhook request
+
+`/onWebhook` command`:`
+
+```javascript
+Bot.sendMessage(
+  JSON.stringify(options)
+);
+```
+
+| Key             | Value                                                                  |
+| --------------- | ---------------------------------------------------------------------- |
+| options.url     | webhook url                                                            |
+| method          | request method ("GET" or "POST")                                       |
+| params          | request params                                                         |
+| options.headers | headers for this request like Ip,  User-Agent, Accept-Language and etc |
+| options.ip      | client IP                                                              |
+
+
+
+## Webhook response
+
+### Content response
+
+```javascript
+// call user's webhook
+// first message sending appears on bot
+Bot.sendMessage("This answer will be in bot");
+
+//...
+// last message sending
+// will be on bot and on web page
+// you can open this web page on your browser via webhook url
+
+Bot.sendMessage("Hello in browser!");
+
+// in web page you will have:
+// { answer: "Hello in browser!" }
+```
+
+
+
+### Code response
+
+Webhook response can be:
+
+* 200 - BJS is runned, no errors
+* 503 - we have errors in BJS
+
+you can throw error in BJS:
+
+`throw new Error("Error on webhook")`
 
