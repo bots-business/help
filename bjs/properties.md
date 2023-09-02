@@ -140,7 +140,7 @@ Your account must have this bot
 // get other bot prop for cur user
 var bio = Bot.getProperty({
   name: 'BIO',
-  other_bot_id: other_bot_id  // available via bot.id
+  bot_id: other_bot_id  // available via bot.id
   // if needed:
   // user_id: userID // for user's prop
   // user_telegramid: tgID // for user by telegramid
@@ -159,7 +159,7 @@ Your account must have this bot with this user
 // get other bot prop for cur user
 var bio = Bot.getProperty({
   name: 'BIO',
-  other_bot_id: other_bot_id  // available via bot.id
+  bot_id: other_bot_id  // available via bot.id
   // you can pass other user.id for getting other user prop
   user_id: other_user_id
 });
