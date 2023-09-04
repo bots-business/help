@@ -132,9 +132,17 @@ or for another user:
 
 
 
+
+
 ### Get Top Refferal List
 
-`Libs.ReferralLib.getTopList()`
+{% hint style="danger" %}
+Unfortunately we had to remove sorting in sheets due to a performance issue.
+
+This functionality does not yet work.
+{% endhint %}
+
+~~`Libs.ReferralLib.getTopList()`~~
 
 ```javascript
 // It is just List
