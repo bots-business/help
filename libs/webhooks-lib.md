@@ -152,3 +152,13 @@ you can throw error in BJS:
 
 `throw new Error("Error on webhook")`
 
+
+
+
+
+## Possible issues
+
+In the case of a large number of requests from an external web service, such a web service may be subject to ban filters.
+
+Please provide an external IP address and we will add it to the White List.
+
