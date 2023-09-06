@@ -58,7 +58,7 @@ See [more](https://help.bots.business/scenarios-and-bjs)
 
 ## API
 
-[https://api.bots.business/docs](https://api.bots.business/docs)
+[appapi.bots.business/docs](https://appapi.bots.business/docs)
 
 ## Active Tasks
 
