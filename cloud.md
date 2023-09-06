@@ -18,6 +18,8 @@ We have **monthly** plans of BB.Cloud:
 
 ## Monthly Plans and specifications for BB.Cloud
 
+<figure><img src=".gitbook/assets/image (120).png" alt=""><figcaption></figcaption></figure>
+
 | **Cloud**         | **Cost** | **Monthly iterations** |
 | ----------------- | -------- | ---------------------- |
 | Cloud.Hobby**\*** | $22      | 1 million              |
@@ -27,6 +29,10 @@ We have **monthly** plans of BB.Cloud:
 | Cloud.PRO         | $220     | 45 million             |
 | Cloud.Business    | $300     | 100 million            |
 | Cloud.BigBusiness | $440     | 200 million            |
+
+
+
+<figure><img src=".gitbook/assets/image (119).png" alt=""><figcaption></figcaption></figure>
 
 | **Cloud**         | **Approximate iterations:** |             |          |
 | ----------------- | --------------------------- | ----------- | -------- |
@@ -44,6 +50,8 @@ Please note: values may differ slightly, both up and down, depending on the bot'
 {% hint style="info" %}
 \*Cloud.Hobby do not have [brodcasting](bjs/message-broadcasting.md#do-you-want-broadcast-text) and [auto retry](commands/auto-retry.md) for commands.
 {% endhint %}
+
+##
 
 ## How does the cloud work?
 
