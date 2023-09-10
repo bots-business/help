@@ -1,6 +1,6 @@
-# MembershipChecker
+# MembershipChecker (MCL)
 
-This library is used to verify user membership in other channels and chats.
+This library is used to verify user membership in other channels and chats. It is also know as MCLib (MCL)
 
 {% hint style="success" %}
 It is recommended to use this library, since it allows you to make the bot work faster
@@ -14,7 +14,7 @@ Install Library and create `/setup` command:&#x20;
 Libs.MembershipChecker.setup()
 ```
 
-Then go to App > Bot > Admin Panels anf fill options:
+Then go to App > Bot > Admin Panels and fill options:
 
 ![](<../.gitbook/assets/image (28).png>)
 
@@ -28,9 +28,8 @@ and `/onJoining`:
 
 ```javascript
 Bot.sendMessage("Thank you")
-```
 
-Thats all.
+```
 
 ## Additional
 
@@ -49,7 +48,7 @@ if(!isMember){
 
 ```
 
-You can also perfom manuall check if you need button:
+You can also perform manuall check if you need button:
 
 ```javascript
 // for all chats and channels:

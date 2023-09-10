@@ -68,7 +68,7 @@
 * [Guard](libs/guard.md)
 * [Webhooks lib](libs/webhooks-lib.md)
 * [DateTimeFormat Lib](libs/datetimeformat-lib.md)
-* [MembershipChecker](libs/membershipchecker.md)
+* [MembershipChecker (MCL)](libs/mcl.md)
 
 ## Store
 

@@ -182,7 +182,7 @@ We have 10 join + 10 check. So it will be 10 - 30 secs per 1 message from 1 user
 
 **Fix**
 
-* Use [MCLib](libs/membershipchecker.md)
+* Use [MCLib](libs/mcl.md)
 * Use [Bot.run](bjs/bot-functions.md#bot-run-params) with run\_after. It run task in background (Users don't have to wait)
 * Do not use Bot.run in chain. It is not good.&#x20;
 
