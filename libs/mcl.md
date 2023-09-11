@@ -27,24 +27,30 @@ On [before all](../bjs/always-running-commands.md) command @:
 ```javascript
 // for automatic checking
 // with checking delay from admin panel
-Libs.MembershipChecker.handle()
+Libs.MembershipChecker.handle();
 ```
 
 {% hint style="warning" %}
 This method can have much more iterations usage.&#x20;
 
-You can increase checking delay time for hour and etc.
+You can increase checking delay time for hour and etc
+
+
+
+Also you can use it only on /start - but user can leave your channel after joining and bot starting. With @ command it is permanent checking.
 {% endhint %}
+
+
 
 
 
 Command `/onNeedJoining` command. For example:
 
 ```javascript
-Bot.sendMessage("Please join to our channel: @MyChannel")
+let channels = Libs.MembershipChecker.getChats();
+Bot.sendMessage("Please join to our channels: " + channels);
+
 ```
-
-
 
 Command `/onJoining`:
 
@@ -55,10 +61,12 @@ Bot.sendMessage(
 );
 
 isMember = Libs.MembershipChecker.isMember();
+let channels = Libs.MembershipChecker.getChats();
+
 if(isMember){
    Bot.sendMessage("you joined to all channels and chats!"
 }else{
-   Bot.sendMessage("you need to join all channels and chats")
+   Bot.sendMessage("you need to join all channels and chats: " + channels)
 }
 ```
 
@@ -74,15 +82,18 @@ isMember = Libs.MembershipChecker.isMember()
 // isMember = Libs.MembershipChecker.isMember("@chatName")
 
 if(!isMember){
-  Bot.sendMessage("Please join to our channels")
+  let channels = Libs.MembershipChecker.getChats();
+  Bot.sendMessage("Please join to our channels " + channels)
   return // return from execution
 }
 
 ```
 
-You can also perform manuall check if you need button:
+You can also perform manual check if you need button:
 
 ```javascript
 // for all chats and channels:
+// this method perform checking without delay
+// but not more often than once every 2 seconds
 Libs.MembershipChecker.check()
 ```
