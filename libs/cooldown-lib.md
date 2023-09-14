@@ -77,7 +77,7 @@ cooldown.set(60 + cooldown.value()) // add 60 sec to cooldown
 
 Command `/bust`
 
-```
+```javascript
 // get current cooldown Res - see ResourcesLib
 let cooldown = Libs.CooldownLib.chat.getCooldown("GemBonusCooldown");
 
