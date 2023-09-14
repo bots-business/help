@@ -1,9 +1,13 @@
 # MembershipChecker (MCL)
 
-This library is used to verify user membership in other channels and chats. It is also know as **MCLib (MCL)**
+[#beforeall-and-afterall-commands](../bjs/always-running-commands.md#beforeall-and-afterall-commands "mention")This library is used to verify user membership in other channels and chats. It is also know as **MCLib (MCL)**
 
 {% hint style="success" %}
-It is recommended to use this library, since it allows you to make the bot work faster
+It is recommended to use this library, since it allows you to make the bot work faster.
+{% endhint %}
+
+{% hint style="info" %}
+Verification methods run in the background so the user does not need to wait for a response from the bot.
 {% endhint %}
 
 ## Initial setup
@@ -19,10 +23,21 @@ Then go to App > Bot > Admin Panels and fill options:
 ![](<../.gitbook/assets/image (28).png>)
 
 {% hint style="warning" %}
-Please note: small checking delay is not good for iterations
+Please note:&#x20;
+
+* **Small** checking **delay** is not good for iterations
+* **One chat** (or one channel) require **1 iteration per check**
 {% endhint %}
 
-On [before all](../bjs/always-running-commands.md) command @:
+
+
+
+
+## Setup
+
+### [**Before all**](../bjs/always-running-commands.md) **command**&#x20;
+
+in @ command:
 
 ```javascript
 // for automatic checking
@@ -44,7 +59,7 @@ Also you can use it only on /start - but user can leave your channel after joini
 
 
 
-Command `/onNeedJoining` command. For example:
+### Command `/onNeedJoining`
 
 ```javascript
 let channels = Libs.MembershipChecker.getChats();
@@ -52,11 +67,10 @@ Bot.sendMessage("Please join to our channels: " + channels);
 
 ```
 
-Command `/onJoining`:
+### Command `/onJoining`:
 
-```javascript
-Bot.sendMessage(
-    "Thank you for joining to " + 
+<pre class="language-javascript"><code class="lang-javascript"><strong>Bot.sendMessage(
+</strong>    "Thank you for joining to " + 
     options.chat_id
 );
 
@@ -68,7 +82,7 @@ if(isMember){
 }else{
    Bot.sendMessage("you need to join all channels and chats: " + channels)
 }
-```
+</code></pre>
 
 ## Limited bot access
 
@@ -89,7 +103,9 @@ if(!isMember){
 
 ```
 
-You can also perform manual check if you need button:
+## Check button
+
+You can also perform manual check if you need something like "check" button:
 
 ```javascript
 // for all chats and channels:
@@ -97,3 +113,22 @@ You can also perform manual check if you need button:
 // but not more often than once every 2 seconds
 Libs.MembershipChecker.check()
 ```
+
+
+
+## All methods
+
+| Method                | Description                                                                                                                                                                                               | Background () |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| `setup()`             | install Admin Panel for Lib                                                                                                                                                                               | no            |
+| `check()`             | check memberships                                                                                                                                                                                         | **yes**       |
+| `handle()`            | <p>check memberships with delay (you can setup delay in Admin Panel). <br><br>Use this method in <a href="../bjs/always-running-commands.md#beforeall-and-afterall-commands">before all</a> @ command</p> | **yes**       |
+| `isMember(chat_id)`   | <p>Returns true if the user has joined all resources. chat_id - can be null (it will be all chats)<br><br>Before you need to execute handle() or check()</p>                                              | no            |
+| `getChats()`          | Returns all resources (group chats, channels) specified in the Admin Panel                                                                                                                                | no            |
+| `getNotJoinedChats()` | Returns all resources (group chats, channels) specified in the panel that the user has not yet joined                                                                                                     | no            |
+
+
+
+{% hint style="info" %}
+All background methods require additional iterations.
+{% endhint %}
