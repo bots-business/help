@@ -36,9 +36,14 @@ Libs.CooldownLib.user.watch({
   onEnding: onEnding,
   onWaiting: onWaiting
 })
+```
 
+
+
+**or cool down for chat:**
+
+```javascript
 // or cooldown for chat:
-/*
 Libs.CooldownLib.chat.watch({
   // you need name for cooldown
   name: "GemBonusCooldown",
@@ -47,7 +52,7 @@ Libs.CooldownLib.chat.watch({
   onEnding: onEnding,
   onWaiting: onWaiting
 })
-*/
+
 
 // or global bot cooldown
 // it can be used with Auto Retry (then chat or user are null)
@@ -61,7 +66,13 @@ Libs.CooldownLib.watch({
   onWaiting: onWaiting
 })
 */
+```
 
+
+
+**get cool down:**
+
+```javascript
 // get current cooldown res for chat
 let cooldown = Libs.CooldownLib.chat.getCooldown("GemBonusCooldown");
 
@@ -74,6 +85,12 @@ let cooldown = Libs.CooldownLib.chat.getCooldown("GemBonusCooldown");
 cooldown.value(); // current cooldown in second
 cooldown.set(60 + cooldown.value()) // add 60 sec to cooldown
 ```
+
+
+
+
+
+
 
 Command `/bust`
 
