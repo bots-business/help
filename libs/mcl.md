@@ -119,14 +119,14 @@ Libs.MembershipChecker.check()
 
 ## All methods
 
-| Method                | Description                                                                                                                                                                                               | Background () |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `setup()`             | install Admin Panel for Lib                                                                                                                                                                               | no            |
-| `check()`             | check memberships                                                                                                                                                                                         | **yes**       |
-| `handle()`            | <p>check memberships with delay (you can setup delay in Admin Panel). <br><br>Use this method in <a href="../bjs/always-running-commands.md#beforeall-and-afterall-commands">before all</a> @ command</p> | **yes**       |
-| `isMember(chat_id)`   | <p>Returns true if the user has joined all resources. chat_id - can be null (it will be all chats)<br><br>Before you need to execute handle() or check()</p>                                              | no            |
-| `getChats()`          | Returns all resources (group chats, channels) specified in the Admin Panel                                                                                                                                | no            |
-| `getNotJoinedChats()` | Returns all resources (group chats, channels) specified in the panel that the user has not yet joined                                                                                                     | no            |
+| Method                | Description                                                                                                                                                                                               | Background |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `setup()`             | install Admin Panel for Lib                                                                                                                                                                               |            |
+| `check()`             | check memberships                                                                                                                                                                                         | **+**      |
+| `handle()`            | <p>check memberships with delay (you can setup delay in Admin Panel). <br><br>Use this method in <a href="../bjs/always-running-commands.md#beforeall-and-afterall-commands">before all</a> @ command</p> | **+**      |
+| `isMember(chat_id)`   | <p>Returns true if the user has joined all resources. chat_id - can be null (it will be all chats)<br><br>Before you need to execute handle() or check()</p>                                              |            |
+| `getChats()`          | Returns all resources (group chats, channels) specified in the Admin Panel                                                                                                                                |            |
+| `getNotJoinedChats()` | Returns all resources (group chats, channels) specified in the panel that the user has not yet joined                                                                                                     |            |
 
 
 
