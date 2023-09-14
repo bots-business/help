@@ -10,7 +10,6 @@ You can use it with BJS.&#x20;
 Api.sendAudio({
   audio: "https://www.bensound.org/bensound-music/bensound-funnysong.mp3"
 });
-
 ```
 
 send audio to other chat:&#x20;
@@ -20,7 +19,6 @@ Api.sendAudio({
   chat_id: 5515411,
   audio: "https://www.bensound.org/bensound-music/bensound-funnysong.mp3"
 });
-
 ```
 
 
@@ -74,9 +72,10 @@ For example get all user's profile photos:
 ```javascript
 Api.getUserProfilePhotos({
     user_id: user.telegramid,
-    
     // this command will be executed after getting photos
-    on_result: "onGetProfilePhotos"
+    on_result: "onGetProfilePhotos",
+    // you can pass any options for callback:
+    // bb_options: { your: "any", options: "here" }
 });
 ```
 
@@ -101,6 +100,8 @@ for(let i in photos){
    Api.sendPhoto( { photo: photos[i][0].file_id } );
 }
 
+// and passed bb_options:
+// Bot.inspect(options.bb_options)
 ```
 
 ## Error handling
@@ -110,7 +111,9 @@ It is possible to capture error with `on_error` param
 ```javascript
 Api.sendAudio({
   audio: "https://www.bensound.org/bensound-music/bensound-funnysong.mp3",
-  on_error: "/on_error"
+  on_error: "/on_error",
+  // you can pass any options for callback:
+  // bb_options: { your: "any", options: "here" }
 });
 ```
 
@@ -119,4 +122,7 @@ In command `on_error`:
 ```javascript
 Bot.sendMessage("We have error with sending audio");
 Bot.inspect(options)
+
+// and passed bb_options:
+// Bot.inspect(options.bb_options)
 ```
