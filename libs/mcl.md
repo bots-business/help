@@ -69,8 +69,9 @@ Bot.sendMessage("Please join to our channels: " + channels);
 
 ### Command `/onJoining`:
 
-<pre class="language-javascript"><code class="lang-javascript"><strong>Bot.sendMessage(
-</strong>    "Thank you for joining to " + 
+```javascript
+Bot.sendMessage(
+    "Thank you for joining to " + 
     options.chat_id
 );
 
@@ -82,7 +83,7 @@ if(isMember){
 }else{
    Bot.sendMessage("you need to join all channels and chats: " + channels)
 }
-</code></pre>
+```
 
 ## Limited bot access
 
