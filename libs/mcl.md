@@ -1,8 +1,16 @@
+---
+description: >-
+  This library is used to verify user membership in other channels and chats. It
+  is also know as MCLib (MCL)
+---
+
 # MembershipChecker (MCL)
 
-[#beforeall-and-afterall-commands](../bjs/always-running-commands.md#beforeall-and-afterall-commands "mention")This library is used to verify user membership in other channels and chats. It is also know as **MCLib (MCL)**
-
 {% hint style="success" %}
+We have demo bot for MCLib in the Store - BBChannelPromotionBot
+{% endhint %}
+
+{% hint style="warning" %}
 It is recommended to use this library, since it allows you to make the bot work faster.
 {% endhint %}
 
