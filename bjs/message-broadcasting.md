@@ -1,14 +1,13 @@
 # Message broadcasting and editing
 
+| Function                  | Description                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Bot.sendMessage(text)`   | <p>Send message to current chat. It is simple method with markdown by default.</p><p></p><p><code>Bot.sendMessage("Hello from bot")</code></p>                                                                                                                                                                                                                                                                           |
+| `Api.sendMessage(params)` | <p>Send message. It is Telegram Bot Api <a href="https://core.telegram.org/bots/api#sendmessage">method</a>. You can pass any params like text, reply_markup, parse_mode and etc:<br><br><code>Api.sendMessage({</code><br>   <code>text: "Hello, &#x3C;b>World!&#x3C;/b>",</code></p><p>   <code>parse_mode: "HTML",</code><br><code>})</code><br><br>By default, chat_id accord to the current chat. (chat.chatid)</p> |
 
 
-| Function                                    | Description                                                                                                                                                                   |
-| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Bot.sendMessage(text)`                     | <p>Send message to current chat</p><p></p><p><code>Bot.sendMessage("Hello from bot")</code></p>                                                                               |
-| `Bot.sendMessageToChatWithId(chatid, text)` | <p>Send message to chat with id. Current chatid for chat is contained in chat.chatid</p><p></p><p><code>Bot.sendMessageToChatWithId("45445454521", "Hello users!")</code></p> |
-| `Bot.sendMessageToChat(chat_name, text)`    | <p>Send message to other chat. The bot must be installed in another chat room</p><p></p><p><code>sendMessageToChat("OtherTestChat", "Hello to all!")</code></p>               |
 
-## Do you want broadcast text?
+## Do you want broadcast text to all chats?
 
 See [Bot.runAll](https://help.bots.business/scenarios-and-bjs/bot-functions#bot-runall-options) command
 
@@ -18,23 +17,29 @@ See [Bot.runAll](https://help.bots.business/scenarios-and-bjs/bot-functions#bot-
 
 
 
-**Security**
 
-{% hint style="danger" %}
-Please note that the user can create a chat with any name and add to it your bot.
-
-Therefore, the function `Bot.sendMessageToChatWithId` is more preferable than the function `Bot.sendMessageToChat`.
-{% endhint %}
 
 ## **Message editing**
 
-| **Function**                                    | Description                                                                                                                     |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| editMessage(value, message\_id, options)        | <p>edit message with value and message_id</p><p></p><p><code>Bot.editMessage("new text", 20)</code></p>                         |
-| editMessageInChat(chat\_id, value, message\_id) | <p>edit message with value and message_id in chat</p><p></p><p><code>Bot.editMessageInChat(10512154, "new text", 25)</code></p> |
+| **Function**                        | Description                                                                                                                  |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Bot.editMessage(value, message\_id) | <p>Simple method for message editing with value and message_id</p><p></p><p><code>Bot.editMessage("new text", 20)</code></p> |
+| Api.editMessageText(params)         | Advanced method for message editing. Please see full description [here](https://core.telegram.org/bots/api#editmessagetext). |
 
 {% hint style="info" %}
 message\_id - it is unique identificator for all chats of this bot.
+{% endhint %}
+
+{% hint style="info" %}
+We have several methods for editing:&#x20;
+
+`Api.editMessageText`
+
+`Api.editMessageCaption`
+
+`Api.editMessageMedia`
+
+`Api.editMessageLiveLocation` and etc. Please see [here](https://core.telegram.org/bots/api#editmessagetext).
 {% endhint %}
 
 ### **Message\_id for income messages to bot**
