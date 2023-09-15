@@ -50,46 +50,58 @@ For income messages to bot: use `request.message_id`
 
 ```javascript
 let msg_id = request.message_id;
-Bot.editMessage("new text", msg_id)
-
-// also you can store message_id for future editing:
-User.setProperty("msg_id", msg_id, "integer");
-// or if you want to edit message from others chats:
-Bot.setProperty("msg_id" + chat.chatid, msg_id, "integer");
+Bot.editMessage("new text", msg_id);
 ```
 
 {% hint style="warning" %}
 Message\_id - have unique value for all chats of bot. So we have only one message\_id with value "2" and only in one chat.
 {% endhint %}
 
-### **Message\_id for** messages from bot
+###
 
-use `on_result` in options - see [this](https://help.bots.business/scenarios-and-bjs/message-broadcasting#options-for-sendmessage-editmessage-and-sendkeyboard-functionals-reply-disable-notification-disable-web-page-preview)
+### Bot message removing
 
-#### Example
+In this example bot will remove old messages from bot.
 
 in first command:
 
 ```javascript
-Bot.sendMessage("hello",
-   {on_result: "onMessageSending" }
-)
+Api.sendMessage({
+  text: "Hello!",
+  // we going to remove this message after 120 sec
+  on_result: "removeMsgAfter 120"
+})
 ```
 
-in command `onMessageSending`:
+in command `removeMsgAfter`:
 
 ```javascript
-// You can inspect all result:
-// Bot.inspect(options)
+// user can run this command manually
+if(!options){ return }
+if(!options.result.message_id){ return }
 
-let msg_id = options.result.message_id;
-Bot.editMessage("new text", msg_id);
+// extract time delay
+let runAfter = parseInt(params);
 
-// Also you can save message_id for future:
-// Bot.setProperty( "MSG-for-edit" + chat.chatid, msg_id, "integer");
+// run message removing after "runAfter" minutes
+Bot.run({
+  command: "removeMsg",
+  options: { message_id: options.result.message_id },
+  run_after: runAfter // in seconds
+})
 ```
 
+in command `removeMsg:`
 
+```javascript
+if(!options){ return }
 
-###
+// remove message
+Api.deleteMessage({
+  message_id: options.message_id
+})
+
+// also you can edit message here, make message forwarding and etc
+// you have message_id here - so you can do anything
+```
 
