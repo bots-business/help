@@ -91,24 +91,5 @@ Bot.editMessage("new text", msg_id);
 
 
 
-### **Options for sendMessage, editMessage and sendKeyboard functionals: Reply, Disable Notification, Disable web page preview**
-
-You can pass options parameter to any `sendMessageXXX`, `sendKeyboard`, `editMesage`, `editMessageInChat` and`sendInlineKeyboard` functions:
-
-```javascript
-  let options = { disable_notification: true, reply_to_message_id: request.message_id };
-  Bot.sendMessage("Hello from bot", options);
-  Bot.sendMessageToChatWithId("45445454521", "Hello users!", options);
-  Bot.sendKeyboard("about, help,\ncontacts", "send keyboard now", options)
-```
-
-| Parameter                   | Type    | Description                                                                                                                                                                               |
-| --------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| disable\_web\_page\_preview | Boolean | Disables link previews for links in this message                                                                                                                                          |
-| disable\_notification       | Boolean | Sends the message silently. Users will receive a notification with no sound.                                                                                                              |
-| reply\_to\_message\_id      | Integer | If the message is a reply, ID of the original message                                                                                                                                     |
-| is\_reply                   | Boolean | If the message is a reply for previous message                                                                                                                                            |
-| parse\_mode                 | String  | Send `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. Default `Markdown`. Can be `Markdown`, `HTML` or `null` |
-| result\_to\_bot\_property   | String  | It is preferable to use "on\_result". Store result of message sending in bot property with this name.  You can read this result later in other commands by Bot.getProperty                |
-| on\_result                  | String  | Call this command after method with result                                                                                                                                                |
+###
 
