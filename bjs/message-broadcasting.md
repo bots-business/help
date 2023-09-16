@@ -9,11 +9,11 @@
 
 ## Do you want broadcast text to all chats?
 
-See [Bot.runAll](https://help.bots.business/scenarios-and-bjs/bot-functions#bot-runall-options) command
+See [Bot.runAll](bot-functions.md#bot.runall-options) command &#x20;
 
 ## Do you want broadcast photo, video and etc?
 
-See [Bot.runAll](https://help.bots.business/scenarios-and-bjs/bot-functions#bot-runall-options) command
+See [Bot.runAll](bot-functions.md#bot.runall-options) command
 
 
 
