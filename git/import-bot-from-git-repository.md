@@ -1,5 +1,7 @@
 # Import bot from Git repository
 
+{% embed url="https://www.youtube.com/watch?v=tCLsrJrMl6E" %}
+
 ## Preconditions
 
 Please see [this](https://help.bots.business/git#requirements) before. (Need set repository and Deploy Key in external repository)
