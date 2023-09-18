@@ -78,19 +78,7 @@ Bot.sendMessage("Please join to our channels: " + channels);
 ### Command `/onJoining`:
 
 ```javascript
-Bot.sendMessage(
-    "Thank you for joining to " + 
-    options.chat_id
-);
-
-isMember = Libs.MembershipChecker.isMember();
-let channels = Libs.MembershipChecker.getChats();
-
-if(isMember){
-   Bot.sendMessage("you joined to all channels and chats!"
-}else{
-   Bot.sendMessage("you need to join all channels and chats: " + channels)
-}
+Bot.sendMessage("Thank you for joining!");
 ```
 
 ## Limited bot access
