@@ -73,12 +73,17 @@ Also you can use it only on /start - but user can leave your channel after joini
 let channels = Libs.MembershipChecker.getChats();
 Bot.sendMessage("Please join to our channels: " + channels);
 
+// you can access for passed data:
+// Bot.inspect(options.bb_option)
 ```
 
 ### Command `/onJoining`:
 
 ```javascript
 Bot.sendMessage("Thank you for joining!");
+
+// you can access for passed data:
+// Bot.inspect(options.bb_option)
 ```
 
 ## Limited bot access
@@ -109,6 +114,9 @@ You can also perform manual check if you need something like "check" button:
 // this method perform checking without delay
 // but not more often than once every 2 seconds
 Libs.MembershipChecker.check()
+
+// also you can pass any data for callbacks:
+// Libs.MembershipChecker.check({ any: "data", here: "for callbacks"  })
 ```
 
 
@@ -118,7 +126,7 @@ Libs.MembershipChecker.check()
 | Method                | Description                                                                                                                                                                                               | Background |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | `setup()`             | install Admin Panel for Lib                                                                                                                                                                               |            |
-| `check()`             | check memberships                                                                                                                                                                                         | **+**      |
+| `check(bb_options)`   | check memberships. You can pass any data in options for callbacks (onJoining and onNeedJoining)                                                                                                           | **+**      |
 | `handle()`            | <p>check memberships with delay (you can setup delay in Admin Panel). <br><br>Use this method in <a href="../bjs/always-running-commands.md#beforeall-and-afterall-commands">before all</a> @ command</p> | **+**      |
 | `isMember(chat_id)`   | <p>Returns true if the user has joined all resources. chat_id - can be null (it will be all chats)<br><br>Before you need to execute handle() or check()</p>                                              |            |
 | `getChats()`          | Returns all resources (group chats, channels) specified in the Admin Panel                                                                                                                                |            |
