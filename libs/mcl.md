@@ -28,13 +28,16 @@ Libs.MembershipChecker.setup()
 
 Then go to App > Bot > Admin Panels and fill options:
 
-![](<../.gitbook/assets/image (28).png>)
+<figure><img src="../.gitbook/assets/изображение.png" alt=""><figcaption></figcaption></figure>
+
+
 
 {% hint style="warning" %}
 Please note:&#x20;
 
 * **Small** checking **delay** is not good for iterations
 * **One chat** (or one channel) require **1 iteration per check**
+* you can turn on "debug info" checkbox for bug searching
 {% endhint %}
 
 
