@@ -36,7 +36,9 @@ Command can have:
 
 ### How to create and edit commands?
 
-**You can edit command directly from application.**
+You can edit command directly from application.
+
+<figure><img src="../.gitbook/assets/CMD_editing.png" alt=""><figcaption></figcaption></figure>
 
 
 
