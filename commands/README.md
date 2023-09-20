@@ -38,7 +38,7 @@ Command can have:
 
 **You can edit command directly from application.**
 
-![Screen from App for command creation](<../.gitbook/assets/image (97).png>)
+<figure><img src="../.gitbook/assets/изображение (2).png" alt=""><figcaption></figcaption></figure>
 
 ### Commands importing
 
