@@ -140,7 +140,11 @@ isMember = Libs.MembershipChecker.isMember();
 
 // we need this commands because user always need
 // to /start bot and make "/check" command
-const skipCommands = ["/start", "Check", "/check"];
+const skipCommands = [
+   "/start",
+   "Check", "/check",
+    //  "/setup"   // it is also can be
+];
 
 const canRunBot = isMember || skipCommands.includes(message);
 
