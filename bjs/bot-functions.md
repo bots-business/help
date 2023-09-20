@@ -22,9 +22,7 @@
 
 > You can also use the properties in the command's answer. For example, you can do this with the / hello command:`Total score: <TotalScore>!`
 
-in BJS:
 
-> And you can use it in `Bot.sendMessage("<TotalScore>")`
 
 
 
@@ -64,21 +62,12 @@ Bot.run( {
     command: "/balance",
     run_after: 60*60*24*5,  // 5 days delay
     // options: { amount: 5, currency: "BTC" }  // you can pass data
-    chat_id: chat.id  // or use another chat_id
-    user_id: user.id  // or use another user.id
+    // chat_id: chat.id  // or use another chat_id
+    user_id: user.id,  // or use another user.id
+    // user_telegramid: tgId // or another user's telegram id
     // bot_id: ANOTHER_BOT_ID // to run command for your another bot 
 } )
 ```
-
-{% hint style="danger" %}
-You can not use chat.chatid and user.telegramid with Bot.run method.
-
-Only chat.id or user.id
-{% endhint %}
-
-{% hint style="success" %}
-Store another chat.id or user.id to propertis if you can not pass it imeditally.&#x20;
-{% endhint %}
 
 ## Bot.clearRunAfter(options)
 
@@ -105,20 +94,20 @@ Bot.clearRunAfter({ label: "myLabel"})
 **Example 1**. Run another command `/work` with delay 5 days. And remove that delay (for example on 3th day)
 
 ```javascript
-Bot.run( {
+Bot.run({
     command: "/balance",
     run_after: 60*60*24*5,  // 5 days delay
     label: "myLabel"
-} )
+})
 ```
 
 On the third day we learned that the call is no longer needed:
 
 ```javascript
 // remove all future executions with label "mylabel"
-Bot.clearRunAfter( {
+Bot.clearRunAfter({
     label: "myLabel"
-} )
+})
 ```
 
 
@@ -141,7 +130,7 @@ Bot.runAll(params)
 
 | Field       | Description                                                                                                                                                                                                   |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `command`   | **Required**. Command for run. For example "/start". Can pass params                                                                                                                                          |
+| `command`   | **Required**. Command for run. For example "/start". Can pass `params`                                                                                                                                        |
 | `options`   | json for passing to command. Available through options in this command                                                                                                                                        |
 | `on_create` | run this command on task creation with task information                                                                                                                                                       |
 | `for_chats` | <p>Command will be runned for this chats type only. Can be:</p><p><code>"private-chats"</code></p><p><code>"group-chats"</code></p><p><code>"super-group-chats"</code></p><p><code>"all"</code> - default</p> |
@@ -185,7 +174,7 @@ Bot.sendMessage(
 Command: `on_new_brodcast_task`
 
 ```javascript
-var task = options.run_all_task;
+const task = options.run_all_task;
 Bot.sendMessage(
   "Task for brodcasting created. Task id: " + task.id
 );
@@ -201,8 +190,8 @@ Command: `/progress`
 ```javascript
 // show current runAll progress
 
-var taskID = Bot.getProperty("curBrodcastTaskID");
-var task = new RunAllTask({ id: taskID });
+const taskID = Bot.getProperty("curBrodcastTaskID");
+let task = new RunAllTask({ id: taskID });
 // Bot.inspect(task) // you can check all fields
 
 if(!task.status){
