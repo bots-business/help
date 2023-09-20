@@ -4,6 +4,8 @@ description: What it is "bot command"?
 
 # Commands
 
+{% embed url="https://youtu.be/2r5-Sb1Ce-4" %}
+
 Command - it is text from user. Bot can sent answer for command or do something. Usually command start with `"/"`, e.g. `/hello`. But it is not always required.
 
 {% hint style="warning" %}
