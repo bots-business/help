@@ -28,9 +28,7 @@ Libs.MembershipChecker.setup()
 
 Then go to App > Bot > Admin Panels and fill options:
 
-<figure><img src="../.gitbook/assets/изображение.png" alt=""><figcaption></figcaption></figure>
-
-
+<figure><img src="../.gitbook/assets/изображение (3).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 Please note:&#x20;
@@ -46,7 +44,21 @@ Please note:&#x20;
 
 ## Setup
 
-### [**Before all**](../bjs/always-running-commands.md) **command**&#x20;
+### Callbacks
+
+You need to define commands in the admin panel. You can define only those commands that you need.
+
+| Callback command | Description                           |
+| ---------------- | ------------------------------------- |
+| `onNeedJoining`  | user still need to join to resource   |
+| `onJoining`      | user just joined to any resource      |
+| `onAllJoining`   | user just joined to all resources     |
+| `onStillJoined`  | user is still joined to all resources |
+| `onError`        | error callback                        |
+
+
+
+[**Before all**](../bjs/always-running-commands.md) **command**
 
 in @ command:
 
@@ -93,6 +105,26 @@ This callback will be executed **per each channel or chat**. For example, if you
 
 ```javascript
 if(!options){ return } // protect from manual run
+Bot.sendMessage("Thank you for joining to" + options.chat_id);
+
+// you can access for passed data:
+// Bot.inspect(options.bb_option)
+```
+
+{% hint style="success" %}
+This callback will be executed if the user just joined after after `handle()` or `check()` methods
+{% endhint %}
+
+{% hint style="info" %}
+This callback will be executed if the user **just joined to any channel**
+{% endhint %}
+
+
+
+### Command `/onAllJoining`:
+
+```javascript
+if(!options){ return } // protect from manual run
 Bot.sendMessage("Thank you for joining!");
 
 // you can access for passed data:
@@ -106,10 +138,6 @@ This callback will be executed if the user just joined after after `handle()` or
 {% hint style="info" %}
 This callback will be executed **once** if the user **has joined all channels**
 {% endhint %}
-
-
-
-
 
 ### Command  /onStillJoined
 
