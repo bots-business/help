@@ -4,8 +4,8 @@
 
 ## Git support
 
-* bot exporting to external Git repository (for Github, for example)
-* bot importing from external Git repository
+* Bot exporting to external Git repository. For example, Github
+* Bot importing from external Git repository
 
 ## Requirements
 
