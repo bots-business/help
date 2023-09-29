@@ -13,6 +13,10 @@
 
 Go to Bot->Edit-> show Advanced&#x20;
 
+or:
+
+Go to Bot -> Tools section -> Git sync
+
 ![](<../.gitbook/assets/image (2).png>)
 
 #### 2. Need set Deploy Key on external repository
