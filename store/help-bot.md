@@ -2,9 +2,11 @@
 
 ![](<../.gitbook/assets/image (65).png>)
 
-In Bots.Business chat we have many generic questions. [This bot](https://telegram.me/BBHelpBot) can answer for thems.
+In Bots.Business chat we have many generic questions. [This bot](https://telegram.me/BBHelpBot) can answer for them.
 
-Bot have only one command. This command is [Master command](https://help.bots.business/commands#how-to-execute-command-with-any-text-from-user-master-command) - \*.
+Bot is [Inline bot](../bjs/inline-bot.md) - it can used for searching in [help.bots.business](http://127.0.0.1:5000/o/zVsoOYuMpZ1g1IdtVniv/s/-LVh0yg9olT-QWqi3AYt/)
+
+Also bot use [Master command](https://help.bots.business/commands#how-to-execute-command-with-any-text-from-user-master-command) - \*.
 
 ### Code description
 
