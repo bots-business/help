@@ -28,7 +28,7 @@ Libs.MembershipChecker.setup()
 
 Then go to App > Bot > Admin Panels and fill options:
 
-<figure><img src="../.gitbook/assets/изображение (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/изображение (5).png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
 Please note:&#x20;
@@ -48,13 +48,14 @@ Please note:&#x20;
 
 You need to define commands in the admin panel. You can define only those commands that you need.
 
-| Callback command | Description                           |
-| ---------------- | ------------------------------------- |
-| `onNeedJoining`  | user still need to join to resource   |
-| `onJoining`      | user just joined to any resource      |
-| `onAllJoining`   | user just joined to all resources     |
-| `onStillJoined`  | user is still joined to all resources |
-| `onError`        | error callback                        |
+| Callback command   | Description                                 |
+| ------------------ | ------------------------------------------- |
+| `onNeedJoining`    | user still need to join to **any** resource |
+| `onNeedAllJoining` | user still need to join to **all** resource |
+| `onJoining`        | user just joined to **any** resource        |
+| `onAllJoining`     | user just joined to **all** resources       |
+| `onStillJoined`    | user is still joined to **all** resources   |
+| `onError`          | error callback                              |
 
 
 
@@ -215,7 +216,7 @@ User can press button many times. So we can restrict this and save iterations
 | Method                | Description                                                                                                                                                                                                                                                                                        | Background |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | `setup()`             | Install Admin Panel for Lib                                                                                                                                                                                                                                                                        |            |
-| `check(options)`      | <p>Force check memberships. </p><p></p><p>You can pass any data in options for callbacks (<code>onJoining</code>, <code>onNeedJoining</code>, <code>onStillJoined</code>)</p>                                                                                                                      | **+**      |
+| `check(options)`      | <p>Force check memberships. </p><p></p><p>You can pass any data in options for callbacks (<code>onJoining</code>, <code>onNeedJoining</code>, <code>onNeedAllJoining</code>, <code>onStillJoined</code>)</p>                                                                                       | **+**      |
 | `handle(options)`     | <p>Soft check memberships with delay (you can setup delay in Admin Panel). <br><br>Use this method in <a href="../bjs/always-running-commands.md#beforeall-and-afterall-commands">before all</a> @ command<br><br>You can pass any data in options for callbacks (onJoining and onNeedJoining)</p> | **+**      |
 | `isMember(chat_id)`   | <p>Returns true if the user has joined all resources. chat_id - can be null (it will be all chats)<br><br>Before you need to execute handle() or check()</p>                                                                                                                                       |            |
 | `getChats()`          | Returns all resources (group chats, channels) specified in the Admin Panel                                                                                                                                                                                                                         |            |
