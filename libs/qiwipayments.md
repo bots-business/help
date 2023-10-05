@@ -12,7 +12,7 @@ Need Api token from [https://qiwi.com/api](https://qiwi.com/api)
 
 ### Set Api Token to lib:
 
-`Libs.QiwiPayment.setQiwiApiTokent(API_KEY);`
+`Libs.QiwiPayment.setQiwiApiToken(API_KEY);`
 
 ### Get payment link
 
