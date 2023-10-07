@@ -121,12 +121,21 @@ Use this command for broadcasting any information: message, photo, video, keyboa
 {% endhint %}
 
 {% hint style="warning" %}
-**Bot.runAll** works for worked bots only.&#x20;
+**Bot.runAll** works for worked bots only. \
+\
+If you start a new task **before** the previous old task has completed, there is **no guarantee** that the old task will complete for all chats.
+
+
+
+You **need to wait** for the old task to complete before starting the new one.
 {% endhint %}
 
-```javascript
-Bot.runAll(params)
-```
+
+
+
+
+<pre class="language-javascript"><code class="lang-javascript"><strong>Bot.runAll(params)
+</strong></code></pre>
 
 | Field       | Description                                                                                                                                                                                                   |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
