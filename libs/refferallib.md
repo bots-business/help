@@ -50,9 +50,9 @@ function onAttracted(byUser){
 }
 
 RefLib.track({
-   onTouchOwnLink:,
-   onAlreadyAttracted:,
-   onAttracted:,
+   onTouchOwnLink: onTouchOwnLink,
+   onAlreadyAttracted: onAlreadyAttracted,
+   onAttracted: onAttracted,
    linkPrefix: "user", // you can use "", "r" and etc
 });
 ```
