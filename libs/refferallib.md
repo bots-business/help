@@ -42,23 +42,7 @@ will generate link kind **http://t.me/botname?start=userUSER\_ID**
 
 
 
-#### Do you want to change link prefix?
 
-For example you want link without "user" prefix. Use this code once:
-
-`Libs.ReferralLib.setLinkPrefix("")`
-
-then code:
-
-`Libs.ReferralLib.getLink()`
-
-will generate link kind:
-
-**http://t.me/botname?start=USER\_ID**
-
-
-
-###
 
 ### Get attractor for current user
 
