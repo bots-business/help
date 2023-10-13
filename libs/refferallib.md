@@ -36,7 +36,7 @@ will generate link kind **http://t.me/botname?start=userUSER\_ID**
 
 Also you can pass other bot name. For example - it is link for current bot:
 
-`Libs.ReferralLib.getRefLink(bot.name);`&#x20;
+`Libs.ReferralLib.getLink(bot.name);`&#x20;
 
 will generate link kind **http://t.me/botname?start=userUSER\_ID**
 
