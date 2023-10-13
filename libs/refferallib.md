@@ -19,14 +19,37 @@ params `trackOptions` - it is object with callback functions for:
 | `onTouchOwnLink()`     | user touch own ref link                                                                                   |
 | `onAlreadyAttracted()` | user already attracted                                                                                    |
 | `onAttracted(byUser)`  | user was attracted by other user byUser - it is common user data (fields: nickname, first\_name and etc)  |
+| `linkPrefix`           | <p>Prefix for link. By default it is "user":<br>https://t.me/botName?start=<strong>user</strong>ID</p>    |
 
 {% hint style="info" %}
-See [@DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=FromLibPage) for details
+See [@DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=FromLibPage) for details (Available in the Store)
 {% endhint %}
 
+### Example
+
+```javascript
+function onTouchOwnLink(){
+   Bot.sendMessage("It is your ref link!")
+}
+
+function onAlreadyAttracted(){
+   Bot.sendMessage("You already joined")
+}
+
+function onAttracted(){
+   Bot.sendMessage("Thank you for joining!")
+   // you can add bonus here...
+}
+
+RefLib.track({
+   onTouchOwnLink:,
+   onAlreadyAttracted:,
+   onAttracted:,
+   linkPrefix: "user"
+});
+```
+
 ## Functions
-
-
 
 ## Get Referral link for current user
 
