@@ -59,7 +59,7 @@ RefLib.track({
 
 ## Functions
 
-## Get Referral link for current user
+### Get Referral link for current user
 
 `RefLib.getLink();`&#x20;
 

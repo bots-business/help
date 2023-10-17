@@ -51,10 +51,11 @@
 * [What it is - Libs?](libs/what-it-is-libs.md)
 * [Libs development](libs/libs-development.md)
 * [RefferalLib](libs/refferallib.md)
+* [ResourcesLib](libs/resourceslib.md)
 * [Random](libs/random.md)
+* [MembershipChecker (MCL)](libs/mcl.md)
 * [Cooldown Lib](libs/cooldown-lib.md)
 * [CurrencyConverter](libs/currencyconverter.md)
-* [ResourcesLib](libs/resourceslib.md)
 * [Lang](libs/lang.md)
 * [QiwiPayments](libs/qiwipayments.md)
 * [BlockIO](libs/blockio.md)
@@ -68,7 +69,6 @@
 * [Guard](libs/guard.md)
 * [Webhooks lib](libs/webhooks-lib.md)
 * [DateTimeFormat Lib](libs/datetimeformat-lib.md)
-* [MembershipChecker (MCL)](libs/mcl.md)
 
 ## Store
 
