@@ -18,7 +18,7 @@ Basic function is **track**. Prefer to call it on /start:
 
 params `trackOptions` - it is object with callback functions for:
 
-| **Callback function**  | **Description**                                                                                                                                                                                                                                                                                       |
+| Attribute              | **Description**                                                                                                                                                                                                                                                                                       |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `onTouchOwnLink()`     | user touch own ref link                                                                                                                                                                                                                                                                               |
 | `onAlreadyAttracted()` | user already attracted                                                                                                                                                                                                                                                                                |
@@ -65,11 +65,21 @@ RefLib.track({
 
 will generate link kind **http://t.me/botname?start=userUSER\_ID**
 
+
+
 Also you can pass other bot name. For example - it is link for current bot:
 
 `RefLib.getLink(bot.name);`&#x20;
 
-will generate link kind **http://t.me/botname?start=userUSER\_ID**
+will generate link kind http://t.me/**botname**?start=userUSER\_ID
+
+
+
+It is possible to change link prefix:
+
+`RefLib.getLink(bot.name, "r");`&#x20;
+
+will generate link kind http://t.me/botname?start=**r**USER\_ID
 
 
 
