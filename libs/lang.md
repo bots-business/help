@@ -24,7 +24,7 @@ This is especially important for large bots
 First - need to setup languages. For example with **/setup** command:
 
 ```javascript
-var enLang = {
+const enLang = {
     user: { whatIsYourName: "What is your name?" },
     hello: "Hello!",
     onlyOnEnglish: "Only on english"
@@ -34,7 +34,7 @@ var enLang = {
     }
 }
 
-var ruLang = {
+const ruLang = {
     user: { whatIsYourName: "Как тебя зовут?" },
     hello: "Привет!",
     // not translated yet:
@@ -55,7 +55,7 @@ Now default language is "english".
 You can use lib now (for example, in command `/test`):
 
 ```javascript
-var lang = Libs.Lang;
+const lang = Libs.Lang;
 // send messages on default language
 Bot.sendMessage(lang.t("hello"))   // Hello!
 Bot.sendMessage(lang.t("user.whatIsYourName"))  // What is your name?
@@ -89,20 +89,20 @@ Bot.sendKeyboard(
 
 ```javascript
 // in /start command
-var lang_code = request.from.language_code;
+let lang_code = request.from.language_code;
 Libs.Lang.user.setLang(lang_code)
 ```
 {% endhint %}
 
 ### Get cur lang
 
-`var lang = Libs.Lang.user.getLang()`
+`let lang = Libs.Lang.user.getLang()`
 
 ### Change default lang
 
 ```javascript
 Libs.Lang.default.setLang("en")
-var default = Libs.Lang.default.getCurLang()
+let default = Libs.Lang.default.getCurLang()
 ```
 
 {% hint style="info" %}
@@ -114,9 +114,9 @@ Tips. Also you can use multi lang command. This **is not recommended** but somet
 `Bot.runCommand("/hello_" + Libs.Lang.user.getLang())`
 
 {% hint style="success" %}
-Also you can use 
+Also you can use&#x20;
 
-`Libs.Lang.t("translation-key", "ru")` 
+`Libs.Lang.t("translation-key", "ru")`&#x20;
 
 for non user actions: in webhooks and etc
 {% endhint %}
@@ -130,9 +130,9 @@ The following code might be helpful in such cases.
 ```javascript
 // command /test
 // you can pass language code in params
-var lng = params;
+let lng = params;
 // or in options with Bot.run(command: "/test", options: {lngCode: "fr"} )
-var lng = options.lngCode
+let lng = options.lngCode
 
 // So now:
 // lng = "fr"
@@ -163,7 +163,7 @@ You can set aliases for language.
 For `/setup`
 
 ```javascript
-var enLang = {
+const enLang = {
     aliases: {
        // Command /start have aliases:
        //       home, dashboard and /main:
@@ -183,29 +183,29 @@ For [Master command](https://help.bots.business/scenarios-and-bjs/always-running
 
 ```javascript
 // find multilanguage aliases
-var cmd = Libs.Lang.getCommandByAlias(message);
+let cmd = Libs.Lang.getCommandByAlias(message);
 if(cmd){ Bot.run({ command: cmd }) }
 
 // also it is possible define language
-// var cmd = Libs.Lang.getCommandByAlias(message, "ru");
+// let cmd = Libs.Lang.getCommandByAlias(message, "ru");
 // if(cmd){ Bot.run({ command: cmd }) }
 ```
 
- 
+&#x20;
 
 ## Good practices
 
 ### **Use different language files** (command) for each language.
 
-For example "lng-en.js", "lng-fr.js" and etc. So it's easier to translate. 
+For example "lng-en.js", "lng-fr.js" and etc. So it's easier to translate.&#x20;
 
 In `/setup` you can make something like this:
 
 ```javascript
-var languages = ["en", "es", "cn", "ru"];
-var cmdName;
+let languages = ["en", "es", "cn", "ru"];
+let cmdName;
 
-for(var i in languages){
+for(let i in languages){
     cmdName = "lng-" + languages[i].code;
     Bot.run({ command: cmdName })
 }
@@ -216,7 +216,7 @@ Bot.sendMessage("Multi Languages - installed");
 ### Make a simple command based structure
 
 ```javascript
-var enLang = {
+const enLang = {
     command1: {
       text: "your text",
       // keys
@@ -256,7 +256,7 @@ Libs.Lang.setup("en", enLang);
 ### Make translation for text and keyboard:
 
 ```javascript
-var enLang = {
+const enLang = {
     command1: {
        text: "Please confirm",
        keyboard: "Yes, Cancel",
