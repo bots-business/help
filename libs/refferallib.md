@@ -54,6 +54,8 @@ RefLib.track({
    onAlreadyAttracted: onAlreadyAttracted,
    onAttracted: onAttracted,
    linkPrefix: "user", // you can use "", "r" and etc
+   // you can pass debug for external debug info
+   //debug: true
 });
 ```
 
@@ -92,6 +94,12 @@ will generate link kind http://t.me/botname?start=**r**USER\_ID
 return attractor user data
 
 
+
+### Remove ref data for
+
+It is test method. You can run it and check ref link again like new user.
+
+`RefLib.clearRef()`
 
 
 
