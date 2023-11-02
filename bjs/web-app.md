@@ -162,7 +162,7 @@ command "`index.html`":
 command "`renderCSS`":
 
 ```javascript
-WebApp.render({ template: "example.css" });
+WebApp.render({ template: "example.css", mime_type: "text/css" });
 ```
 
 command "`example.css`":
