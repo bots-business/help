@@ -6,15 +6,11 @@ coverY: 0
 
 # Web App
 
-{% hint style="warning" %}
-**It is early!**
-
-This function under progress.
-{% endhint %}
-
 ## Demo bot
 
 {% embed url="https://t.me/BBWebAppBot" %}
+
+
 
 ## Quickly start
 
@@ -26,7 +22,11 @@ It is possible render text (html, css, js, json...) content to web. For example:
 // command webExample
 
 // get url for Web page
-var url = WebApp.getUrl({ command: "webExample" });
+var url = WebApp.getUrl({ 
+  command: "webExample",
+  // you can pass options
+  // options: { any: "options", here: "possible" } 
+});
 
 // we can get page url on bot
 Bot.inspect(url);
@@ -46,7 +46,7 @@ Go to bot and sent text `webExample`. You will have link to this page:
 
 ### Passing data to BJS
 
-It is possible to pass data from web via url params. For example your url is:
+It is possible to pass data from web via url params or via options on `WebApp.getUrl`. For example your url is:
 
 api.bots.business/v2/bots/**BOT\_ID**/**web-app**/**index**?secret=SECRET
 
@@ -83,10 +83,20 @@ It is hard to edit html in Java Script. Templates are a good way to organize you
 
 ```javascript
 // command index
-WebApp.render({ template: "index.html" });
+WebApp.render({
+  template: "index.html"
+  // you can pass mime type also:
+  // mime_type: "text/html", // html by default
+});
 ```
 
-and command "`index.html`":
+
+
+{% hint style="success" %}
+Possible [mime types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics\_of\_HTTP/MIME\_types/Common\_types): `text/css, text/csv, text/javascript, text/css, text/html, application/json and etc`
+{% endhint %}
+
+command "`index.html`":
 
 ```html
 <!-- it is html template. -->
