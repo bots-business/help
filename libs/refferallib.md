@@ -51,9 +51,17 @@ function onAttracted(byUser){
 
 RefLib.track({
    onTouchOwnLink: onTouchOwnLink,
+   
    onAlreadyAttracted: onAlreadyAttracted,
+   
    onAttracted: onAttracted,
-   linkPrefix: "user", // you can use "", "r" and etc
+   
+   // you can use "", "r" and etc for prefix
+   // if you change it - you need to pass same linkPrefix for
+   //  RefLib.getLink() also
+   // "user" - by default
+   // linkPrefix: "user",
+   
    // you can pass debug for external debug info
    //debug: true
 });
