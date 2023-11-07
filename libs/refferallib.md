@@ -12,9 +12,13 @@ RefferalLib is core Lib now - installation is not needed!
 
 ## Getting started
 
-Basic function is **track**. Prefer to call it on /start:
+Basic function is **track**. Prefer to call it on **/start**:
 
 `RefLib.track(trackOptions);`
+
+
+
+
 
 params `trackOptions` - it is object with callback functions for:
 
@@ -31,7 +35,11 @@ See [@DemoReferalTrackingBot](https://telegram.me/DemoReferalTrackingBot?start=F
 
 ### Example
 
+**Command /start**
+
 ```javascript
+// Command /start
+
 // this function will be executed if user poress own ref link
 function onTouchOwnLink(){
    Bot.sendMessage("It is your ref link!")
