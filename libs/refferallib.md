@@ -58,8 +58,8 @@ RefLib.track({
    
    // you can use "", "r" and etc for prefix
    // if you change it - you need to pass same linkPrefix for
-   //  RefLib.getLink() also
-   // "user" - by default
+   //  RefLib.getLink() also!
+   // Prefix "user" is used by default
    // linkPrefix: "user",
    
    // you can pass debug for external debug info
