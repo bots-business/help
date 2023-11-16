@@ -45,6 +45,10 @@ User.setProperty({
 * for user's prop use `User.xxx` method
 {% endhint %}
 
+{% hint style="info" %}
+You can use short naming also: `Bot.setProp`, `User.setProp`
+{% endhint %}
+
 also you can use old style:
 
 ```javascript
@@ -105,7 +109,9 @@ or get prop with default value:
 var myProp = Bot.getProperty('myProp', 15);
 ```
 
-
+{% hint style="info" %}
+You can use short naming also: `Bot.getProp`, `User.getProp`
+{% endhint %}
 
 ### Getting other user's prop:
 
