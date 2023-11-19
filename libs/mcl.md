@@ -162,7 +162,7 @@ If membership is required to use the bot you can use [before all](https://help.b
 
 ```javascript
 // for all chats and channels:
-isMember = Libs.MembershipChecker.isMember();
+let isMember = Libs.MembershipChecker.isMember();
 
 // for one chat / channel:
 // isMember = Libs.MembershipChecker.isMember("@chatName")

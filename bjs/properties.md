@@ -53,7 +53,7 @@ also you can use old style:
 
 ```javascript
  // set global prop
-Bot.setProperty("myProp", 15, "float" });
+Bot.setProperty("myProp", 15, "float");
 ```
 
 ### Set prop for other user by id
