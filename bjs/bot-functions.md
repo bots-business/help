@@ -34,16 +34,17 @@ Run other command
 Bot.run(params)
 ```
 
-| Field            | Description                                                                                                                               |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `command`        | **Required**. Command for run. For example "/start". Can pass params                                                                      |
-| `options`        | json for passing to command. Available through options in this command                                                                    |
-| `run_after`      | <p>delay in seconds before command callingName is case sensitive.<br><br>can be float. <br><br>Exact execution time is not guaranteed</p> |
-| `bot_id`         | bot\_id for passing. **By default** this is current bot.id                                                                                |
-| `user_id`        | user\_id for passing. **By default** this is current user.id                                                                              |
-| user\_telegramid | user\_telegramid for passing                                                                                                              |
-| `chat_id`        | chat\_id for passing. **By default** this is current chat.id                                                                              |
-| `label`          | can be used for clearing with `Bot.clearRunAfter`                                                                                         |
+| Field                  | Description                                                                                                                                                                                            |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `command`              | **Required**. Command for run. For example "/start". Can pass params                                                                                                                                   |
+| `options`              | json for passing to command. Available through options in this command                                                                                                                                 |
+| `run_after`            | <p>delay in seconds before command callingName is case sensitive.<br><br>can be float. <br><br>Exact execution time is not guaranteed</p>                                                              |
+| `bot_id`               | <p>bot_id for passing. <strong>By default</strong> this is current bot.id. <br><br>This bot must be in the same BB Account</p>                                                                         |
+| `user_id`              | user\_id for passing. **By default** this is current user.id                                                                                                                                           |
+| user\_telegramid       | user\_telegramid for passing                                                                                                                                                                           |
+| `chat_id`              | chat\_id for passing. **By default** this is current chat.id                                                                                                                                           |
+| `label`                | can be used for clearing with `Bot.clearRunAfter`                                                                                                                                                      |
+| `ignoreMissingCommand` | <p>do not throw error if command not found (can be used for some logic with <a href="always-running-commands.md#beforeall-and-afterall-commands">@</a> command and etc).<br><br>By default - false</p> |
 
 **Example 1**. Run another command `/balance` with delay 1 hour for current user
 
