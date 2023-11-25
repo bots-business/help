@@ -212,8 +212,8 @@ if(!task.status){
 
 Bot.sendMessage(
   "Current brodcast: " + 
-  "/n Status: " + task.status + " " + task.progress + "%" +
-  "/n Progress:" + task.cur_position + "/" + task.total
+  "\n Status: " + task.status + " " + task.progress + "%" +
+  "\n Progress:" + task.cur_position + "/" + task.total
 )
 
 ```
