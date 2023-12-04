@@ -66,7 +66,11 @@ in @ command:
 ```javascript
 // for automatic checking
 // with checking delay from admin panel
-Libs.MembershipChecker.handle();
+
+if(chat?.chat_type == "private"){
+    // we check joining only in private chat
+    Libs.MembershipChecker.handle();
+}
 ```
 
 {% hint style="warning" %}
@@ -79,7 +83,9 @@ You can increase checking delay time for hour and etc for decreasing iterations 
 Also you can use it only on `/start` - but user can leave your channel after joining and bot starting. With @ command it is permanent checking.
 {% endhint %}
 
-
+{% hint style="info" %}
+We use  (`chat?.chat_type == "private")` because in group chat (usually) joining checking is not needed.&#x20;
+{% endhint %}
 
 
 
