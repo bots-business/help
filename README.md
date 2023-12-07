@@ -60,7 +60,3 @@ See [more](https://help.bots.business/scenarios-and-bjs)
 
 [appapi.bots.business/docs](https://appapi.bots.business/docs)
 
-## Active Tasks
-
-{% embed url="https://trello.com/b/Duel9nLQ/botsbusiness-tasks" %}
-
