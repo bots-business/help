@@ -45,6 +45,8 @@
 * [Protected bot](protected-bot.md)
 * [VS Code](vs-code.md)
 * [How to...](howto.md)
+* [Smart Bot](master-1/README.md)
+  * [Smart Amount Dialog](master-1/smart-amount-dialog.md)
 
 ## Libs
 
