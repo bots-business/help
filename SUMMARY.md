@@ -45,8 +45,10 @@
 * [Protected bot](protected-bot.md)
 * [VS Code](vs-code.md)
 * [How to...](howto.md)
-* [Smart Bot](master-1/README.md)
-  * [Smart Amount Dialog](master-1/smart-amount-dialog.md)
+
+## Smart Bot <a href="#store" id="store"></a>
+
+* [Amount Dialog](store/amount-dialog.md)
 
 ## Libs
 
@@ -74,8 +76,8 @@
 
 ## Store
 
-* [BB Point Bot 💎](store/bbpointbot.md)
-* [BlockIOBot](store/blockiobot.md)
-* [Welcome bot](store/welcome-bot.md)
-* [Help bot](store/help-bot.md)
-* [SRB Demo Keyboard Tools](store/srb-demo-keyboard-tools.md)
+* [BB Point Bot](store-1/bbpointbot.md)
+* [BlockIOBot](store-1/blockiobot.md)
+* [Welcome bot](store-1/welcome-bot.md)
+* [Help bot](store-1/help-bot.md)
+* [SRB Demo Keyboard Tools](store-1/srb-demo-keyboard-tools.md)
