@@ -83,8 +83,53 @@ smartBot.add({ username: user.name, balance: user.balance });
 ```
 
 {% hint style="success" %}
-Params from options - are added automatically
+Params from options after SmartBot.run (or Bot.run) - are added automatically
 {% endhint %}
+
+
+
+#### Running other Comm
+
+Use the `run` method to execute another command within a command:
+
+```javascript
+smartBot.run({
+  command: "/anotherCommand"
+});
+
+// if you want edit mode:
+smartBot.run({
+  command: "/anotherCommand edit"
+});
+```
+
+{% hint style="success" %}
+It is same method like Bot.run but current options will be passed automatically
+{% endhint %}
+
+### is Alias method
+
+```javascript
+let isAlias = smartBot.isAlias(message);
+
+if(isAlias){
+  // for example we can have alias "Cancel", "Exit" on button
+  // so we just make exit from command
+  return
+}
+
+// other code
+```
+
+
+
+### Filling Content
+
+The `fill` method replaces all vars like "{data}" in text with actual variable values:
+
+```javascript
+let response = smartBot.fill("Hello, {username}, your balance is {balance}");
+```
 
 
 
