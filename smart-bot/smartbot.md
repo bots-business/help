@@ -66,6 +66,28 @@ You can make "return" in command and "@@"-command will be not run. It can be hel
 
 
 
+### Dynamic Content and Variable Handling
+
+One of `SmartBot`'s key features is its ability to handle dynamic content through variables.
+
+#### Adding Variables
+
+Use the `add` method to include dynamic content in responses:
+
+```javascript
+smartBot.add({ username: user.name, balance: user.balance });
+
+// or it can be "set" method
+// but with this method all another props will be deleted
+// smartBot.set({ username: user.name, balance: user.balance });
+```
+
+{% hint style="success" %}
+Params from options - are added automatically
+{% endhint %}
+
+
+
 ## Debugging
 
 If `debug` is set to `true`, `SmartBot` will provide detailed error messages, which is helpful for troubleshooting and ensuring your bot behaves as expected.
