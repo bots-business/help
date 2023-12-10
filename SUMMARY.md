@@ -50,6 +50,7 @@
 
 * [Overview](smart-bot/overview.md)
 * [Lang File](smart-bot/lang-file.md)
+* [SmartBot](smart-bot/smartbot.md)
 * [Amount Dialog](store/amount-dialog.md)
 
 ## Libs
