@@ -12,7 +12,7 @@ We have bot demo: [BBDemoTaskBot](https://t.me/BBDemoTaskBot) - free available i
 
 ## Setup
 
-You need setup Lang File. Please read here.
+You need setup Lang File. Please read [here](lang-file.md)
 
 
 
@@ -31,7 +31,7 @@ let smartBot = new SmartBot(options);
 * `params`: Initial parameters for the bot.
 * `defaultMarkdown`: The default formatting style for messages (e.g., Markdown, HTML).
 * skip\_cmd\_folders: Don't process commands in this folders (it can be "Setup", "Admin" folders for example)
-* strict\_params: Default - false. If true - error will be thrown if param not found but it is needed in Command's.
+* strict\_params: Default - false. If true - error will be thrown if param not found but it is needed in Command's. It is good for debugging.
 * `debug`: A boolean flag for enabling debugging. Default: false.
 
 #### Example:
@@ -51,7 +51,7 @@ let smartBot = new SmartBot({
 
 #### Example:
 
-Prefer to use after all command "@@":
+Prefer to use after all [command "@@"](../bjs/always-running-commands.md#beforeall-and-afterall-commands):
 
 ```javascript
 // command "@@"
@@ -59,7 +59,7 @@ smartBot.handle();
 ```
 
 {% hint style="success" %}
-You can make "return" in command and "@@"-command will be not run. It can be helpful in some case.
+You can make "return" in command and[ "@@"-command ](../bjs/always-running-commands.md#beforeall-and-afterall-commands)will be not run. It can be helpful in some case.
 {% endhint %}
 
 
