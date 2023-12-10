@@ -80,6 +80,19 @@ smartBot.add({ username: user.name, balance: user.balance });
 // smartBot.set({ username: user.name, balance: user.balance });
 ```
 
+So we can use username and balance props for command in [Lang File](lang-file.md) now:
+
+```json
+...
+// "/balance" commands
+"/balance": {
+   text: "Hello, {username}. Your balance: {balance}"
+}
+...
+```
+
+
+
 {% hint style="success" %}
 Params from options after SmartBot.run (or Bot.run) - are added automatically
 {% endhint %}
