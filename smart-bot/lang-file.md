@@ -53,10 +53,6 @@ Each command your bot can execute should have a corresponding entry in the langu
 }
 ```
 
-Incorporating the provided details into the language file section on commands, the updated part of the help article will be as follows:
-
-***
-
 ### Command Structure in Language Files
 
 In `SmartBot`, the commands section of the language file plays a crucial role. Each command the bot can execute should have a corresponding entry in this section. The structure allows for dynamic content insertion and supports various functionalities like text responses, keyboard layouts, and media handling.
@@ -69,7 +65,7 @@ Each command entry can include the following properties:
 "commandName": {
   "text": "Response text with {variable}",
   "parse_mode": "HTML",  // default is "Markdown"
-  "chat_id": "Chat ID or @channelname",
+  "chat_id": "Chat ID"   // or @channelname",
   "alias": "Command alias",
   "aliases": "Back, Cancel",
   "keyboard": "Button1, Button2",
@@ -80,7 +76,12 @@ Each command entry can include the following properties:
   "alert": "Alert text for inline button",
   "alert_top": "Top alert text",
   "photo": "https://link.to/image.png",
-  "edit": true
+  // this command can be act as edit command
+  // for text or/and keyboard.
+  // Default is: false
+  // "edit": false,
+  // message id for editing
+  // "message_id": "{message_id}",
 }
 ```
 
@@ -94,6 +95,7 @@ Each command entry can include the following properties:
 * **alert** and **alert\_top**: Special properties for displaying alerts when inline buttons are pressed.
 * **photo**: Directs the bot to send an image. The URL should point to the image file.
 * **edit**: A boolean flag indicating whether the bot should edit its previous message instead of sending a new one.
+* **message\_id**: message id for editing. Please note: SmartBot passed current message id on inline button pressing automatically&#x20;
 
 #### Example: Simple Test Command
 
@@ -118,8 +120,9 @@ You can also use predefined types or templates defined in the `types` section of
     // "#/" - it is key for types
     // only one button here:
     joinInlineKeyboard: [[
-      { text: "Check join to {Joining:notJoinedCount} from {Joining:channelsCount} channel(s)",
-        command: "checkJoin"  // it is link for command
+      { text: "Check join to {Joining:notJoinedCount} " + 
+          "from {Joining:channelsCount} channel(s)",
+       command: "checkJoin"  // it is link for command
     }]]
 <strong>  }
 </strong><strong>}
@@ -139,15 +142,14 @@ and as keyboard:
 
 ```json
 "/start": {
-  text: "Hello.\nIt is BB Demo Task Bot.\n\nYou can earn {currency} for completing tasks.\n\n " +
+  text: "Hello.\nIt is BB Demo Task Bot." +
+    "\n\nYou can earn {currency} for completing tasks.\n\n " +
     "*You need to join:* \n {Joining:allChannels} \n\n",
 
   // we used general type "joinInlineKeyboard" from "types" section
   inline_buttons: "#/keyboards/joinInlineKeyboard"
-},
+}
 ```
-
-##
 
 ## Setting Up the Language File in SmartBot
 
@@ -208,7 +210,7 @@ for(let i in languages){
 Then run /setup command in the bot.
 
 {% hint style="warning" %}
-if you change lang file you need to rerun /setup again
+if you change Lang file you need to rerun `/setup` again
 {% endhint %}
 
 ###

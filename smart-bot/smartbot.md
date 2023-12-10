@@ -1,7 +1,5 @@
 # SmartBot
 
-
-
 ## Introduction
 
 `SmartBot` is a versatile tool designed to enhance bot interaction and management, particularly for multi-language support. This guide focuses on setting up and initializing `SmartBot` for your projects, ensuring a smooth start for beginners in programming.
@@ -14,7 +12,7 @@ We have bot demo: [BBDemoTaskBot](https://t.me/BBDemoTaskBot) - free available i
 
 ## Setup
 
-You need setup Lang File
+You need setup Lang File. Please read here.
 
 
 
@@ -66,11 +64,11 @@ You can make "return" in command and "@@"-command will be not run. It can be hel
 
 
 
-### Dynamic Content and Variable Handling
+### Adding Params
 
 One of `SmartBot`'s key features is its ability to handle dynamic content through variables.
 
-#### Adding Variables
+
 
 Use the `add` method to include dynamic content in responses:
 
@@ -88,7 +86,7 @@ Params from options after SmartBot.run (or Bot.run) - are added automatically
 
 
 
-#### Running other Comm
+#### Running other Command
 
 Use the `run` method to execute another command within a command:
 
@@ -131,7 +129,9 @@ The `fill` method replaces all vars like "{data}" in text with actual variable v
 let response = smartBot.fill("Hello, {username}, your balance is {balance}");
 ```
 
-
+{% hint style="info" %}
+As a rule, there is no need to use this method - everything should happen automatically
+{% endhint %}
 
 ## Debugging
 
