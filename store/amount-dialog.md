@@ -1,4 +1,4 @@
-# Smart Amount Dialog
+# Amount Dialog
 
 ## Overview
 

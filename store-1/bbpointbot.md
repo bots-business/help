@@ -1,4 +1,4 @@
-# BB Point Bot 💎
+# BB Point Bot
 
 BB Point bot helps develop the community. User can echange BB Points to Extra Iterations.
 
