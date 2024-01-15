@@ -70,16 +70,16 @@ let userScore = User.getProperty("score") || 0;
 userScore = userScore + 5;
 
 // Adding points to a user
-CoreTopBoardLib.addScore({
+TopBoardLib.addScore({
    value: 5
    // boardName: "Game" // you can pass boar name
 });
 
 // Retrieving the leaderboard
-let leaderboard = CoreTopBoardLib.getBoard();
+let leaderboard = TopBoardLib.getBoard();
 
 // Resetting the leaderboard
-CoreTopBoardLib.resetBoard("game");
+TopBoardLib.resetBoard("game");
 
 ```
 
