@@ -75,12 +75,6 @@ TopBoardLib.addScore({
    // boardName: "Game" // you can pass boar name
 });
 
-// Retrieving the leaderboard
-let leaderboard = TopBoardLib.getBoard();
-
-// Resetting the leaderboard
-TopBoardLib.resetBoard("game");
-
 ```
 
 #### in /top command:
