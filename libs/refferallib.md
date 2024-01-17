@@ -202,9 +202,13 @@ or for another user:
 // https://help.bots.business/bjs/lists#getting-data 
 let list = RefLib.getTopList();
 
-list.order_by = "integer_value";
+// It is only for List
+//   by default TopBoardLib is used
+//   see useList param in track
+// list.order_by = "integer_value";
+
 // olso it is possible get newest members:
-list.order_ascending = false;
+// list.order_ascending = false;
 
 var items = list.get();
 //Bot.inspect(items);
