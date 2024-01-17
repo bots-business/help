@@ -97,3 +97,23 @@ if (leaderboard.length > 0) {
 // Send the leaderboard
 Api.sendMessage({ text: leaderboardText });
 ```
+
+
+
+{% hint style="info" %}
+You also can pass another user data to TopBoardLib.addScore method
+{% endhint %}
+
+```javascript
+// another user:
+let another_user = { id: ID, telegramid: tgId, first_name: "Smith" }
+another_user.value = 10;
+
+// update leaders board
+// another user score will be +10:
+TopBoardLib.addScore(another_user);
+```
+
+## Other methods
+
+`getUserPropName(boardName)` - this method return prop name for storing user's score. You can use it to prevent duplicate information. For example, if you have a user balance, then you can store it with this property name
