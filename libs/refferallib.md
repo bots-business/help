@@ -71,7 +71,16 @@ RefLib.track({
    // linkPrefix: "user",
    
    // you can pass debug for external debug info
-   //debug: true
+   //debug: true,
+   
+   // we can use List or TopBoardLib for Top List
+   // by default TopBoardLib is used
+   // useList: false
+   
+   // if useList - false (TopBoardLib is used)
+   // you can pass max board count
+   // it is 10 by default
+   // topBoardMaxCount: 15
 });
 ```
 
@@ -185,13 +194,7 @@ or for another user:
 
 ### Get Top Refferal List
 
-{% hint style="danger" %}
-Unfortunately we had to remove sorting in sheets due to a performance issue.
-
-This functionality does not yet work.
-{% endhint %}
-
-~~`RefLib.getTopList()`~~
+`RefLib.getTopList()`
 
 ```javascript
 // It is just List
