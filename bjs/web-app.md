@@ -283,3 +283,5 @@ Bot.inspect(url);
 
 So you will have this data in address and can extract it with JavaScript and window.location.search or etc.
 
+If you want more data or if you need any dynamic content - you can use Webhook to bot (or another WebApp-endpoints) + AJAX requests.&#x20;
+
