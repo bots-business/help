@@ -259,7 +259,8 @@ This question is now about web development, not bot development. We have jQuery 
 
 
 
-**How to use BB Libs in Web App?**\
+**How to use BB Libs in Web App?**
+
 BB Libs - it is bot libs not Web app Libs. You can not use libs in Web App\
 
 
