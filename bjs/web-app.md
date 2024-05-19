@@ -69,7 +69,7 @@ In BJS you can access to this data via options:
 
 ```javascript
 let key = options.key
-let anotherKey = options.anoteher_key
+let anotherKey = options.another_key
 
 // or more simple:
 // let {key, anotherKey } = options
@@ -240,3 +240,46 @@ Api.sendMessage({
 {% hint style="success" %}
 For another ways please see Telegram [Help](https://core.telegram.org/bots/webapps#implementing-web-apps)
 {% endhint %}
+
+
+
+## **How to?**
+
+**Why Bot.sendMessage method is not working on Web App?**
+
+Bot.sendMessage - it is method for sending message to user in Telegram. The Web App is not a Telegram chat, so there is no user, chat, etc. - anyone can open this web app, the user can share it with other users, etc.
+
+For sending message you need to pass chat id and use something like AJAX request to bot via [Webhook](../libs/webhooks-lib.md) (it can be more secure) or via another Web App endpoint with [passing data](web-app.md#passing-data-to-bjs).
+
+
+
+**How i can make AJAX requests from my Web App?**
+
+This question is now about web development, not bot development. We have jQuery and other methods, libraries (the list is really long). You can include any external js library in your application and use it. Go to the Internet - there is a lot of information there and our help is not the place where this question should be covered
+
+
+
+**How to use BB Libs in Web App?**\
+BB Libs - it is bot libs not Web app Libs. You can not use libs in Web App\
+
+
+**How to display personal user's data on web page?**
+
+You need to pass this data via url:
+
+```javascript
+// command webExample
+
+// get url for Web page
+var url = WebApp.getUrl({ 
+  command: "webExample",
+  // you can pass options
+  options: { user: user, chat: chat } 
+});
+
+// we can get page url on bot
+Bot.inspect(url);
+```
+
+So you will have this data in address and can extract it with JavaScript and window.location.search or etc.
+
