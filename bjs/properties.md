@@ -179,7 +179,7 @@ Pass `null` to prop's value for property deleting:
 
 ```javascript
 // prop "myProp" with null value will be removed
-Bot.setProperty("myProp", null, "float" });
+Bot.setProperty("myProp", null, "float");
 ```
 
 
