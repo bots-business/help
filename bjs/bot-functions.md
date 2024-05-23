@@ -157,7 +157,8 @@ Bot.runAll( {
     command: "/broadcast",
     for_chats: "private-chats",
     on_create: "on_new_brodcast_task",
-    // options: { any_data: "here" }
+    // you can pass data via options
+    options: { news: "Hello! it is news!" }
 } )
 ```
 
@@ -167,9 +168,9 @@ Command: `/broadcast`
 // it have user and chat object!
 // so we can send any information now: message, keyboard, photo and etc
 
-Bot.sendKeyboard("New news", "hello!")
+Bot.sendMessage(options.news)
 
-// we can get brodcast task info
+// we can get brodcast info via task
 /*
 let task = options.task;
 Bot.sendMessage(
