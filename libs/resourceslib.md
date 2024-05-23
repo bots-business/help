@@ -4,6 +4,13 @@ description: With lib we can manage any resources in bot.
 
 # ResourcesLib
 
+{% hint style="warning" %}
+It is bad practice to use Res for counting. Use simple Integer or Float types for it and setProp!
+
+\
+ResourcesLib is good for using it with [growth](resourceslib.md#growth-for-resource). If you don't have growth it is possible you don't need use this lib.
+{% endhint %}
+
 ## Resource can be
 
 * balance (in USD, BTC or any other)
