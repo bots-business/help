@@ -28,7 +28,7 @@ We have **monthly** plans of BB.Cloud:
 | Cloud.Start       | $99      | 10 million             |
 | Cloud.PRO         | $220     | 45 million             |
 | Cloud.Business    | $300     | 100 million            |
-| Cloud.BigBusiness | $440     | 200 million            |
+| Cloud.BigBusiness | $400     | 200 million            |
 
 
 
@@ -43,7 +43,7 @@ We have **monthly** plans of BB.Cloud:
 | Cloud.Start       | 300 000                     | 220         | $99      |
 | Cloud.PRO         | 1 400 000                   | 1000        | $220     |
 | Cloud.Business    | 3 000 000                   | 2200        | $300     |
-| Cloud.BigBusiness | 6 200 000                   | 4500        | $440     |
+| Cloud.BigBusiness | 6 200 000                   | 4500        | $400     |
 
 Please note: values may differ slightly, both up and down, depending on the bot's response time, the complexity of your commands, etc.
 
