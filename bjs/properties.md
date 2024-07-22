@@ -31,10 +31,10 @@ Properties can be:
 
 ```javascript
 // set global prop
-Bot.setProperty({ name: 'myProp', value: 15 });
+Bot.setProp({ name: 'myProp', value: 15 });
  
 // set JSON prop for user
-User.setProperty({
+User.setProp({
  name: 'BIO',
  value: { email: "test@example.com", age: 10 }
 });
@@ -60,7 +60,7 @@ Bot.setProperty("myProp", 15, "float");
 
 ```javascript
  // set global prop
-Bot.setProperty({
+Bot.setProp({
   name: 'otherUserProp',
   value: "test Prop",
   // you can pass other user.id for saving user prop for other user
@@ -72,7 +72,7 @@ Bot.setProperty({
 
 ```javascript
  // set global prop
-Bot.setProperty({
+Bot.setProp({
   name: 'otherUserProp',
   value: "test Prop",
   // you can pass other user.id for saving user prop for other user
@@ -94,11 +94,11 @@ Please read this [article](lists/)
 
 ```javascript
 // get global prop
-var myProp = Bot.getProperty('myProp');
+var myProp = Bot.getProp('myProp');
 Bot.sendMessage("prop: " + myProp);
  
 // get prop for user
-var bio = User.getProperty('BIO');
+var bio = User.getProp('BIO');
 Bot.sendMessage("Hello, " + bio);
 ```
 
@@ -106,7 +106,7 @@ or get prop with default value:
 
 ```javascript
 // prop by default will be 15
-var myProp = Bot.getProperty('myProp', 15);
+var myProp = Bot.getProp('myProp', 15);
 ```
 
 {% hint style="info" %}
@@ -121,7 +121,7 @@ Your bot must have this user
 
 ```javascript
 // get prop for other user
-var bio = Bot.getProperty({
+var bio = Bot.getProp({
   name: 'BIO',
   // you can pass other user.id for getting other user prop
   user_id: other_user_id
@@ -144,7 +144,7 @@ Your account must have this bot
 
 ```javascript
 // get other bot prop for cur user
-var bio = Bot.getProperty({
+var bio = Bot.getProp({
   name: 'BIO',
   bot_id: other_bot_id  // available via bot.id
   // if needed:
@@ -163,7 +163,7 @@ Your account must have this bot with this user
 
 ```javascript
 // get other bot prop for cur user
-var bio = Bot.getProperty({
+var bio = Bot.getProp({
   name: 'BIO',
   bot_id: other_bot_id  // available via bot.id
   // you can pass other user.id for getting other user prop
@@ -175,11 +175,16 @@ var bio = Bot.getProperty({
 
 ## Delete property
 
-Pass `null` to prop's value for property deleting:
+```javascript
+// prop "myProp" will be removed
+Bot.deleteProp("myProp");
+```
+
+Then `null` passing to prop's value is delete property also:
 
 ```javascript
 // prop "myProp" with null value will be removed
-Bot.setProperty("myProp", null, "float");
+Bot.setProp("myProp", null, "float");
 ```
 
 
