@@ -67,7 +67,6 @@
 * [Lang](libs/lang.md)
 * [TopBoardLib](libs/topboardlib.md)
 * [QiwiPayments](libs/qiwipayments.md)
-* [BlockIO](libs/blockio.md)
 * [Coinbase (CB)](libs/coinbase.md)
 * [CoinPayments (CP)](libs/coinpayments.md)
 * [OxaPay](libs/oxapay.md)
