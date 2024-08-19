@@ -6,17 +6,33 @@ Sometimes code execution is always required.
 
 This command executed only when there are no others commands or on [updates](https://core.telegram.org/bots/api#update) for Telegram bot.
 
-Just use `*` in command name.&#x20;
+Use `*` in command name.&#x20;
 
-Please see all updates list [here](https://core.telegram.org/bots/api#message)
 
-**Example.**
+
+### All Updates
+
+{% hint style="success" %}
+**You can handle** [**updates**](https://core.telegram.org/bots/api#update) **with Master Command**
+
+It is possible via `request` [variable](variables.md).
+{% endhint %}
+
+For inspect data you can use:
+
+`throw new Error(inspect(request))`
+
+then go to Error Tab and see data. Now you can use it via `request.xxx.yyy`
+
+
+
+### **Example**
 
 Command `*`
 
 ```javascript
 // you can track any message here
-if(message){
+if(message&&chat){
    Bot.sendMessage("Sorry, bot don't have this command: " + message);
    return
 }
