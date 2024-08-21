@@ -16,6 +16,12 @@ These callbacks may be maintained, modified, and managed by third-party users an
 
 Webhooks is more simple way for integration. Other libs also use webhooks notifications already: CoinPayments, FreeKassa.
 
+{% hint style="success" %}
+Webhook link have public\_user\_token - it is public secret.
+
+User can't modify user\_id, command because it is protected with public\_user\_token.
+{% endhint %}
+
 ## Get Webhook Url
 
 ```javascript
@@ -121,7 +127,7 @@ Bot.sendMessage(
 
 ## Webhook response
 
-### Content response
+### 1. Content response with bot answer
 
 ```javascript
 // call user's webhook
@@ -139,7 +145,14 @@ Bot.sendMessage("Hello in browser!");
 // { answer: "Hello in browser!" }
 ```
 
+### 2. Content response without bot answer
 
+You can use [WebApp](../bjs/web-app.md) render - it is not produce message from bot.
+
+```javascript
+// render this command in web
+WebApp.render({ content: "Hello from bot " + bot.name });
+```
 
 ### Code response
 
