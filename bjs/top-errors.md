@@ -160,7 +160,7 @@ It is possible on:
 
 
 
-## Incorrect file
+## 5. Incorrect file for sending.
 
 If you want to send video with Api.sendVideo or photo with sendPhoto and etc - you need to use direct file link.&#x20;
 
@@ -172,7 +172,7 @@ Incorrect links examples:
 
 
 
-## JSON parsing error: Unexpected Token in JSON
+## 6. JSON parsing error: Unexpected Token in JSON
 
 Check that your data is JSON before
 
