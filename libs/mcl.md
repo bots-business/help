@@ -195,7 +195,7 @@ if(!canRunBot){
 
 You can also perform manual check if you need something like "check" button.&#x20;
 
-<figure><img src="../.gitbook/assets/изображение (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/изображение (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 Example for `/check` command:
 
