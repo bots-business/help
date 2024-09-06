@@ -233,6 +233,14 @@ usd.growth.addCompoundInterest({
 You can get initial res value by: `res.baseValue()`
 {% endhint %}
 
+### Reset growth
+
+```javascript
+let usd = Libs.ResourcesLib.userRes("usd");
+usd.resetGrowth();
+
+```
+
 ### Other methods for res.growth:&#x20;
 
 `res.growth.info()` - get info for current growth
@@ -241,7 +249,11 @@ You can get initial res value by: `res.baseValue()`
 
 `res.growth.isEnabled()` - return true if is enabled&#x20;
 
-`res.growth.stop()` - stop growth&#x20;
+`res.growth.stop()` - stop growth
+
+`res.growth.resume()` - resume growth after stop
+
+`res.growth.remove()` - remove growth
 
 `res.growth.progress()` - current progress for next iteration&#x20;
 
