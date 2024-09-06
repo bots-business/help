@@ -235,6 +235,8 @@ You can get initial res value by: `res.baseValue()`
 
 ### Reset growth
 
+Growth will be removed
+
 ```javascript
 let usd = Libs.ResourcesLib.userRes("usd");
 usd.resetGrowth();
