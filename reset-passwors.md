@@ -19,7 +19,7 @@ If you forgot your password and unable to login the BB (Bots Business) app, foll
 3. Check your inbox for a **new password**, we will send a brand new password to your email. check spam folder if you unable to find the email with password.  
 4. Log in using the new password.
 
-**Success!** You can now log in and optionally update your password via the **Bots Business App**.  
+{% hint style="success" %}**Success!** You can now log in and optionally update your password via the **Bots Business App**. {% hintend %}  
 
 ---
 
@@ -35,7 +35,7 @@ If you think your password isn't secured or someone gain access to it, you can e
 4. Set and confirm a **new password**.  
 5. Tap **Update Password**.  
 
-**Success!** Your password is updated instantly.  
+{% hint style="success" %}**Success!** Your password is updated instantly.{% hintend %} 
 
 ---
 
