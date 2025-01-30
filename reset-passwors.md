@@ -1,91 +1,71 @@
-# Easy Guide to Reset Your Password  
+# 🔑 Reset or Update Your Password  
 
-If you forgot your password or need to update it for security reasons, follow these simple steps.  
+Forgot your password or need to update it? Choose one of these three methods:  
 
-## How to Reset Your Password (3 Methods)  
-
-There are three ways to reset your password:  
-
-- **Via Email (Default Method)**  
-- **Using the BB App**  
-- **Through Telegram Bot (If No Email Access)**  
+1. **[Reset via Email (Recommended)](#reset-via-email)**
+2. **[Change via BB App (If Logged In)](#change-via-bb-app)**
+3. **[Recover via Telegram Bot (No Email Access)](#recover-via-telegram)**  
 
 ---
 
-## 1. Reset Password via Email (Default Method)  
+## 📩 [Reset via Email (Recommended)](#reset-via-email)  
 
-> **ℹ️ Info**  
-> This is the recommended method for resetting your password.  
+This is the easiest and most secure way to reset your password.  
 
-### Step 1: Go to the Login Page  
-Click on the **"Forgot Password"** link on the login page.  
+### Steps:  
+1. Click **"Forgot Password"** on the login page.  
+2. Enter your **registered email** and submit.  
+3. Check your inbox for a **new password** (check spam too).  
+4. Log in using the new password.  
 
-### Step 2: Enter Your Email  
-Type the email linked to your account and submit the request.  
-
-### Step 3: Check Your Inbox  
-Look for an email with a **new password** (check spam if you don’t see it).  
-
-### Step 4: Log in with the New Password  
-Use the new password from the email to log in.  
-
-> **✅ Success**  
-> Your password has been successfully updated. Now you can also update the password (optionally) using the second method.  
+✅ **Success!** You can now log in and optionally update your password via the **BB App**.  
 
 ---
 
-## 2. Reset Password via BB App  
+## 📱 [Change via BB App (If Logged In)](#change-via-bb-app)  
 
-> **ℹ️ Info**  
-> Use this method if you are already logged into your account and want to change your password.  
+Use this if you're already logged in and want to update your password.  
 
-### Steps to Reset Password in the BB App  
+### Steps:  
+1. Open the **BB App** and go to **Home > Profile > Update Password**.  
+2. Enter your **current password**.  
+3. Set and confirm a **new password**.  
+4. Tap **Update Password**.  
 
-1. Log in to the **BB App**.  
-2. Go to **Home > Profile > Update Password**.  
-3. Enter your **current password**.  
-4. Set a **new password** and confirm it by re-entering.  
-5. Click **Update Password** – and you’re done!  
-
-> **✅ Success**  
-> Your password has been updated successfully in the BB App.  
+✅ **Success!** Your password is updated instantly.  
 
 ---
 
-## 3. Reset Password via Telegram Bot (If You Don’t Have Email Access)  
+## 🤖 [Recover via Telegram Bot (No Email Access)](#recover-via-telegram)  
 
-> **⚠️ Alert**  
-> This method should only be used if you **don’t have access to your registered email**.  
+Use this only if you **can’t access your email**.  
 
-### Steps to Recover via Telegram Bot  
+### Steps:  
+1. Open **[@BotsBusinessAdminBot](https://t.me/BotsBusinessAdminBot)** on Telegram.  
+2. Select **"⚠️ Password Recovery"** from the menu.  
+3. Send a valid **bot token** from **[@BotFather](https://t.me/BotFather)**.  
+4. After verification, you’ll get a **new password**.  
 
-1. Open Telegram and start the bot **[@BotsBusinessAdminBot](https://t.me/BotsBusinessAdminBot)**.  
-2. Tap on **"⚠️ Password Recovery"** from the bot’s menu.  
-3. The bot will ask you to send a **valid bot token** from **[@BotFather](https://t.me/BotFather)**.  
-4. Once verified, you will receive a **new password**.  
-
-> **❗ Important Notes for Telegram Recovery**  
-> - **Cloud accounts** are NOT supported for recovery through Telegram.  
-> - All **active app sessions** will be removed, and you’ll need to sign in again.  
-> - Your **BB API Key** will be reset for security reasons.  
+⚠️ **Important Notes:**  
+- **Cloud accounts are NOT supported** for Telegram recovery.  
+- All active sessions will be **logged out**.  
+- Your **BB API Key will be reset** for security.  
 
 ---
 
-## Troubleshooting  
+## ❓ Troubleshooting  
 
-> **❓ Password Reset Issues**  
-> - Didn’t get the email? **Check spam** or request a new one.  
-> - Temporary password not working? **Try resetting again**.  
-> - Still having issues? **[Contact customer support](#)**.  
-
----
-
-## Password Security Tips  
-
-> **🔒 Security Tips**  
-> - **Never share your password** with anyone.  
-> - **Use a password manager** to store and generate strong passwords.  
+- Didn’t get the email? **Check spam** or request again.  
+- Password not working? **Try resetting again**.  
+- Still having trouble? **[Contact Support](t.me/BotsBusinessAdmin)**.  
 
 ---
 
-Now you know how to reset your password using three different methods. Choose the one that works best for you!
+## 🔒 Password Security Tips  
+
+- **Never share your password** with anyone.  
+- Use a **password manager** for stronger security.  
+
+---
+
+Now you know how to reset or update your password easily—choose the method that works best for you!
