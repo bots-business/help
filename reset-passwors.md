@@ -63,13 +63,11 @@ If you lost access to your email account and forgot your password, we have a gre
 - Password not working? **Try resetting again**.  
 - Still having trouble? **[Contact Support](https://t.me/BotsBusinessAdmin)**.  
 
----
 
 ## Password Security Tips  
 
 - **Never share your password** with anyone.  
 - Use a **password manager** for stronger security.  
 
----
 
 Now you know how to reset or update your password easily—choose the method that works best for you!
