@@ -19,7 +19,7 @@ If you forgot your password and unable to login the BB (Bots Business) app, foll
 3. Check your inbox for a **new password**, we will send a brand new password to your email. check spam folder if you unable to find the email with password.  
 4. Log in using the new password.
 
-{% hint style="success" %}**Success!** You can now log in and optionally update your password via the **Bots Business App**. {% hintend %}  
+{% hint style="success" %}**Success!** You can now log in and optionally update your password via the **Bots Business App**. {% endhint %}  
 
 ---
 
@@ -35,7 +35,7 @@ If you think your password isn't secured or someone gain access to it, you can e
 4. Set and confirm a **new password**.  
 5. Tap **Update Password**.  
 
-{% hint style="success" %}**Success!** Your password is updated instantly.{% hintend %} 
+{% hint style="success" %}**Success!** Your password is updated instantly.{% endhint %} 
 
 ---
 
@@ -50,10 +50,10 @@ If you lost access to your email account and forgot your password, we have a gre
 3. Send a valid **bot token** from **[@BotFather](https://t.me/BotFather)**.  
 4. After verification, you’ll get a **new password**.  
 
-**Important Notes:**  
+{% hint style="info" %}**Important Notes:**  
 - **Cloud accounts are NOT supported** for Telegram recovery.  
 - All active sessions will be **logged out**.  
-- Your **BB API Key will be reset** for security.  
+- Your **BB API Key will be reset** for security.{% endhint %}
 
 ---
 
@@ -70,4 +70,4 @@ If you lost access to your email account and forgot your password, we have a gre
 - Use a **password manager** for stronger security.  
 
 
-Now you know how to reset or update your password easily—choose the method that works best for you!
+{% hint style="success" %}Now you know how to reset or update your password easily—choose the method that works best for you!{% endjint %}
