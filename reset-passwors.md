@@ -2,13 +2,13 @@
 
 Forgot your password or need to update it? Choose one of these three methods:  
 
-1. **[Forgot Password](#forgot-password-forgot)**
-2. **[Update Password](#update)**
-3. **[Recover Password](#recover)**  
+1. **[Forgot Password](#forgot-password)**
+2. **[Update Password](#update-passwors)**
+3. **[Recover Password](#recover-password)**  
 
 ---
 
-## Forgot Password #forgot
+## Forgot Password
 
 If you forgot your password and unable to login the BB (Bots Business) app, follow the guid below.  
 
@@ -23,7 +23,7 @@ If you forgot your password and unable to login the BB (Bots Business) app, foll
 
 ---
 
-## [Update password (If Logged In)](#update)  
+## Update password  
 
 If you think your password isn't secured or someone gain access to it, you can easily update your password and make it secure. 
 
@@ -39,7 +39,7 @@ If you think your password isn't secured or someone gain access to it, you can e
 
 ---
 
-## [Recover via Telegram Bot](#recover)  
+## Recover password 
 
 If you lost access to your email account and forgot your password, we have a great solution for this,
 
