@@ -57,7 +57,7 @@ Use this only if you **can’t access your email**.
 
 - Didn’t get the email? **Check spam** or request again.  
 - Password not working? **Try resetting again**.  
-- Still having trouble? **[Contact Support](t.me/BotsBusinessAdmin)**.  
+- Still having trouble? **[Contact Support](https://t.me/BotsBusinessAdmin)**.  
 
 ---
 
