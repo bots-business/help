@@ -2,13 +2,13 @@
 
 Forgot your password or need to update it? Choose one of these three methods:  
 
-1. **[Forgot Password](#forgot)**
+1. **[Forgot Password](#Forgot-Password)**
 2. **[Update Password](#update)**
 3. **[Recover Password](#recover)**  
 
 ---
 
-## [Forgot Password ](#forgot)  
+## Forgot Password #forgot
 
 If you forgot your password and unable to login the BB (Bots Business) app, follow the guid below.  
 
