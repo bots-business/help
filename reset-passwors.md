@@ -3,7 +3,7 @@
 Forgot your password or need to update it? Choose one of these three methods:  
 
 1. **[Forgot Password](#forgot-password)**
-2. **[Update Password](#update-passwors)**
+2. **[Update Password](#update-password)**
 3. **[Recover Password](#recover-password)**  
 
 ---
