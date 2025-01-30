@@ -2,58 +2,53 @@
 
 Forgot your password or need to update it? Choose one of these three methods:  
 
-1. **[Reset via Email (Recommended)](#reset-via-email)**
-2. **[Change via BB App (If Logged In)](#change-via-bb-app)**
-3. **[Recover via Telegram Bot (No Email Access)](#recover-via-telegram)**  
+1. **[Forgot Password](#forgot)**
+2. **[Update Password](#update)**
+3. **[Recover Password](#recover)**  
 
 ---
 
-## [Reset via Email (Recommended)](#reset-via-email)  
+## [Forgot Password ](#forgot)  
 
-This is the easiest and most secure way to reset your password.  
+If you forgot your password and unable to login the BB (Bots Business) app, follow the guid below.  
 
 ### Steps:  
 1. Click **"Forgot Password"** on the login page.  
-   ![Forgot Password Screenshot](https://example.com/forgot-password.png)  
-2. Enter your **registered email** and submit.  
-   ![Enter Email Screenshot](https://example.com/enter-email.png)  
-3. Check your inbox for a **new password** (check spam too).  
-   ![Check Email Screenshot](https://example.com/check-email.png)  
-4. Log in using the new password.  
-   ![Login Screenshot](https://example.com/login.png)  
+   ![Forgot Password Screenshot](https://i.ibb.co/NgCkGYkg/20250130-133557.png)  
+2. Enter your **registered email** and click **Reset my password** button.  
+3. Check your inbox for a **new password**, we will send a brand new password to your email. check spam folder if you unable to find the email with password.  
+4. Log in using the new password.
 
-**Success!** You can now log in and optionally update your password via the **BB App**.  
+**Success!** You can now log in and optionally update your password via the **Bots Business App**.  
 
 ---
 
-## [Change via BB App (If Logged In)](#change-via-bb-app)  
+## [Update password (If Logged In)](#update)  
 
-Use this if you're already logged in and want to update your password.  
+If you think your password isn't secured or someone gain access to it, you can easily update your password and make it secure. 
 
 ### Steps:  
-1. Open the **BB App** and go to **Home > Profile > Update Password**.  
-   ![BB App Profile Screenshot](https://example.com/bb-app-profile.png)  
-2. Enter your **current password**.  
-3. Set and confirm a **new password**.  
-4. Tap **Update Password**.  
-   ![Update Password Screenshot](https://example.com/update-password.png)  
+1. Open the App and click on thee line (top-left corner), then click on your profile.
+2. Scroll a little bit to see the update password section.  
+   ![BB App Profile Screenshot](https://i.ibb.co/R4kcBRF6/Screenshot-2025-01-30-13-57-26-947-bb-app-com-bots-business-edit.jpg)  
+3. Enter your **current password**.  
+4. Set and confirm a **new password**.  
+5. Tap **Update Password**.  
 
 **Success!** Your password is updated instantly.  
 
 ---
 
-## [Recover via Telegram Bot (No Email Access)](#recover-via-telegram)  
+## [Recover via Telegram Bot](#recover)  
 
-Use this only if you **can’t access your email**.  
+If you lost access to your email account and forgot your password, we have a great solution for this,
 
 ### Steps:  
-1. Open **[@BotsBusinessAdminBot](https://t.me/BotsBusinessAdminBot)** on Telegram.  
-   ![Open Bot Screenshot](https://example.com/open-bot.png)  
+1. Visit **[@BotsBusinessAdminBot](https://t.me/BotsBusinessAdminBot)** bot.  
 2. Select **"Password Recovery"** from the menu.  
-   ![Password Recovery Screenshot](https://example.com/password-recovery.png)  
+   ![Password Recovery Screenshot](https://i.ibb.co/s9SZWtqH/20250130-140635.jpg)  
 3. Send a valid **bot token** from **[@BotFather](https://t.me/BotFather)**.  
 4. After verification, you’ll get a **new password**.  
-   ![Bot Verification Screenshot](https://example.com/bot-verification.png)  
 
 **Important Notes:**  
 - **Cloud accounts are NOT supported** for Telegram recovery.  
