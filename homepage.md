@@ -41,7 +41,7 @@ At the top of the Page, you'll see a search field. for big number if bots it us 
 ## Hamburger Menu
 
 The **Hamburger Menu** (three horizontal lines) in the top-left corner of the screen provides access to additional options and advanced features including dark and bright mode toggle:
-![menu](.gitbook/assets/menu.png)
+![menu](.gitbook/assets/appmenu.png)
 
 - **Account Information**: View your account details, including your email address, profile picture, and lots if security options inside profile page, please [Read Here](profile.md) for more detailed information about profile and security.
 
