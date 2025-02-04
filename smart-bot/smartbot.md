@@ -4,8 +4,6 @@
 
 `SmartBot` is a versatile tool designed to enhance bot interaction and management, particularly for multi-language support. This guide focuses on setting up and initializing `SmartBot` for your projects, ensuring a smooth start for beginners in programming.
 
-
-
 {% hint style="info" %}
 We have bot demo: [BBDemoTaskBot](https://t.me/BBDemoTaskBot) - free available in the Store.&#x20;
 {% endhint %}
@@ -145,6 +143,22 @@ let response = smartBot.fill("Hello, {username}, your balance is {balance}");
 {% hint style="info" %}
 As a rule, there is no need to use this method - everything should happen automatically
 {% endhint %}
+
+## Change language for user
+
+You can change language for user via this code:
+
+```javascript
+// change user language to "en"
+smartBot.setUserLang("en");
+// or to "fr"
+smartBot.setUserLang("fr");
+
+// get current user language:
+let lngCode = smartBot.getUserLang(); // it will be "fr" here
+```
+
+You can define translation. Read about this [here](lang-file.md).
 
 ## Debugging
 
