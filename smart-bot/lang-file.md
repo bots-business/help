@@ -27,6 +27,8 @@ A language file in `SmartBot` is a JSON object that contains keys and values. Th
   },
   "titles": {
     // General titles or labels used in the commands
+    // will be added to params
+    // can be accessed via params and via {name} in template
   }
   // Additional sections as needed
 }
@@ -167,6 +169,15 @@ Once your language file is ready, you can set it up in `SmartBot` like this - co
 ```javascript
 const LANG_EN = {
   // Your English translations...
+  "commands": {
+    // ...
+  },
+  "types": {
+    // ...
+  },
+  "titles": {
+    // ...
+  }
 };
 smartBot.setupLng("en", LANG_EN);
 ```
