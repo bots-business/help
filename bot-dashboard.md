@@ -26,14 +26,17 @@ This page contains the commands and folders of your bot. You can create new comm
  - You can also search commands, very helpful feature for big bots. you can find search bar at the top of the page.
 
 ### Chats
-This page shows the list of your bot chats, including groups, channels, and private chats. This is important for further actions like running commands for all users or for a specific user, blocking users, or blocking a chat from using the bot. You can also block them manually from the list by clicking the "Block" button for the chat. You can add blocking logic and functions using Bjs code. [Read Here]() 
-![Chats Screenshot](chats_screenshot.png)
+This page shows the list of your bot chats, including groups, channels, and private chats. This is important for further actions like running commands for all users or for a specific user, blocking users, or blocking a chat from using the bot. You can also block them manually from the list by clicking the "Block" button for the chat. You can add blocking logic and functions using Bjs code.
+![Chats Screenshot](.gitbook/assets/bot-chats.png)
 
 ### Property
-This page provides a full list of properties (data) saved by your bot for users or the bot itself. You can view and manage these properties. [Learn more about property saving here]().
+This page provides a full list of properties (data) saved by your bot for users or the bot itself. You can view and manage these properties. Property can be delete manually using the "Remove" button on this page and property can be saved using bjs (code) only, [Learn more about property saving here](bjs/properties.md).
+![prop](.gitbook/assets/bot-prop.png)
+{% hint style="info"%} Please note that removing property manually isn't working currently due to an unknown bug. only resources property can be removed manually now. {% endhint %}
 
 ### Tools
-This section includes interesting and helpful functions. You can import commands from Google Sheets, copy an existing bot, and import or export bots to GitHub. [Read Here]() to know more about the tools section.
+This section includes interesting and helpful functions. You can import commands from Google Sheets, copy an existing bot, and import or export bots to GitHub. [Read Here](bot-tools.md) to know more about the tools section.
+![tools](.gitbook/assets/bot-tools.png)
 
 ### Libraries
 This page shows a list of libraries installed on your bot. You can install a new library by clicking the "Go to Install" button. [Read Here]() to know more about libraries and their usage.
