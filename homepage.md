@@ -2,17 +2,6 @@
 This is home screen where all bots that created by you or transfered to you from other account will be listed here.
 Lets understand the bot menu and its functionality.
 
----
-
-## Table of Contents
-
-1. [Bot List Overview](#bot-list-overview)
-2. [Actions](#actions-you-can-take)
-3. [Searching Bots](#searching-bot)
-4. [Hamburger Menu (☰)](#hamburger-menu)
-
----
-
 ## Bot List Overview
 
 When you access the bot management interface, you'll see a comprehensive list of all your bots. The bots are listed in a clear, organized manner, allowing you to easily navigate between them. Additionally, each bot has a colour indicator  that informs you about the bot's current state, helping you keep track of which bots are active or need attention.
