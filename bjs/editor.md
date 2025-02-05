@@ -21,3 +21,9 @@ The settings button in the editor provides essential tools to enhance productivi
 - **Copy Code:** Copy the entire code snippet with a single click, making it easy to share or reuse your scripts elsewhere.  
 - **Format Code:** Beautify your code by formatting it into a clean, structured layout for better readability and maintenance.  
 - **Destroy Command:** Permanently delete commands that are no longer needed, helping you keep your workspace organized and efficient.
+
+### Bright screenshot 
+![editor-bright](/.gitbook/assets/code-editor-bright.png) 
+
+### Dark screenshot 
+![editor-dark](/.gitbook/assets/code-editor-dark.png)
