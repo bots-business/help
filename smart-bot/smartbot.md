@@ -24,6 +24,13 @@ To use `SmartBot`, you first need to create an instance. This is typically done 
 let smartBot = new SmartBot(options);
 ```
 
+{% hint style="success" %}
+You need to put this code:
+
+* in [BeforeAll](../bjs/always-running-commands.md#beforeall-and-afterall-commands) command - "@"
+* and create blank [Master Command](../bjs/always-running-commands.md#master-command) (because we need to track all commands we need blank "\*" command)
+{% endhint %}
+
 #### Options:
 
 * `params`: Initial parameters for the bot.
