@@ -1,6 +1,6 @@
 # BJS Code Editor
 
-The **BJS Code Editor** is a simple code editor which has very useful and required tools. [ [Know about bjs](bjs) ]
+The **BJS Code Editor** is a simple code editor which has very useful and required tools. [ [Know about bjs](/bjs) ]
 
 ---
 
