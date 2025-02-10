@@ -46,7 +46,18 @@ balance.set(100)
 ```
 
 ### Add Growth to a Resource  
-(code here)  
+```js
+//Max value: 100
+let health = Libs.ResourcesLib.userRes("health");
+health.set(1);
+let secs_in_hour = 1 * 60 * 60;
+health.growth.add({
+  value: 5,
+  interval: secs_in_hour,
+  max: 100
+});
+// interval in seconds.
+```
 
 The **growth feature** is essential for **investment or loan bots**, where resources **increase or decrease** at scheduled intervals.  
 
@@ -60,5 +71,5 @@ For example:
 
 ## Get the Demo Resources Bot  
 
-🔗 **See the bot on the Bot Store** or check out the **GitHub repo** to view the full source code.  
+🔗 **See the bot on the Bot Store** or check out the **[GitHub repo](https://github.com/bots-business/DemoResBot)** to view the full source code.  
 - You can **copy, modify, and implement** the code for your own projects!
