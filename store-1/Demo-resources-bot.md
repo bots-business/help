@@ -12,7 +12,7 @@ With resLib, you can:
 
 > Growth Example: You can define how often a resource increases, its maximum amount, and time intervals. This is useful for **investment or loan bots** where resources change periodically.  
 
-📖 **Read more about resLib [here](#).**  
+📖 **Read more about resLib [here](https://github.com/nasirul786/help/blob/master/libs/resourceslib.md).**  
 
 ---
 
@@ -28,11 +28,22 @@ This bot **demonstrates how to use resLib effectively**. It includes **five diff
 ## Using resLib in Your Bot  
 
 ### Add a Specific Amount to a User's Resources  
-(code here)  
+```js
+//define resLib.
+var balance = Libs.ResourcesLib.userRes("balance");
+balance.add(100)
+/* We can use -100 for removing 100 from balance resources, or we can use like this:
+balance.remove(100); too *\
+```
 
 ### Set a Fixed Amount for a Resource  
 > **Note:** This will override the user's current balance, setting it to the new amount.  
-(code here)  
+```js
+//define resLib.
+var balance = Libs.ResourcesLib.userRes("balance");
+balance.set(100)
+// This method will reset the balance to ybe provided amount
+```
 
 ### Add Growth to a Resource  
 (code here)  
