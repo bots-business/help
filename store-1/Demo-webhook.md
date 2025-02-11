@@ -10,7 +10,22 @@ A **webhook URL** is **unique for every user** and is completely **secure**. You
 When a **POST or GET request** is received, the command associated with the webhook URL will run **automatically**, and all the received data will be stored in the `"content"` predefined variable.  
 
 ### Generate a Webhook URL  
-(code here)  
+```js
+// user's webhook
+let webhookUrl = Libs.Webhooks.getUrlFor({
+  // this command will be runned on webhook
+  command: "/onWebhook",
+  // this text will be passed to command
+  content: "Did you see the cat?",
+  // execute for this (current) user
+  user_id: user.id,
+  // redirect to page with cat after calling webhook
+  // you need remove this for external service
+  redirect_to: "https://cataas.com/cat"
+})
+
+Bot.inspect(webhookUrl);
+```
 
 📖 **More about the library: [Visit this page](#)**  
 
