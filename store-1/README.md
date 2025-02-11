@@ -7,6 +7,7 @@ Navigating to the **Demo Bot Store**, located conveniently under **Menu > Store*
 The beauty of these demo bots lies in their accessibility. Each one is available for you to copy **absolutely free**. This means you can delve into the source code, using it as a valuable learning tool. Understand how these bots work, tweak them, and even build upon them to create a more advanced and productive version tailored to your specific needs.
 
 **Installing a demo bot is a breeze:**
+
 ![demo bot info](/.gitbook/assets/store-bot-info.png)
 
 1. Simply **click on the bot's banner** in the store.
