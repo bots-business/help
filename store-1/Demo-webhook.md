@@ -27,7 +27,7 @@ let webhookUrl = Libs.Webhooks.getUrlFor({
 Bot.inspect(webhookUrl);
 ```
 
-📖 **More about the library: [Visit this page](#)**  
+📖 **More about the library: [Visit this page](libs/webhooks-lib.md)**  
 
 ---
 
@@ -38,7 +38,7 @@ This bot generates a **webhook URL** with two key parameters:
 - **`redirect_to`** (a URL where users will be redirected)  
 
 **Example:**  
-![Image here]  
+![Image here](/.gitbook/assets/webhookBot.png)
 
 When you open the webhook URL, it will **redirect you** to the **`redirect_to`** URL while simultaneously sending you the text stored in the `"content"` variable.  
 
