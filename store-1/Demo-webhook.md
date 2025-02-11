@@ -78,7 +78,7 @@ For example, in a **game WebApp**:
 ---
 
 ## Working Example: **@BBPointBot**  
-The **@BBPointBot** uses the webhook system as an API to handle:  
+The [@BBPointBot](https://t.me/BBPointbot) uses the webhook system as an API to handle:  
 - **BB Point transfers**  
 - **Data processing**  
 - **Automated requests**  
