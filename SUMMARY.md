@@ -91,3 +91,5 @@
 * [Welcome bot](store-1/welcome-bot.md)
 * [Help bot](store-1/help-bot.md)
 * [SRB Demo Keyboard Tools](store-1/srb-demo-keyboard-tools.md)
+* [Demo Webhook bot](store-1/Demo-webhook.md)
+* [Demo resources bot](store-1/Demo-resources-bot.md)
