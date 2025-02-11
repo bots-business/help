@@ -84,4 +84,4 @@ The **@BBPointBot** uses the webhook system as an API to handle:
 
 ---
 
-With **BBWebhookBot**, you can create **powerful automations** and integrate your bot with **external applications, websites, and web apps** seamlessly!
+With **BBWebhookBot**, you can create **powerful automations** and integrate your bot with **external applications, websites, and web apps** seamlessly! The bot is currently not available at tbe GitHub, you can still install it and review it's source code from bot store.
