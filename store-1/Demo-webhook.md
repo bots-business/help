@@ -27,7 +27,7 @@ let webhookUrl = Libs.Webhooks.getUrlFor({
 Bot.inspect(webhookUrl);
 ```
 
-📖 **More about the library: [Visit this page](libs/webhooks-lib.md)**  
+📖 **More about the library: [Visit this page](/libs/webhooks-lib.md)**  
 
 ---
 
