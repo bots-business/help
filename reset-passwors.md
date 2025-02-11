@@ -58,10 +58,7 @@ If you lost access to your email account and forgot your password, we have a gre
 4. Send a valid **bot token** from **[@BotFather](https://t.me/BotFather)**.  
 5. After verification, you’ll get a **new password**.  
 
-{% hint style="info" %}Important Notes: 
-- Cloud accounts are NOT supported for Telegram recovery.  
-- All active sessions will be logged out.  
-- Your BB API Key will be reset for security.{% endhint %}
+{% hint style="info" %}Important Notes: Cloud accounts are NOT supported for Telegram recovery + All active sessions will be logged out. + Your BB API Key will be reset for security.{% endhint %}
 
 ---
 
