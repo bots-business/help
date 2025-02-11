@@ -37,7 +37,8 @@ This bot generates a **webhook URL** with two key parameters:
 - **`content`** (contains the received data)  
 - **`redirect_to`** (a URL where users will be redirected)  
 
-**Example:**  
+**Example:**
+
 ![Image here](/.gitbook/assets/webhookBot.png)
 
 When you open the webhook URL, it will **redirect you** to the **`redirect_to`** URL while simultaneously sending you the text stored in the `"content"` variable.  
@@ -55,18 +56,18 @@ The content received via the webhook is **processed by the command** used to gen
 
 ## Real-World Use Cases  
 
-### Example 1: **Web Page Integration**  
+#### Example 1: **Web Page Integration**  
 - Visit the demo page to **get your webhook URL**.  
 - Send data using a **POST or GET request**.  
 - The bot will receive the data in the `"content"` variable, allowing you to process it as needed.  
 
-### Example 2: **Telegram Alerts for Website Events**  
+#### Example 2: **Telegram Alerts for Website Events**  
 If you want to receive **real-time alerts on Telegram** when a new user registers on your website:  
 - Call the **webhook URL** from your website.  
 - Include the user's details in the request body.  
 - The bot will **receive the data in the `"content"` variable** and send an alert to you.  
 
-### Example 3: **WebApp Integration**  
+#### Example 3: **WebApp Integration**  
 You can integrate **web apps** with the bot using webhook URLs.  
 
 For example, in a **game WebApp**:  
