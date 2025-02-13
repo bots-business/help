@@ -11,7 +11,7 @@ This document provides an overview of the Profile section in the Bots Business (
 
 ## API Key
 
-- **API Key**: The API key is available on the top, is used for [VS Code](vs-code.md) bot development or for creating bb app. You can copy the API key for use in your development environment.
+- **API Key**: The API key is available on the top, is used for [VS Code](/vs-code.md) bot development or for creating bb app. You can copy the API key for use in your development environment.
 - **Reset API Key**: If you need to reset your API key, click the "Reset Api Key" button. This will generate a new API key for your account.
 
 ## Password Management
