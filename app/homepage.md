@@ -20,7 +20,7 @@ These indicators allow you to monitor the health of your bots at a glance, helpi
 
 ## Actions You Can Take
 
-When you tap on any bot in the list, it will open the Dashboard of the bot. You can perform several actions from bots dashboard like edit, important from third parties and more, please read [This Article](bot-dashboard.md) for detailed information about bots dashboard.
+When you tap on any bot in the list, it will open the Dashboard of the bot. You can perform several actions from bots dashboard like edit, import from and export to third parties and more, please read [This Article](bot-dashboard.md) for detailed information about bots dashboard.
 
 
 ## Searching Bot
