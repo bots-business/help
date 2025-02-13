@@ -1,6 +1,6 @@
 # BJS Code Editor
 
-The **BJS Code Editor** is a simple code editor which has very useful and required tools. [ [Know about bjs](bjs) ]
+The **BJS Code Editor** is a simple code editor which has very useful and required tools. [ [Know about bjs](/bjs) ]
 
 ---
 
@@ -13,7 +13,7 @@ The editor provides a clean and distraction-free environment for writing code. D
 
 ### 2. Modifying Commands  
 The **pencil icon** within the editor opens an input field where developers can easily modify existing commands. This feature makes it simple to edit the command without leaving the code editor.
-[Read Here](commands) to know more about command editing.
+[Read Here](/commands) to know more about command editing.
 
 ### 3. Settings Button Functionalities  
 The settings button in the editor provides essential tools to enhance productivity:  
@@ -23,7 +23,7 @@ The settings button in the editor provides essential tools to enhance productivi
 - **Destroy Command:** Permanently delete commands that are no longer needed, helping you keep your workspace organized and efficient.
 
 ### Bright screenshot 
-![editor-bright](.gitbook/assets/code-editor-bright.png) 
+![editor-bright](/.gitbook/assets/code-editor-bright.png) 
 
 ### Dark screenshot 
-![editor-dark](.gitbook/assets/code-editor-dark.png)
+![editor-dark](/.gitbook/assets/code-editor-dark.png)
