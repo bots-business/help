@@ -19,20 +19,20 @@ This document provides an overview of the Profile section in the Bots Business (
 - **Update Password**: To update your password, enter your current password, followed by the new password and confirmation. Click "Update password" to save changes.
 - **Reset Password**: If you need to reset your password, [more about reset password](reset-passwors.md).
 
-![Update Password Screenshot](.gitbook/assets/update-password.png)
+![Update Password Screenshot](/.gitbook/assets/update-password.png)
 
 ## Active Sessions
 
 - **Active Sessions**: The number of active sessions is displayed below update password section, (e.g., 2). You can log out of all devices by clicking "Log out of all devices". This will terminate all active sessions.
 
-![Active Sessions Screenshot](.gitbook/assets/active-seasson.png)
+![Active Sessions Screenshot](/.gitbook/assets/active-seasson.png)
 
 ## Linked Accounts
 
 - **Linked Telegram Accounts**: All Telegram accounts linked to your profile are listed below. You can manage these accounts through the official bot [@BotsBusinessAdminBot](https://t.me/botsbusinessadminbot).
 - **Add Account**: To link a new Telegram account, click "Add account" and it will redirect you to the bot and your account will be lined with bb profile.
 
-![Linked Accounts Screenshot](.gitbook/assets/lined-account.png)
+![Linked Accounts Screenshot](/.gitbook/assets/lined-account.png)
 {% hint style="info" %} Currently we have bugs here, so it is possible to linked same account multiple times. but we're already on it for fixing. {% endhint %}
 
 ## Telegram Account Linking
