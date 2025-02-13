@@ -7,7 +7,7 @@ This document provides an overview of the Profile section in the Bots Business (
 - **Update Email**: You can update your email address by entering a new email in the "New email" field and clicking "Update email".
 - **Linked Email**: Your current email is displayed at the top of the screen. This email is linked to your profile and is used for notifications and account recovery.
 
-![Update Email Screenshot](.gitbook/assets/update_email.jpg)
+![Update Email Screenshot](/.gitbook/assets/update_email.jpg)
 
 ## API Key
 
