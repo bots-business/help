@@ -36,7 +36,7 @@ The **Hamburger Menu** (three horizontal lines) in the top-left corner of the sc
 
 - **Account Information**: View your account details, including your email address, profile picture, and lots if security options inside profile page, please [Read Here](profile.md) for more detailed information about profile and security.
 
-- **Store**: Access the bot store, where you can fnd demo bits created by community and BB, you can install any bot from there fo learning and understanding the logic. please [Read Here](/store-bots.md) for more details about bot store.
+- **Store**: Access the bot store, where you can fnd demo bits created by community and BB, you can install any bot from there fo learning and understanding the logic. please [Read Here](/store-1) for more details about bot store.
 
 - **Libs**: [Libs](/libs/what-it-is-libs.md) are common functionalities that can be reused for any tasks you want to automate with your bot. Libs allow you to streamline and reuse code across multiple commands and functions. Please [Read Here](/libs/what-it-is-libs.md) to know more about libs and usage.
 
