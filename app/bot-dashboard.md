@@ -49,7 +49,7 @@ This section includes interesting and helpful functions. You can import commands
 This page shows a list of libraries installed on your bot. You can install a new library by clicking the "Go to Install" button. libraries can be useful for third-party interrogation on bots. [Read Here](/libs) to know more about libraries and their usage.
 
 ### Admin Panel
-This page works as an admin panel where you can create and customize the admin interface. It is a secure way to store sensitive information like API keys or payment options. [Read Here](bot-libs.md) to know more about creating and managing the admin panel.
+This page works as an admin panel where you can create and customize the admin interface. It is a secure way to store sensitive information like API keys or payment options. [Read Here](/bjs/admin-panel.md) to know more about creating and managing the admin panel.
 
 ### Errors
 This page helps you track errors in your bot. You will get detailed error messages with a button to redirect to the command where the error occurred. The error page also provides information about the line where the error occurred. [Read Here](/bjs/top-errors.md) for common errors and join our official [chat group](https://t.me/chatbotsbusiness) for further assistance.
