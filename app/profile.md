@@ -37,6 +37,6 @@ This document provides an overview of the Profile section in the Bots Business (
 
 ## Telegram Account Linking
 
-- **Link Telegram**: The Profile section includes buttons for customising your experience and linking your Telegram account with the app. [Read more about account linking here](how-to-link-chat-account-with-bb-account.md).
+- **Link Telegram**: The Profile section includes buttons for customising your experience and linking your Telegram account with the app. [Read more about account linking here](/how-to-link-chat-account-with-bb-account.md).
 
 For further assistance, please refer to the official [telegram group](https://t.me/chatbotsbusiness)
