@@ -4,7 +4,7 @@
 * [Getting started](getting-started.md)
 * [Create bot from Google Table](create-bot-from-google-table.md)
 * [App](app/README.md)
-  * [Reset & Update Password](app/reset-passwors.md)
+  * [Reset & Update Password](app/reset-password.md)
   * [Homepage](app/homepage.md)
   * [BJS code editor](app/bjs-editor.md)
   * [Bot Dashboard](app/bot-dashboard.md)
