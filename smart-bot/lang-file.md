@@ -26,7 +26,9 @@ A language file in `SmartBot` is a JSON object that contains keys and values. Th
     // General types and templates
   },
   "titles": {
-    // General titles or labels used in the bot
+    // General titles or labels used in the commands
+    // will be added to params
+    // can be accessed via params and via {name} in template
   }
   // Additional sections as needed
 }
@@ -76,6 +78,12 @@ Each command entry can include the following properties:
   "alert": "Alert text for inline button",
   "alert_top": "Top alert text",
   "photo": "https://link.to/image.png",
+  
+  // Run another command
+  // you can pass run option
+  // "run": { command: "/start", params: { any: "param" } }
+  
+  // Editing:
   // this command can be act as edit command
   // for text or/and keyboard.
   // Default is: false
@@ -90,10 +98,11 @@ Each command entry can include the following properties:
 * **text**: The bot's response text. You can embed variables like `{username}` that will be dynamically replaced.
 * **parse\_mode**: Defines how the message text should be parsed and formatted. Defaults to "Markdown".
 * **chat\_id**: Specifies where the message should be sent. It can be a user ID, a group ID, or a channel username. By default - it is current chat.
-* **alias** and **aliases**: Shortcuts or alternative names for commands. Useful for multi-language support or creating intuitive command names. Examples: "Back, Cancel"
+* **alias** and **aliases**: Shortcuts or alternative names for commands. Useful for multi-language support or creating intuitive command names. Examples: "Back, Cancel". Alias support spaces. For example: "Go to back" - it is alias: it is not "Go" with params
 * **keyboard** and **inline\_buttons**: Define custom keyboards or inline button layouts for interactive responses.
 * **alert** and **alert\_top**: Special properties for displaying alerts when inline buttons are pressed.
 * **photo**: Directs the bot to send an image. The URL should point to the image file.
+* **run**: you can pass "run" for run sub command like `"run": { command: "/start", params: { any: "param" } }`
 * **edit**: A boolean flag indicating whether the bot should edit its previous message instead of sending a new one.
 * **message\_id**: message id for editing. Please note: SmartBot passed current message id on inline button pressing automatically&#x20;
 
@@ -160,6 +169,15 @@ Once your language file is ready, you can set it up in `SmartBot` like this - co
 ```javascript
 const LANG_EN = {
   // Your English translations...
+  "commands": {
+    // ...
+  },
+  "types": {
+    // ...
+  },
+  "titles": {
+    // ...
+  }
 };
 smartBot.setupLng("en", LANG_EN);
 ```
@@ -212,5 +230,3 @@ Then run /setup command in the bot.
 {% hint style="warning" %}
 if you change Lang file you need to rerun `/setup` again
 {% endhint %}
-
-###

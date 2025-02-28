@@ -4,8 +4,6 @@
 
 `SmartBot` is a versatile tool designed to enhance bot interaction and management, particularly for multi-language support. This guide focuses on setting up and initializing `SmartBot` for your projects, ensuring a smooth start for beginners in programming.
 
-
-
 {% hint style="info" %}
 We have bot demo: [BBDemoTaskBot](https://t.me/BBDemoTaskBot) - free available in the Store.&#x20;
 {% endhint %}
@@ -25,6 +23,13 @@ To use `SmartBot`, you first need to create an instance. This is typically done 
 ```javascript
 let smartBot = new SmartBot(options);
 ```
+
+{% hint style="success" %}
+You need to put this code:
+
+* in [BeforeAll](../bjs/always-running-commands.md#beforeall-and-afterall-commands) command - "@"
+* and create blank [Master Command](../bjs/always-running-commands.md#master-command) (because we need to track all commands we need blank "\*" command)
+{% endhint %}
 
 #### Options:
 
@@ -145,6 +150,22 @@ let response = smartBot.fill("Hello, {username}, your balance is {balance}");
 {% hint style="info" %}
 As a rule, there is no need to use this method - everything should happen automatically
 {% endhint %}
+
+## Change language for user
+
+You can change language for user via this code:
+
+```javascript
+// change user language to "en"
+smartBot.setUserLang("en");
+// or to "fr"
+smartBot.setUserLang("fr");
+
+// get current user language:
+let lngCode = smartBot.getUserLang(); // it will be "fr" here
+```
+
+You can define translation. Read about this [here](lang-file.md).
 
 ## Debugging
 
