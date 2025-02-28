@@ -4,7 +4,12 @@
 * [Getting started](getting-started.md)
 * [Create bot from Google Table](create-bot-from-google-table.md)
 * [App](app/README.md)
-  * [Reset or Update Your Password](app/password-reset.md)
+  * [Reset & Update Password](app/reset-password.md)
+  * [Homepage](app/homepage.md)
+  * [BJS code editor](app/bjs-editor.md)
+  * [Bot Dashboard](app/bot-dashboard.md)
+  * [Bot tools](app/bot-tools.md)
+  * [Profile page](app/profile.md)
 * [Commands](commands/README.md)
   * [Answer](commands/answer.md)
   * [Aliases](commands/aliases.md)
@@ -57,8 +62,8 @@
 * [SmartTasker](smart-bot/smarttasker.md)
 * [Amount Dialog](store/amount-dialog.md)
 
-## Libs
-
+## Libs 
+* [Introduction](libs)
 * [What it is - Libs?](libs/what-it-is-libs.md)
 * [Libs development](libs/libs-development.md)
 * [RefferalLib](libs/refferallib.md)
@@ -81,9 +86,11 @@
 * [Webhooks lib](libs/webhooks-lib.md)
 * [DateTimeFormat Lib](libs/datetimeformat-lib.md)
 
-## Store
-
+ ## Demo Bots 
+* [Introduction](store-1)
 * [BB Point Bot](store-1/bbpointbot.md)
 * [Welcome bot](store-1/welcome-bot.md)
 * [Help bot](store-1/help-bot.md)
 * [SRB Demo Keyboard Tools](store-1/srb-demo-keyboard-tools.md)
+* [Demo Webhook bot](store-1/Demo-webhook.md)
+* [Demo resources bot](store-1/Demo-resources-bot.md)
