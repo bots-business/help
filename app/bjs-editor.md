@@ -25,8 +25,5 @@ The settings button in the editor provides essential tools to enhance productivi
 ### 4. Undo & Redo Functionality  
 The editor now supports **Undo** and **Redo** actions, allowing developers to revert changes or redo previous edits with ease. This feature enhances workflow efficiency by providing better control over modifications.
 
-### Bright screenshot  
-![editor-bright](/.gitbook/assets/code-editor-bright.png)  
-
-### Dark screenshot  
-![editor-dark](/.gitbook/assets/code-editor-dark.png)  
+### Screenshot of code ditor  
+![editor screenshot](/.gitbook/assets/code-editor.png)
