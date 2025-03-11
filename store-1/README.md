@@ -1,8 +1,8 @@
 # Demo Bot Store
 
-![Demo bots ss](/.gitbook/assets/demo-store1.png)
-
 Navigating to the **Demo Bot Store**, located conveniently under **Menu > Store**, opens a world of possibilities. Here, you'll find an extensive collection of demo bots, showcasing the diverse functionalities available on the platform. Whether you're interested in the ever-popular **Referral Tracking Bot** or the innovative **BB Point Bot**, there's something to pique your interest.
+
+![Demo bots ss](/.gitbook/assets/demo-store1.png)
 
 The beauty of these demo bots lies in their accessibility. Each one is available for you to copy **absolutely free**. This means you can delve into the source code, using it as a valuable learning tool. Understand how these bots work, tweak them, and even build upon them to create a more advanced and productive version tailored to your specific needs.
 
