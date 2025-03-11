@@ -1,8 +1,9 @@
 # Library Store
 
-![Libs Store Screenshot](/.gitbook/assets/libs.png)
 
 Extend the functionality of your bots with a wide array of libraries available in the **Libs Store**, accessible via **Menu > Libs**.  Here, you can find everything from essential utilities to specialized tools, including popular options like the **Oxapay Lib** and **ResLib**.
+
+![Libs Store Screenshot](/.gitbook/assets/libs.png)
 
 **Installing Libraries is Simple:**
 
