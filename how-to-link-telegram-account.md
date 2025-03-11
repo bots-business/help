@@ -2,7 +2,7 @@
 
 Linking your **Telegram account** with your **Bots.Business account** is essential for seamless integration. This allows you to:  
 - **Reset your password** directly from your Telegram account.  
-- **Exchange BB Points** for **Extra Points** effortlessly. [Learn more about BB Points](store-1/bbpointbot.md) | [Learn more about Extra Points](/extra-points)  
+- **Exchange BB Points** for **Extra Points** effortlessly. [Learn more about BB Points](store-1/bbpointbot.md) | [Learn more about Extra Points](iterations.-how-to-reduce-theys.md#extra-points)  
 
 ---
 
