@@ -10,7 +10,9 @@ You can see a list of all chats your bot has interacted with, whether they are *
 - **Chat ID** – A unique identifier for the chat.  
 - **Username** – The Telegram username of the user (if available).  
 - **Chat Title/Name** – The group title or the user's name in private chats.
-- **Chat created date & time** - The date when the chat interected with your bot. 
+- **Chat created date & time** - The date when the chat interected with your bot.
+
+![ Manage chats](/.gitbook/assets/manage-chats.png)
 
 ---
 
