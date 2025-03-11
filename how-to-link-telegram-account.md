@@ -11,7 +11,7 @@ Linking your **Telegram account** with your **Bots.Business account** is essenti
 ### 1. Open the Account Options  
 Go to **Side Menu > Account Options**:  
 
-![](<.gitbook/assets/add-account.png>)  n
+![](<.gitbook/assets/menu-account.png>)  n
 
 ### 2. Navigate to Linked Accounts  
 Scroll down to the **Linked Accounts** section:  
