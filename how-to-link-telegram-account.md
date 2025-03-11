@@ -11,12 +11,12 @@ Linking your **Telegram account** with your **Bots.Business account** is essenti
 ### 1. Open the Account Options  
 Go to **Side Menu > Account Options**:  
 
-![](<.gitbook/assets/image (35).png>)  n
+![](<.gitbook/assets/add-account.png>)  n
 
 ### 2. Navigate to Linked Accounts  
 Scroll down to the **Linked Accounts** section:  
 
-![](<.gitbook/assets/image (4).png>)  
+![](<.gitbook/assets/add-account.png>)  
 
 ### 3. Add Your Telegram Account  
 Press the **"Add Account"** button and it will be redirect you to the **[BotsBusinessAdminBot](https://t.me/BotsBusinessAdminBot)** on telegram to link the account automatically.  
