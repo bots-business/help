@@ -10,11 +10,18 @@ coverY: 0
 
 {% embed url="https://t.me/BBWebAppBot" %}
 
-
-
 ## Quickly start
 
 Telegram have [Web Apps](https://core.telegram.org/bots/webapps) now. So BB supports Web Apps too.
+
+{% hint style="danger" %}
+**WebApp** is designed for working with HTML, JavaScript, and simple JSON requests. However, if you need to make important changes, such as transferring balances or assigning game points, use [**webhooks**](../libs/webhooks-lib.md) instead.
+
+🔹 [**Webhooks**](../libs/webhooks-lib.md) are secure URLs containing a secret key for validation.\
+🔹 **WebApp** is not protected—anyone can send any request to it.
+
+Therefore, for critical operations, always use **webhooks** instead of WebApp.
+{% endhint %}
 
 It is possible render text (html, css, js, json...) content to web. For example:
 
@@ -52,7 +59,7 @@ api.bots.business/v2/bots/**BOT\_ID**/**web-app**/**index**?secret=SECRET
 
 you can add data with:
 
-api.bots.business/v2/bots/BOT\_ID/web-app/index?secret=SECRET**\&key=value\&another\_key=another\_value**
+api.bots.business/v2/bots/BOT\_ID/web-app/index?secret=SECRE&#x54;**\&key=value\&another\_key=another\_value**
 
 {% hint style="info" %}
 **Please note:**
@@ -93,7 +100,7 @@ WebApp.render({
 
 
 {% hint style="success" %}
-Possible [mime types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics\_of\_HTTP/MIME\_types/Common\_types): `text/css, text/csv, text/javascript, text/css, text/html, application/json and etc`
+Possible [mime types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types): `text/css, text/csv, text/javascript, text/css, text/html, application/json and etc`
 {% endhint %}
 
 command "`index.html`":
