@@ -120,7 +120,11 @@ return attractor user data
 
 
 
-### Remove ref data for
+### Remove ref data for (not worked - known bug)
+
+{% hint style="danger" %}
+It is not working now. We will fix it.&#x20;
+{% endhint %}
 
 It is test method. You can run it and check ref link again like new user.
 
