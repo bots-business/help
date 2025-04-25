@@ -151,6 +151,16 @@ let response = smartBot.fill("Hello, {username}, your balance is {balance}");
 As a rule, there is no need to use this method - everything should happen automatically
 {% endhint %}
 
+{% hint style="success" %}
+**You can use titles from Lang file like:**
+
+smartBot.fill(smartBot.params.YOUR\_KEY\_FROM\_TITLES)\
+\
+It is possible because title was added as param
+{% endhint %}
+
+
+
 ## Change language for user
 
 You can change language for user via this code:
