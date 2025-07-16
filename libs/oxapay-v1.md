@@ -5,256 +5,282 @@ coverY: 0
 
 # OxaPay
 
-With the [OxaPay](https://oxapay.com/?ref=53389) merchant web service, Bots.Business enables you to seamlessly accept crypto payments from your customers and facilitate hassle-free crypto payouts.&#x20;
+## 🔐 Introduction
 
-This integration empowers you to provide efficient, secure, and quick transactions, all without the need for extensive KYC procedures
+**[OxaPay](https://oxapay.com/?ref=53389)** is a fast, secure, and developer-friendly **crypto payment gateway** that allows businesses and platforms to seamlessly accept, send, and swap cryptocurrencies.
+This integration empowers you to provide efficient, secure, and quick transactions, all without the need for extensive KYC procedures.
 
+### With OxaPay, you can:
 
+- ✅ Accept crypto payments from customers  
+- 💵 Send payouts to users, freelancers, or partners  
+- 🔁 Instantly swap between cryptocurrencies  
+- 🔧 Integrate everything easily via RESTful APIs
+---
 
-## Getting Started
+## 🌐 Key Features
+
+### 💸 Payment
+**Accept Crypto Payments from Customers**  
+Seamlessly accept cryptocurrency payments via auto generated wallet addresses or invoice links.
+
+- Instant wallet address generation  
+- White-label support for custom branding
+- Invoice link
+- Real-time webhook notifications  
+- Multi-currency & multi-network support
+
+---
+
+### 💵 Payout  
+**Send Crypto Instantly**  
+Automate payouts in crypto to anyone, anywhere.
+
+- Fast and secure transfers  
+- Real-time webhook notifications  
+- Great for affiliate systems, rewards, freelancers
+
+---
+
+### 🔁 Swap  
+**Instant Crypto Exchange**  
+Convert one crypto to another instantly and securely.
+
+- Real-time rates  
+- Transparent conversion  
+- Supports multiple crypto
+
+---
+
+## ⚡️ Why OxaPay?
+
+- ✅ No complex KYC  
+- 🔐 Secure & reliable API  
+- 🚀 Fast setup and integration  
+- 📞 24/7 dedicated support
+---
+
+> 🔗 Learn more at [oxapay docs](https://docs.oxapay.com/)
+
+## 🚀 Getting Started
 
 To get started with the Bots.business integration with OxaPay, follow these steps:
 
-1\. Generate an OxaPay account and obtain your API key by referring to the [OxaPay Getting Started Guide](https://docs.oxapay.com/getting-started).
+1. Generate an OxaPay account and obtain your API key by referring to the [OxaPay Integrations](https://docs.oxapay.com/introduction/integrations).
 
-2\. Set your generated API keys with the following sample codes:
+2. Set your generated API keys with the following sample codes:
 
 ```javascript
-Libs.OxaPayLib.setMerchantKey("YOUR_MERCHANT_KEY");
-Libs.OxaPayLib.setPayoutApiKey("YOUR_PAYOUT_API_KEY");
+//set your merchant api key
+Libs.OxaPayLibV1.setMerchantApiKey("YOUR_MERCHANT_KEY");
+
+//set your payout api key
+Libs.OxaPayLibV1.setPayoutApiKey("YOUR_PAYOUT_API_KEY");
+
+//set your general api key
+Libs.OxaPayLibV1.setGeneralApiKey("YOUR_GENERAL_API_KEY");
 ```
+3. Install the ***Webhook Library*** from the Bots.business library store to receive real-time payment and payout notifications (callback data).
 
-For testing purposes, you can use 'sandbox' as the merchant key to access the OxaPay merchant web service in a sandbox environment.
+## ⚙️ Calling API Method
 
-\
-Try Out the Sample Bot
-----------------------
+You can interact with the OxaPay API by using the `apiCall` method. This method accepts four parameters:
 
-Experience the convenience of OxaPay integration by trying our sample bot. Install and test the demo bot using the OxapayLibSampleBot library.&#x20;
+- `url`: Specify OxaPay endpoints, such as '/payment/invoice' or '/payout' (refer to the [OxaPay documentation](https://docs.oxapay.com/api-reference) for a full list of endpoints).
 
-Visit Store > Crypto > OxapayLibSampleBot to get started.\
+-   `method`: Specify the HTTP method for the request, either `POST` or `GET`, depending on the API endpoint requirements.
+ 
+- `fields`: Provide an object containing input parameters relevant to the chosen endpoint. Refer to the API documentation for specific details.
 
+- `on_success`: Define your custom logic to handle the output of the method.
 
-## Calling API Methods
+## 🌐 Available URLs
+### 💸 Payment Endpoints
 
-You can interact with the OxaPay API by using the \`apiCall\` method. This method accepts three parameters:
+| Endpoint                     | Method | Description                   |
+|------------------------------|--------|------------------------------|
+| /payment/invoice              | POST   | Create a payment invoice |
+| /payment/white-label          | POST   | Generate white-label payment  |
+| /payment/static-address       | POST   | Create static wallet address  |
+| /payment/static-address/revoke| POST   | Revoke a static address       |
+| /payment/{track_id}           | GET    | Retrieve payment details by track ID  |
+| /payment                     | GET    |  Get a list of all your payment records              |
+| /payment/accepted-currencies | GET    | List of your allowed cryptocurrencies |
+ 
+### 💵 Payout Endpoints
 
-\- \`url\`: Specify OxaPay endpoints, such as '/merchants/request' or '/api/send' (refer to the OxaPay [documentation](https://docs.oxapay.com/api-reference) for a full list of endpoints).
+ | Endpoint              | Method | Description                              |
+|-----------------------|--------|------------------------------------------|
+| /payout             | POST   | Send crypto payments              |
+| /payout/{track_id}  | GET    | Retrieve payout details by track ID      |
+| /payout             | GET    | Get a list of all your payout records    |
 
-\- \`fields\`: Provide an object containing input parameters relevant to the chosen endpoint. Refer to the API documentation for specific details.
+### 🔁 Swap Endpoints
 
-\- \`onSuccess\`: Define your custom logic to handle the output of the method.
+| Endpoint                    | Method | Description                                         |
+|-----------------------------|--------|-----------------------------------------------------|
+| /general/swap            | POST   | Create a new crypto swap request                   |
+| /general/swap            | GET    | Get a list of your swap history                    |
+| /general/swap/pairs      | GET    | Get a list of supported currency swap pairs        |
+| /general/swap/calculate  | POST   | calculate output amount for a given swap request    |
+| /general/swap/rate       | POST   | Get real-time exchange rate between two currencies |
 
+### 📚 Common Endpoints
 
+| Endpoint                        | Method | Description                                      |
+|---------------------------------|--------|--------------------------------------------------|
+| /general/account/balance      | POST   | Get your current account balance                 |
+| /common/prices                | GET    | Get real-time crypto prices                      |
+| /common/currencies           | GET    | List supported cryptocurrencies                  |
+| /common/fiats                 | GET    | List supported fiat currencies                   |
+| /common/networks              | GET    | List supported blockchain networks               |
 
-### Available URLs
-
-Here is a list of commonly used OxaPay endpoints:
-
-\- \`/merchants/request\`: Request crypto payments.
-
-\- \`/merchants/request/whitelabel\`: Request crypto payments with white-label options.
-
-\- \`/merchants/request/staticaddress\`: Request crypto payments with static addresses.
-
-\- \`/merchants/revoke/staticaddress\`: Revoke static addresses.
-
-\- \`/merchants/inquiry\`: Make inquiries about crypto payments.
-
-\- \`/merchants/list\`: Listof your crypto payments.
-
-\- \`/merchants/allowedcoins\`: Get a list of your allowed cryptocurrencies.
-
-\- \`/merchants/rate\`: Check exchange rates.
-
-\- \`/api/send\`: Send crypto payments.
-
-\- \`/api/list\`: List of your pauout transactions.
-
-\- \`/api/balance\`: Check your account balance.
-
-\- \`/api/currencies\`: Get a list of supported cryptocurrencies by OxaPay.
-
-\- \`/api/networks\`: List of supported networks.
-
-\- \`/monitor\`: Monitor OxaPay service availability.
 
 
 
 Feel free to explore these endpoints to build powerful crypto payment solutions with Bots.business and OxaPay.
 
-\
-
-
-## Examples
+## 📝 Examples
 
 Explore practical examples of integrating Bots.business with OxaPay.
 
-\
+### Payment Example: Create White Label
 
+- Execute the `paytrx` command to create a white-label payment.
 
-### Creating White-Label Payment
+- Provide necessary options such as amount, currency, pay_currency, lifetime, order_id, and on_callback.
 
-\- Execute the command \`/paytrx\` to create a white-label payment.
+- The `onCreatePaymentWithTRX` command handles the output, generating a QR code and providing payment details.
 
-\- Provide necessary options such as amount, currency, payCurrency, lifeTime, orderId, and onCallback.
+Command ***/payTrx***
 
-\- The \`onCreatePaymentWithTRX\` command handles the output, generating a QR code and providing payment details.
-
-
-
-Command /paytrx
-
-{% code lineNumbers="true" fullWidth="false" %}
 ```javascript
 let options = {
-  url: "merchants/request/whitelabel",
-  fields: {
-    amount: 100,
-    currency: "TRX",
-    payCurrency: "TRX",
-    lifeTime: 90,
-    orderId: "ORD-124",
-    onCallback: "/onCallbackPayment",
-  },
-  onSuccess: "/onCreatePaymentWithTRX",
-};
-
-Libs.OxaPayLib.apiCall(options);
+	url: "/payment/white-label",
+	method: "POST",
+	fields: {
+		amount: 100,
+		currency: 'USD',
+		pay_currency: "TRX",
+		network: "TRC20",
+		lifetime: 60,
+		fee_paid_by_payer: 1,
+		under_paid_coverage: 20,
+		to_currency: "USDT",
+		auto_withdrawal: false,
+		email: "customer@oxapay.com",
+		order_id: "ORD-12345",
+		description: "Order #12345",
+		on_callback: "/onCallbackPayment"
+	},
+	on_success: "/onCreatePaymentWithTRX"
+}
+Libs.OxaPayLibV1.apiCall(options)
 ```
-{% endcode %}
+Command ***/onCreatePaymentWithTRX***
 
-
-
-command /onCreatePaymentWithTRX
-
-{% code lineNumbers="true" %}
 ```javascript
 if (!options) { return }
 
-if (options.result!= 100) {
+if (options.status!= 200) {
   // not success
-  Bot.sendMessage(options.message);
+  Bot.sendMessage(options.error?.message || options.message);
   return
 }
 
-// result is 100 / success
-let toDate = new Date(options.expiredAt * 1000).toISOString();
+let toDate = new Date(options.data.expired_at * 1000).toISOString();
+
 let caption = 
-  "📨Address <code>" + options.address + "</code>" +
-  "\<br>Coin" + options.currency +
-  "\<br>Network" +
-  "\<br>" + options.network +
-  "\<br>Amount <code>" + options.payAmount + "</code> " + 
-    options.payCurrency + "" +
-  "\<br>‼️ Sending less may result fund loss" +
-  "\<br>‼️ Please only send " + options.currency + " on " + options.network +
-  "\n network to the address until " + toDate
+  "📨 Address: <code>" + options.data.address + "</code>" +
+  "<br>💰 Coin: <b>" + options.data.currency + "</b>" +
+  "<br>🌐 Network: <b>" + options.data.network + "</b>" +
+  "<br>💵 Amount: <code>" + options.data.pay_amount + "</code> " + options.data.pay_currency +
+  "<br><br>‼️ Sending less may result in fund loss!" +
+  "<br>‼️ Please only send <b>" + options.data.currency + "</b> on <b>" + options.data.network + "</b> network." +
+  "<br>⏰ Expiry: " + toDate;
 
 Api.sendPhoto({
-  photo: options.QRCode,
+  photo: options.data.qr_code,
   caption: caption,
   parse_mode: "HTML",
 });
 ```
-{% endcode %}
-
-
-
 #### Payment Callback
 
-\- When payment status changes, the \`/onCallbackPayment\` command processes the status and notifies users accordingly.
+- When payment status changes, the `/onCallbackPayment` command processes the status and notifies users accordingly.
 
+Command ***/onCallbackPayment***
 
-
-command `/onCallbackPayment`
-
-{% code lineNumbers="true" %}
 ```javascript
-const ADMIN_TELEGRAM_ID = "PUT YOUR TELEGRAM ID HERE";
-
 if (!options) return;
 
-if (options.status == "Confirming"){
+const ADMIN_TELEGRAM_ID = "PUT YOUR TELEGRAM ID HERE";
+
+if (options.status == "paying"){
   Bot.sendMessage(
-    `📢 Your paid ${options.payAmount} ${options.payCurrency} is confirming...`
+    `📢 Your paid ${options.amount} ${options.currency} is confirming...`
   );
-}else if (options.status == "Paid") {
-  Bot.sendMessage(`📢 Your payment was successful`);
+}else if (options.status == "paid") {
+  Bot.sendMessage(`✅ Your payment was successful.`);
 }
 
 Api.sendMessage({
   chat_id: ADMIN_TELEGRAM_ID,
   text: "📢 Your invoice with trackId " + 
-      `${options.trackId} and orderId ${options.orderId} ${options.status}`
+      `${options.track_id} and orderId ${options.order_id} ${options.status}`
 });
-
 ```
-{% endcode %}
 
+### Payout Example: Generate Payout
 
+- Use the `transfer` command  to initiate a payout.
 
-### Creating Payout
+- Specify options like amount, currency, address, and on_callback.
 
-\- Use the command `/transfer` to initiate a payout.
+- The `onTransfer` command captures the result, notifying users about the payout status.
 
-\- Specify options like amount, currency, address, and `onCallback`.
+Commend ***/transfer***
 
-\- The `onTransfer` command captures the result, notifying users about the payout status.
-
-
-
-commend `/transfer`
-
-{% code lineNumbers="true" %}
 ```javascript
 let amount = 10;
 let options = {
-  url: "api/send",
+  url: "/payout",
+  method: "POST",
   fields: {
     amount: amount,
     currency: "TRX",
-    address: "YOUR_PRIVATE_ADDRESS",
-    onCallback: "/onCallbackPayout",
+    network: "TRC20",
+    address: "RECEIVER_ADDRESS",
+    on_callback: "/onCallbackPayout",
+    description: "Order #12345"
   },
-  onSuccess: "/onTransfer " + amount +" TRX",
+  on_success: "/onTransfer " + amount +" TRX",
 };
-Libs.OxaPayLib.apiCall(options);
+Libs.OxaPayLibV1.apiCall(options);
 ```
-{% endcode %}
+Command ***/onTransfer***
 
-
-
-command `/onTransfer`
-
-{% code lineNumbers="true" %}
 ```javascript
 if (!options) return;
-if (options.result == 100){
+if (options.status == 200){
   Bot.sendMessage(
-    `Send ${params} was submited!\nYour trackId: ${options.trackId}`
+    `✅ Send request submitted successfully!\nTrack ID: ${options.data.track_id}`
   );
 } else {
-  Bot.sendMessage(`Your send request failed. ${options.message}`);
+  Bot.sendMessage(`❌ Your send request failed. ${options.error?.message || options.message}`);
 }
 
-if (options.status == "complete"){
-  Bot.sendMessage("Your transfer was successful");
+if (options.data.status == "confirmed"){
+  Bot.sendMessage("✅ Your transfer was successful.");
 }
 ```
-{% endcode %}
 
+### Payout Callback
 
+- The `/onCallbackPayout` command reacts to payout status changes and keeps users informed.
 
-#### Payout Callback
+Command ***/onCallbackPayout***
 
-The `/onCallbackPayout` command reacts to payout status changes and keeps users informed.
-
-
-
-command `/onCallbackPayout`
-
-{% code lineNumbers="true" %}
 ```javascript
 if (!options) return
 
@@ -262,15 +288,45 @@ const ADMIN_TELEGRAM_ID = 'PUT YOUR TELEGRAM ID HERE'
 
 if (options.status == 'Confirming'){
   Bot.sendMessage(`📢 Your withdrawal is confirming...`)
-} else if(options.status == 'Complete'){
-  Bot.sendMessage(`📢 Your withdrawal was successfully complete!`)
+} else if(options.status == 'Confirmed'){
+  Bot.sendMessage(`✅ Your withdrawal was successfully completed!`)
 }
 
 Api.sendMessage({
   chat_id: ADMIN_TELEGRAM_ID,
-  text: "📢 Your client withdraw " +
-   `${options.amount} ${options.currency} ${options.status} `
+  text: `📤 Withdrawal Alert:\nAmount: ${options.amount} ${options.currency}\nStatus: ${options.status}`
 })
 ```
-{% endcode %}
+### Swap Example: Swap Request
 
+- Execute the command `swapBtc`.
+
+- Provide necessary options such as amount, from_currency and to_currency.
+
+- The `onSwapResponse` command will handle the API response.
+
+Command ***/swapBtc***
+```javascript
+let options = {
+  url: "/general/swap",
+  method:"POST",
+  fields: {
+	amount: 0.5,
+	from_currency: "BTC",
+	to_currency: "USDT",
+  },
+  on_success: "/onSwapResponse",
+};
+Libs.OxaPayLibV1.apiCall(options);
+```
+Command ***/onSwapResponse***
+```javascript
+if (!options) return;
+if (options.status == 200){
+  Bot.sendMessage(
+    `✅ Your swap request was successful!\nTrack ID: ${options.data.track_id}`
+  );
+} else {
+  Bot.sendMessage(`❌ Your swap request failed. ${options.error?.message || options.message}`);
+}
+```
