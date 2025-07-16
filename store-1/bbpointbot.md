@@ -65,7 +65,7 @@ https://t.me/BBPointBot?start=req15-**1**-points-to-519829299
 
 Generate your personal secret webhook url in [@BBPointBot](https://t.me/BBPointBot) by command: `/getTransferUrl`
 
-Set **Secret (**any words or symbols - whatever you want**)** in [@BBPointBot](https://t.me/BBPointBot) by command: `/setTransferSecret`
+Set **Secret (**&#x61;ny words or symbols - whatever you wan&#x74;**)** in [@BBPointBot](https://t.me/BBPointBot) by command: `/setTransferSecret`
 
 {% hint style="warning" %}
 Personal secret webhook url with Secret - is safe information.&#x20;

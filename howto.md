@@ -6,7 +6,7 @@ It is Bot JavaScript. It's an ordinary Java with some inserts.
 
 ## Q: I do not know the JavaScript. What should I do?
 
-Usually do not need something complicated for developing bots. You can read a couple of articles about JS: [https://www.w3schools.com/js/js\_syntax.asp](https://www.w3schools.com/js/js\_syntax.asp) or [https://en.wikipedia.org/wiki/JavaScript\_syntax](https://en.wikipedia.org/wiki/JavaScript\_syntax)
+Usually do not need something complicated for developing bots. You can read a couple of articles about JS: [https://www.w3schools.com/js/js\_syntax.asp](https://www.w3schools.com/js/js_syntax.asp) or [https://en.wikipedia.org/wiki/JavaScript\_syntax](https://en.wikipedia.org/wiki/JavaScript_syntax)
 
 ## Q: How can I get two answers from one command?
 
@@ -199,7 +199,7 @@ BJS code:
    }
 ```
 
-**2. In **_**others commands**_** you need call** `tracking` **command** Bjs code:
+**2. In&#x20;**_**others commands**_**&#x20;you need call** `tracking` **command** Bjs code:
 
 ```javascript
    Bot.runCommand("tracking");

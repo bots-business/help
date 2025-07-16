@@ -20,30 +20,30 @@ We have **monthly** plans of BB.Cloud:
 
 <figure><img src=".gitbook/assets/image (120).png" alt=""><figcaption></figcaption></figure>
 
-| **Cloud**         | **Cost** | **Monthly iterations** |
-| ----------------- | -------- | ---------------------- |
-| Cloud.Hobby**\*** | $22      | 1 million              |
-| Cloud.Nano        | $33      | 2 million              |
-| Cloud.Mini        | $55      | 5 million              |
-| Cloud.Start       | $99      | 10 million             |
-| Cloud.PRO         | $220     | 45 million             |
-| Cloud.Business    | $300     | 100 million            |
-| Cloud.BigBusiness | $400     | 200 million            |
+| **Cloud**              | **Cost** | **Monthly iterations** |
+| ---------------------- | -------- | ---------------------- |
+| Cloud.Hobb&#x79;**\*** | $22      | 1 million              |
+| Cloud.Nano             | $33      | 2 million              |
+| Cloud.Mini             | $55      | 5 million              |
+| Cloud.Start            | $99      | 10 million             |
+| Cloud.PRO              | $220     | 45 million             |
+| Cloud.Business         | $300     | 100 million            |
+| Cloud.BigBusiness      | $400     | 200 million            |
 
 
 
 <figure><img src=".gitbook/assets/image (119).png" alt=""><figcaption></figcaption></figure>
 
-| **Cloud**         | **Approximate iterations:** |             |          |
-| ----------------- | --------------------------- | ----------- | -------- |
-|                   | **daily**                   | **minutes** | **COST** |
-| Cloud.Hobby**\*** | 28 000                      | 20          | $22      |
-| Cloud.Nano        | 60 000                      | 45          | $33      |
-| Cloud.Mini        | 140 000                     | 100         | $55      |
-| Cloud.Start       | 300 000                     | 220         | $99      |
-| Cloud.PRO         | 1 400 000                   | 1000        | $220     |
-| Cloud.Business    | 3 000 000                   | 2200        | $300     |
-| Cloud.BigBusiness | 6 200 000                   | 4500        | $400     |
+| **Cloud**              | **Approximate iterations:** |             |          |
+| ---------------------- | --------------------------- | ----------- | -------- |
+|                        | **daily**                   | **minutes** | **COST** |
+| Cloud.Hobb&#x79;**\*** | 28 000                      | 20          | $22      |
+| Cloud.Nano             | 60 000                      | 45          | $33      |
+| Cloud.Mini             | 140 000                     | 100         | $55      |
+| Cloud.Start            | 300 000                     | 220         | $99      |
+| Cloud.PRO              | 1 400 000                   | 1000        | $220     |
+| Cloud.Business         | 3 000 000                   | 2200        | $300     |
+| Cloud.BigBusiness      | 6 200 000                   | 4500        | $400     |
 
 Please note: values may differ slightly, both up and down, depending on the bot's response time, the complexity of your commands, etc.
 
