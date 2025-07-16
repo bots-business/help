@@ -72,7 +72,7 @@
 * [QiwiPayments](libs/qiwipayments.md)
 * [Coinbase (CB)](libs/coinbase.md)
 * [CoinPayments (CP)](libs/coinpayments.md)
-* [OxaPay v1](libs/oxapay-v1.md)
+* [OxaPay](libs/oxapay.md)
 * [CryptoJS](libs/cryptojs.md)
 * [CurrencyQuote](libs/currencyquote.md)
 * [GoogleApp](libs/googleapp.md)
