@@ -8,4 +8,8 @@ description: Use this extension for quickly bot development with Bots.Business
 
 ## See for details
 
-[https://github.com/bots-business/Bots.Business.VSCode](https://github.com/bots-business/Bots.Business.VSCode)
+You can istall extension from the Stores or from VSCode.
+
+{% embed url="https://marketplace.visualstudio.com/items?itemName=bots-business.bots-business" %}
+
+{% embed url="https://open-vsx.org/extension/bots-business/bots-business" %}
