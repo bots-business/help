@@ -2,9 +2,7 @@
 description: Use this extension for quickly bot development with Bots.Business
 ---
 
-# VS Code
-
-## VS Code Extension
+# VS Code Extension
 
 Use the Bots.Business VS Code extension to develop and maintain your bots directly from the file system, with automatic synchronization to the Bots.Business platform.
 
