@@ -126,3 +126,23 @@ Bot.inspect(options)
 // and passed bb_options:
 // Bot.inspect(options.bb_options)
 ```
+
+
+
+### Call any method
+
+For new methods you can use this:
+
+```javascript
+Api.call(
+  methodName,  // for example "sendMessage" or any new method
+  {
+    ... params // you can pass any options here
+    user_id: user.telegramid,
+    // this command will be executed after getting photos
+    // on_result: "onGetProfilePhotos",
+    // you can pass any options for callback:
+    // bb_options: { your: "any", options: "here" }
+   }
+);
+```
