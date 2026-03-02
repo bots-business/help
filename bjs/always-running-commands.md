@@ -15,14 +15,14 @@ Use `*` in command name.&#x20;
 {% hint style="success" %}
 **You can handle** [**updates**](https://core.telegram.org/bots/api#update) **with Master Command**
 
-It is possible via `request` [variable](variables.md).
+It is possible via `tgUpdate` [variable](variables.md).
 {% endhint %}
 
 For inspect data you can use:
 
-`throw new Error(inspect(request))`
+`throw new Error(inspect(`tgUpdate`))`
 
-then go to Error Tab and see data. Now you can use it via `request.xxx.yyy`
+then go to Error Tab and see data. Now you can use it via `tgUpdate.xxx.yyy`
 
 
 
@@ -38,24 +38,15 @@ if(message&&chat){
 }
 
 // you can see all updated data by:
-// Bot.inspect(request);
+// Bot.inspect(tgUpdate);
 
-if(request.edit_date){
+if(tgUpdate.edited_message?.edit_date){
   // user edited message
-  Bot.sendMessage("Text edited to:" + request.new_text);
-  // Please note:
-  // we have request.new_text not request.text here
-  // for backward compatibility
-  // request.text will be nil!
-}
-
-// chat title changed
-if(request.new_chat_title){
-  Bot.sendMessage("New chat title is:" + request.new_chat_title);
+  Bot.sendMessage("Text edited to:" + tgUpdate.edited_message.text);
 }
 
 // another possible updates in:
-// https://core.telegram.org/bots/api#message
+// https://core.telegram.org/bots/api#update
 ```
 
 ## BeforeAll and AfterAll commands
