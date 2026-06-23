@@ -3,6 +3,7 @@
 * [Welcome](README.md)
 * [Getting started](getting-started.md)
 * [Create bot from Google Table](create-bot-from-google-table.md)
+* [MCP](mcp.md)
 * [App](app/README.md)
   * [Reset or Update Your Password](app/password-reset.md)
 * [Commands](commands/README.md)
