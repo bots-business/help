@@ -1,4 +1,4 @@
-# Welcome
+# Welcome to Bots.Business Help
 
 ## Bots.Business Help
 
