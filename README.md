@@ -1,35 +1,72 @@
 ---
-description: Create and manage Telegram bots with Bots.Business. Start with your first reply, add buttons, write BJS, and troubleshoot your bot.
+description: Create your first Telegram bot with Bots.Business, then learn menus,
+  BJS, user data and integrations through practical tutorials.
+cover: .gitbook/assets/cover-home.webp
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
+  title:
+    visible: true
+  description:
+    visible: false
+  tableOfContents:
+    visible: true
+  outline:
+    visible: false
+  pagination:
+    visible: false
+  width: wide
 ---
 
-# Bots.Business help
+# Build your first Telegram bot
 
-Build a Telegram bot, manage it from your phone, and add JavaScript behavior with BJS. These guides describe the current Bots.Business app.
+<a id="botsbusiness-help"></a>
 
-## What would you like to do?
+{% columns %}
+{% column width="65%" %}
+Make your bot reply in Telegram, then add buttons and useful behavior. Start in the current Bots.Business mobile app. Your first reply needs no code.
 
-- **[Create your first bot](start/first-bot.md)** — connect Telegram and make `/start` reply. No code is required for the first answer.
-- **[Add commands and buttons](app/commands.md)** — create a menu, add aliases, and collect user input.
-- **[Manage an existing bot](app/workspace.md)** — find its settings, Admin panel, properties, chats, and broadcasts.
-- **[Write BJS](bjs/README.md)** — learn the execution model and find the correct methods and complete examples.
-- **[Import commands](integrations/google-table-import.md)** — use a spreadsheet or [Git repository](integrations/git.md).
-- **[Connect a service or library](libraries/README.md)** — add reusable features with their setup requirements and limitations.
-- **[Fix a bot that does not reply](troubleshooting/bot-not-responding.md)** — follow a short diagnostic sequence.
+<a href="start/first-bot.md" class="button primary">Create your first bot</a>
 
-## New to Bots.Business?
+<a href="tutorials/README.md" class="button secondary">Explore tutorials</a>
 
-Follow this path: [first reply](start/first-bot.md) → [reply keyboard](app/reply-keyboard.md) → [ask a question](app/collect-input.md) → [JavaScript basics](bjs/javascript-basics.md) → [BJS commands and APIs](bjs/README.md).
+New here? [Create an account or sign in](start/sign-in.md) before adding your bot.
+{% endcolumn %}
+{% column width="35%" %}
+<figure><img src=".gitbook/assets/mel-01-guide-mobile.webp" alt="" width="220"><figcaption>Mel will share practical tips as you learn.</figcaption></figure>
+{% endcolumn %}
+{% endcolumns %}
 
-Your Telegram bot, your Bots.Business account, and the people chatting with your bot are different things. Connect your bot with its BotFather token; sign in to Bots.Business with your own account.
+<a id="what-would-you-like-to-do"></a>
+<a id="new-to-botsbusiness"></a>
 
-## Already writing code?
+## Choose your next result
 
-Start with the [BJS context](bjs/context.md). Then use the references for [Bot](bjs/bot.md), [Telegram API](bjs/telegram-api.md), [HTTP](bjs/http.md), [properties](bjs/user-properties.md), [Lists](bjs/lists.md), and [AdminPanel](bjs/admin-panel.md).
+Follow a route from preparation to a result you can check in your own bot.
 
-BJS has its own runtime and command callbacks. An example written for Node.js or a different bot builder may need changes. See [using help with an AI assistant](guides/ai-assistants.md) when generating code.
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody>
+<tr><td><strong>First bot and menu</strong></td><td>Make your bot reply and offer two working buttons. Start with Telegram and a Bots.Business account.</td><td><a href="tutorials/first-bot.md">First bot and menu</a></td></tr>
+<tr><td><strong>Data and dialogs</strong></td><td>Remember a name, validate a quantity, and keep a learning checklist. Start with a working test bot; learn the JavaScript basics along the way.</td><td><a href="tutorials/data-and-dialogs.md">Data and dialogs</a></td></tr>
+<tr><td><strong>Integrations</strong></td><td>Handle an HTTP result, receive a webhook, and open a Mini App form. Start with BJS command experience and HTTPS hosting for the form.</td><td><a href="tutorials/integrations.md">Integrations</a></td></tr>
+</tbody></table>
+
+<a id="already-writing-code"></a>
+
+## Keep building
+
+| Your task | Start here |
+| --- | --- |
+| Add or organize behavior | [Commands](app/commands.md) · [Task recipes](guides/recipes.md) |
+| Write JavaScript for your bot | [BJS](bjs/README.md) · [Bot methods](bjs/bot.md) · [Telegram API](bjs/telegram-api.md) |
+| Manage an existing bot | [App tools](app/workspace.md) · [Import from a spreadsheet](integrations/google-table-import.md) · [Git](integrations/git.md) |
+| Add a reusable feature | [Libraries](libraries/README.md) |
+| Find a failure | [Bot does not reply](troubleshooting/bot-not-responding.md) · [Errors](troubleshooting/errors.md) |
+| Work with an AI assistant | [Use this help with AI](guides/ai-assistants.md) |
 
 ## Account and help
 
-[Reset your password](account/password.md), [link your Telegram account](account/linked-accounts.md), or [understand iterations](account/iterations.md).
+[Reset your password](account/password.md), [manage your profile](account/profile.md), [link Telegram](account/linked-accounts.md), or [check iterations](account/iterations.md).
 
-For a problem you cannot resolve, collect the details listed in [Errors and debugging](troubleshooting/errors.md) before opening **Settings → Support chat** in the app. Keep bot tokens, passwords, and API keys out of screenshots and messages.
+For help from the community, use **Settings → Support chat** in the app. First [collect the details of the problem](troubleshooting/errors.md#details-to-provide-for-help). Keep tokens, passwords, API keys, and private messages out of shared screenshots.

@@ -4,16 +4,27 @@
 
 ## Start here
 
+* [Create an account and sign in](start/sign-in.md)
 * [Create your first Telegram bot](start/first-bot.md)
 * [JavaScript basics for BJS beginners](bjs/javascript-basics.md)
 * [Use this help with an AI assistant](guides/ai-assistants.md)
 
+## Tutorials
+
+* [Tutorials](tutorials/README.md)
+* [First bot and menu](tutorials/first-bot.md)
+* [Data and dialogs](tutorials/data-and-dialogs.md)
+* [Integrations: HTTP, webhooks and Mini Apps](tutorials/integrations.md)
+
 ## Build bot behavior
 
 * [Find a recipe for your bot](guides/recipes.md)
+* [Send photos and documents](guides/send-media.md)
 * [Create and edit commands](app/commands.md)
 * [Add buttons with a reply keyboard](app/reply-keyboard.md)
 * [Ask a question and collect the reply](app/collect-input.md)
+* [Ask for a quantity and validate the reply](guides/quantity-dialog.md)
+* [Save progress in a learning checklist](guides/task-checklist.md)
 * [Pass a value when a user starts the bot](guides/deep-links.md)
 * [Build a Telegram Mini App form](guides/mini-app.md)
 * [Receive contacts, locations, photos and group events](guides/telegram-updates.md)
@@ -27,6 +38,8 @@
 * [Inspect and edit stored properties](app/properties.md)
 * [Manage bot chats](app/chats.md)
 * [Monitor a broadcast](app/broadcasts.md)
+* [Make a copy of your bot](app/copy-bot.md)
+* [Use settings and interactive lessons](app/settings-and-lessons.md)
 
 ## BJS reference
 
@@ -79,6 +92,7 @@
 
 ## Account and resources
 
+* [Manage your profile and email](account/profile.md)
 * [Reset or change your password](account/password.md)
 * [Link your Telegram account](account/linked-accounts.md)
 * [Work with a protected bot](account/protected-bots.md)
