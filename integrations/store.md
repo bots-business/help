@@ -1,6 +1,8 @@
 ---
-description: Install and inspect a Store bot, then adapt welcome messages, help replies and keyboard examples to your own bot.
+description: Install and inspect a Store bot, then adapt welcome messages, help replies and keyboard examples to your own
+  bot.
 ---
+
 
 # Start from a Store bot or example
 
@@ -10,9 +12,17 @@ The **Store** contains complete bot examples; **Libs** contains reusable code mo
 
 1. Open **Store** in the mobile app and choose a bot.
 2. Read its description, developer information and available actions.
-3. Sign in if prompted and use the installation action.
-4. Open the installed bot from the success dialog or **My Bots**.
+3. Tap **Install**. [Sign in](../start/sign-in.md) if prompted, then return to the selected Store bot to install it.
+4. In the **Installed** dialog, tap **GO TO BOT**, or open the installed bot later from **My bots**.
 5. Inspect its commands, libraries, Admin Panel and connection settings before starting it for users. Configure your own Telegram connection where required.
+
+The images below use a fictional Store listing to show the controls. Choose a bot currently available in your catalogue.
+
+<figure><img src="../.gitbook/assets/mobile-store-install.png" alt="A demonstration Store bot card with Try now and Install"><figcaption>A demonstration Store bot card with Try now and Install</figcaption></figure>
+
+<figure><img src="../.gitbook/assets/mobile-store-installed.png" alt="The Installed dialog with GO TO BOT for a demonstration installation"><figcaption>The Installed dialog with GO TO BOT for a demonstration installation</figcaption></figure>
+
+For a bot with configuration fields, open its [Admin panel](../app/admin-panel.md), save the required settings, and test the result.
 
 Store availability and each example's setup can change. An old Telegram demo link does not prove that the corresponding Store entry is currently installable. For exportable source, review a [Git export](git.md); protected bots have different access limits.
 
@@ -28,6 +38,7 @@ Daily greetings are a separate [scheduled-command](../bjs/background.md) task: p
 
 For a small keyword reply in your master command `*`:
 
+{% code title="Help bot: answer a known phrase · Example 1" overflow="wrap" %}
 ```javascript
 if (typeof message !== "string") { return; }
 const text = message.trim().toLowerCase();
@@ -35,6 +46,7 @@ if (text === "help" || text === "/help") {
   Api.sendMessage({ text: "Open the help center:\nhttps://help.bots.business/" });
 }
 ```
+{% endcode %}
 
 Expand this into deliberate rules; a substring match can accidentally answer unrelated conversation. For Telegram's inline-search interaction, use the separate [inline bot guide](../bjs/inline.md).
 
@@ -50,4 +62,4 @@ The historical BB Point Bot instructions described an external bot service with 
 
 If you already depend on it, check its current operator instructions and your account's secret/callback settings, then verify a non-production transfer path before using it. The general integration mechanism is [authenticated webhooks](../libraries/webhooks.md); a webhook alone does not prove an incoming payment or grant permission to transfer points.
 
-For numeric input in an example, use [SmartAmountDialog](../libraries/smart-bot.md#validate-an-amount). For ordinary mobile command editing, see [Commands](../app/commands.md).
+For a complete numeric-input example, use the [quantity dialog](../guides/quantity-dialog.md). For ordinary mobile command editing, see [Commands](../app/commands.md).

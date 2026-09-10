@@ -2,15 +2,20 @@
 description: Find known bot chats, inspect user properties, and block or unblock chats from the Bots.Business mobile app.
 ---
 
+
 # Manage bot chats
 
 Open your bot → **Chats** to inspect the chats known to that bot. This is useful when one user cannot interact with the bot or when you need to check that user's stored data.
+
+<figure><img src="../.gitbook/assets/mobile-chats.png" alt="A demonstration chat with Block and Properties actions"><figcaption>A demonstration chat with Block and Properties actions</figcaption></figure>
 
 ## Inspect a user
 
 Find the relevant entry and check its name and identifiers. For a user entry, **Properties** opens that user's stored properties in this bot. Telegram identifiers and Bots.Business internal identifiers have different uses; copy the identifier required by the API you are calling.
 
 An empty list can mean that the bot has not yet received an interaction. Test it in Telegram first, then refresh the list. Check the selected bot if an expected chat is missing.
+
+<figure><img src="../.gitbook/assets/mobile-user-properties.png" alt="Properties opened for a demonstration bot user"><figcaption>Properties opened for a demonstration bot user</figcaption></figure>
 
 ## Block or unblock
 

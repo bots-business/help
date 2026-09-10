@@ -2,10 +2,12 @@
 description: Build a valid Bots.Business Git repository with bot.json, command headers, folders and JavaScript libraries.
 ---
 
+
 # Bot repository format
 
 A bot repository contains configuration, command files and optional libraries. Use an export as the starting point when moving an existing bot.
 
+{% code title="Example · Example 1" overflow="wrap" %}
 ```text
 bot.json
 commands/
@@ -15,11 +17,13 @@ commands/
 libs/
   Greetings.js
 ```
+{% endcode %}
 
 ## bot.json
 
 The root file is required and must be valid JSON:
 
+{% code title="bot.json · Example 2" overflow="wrap" %}
 ```json
 {
   "bb_sync_version": "1.0",
@@ -27,6 +31,7 @@ The root file is required and must be valid JSON:
   "csv_url": null
 }
 ```
+{% endcode %}
 
 The importer requires `bb_sync_version` to equal `"1.0"`, then updates the bot's `name` and `csv_url`. It does not import the Telegram token from this file. An export may include `git_remote`, but the import repository is chosen before this file is read; do not treat `git_remote` here as a redirect to another repository.
 
@@ -36,6 +41,7 @@ Files belong directly in `commands/` or one folder beneath it. The Git importer 
 
 `commands/_start.js`:
 
+{% code title="Command files · Example 3" overflow="wrap" %}
 ```javascript
 /*CMD
   command: /start
@@ -46,6 +52,7 @@ CMD*/
 
 Bot.sendMessage("Welcome!");
 ```
+{% endcode %}
 
 Without a `command` header, the filename determines the command: an initial underscore becomes `/`. `_start.js` therefore means `/start`; `hello.js` means `hello`. An explicit header takes precedence.
 
@@ -53,6 +60,7 @@ Supported header keys are `command`, `aliases`, `help`, `need_reply`, `auto_retr
 
 For a multiline answer:
 
+{% code title="Command files · Example 4" overflow="wrap" %}
 ```javascript
 /*CMD
   command: /help
@@ -62,6 +70,7 @@ Send /help to see this message again.
   ANSWER
 CMD*/
 ```
+{% endcode %}
 
 This command replies through Answer and has no BJS body. A command with both Answer and BJS can produce both outputs, depending on its execution path; choose deliberately.
 
@@ -71,10 +80,12 @@ The parent directory supplies a command folder unless `folder` is explicitly set
 
 Place each library at `libs/Name.js`. Import creates an installed library named `Name` from that file. The file must call `publish` to expose its methods:
 
+{% code title="Libraries · Example 5" overflow="wrap" %}
 ```javascript
 function greeting() { return "Hello"; }
 publish({ greeting });
 ```
+{% endcode %}
 
 Call it with `Libs.Name.greeting()`. See [Library development](../libraries/development.md) for callbacks and dependencies.
 

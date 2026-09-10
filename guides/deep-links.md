@@ -1,14 +1,18 @@
 ---
-description: Pass a short start parameter into your Telegram bot, read it in BJS, and validate it before using it as a command or referral value.
+description: Pass a short start parameter into your Telegram bot, read it in BJS, and validate it before using it as a command
+  or referral value.
 ---
+
 
 # Pass a value when a user starts the bot
 
 Use a Telegram start link when a user should arrive with a short value, such as a campaign or product code:
 
+{% code title="Example · Example 1" overflow="wrap" %}
 ```text
 https://t.me/YOUR_BOT_USERNAME?start=summer_2026
 ```
+{% endcode %}
 
 Replace `YOUR_BOT_USERNAME` with your bot's username. The `/start` command receives the supplied value as BJS `params`.
 
@@ -16,6 +20,7 @@ Replace `YOUR_BOT_USERNAME` with your bot's username. The `/start` command recei
 
 Create `/start`, leave **Wait for answer** off, and use this BJS:
 
+{% code title="Read a known campaign value · Example 2" overflow="wrap" %}
 ```javascript
 if (params === "summer_2026") {
   Bot.sendMessage("Welcome to our summer campaign. Send /help to continue.");
@@ -23,6 +28,7 @@ if (params === "summer_2026") {
   Bot.sendMessage("Welcome! Send /help to continue.");
 }
 ```
+{% endcode %}
 
 Create `/help` with your next steps. Test a plain `/start`, the campaign link, and a link containing an unknown value. The unknown value should take the normal welcome path.
 

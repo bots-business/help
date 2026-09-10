@@ -1,6 +1,13 @@
 ---
 description: Choose a Bots.Business library, install it for the right bot, and check its exact BJS name before use.
+cover: ../.gitbook/assets/cover-libraries.webp
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
 ---
+
 
 # Add reusable features with libraries
 
@@ -40,10 +47,22 @@ This does not apply to every installed library. Keep `Libs.Guard`, `Libs.Webhook
 ## Install and use a library
 
 1. Open your bot in the mobile app and open **Libraries**.
-2. Find the library in the library catalogue, open its details, and install it for this bot.
+2. Tap **Go to install**, choose a library, open its details, and use **Install to** followed by your bot's name.
 3. Check the exact library name and dependencies in its guide. Capitalization matters: `OxaPayLibV1` is different from `OxaPayLib`.
 4. Create the smallest example command from the guide and run it in your test bot.
 5. Configure any required Admin Panel or external account before adding the feature to other commands.
+
+<figure><img src="../.gitbook/assets/mobile-installed-libraries.png" alt="Libraries installed in a demonstration bot, with Go to install and Uninstall controls"><figcaption>Libraries installed in a demonstration bot, with Go to install and Uninstall controls</figcaption></figure>
+
+### Install from the app-wide Libs catalogue
+
+You can also open **Libs** from the main app menu, choose a library, and tap **Install**. In **Please select the bot**, choose the intended bot and confirm the installation. Return to that bot's **Libraries** tab and check that it appears there.
+
+<figure><img src="../.gitbook/assets/mobile-library-select-bot.png" alt="Choosing a demonstration destination bot for library installation"><figcaption>Choosing a demonstration destination bot for library installation</figcaption></figure>
+
+When you open the catalogue from a bot's Libraries tab, the app already has that bot as the installation context. From the main Libs catalogue, you must choose the destination. Check this distinction when the library seems to be installed in the wrong place.
+
+If the library provides settings, open that bot's **Admin panel**, fill the fields required by its guide, and save that panel. Installing code and configuring it are separate steps. The fields depend on the library; the general [Admin panel guide](../app/admin-panel.md) explains how to save and verify values.
 
 The [official library source repository](https://github.com/bots-business/store-libs) is useful when checking a library's behavior or building your own. An installed Store library can differ from that repository snapshot; export your bot if you need to inspect the actual installed code.
 

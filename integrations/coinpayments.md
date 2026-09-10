@@ -2,6 +2,7 @@
 description: Identify the CoinPayments API generation used by the existing library and test a read-only legacy request.
 ---
 
+
 # Use an existing CoinPayments integration
 
 The checked `Libs.CoinPayments` library targets the **legacy** `https://www.coinpayments.net/api.php` form API. CoinPayments also has a newer JSON API with different hosts, credentials and contracts. Choose the documentation for your account's platform before configuring this library. [CoinPayments platform guide](https://docs.coinpayments.net/api/).
@@ -10,22 +11,27 @@ The checked `Libs.CoinPayments` library targets the **legacy** `https://www.coin
 
 Install `CoinPayments` for a test bot. From an owner-only setup command, configure its legacy public and private keys:
 
+{% code title="Check credentials without creating a payment · Example 1" overflow="wrap" %}
 ```javascript
 Libs.CoinPayments.setPublicKey("YOUR_LEGACY_PUBLIC_KEY");
 Libs.CoinPayments.setPrivateKey("YOUR_LEGACY_PRIVATE_KEY");
 ```
+{% endcode %}
 
 Remove literal keys from the command after setup and keep these values out of exported public code. In an owner-only `/coinpayments-check` command:
 
+{% code title="Check credentials without creating a payment · Example 2" overflow="wrap" %}
 ```javascript
 Libs.CoinPayments.apiCall({
   fields: { cmd: "get_basic_info" },
   onSuccess: "/coinpayments-check-result"
 });
 ```
+{% endcode %}
 
 In `/coinpayments-check-result`:
 
+{% code title="Check credentials without creating a payment · Example 3" overflow="wrap" %}
 ```javascript
 if (!options || !options.body) { return; }
 if (options.body.error !== "ok") {
@@ -34,6 +40,7 @@ if (options.body.error !== "ok") {
 }
 Bot.sendMessage("Legacy CoinPayments credentials are accepted.");
 ```
+{% endcode %}
 
 This method reads account information; it does not create a transaction. The legacy API identifies the operation with `cmd` and returns `error: "ok"` on success. [Legacy account check](https://www.coinpayments.net/apidoc-get-basic-info).
 

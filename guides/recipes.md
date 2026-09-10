@@ -1,10 +1,14 @@
 ---
-description: Find Bots.Business recipes for buttons, user input, properties, referrals, channel membership, HTTP, payments, and scheduled work.
+description: Find Bots.Business recipes for buttons, user input, properties, referrals, channel membership, HTTP, payments,
+  and scheduled work.
 ---
+
 
 # Find a recipe for your bot
 
+{% hint style="info" %}
 Choose the result you want, then follow the complete guide. Each linked guide explains its required commands, context, and limitations.
+{% endhint %}
 
 ## Messages and menus
 
@@ -15,7 +19,9 @@ Choose the result you want, then follow the complete guide. Each linked guide ex
 | Put a changing balance on a reply button | [Dynamic balance keyboard](../app/reply-keyboard.md#show-a-changing-balance-on-a-button) |
 | Build a menu in two languages | [SmartBot menu](smartbot-menu.md) |
 | Put buttons under a message or edit a sent message | [Bot methods](../bjs/bot.md) |
-| Send a photo, file, or a Telegram API request | [Telegram API](../bjs/telegram-api.md) |
+| Save and resend a photo or document, with a button | [Send photos and documents](send-media.md) |
+| Call another Telegram method | [Telegram API](../bjs/telegram-api.md) |
+| Put a saved value in an ordinary Answer | [Answer placeholders](../app/commands.md#put-a-saved-property-in-an-answer) |
 | Receive contacts, locations, photos or group events | [Telegram updates](telegram-updates.md) |
 | Reply to a particular incoming message | [Reply with Telegram API](../bjs/telegram-api.md#reply-to-the-users-message) |
 | Delete a bot message after a delay | [Temporary messages](../bjs/telegram-api.md#delete-a-bot-message-after-a-delay) |
@@ -27,6 +33,8 @@ Choose the result you want, then follow the complete guide. Each linked guide ex
 | Task | Guide |
 | --- | --- |
 | Ask a question and save the reply | [Collect input](../app/collect-input.md) |
+| Accept a whole-number quantity and repeat invalid input | [Quantity dialog](quantity-dialog.md) |
+| Keep a personal learning checklist between visits | [Task progress](task-checklist.md) |
 | Keep a counter or setting between commands | [User and bot properties](../bjs/user-properties.md) |
 | Read a collection of stored entries in pages | [Lists](../bjs/lists.md) |
 | Move a JSON array into individual List entries | [Array migration](../bjs/lists.md#migrate-a-json-array-into-a-list) |

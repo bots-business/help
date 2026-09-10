@@ -1,10 +1,14 @@
 ---
-description: Learn what a protected bot lets its owner manage, why command editing may be unavailable, and how to configure it through an Admin panel.
+description: Learn what a protected bot lets its owner manage, why command editing may be unavailable, and how to configure
+  it through an Admin panel.
 ---
+
 
 # Work with a protected bot
 
+{% hint style="info" %}
 A protected bot limits access to its implementation. You can use the bot and the management features it exposes, while command viewing or editing can be unavailable.
+{% endhint %}
 
 ## Configure the bot
 

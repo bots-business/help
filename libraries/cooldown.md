@@ -2,6 +2,7 @@
 description: Limit repeated bot actions with CooldownLib and understand first-call, waiting, and reset behavior.
 ---
 
+
 # Limit repeated actions with CooldownLib
 
 Use a cooldown when someone can repeatedly press a button or run a command. Install `CooldownLib` for the bot; it uses the core `Libs.ResourcesLib` compatibility object.
@@ -10,6 +11,7 @@ Use a cooldown when someone can repeatedly press a button or run a command. Inst
 
 For `/check-offer`:
 
+{% code title="Wait before allowing another action · Example 1" overflow="wrap" %}
 ```javascript
 Libs.CooldownLib.user.watch({
   name: "offer-check",
@@ -27,6 +29,7 @@ Libs.CooldownLib.user.watch({
   }
 });
 ```
+{% endcode %}
 
 The first call initializes the full waiting period and calls `onStarting`; it does **not** call `onEnding`. When the period has passed, the next call invokes `onEnding`. Returning a truthy value from `onEnding` restarts the period. Returning nothing leaves it expired.
 
@@ -44,10 +47,12 @@ Use a different `name` for independent actions. `time` is a positive duration in
 
 ## Inspect a cooldown
 
+{% code title="Inspect a cooldown · Example 2" overflow="wrap" %}
 ```javascript
 const resource = Libs.CooldownLib.user.getCooldown("offer-check");
 Bot.sendMessage("Seconds left: " + Math.max(0, Math.ceil(resource.value())));
 ```
+{% endcode %}
 
 The matching `chat.getCooldown(name)` and `getCooldown(name)` read chat and global scope. A cooldown uses elapsed resource growth; it does not schedule a future message. A user must call the command again after waiting.
 

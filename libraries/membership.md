@@ -1,6 +1,8 @@
 ---
-description: Check channel membership with MembershipChecker, configure callbacks, and avoid using cached membership as a fresh verification.
+description: Check channel membership with MembershipChecker, configure callbacks, and avoid using cached membership as a
+  fresh verification.
 ---
+
 
 # Check channel membership
 
@@ -8,7 +10,11 @@ Install `MembershipChecker` to ask Telegram whether a user has joined your confi
 
 Before checking someone else with `getChatMember`, make the bot an administrator in each target chat; that is the condition under which Telegram guarantees this method for other users. [Telegram reference](https://core.telegram.org/bots/api#getchatmember).
 
-## Configure the panel
+{% stepper %}
+
+{% step %}
+
+### Configure the panel
 
 1. Run `Libs.MembershipChecker.setup()` from an owner-only setup command.
 2. Open **Admin Panel → Membership checker options** in the mobile app.
@@ -17,42 +23,60 @@ Before checking someone else with `getChatMember`, make the bot an administrator
 5. Set `onNeedJoining` to `/join-required`, `onJoining` to `/membership-updated`, `onAllJoining` to `/all-joined`, and `onError` to `/membership-error`.
 6. Save the panel. Do not run setup again casually: it writes the panel definition and defaults.
 
-## Start with a manual check
+{% endstep %}
+
+{% step %}
+
+### Start with a manual check
 
 In `/check`:
 
+{% code title="Start with a manual check · Example 1" overflow="wrap" %}
 ```javascript
 if (!user || chat.chat_type !== "private") { return; }
 Libs.MembershipChecker.check();
 Bot.sendMessage("Checking your membership…");
 ```
+{% endcode %}
 
 In `/join-required`:
 
+{% code title="Start with a manual check · Example 2" overflow="wrap" %}
 ```javascript
 if (!options || !options.chat_id) { return; }
 Bot.sendMessage("Please join " + options.chat_id + ", then send /check.");
 ```
+{% endcode %}
 
 In `/membership-updated`:
 
+{% code title="Start with a manual check · Example 3" overflow="wrap" %}
 ```javascript
 Bot.sendMessage("Membership updated.");
 ```
+{% endcode %}
 
 In `/all-joined`:
 
+{% code title="Start with a manual check · Example 4" overflow="wrap" %}
 ```javascript
 Bot.sendMessage("You have joined all required channels.");
 ```
+{% endcode %}
 
 In `/membership-error`:
 
+{% code title="Start with a manual check · Example 5" overflow="wrap" %}
 ```javascript
 Bot.sendMessage("Could not check membership. Please try again later.");
 ```
+{% endcode %}
 
 Inspect the detailed error privately in your test bot when diagnosing configuration. Do not send raw provider responses or internal state to every user.
+
+{% endstep %}
+
+{% endstepper %}
 
 ## Read the cached decision
 

@@ -1,6 +1,8 @@
 ---
-description: Use OxaPayLibV1 for white-label payment details, payouts and swaps, with restricted request previews, response checks and status lookup.
+description: Use OxaPayLibV1 for white-label payment details, payouts and swaps, with restricted request previews, response
+  checks and status lookup.
 ---
+
 
 # OxaPay white-label payments, payouts and swaps
 
@@ -24,7 +26,11 @@ Pass paths relative to `https://api.oxapay.com/v1` in `apiCall`. The three key s
 
 Use lowercase `"post"` or `"get"`. The checked wrapper sends POST only for the exact value `"post"`; uppercase `"POST"` selects its GET branch. It parses the JSON response and passes the whole object in `options` to `on_success`. Check numeric `options.status === 200` and the operation's required data. An API error can reach this callback too; a transport error raises a library error. Swap success has no documented `data.status` field.
 
-## Prepare a restricted example
+{% stepper %}
+
+{% step %}
+
+### Prepare a restricted example
 
 1. Install `OxaPayLibV1` in a disposable bot. These examples use API responses and explicit status lookup; they do not generate webhook URLs.
 2. Obtain your own Telegram user ID using the [trusted-user setup](../bjs/security.md#restrict-a-command-to-a-trusted-telegram-user). Replace `YOUR_TELEGRAM_USER_ID` in **every** command below. Keep **Answer** and **Keyboard** empty and **Wait for answer** off. Use a private conversation with the bot.
@@ -33,10 +39,15 @@ Use lowercase `"post"` or `"get"`. The checked wrapper sends POST only for the e
 
 The fixed values are example requests, not a statement about currently accepted amounts or networks. Before authorizing a request, check the provider's supported currencies/networks, your account permissions and balance, and the minimum for the selected swap pair. Set the recipient yourself and include a memo/tag when its network requires one.
 
-## Preview and request an operation
+{% endstep %}
+
+{% step %}
+
+### Preview and request an operation
 
 Create `/oxa-operation`:
 
+{% code title="/oxa-operation" overflow="wrap" %}
 ```javascript
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
 if (!user || String(user.telegramid) !== ADMIN_TELEGRAM_ID ||
@@ -99,6 +110,7 @@ Libs.OxaPayLibV1.apiCall({
   on_success: "/oxa-result " + ATTEMPT_ID
 });
 ```
+{% endcode %}
 
 Send `/oxa-operation white-label`, `/oxa-operation payout`, and `/oxa-operation swap` separately. Each should print its path and fields with “Preview only.” Test from a different Telegram account too: it should receive nothing.
 
@@ -106,10 +118,15 @@ For a deliberately authorized request, configure the fields and a fresh attempt 
 
 The stored attempt blocks an ordinary sequential repeat; it is **not an atomic lock or provider idempotency key**. Use this as a single-operator example. Automated or concurrent withdrawals require a durable authorization and duplicate-prevention design. After a timeout or unknown result, inspect the provider account/history before deciding what happened; never delete the attempt and resend just to obtain a response.
 
-## Handle each response correctly
+{% endstep %}
+
+{% step %}
+
+### Handle each response correctly
 
 Create `/oxa-result`. `params` is the attempt ID appended to `on_success`; `options` is the parsed API response.
 
+{% code title="Handle each response correctly · Example 2" overflow="wrap" %}
 ```javascript
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
 if (!user || String(user.telegramid) !== ADMIN_TELEGRAM_ID) { return; }
@@ -172,13 +189,19 @@ Api.sendMessage({
   parse_mode: null
 });
 ```
+{% endcode %}
 
 For white-label payments, display the returned payment amount, currency, network, address, any memo/tag and expiry together. A QR code alone can omit information the payer needs. Do not reuse an expired address. For payouts, keep the track ID and check the eventual status; a successful creation response is not a blockchain receipt. For swaps, record the actual returned amounts/rate rather than a previous calculation. [White-label contract](https://docs.oxapay.com/api-reference/payment/generate-white-label), [payout contract](https://docs.oxapay.com/api-reference/payout/generate-payout), [swap contract](https://docs.oxapay.com/api-reference/swap/swap-request).
 
-## Check a payment or payout
+{% endstep %}
+
+{% step %}
+
+### Check a payment or payout
 
 Create `/oxa-check` and send `/oxa-check YOUR_ATTEMPT_ID` after receiving its track ID:
 
+{% code title="Check a payment or payout · Example 3" overflow="wrap" %}
 ```javascript
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
 if (!user || String(user.telegramid) !== ADMIN_TELEGRAM_ID ||
@@ -200,9 +223,11 @@ Libs.OxaPayLibV1.apiCall({
   on_success: "/oxa-checked " + attemptId
 });
 ```
+{% endcode %}
 
 Create `/oxa-checked`:
 
+{% code title="/oxa-checked" overflow="wrap" %}
 ```javascript
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
 if (!user || String(user.telegramid) !== ADMIN_TELEGRAM_ID) { return; }
@@ -220,8 +245,13 @@ saved.lastReportedStatus = data.status;
 User.setProp("oxaDemo:" + attemptId, saved, "json");
 Api.sendMessage({ text: "Provider status for " + saved.trackId + ": " + data.status, parse_mode: null });
 ```
+{% endcode %}
 
 This reports a provider status; it does not credit a user, deliver goods or initiate another transfer. Before such actions, verify the stored order/recipient, expected amount and currency, final payment state and duplicate handling through a trusted integration.
+
+{% endstep %}
+
+{% endstepper %}
 
 ## Callbacks and verification
 

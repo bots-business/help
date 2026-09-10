@@ -1,6 +1,8 @@
 ---
-description: Open and fill a bot's Admin panel on your phone, save its settings, and troubleshoot missing panels or changes that do not take effect.
+description: Open and fill a bot's Admin panel on your phone, save its settings, and troubleshoot missing panels or changes
+  that do not take effect.
 ---
+
 
 # Use a bot's Admin panel
 
@@ -17,7 +19,7 @@ An Admin panel is a form provided by the bot developer. It lets you change suppo
 
 If several panels are shown, save the panel you changed. The saved form and the resulting bot action are separate checks: a bot may run additional code after saving.
 
-![An expanded Welcome settings Admin panel with a text field, switch, and SAVE button](../.gitbook/assets/mobile-admin-panel.png)
+<figure><img src="../.gitbook/assets/mobile-admin-panel.png" alt="An expanded demonstration Welcome settings Admin panel with a text field, switch, and SAVE button"><figcaption>An expanded demonstration Welcome settings Admin panel with a text field, switch, and SAVE button</figcaption></figure>
 
 ## “No Admin Panel yet”
 

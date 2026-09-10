@@ -1,14 +1,18 @@
 ---
-description: Connect an MCP client to your Bots.Business account with OAuth and distinguish account tools from the public documentation MCP.
+description: Connect an MCP client to your Bots.Business account with OAuth and distinguish account tools from the public
+  documentation MCP.
 ---
+
 
 # Connect an AI client to your Bots.Business account
 
 Bots.Business MCP lets a compatible AI client use account tools through OAuth. Use this endpoint:
 
+{% code title="Example · Example 1" overflow="wrap" %}
 ```text
 https://appapi.tgbot.ai/mcp
 ```
+{% endcode %}
 
 This is the **account MCP**. It can expose account operations permitted by your connection. The public documentation MCP at `https://help.bots.business/~gitbook/mcp` serves the help content and does not grant access to your bots.
 
@@ -30,18 +34,25 @@ When requesting a change, name the intended bot and command and explain the resu
 
 Read-only access is sufficient for inspecting your account. Writing command code requires the applicable write scope and account access; an expired or insufficient token cannot be fixed by passing a different bot ID.
 
+<details>
+<summary>Client configuration details</summary>
+
 ## Client configuration details
 
 The public discovery endpoints are:
 
+{% code title="Client configuration details · Example 2" overflow="wrap" %}
 ```text
 https://appapi.tgbot.ai/.well-known/oauth-protected-resource
 https://appapi.tgbot.ai/.well-known/oauth-authorization-server
 ```
+{% endcode %}
 
 They advertise authorization-code OAuth, PKCE `S256`, refresh tokens, and the `read`/`write` scopes. The OAuth resource is the external base URL, **`https://appapi.tgbot.ai`**, without `/mcp`. Prefer discovery over manually copying authorization/token endpoint settings.
 
 This server uses POST JSON-RPC over HTTP. Opening `/mcp` with an ordinary browser GET returns 405; that alone does not mean MCP is broken. Test connection and tool discovery with an MCP client.
+
+</details>
 
 ## Troubleshooting
 

@@ -2,6 +2,7 @@
 description: Store numeric resources, choose user or chat scope, and configure growth with the current ResLib contract.
 ---
 
+
 # Manage resources with ResLib
 
 Use `ResLib` for numeric resources with time based growth, such as energy in a game. For a simple counter without growth, [a user property](../bjs/user-properties.md) is often enough. The runtime provides `ResLib`; no Store installation is required.
@@ -21,6 +22,7 @@ Resource names are case sensitive. `energy` and `Energy` are different resources
 
 For a test command `/energy-setup`:
 
+{% code title="Initialize once, then read and spend · Example 1" overflow="wrap" %}
 ```javascript
 if (User.getProp("energyInitialized")) {
   Bot.sendMessage("Energy is already initialized.");
@@ -30,9 +32,11 @@ ResLib.userRes("energy").set(10);
 User.setProp("energyInitialized", true, "boolean");
 Bot.sendMessage("You have 10 energy.");
 ```
+{% endcode %}
 
 For `/use-energy`:
 
+{% code title="Initialize once, then read and spend · Example 2" overflow="wrap" %}
 ```javascript
 const energy = ResLib.userRes("energy");
 if (!energy.have(2)) {
@@ -42,6 +46,7 @@ if (!energy.have(2)) {
 energy.remove(2);
 Bot.sendMessage("Energy remaining: " + energy.value());
 ```
+{% endcode %}
 
 `set(number)` replaces the value; `add(number)` increases it. `have(amount)` returns false for zero, negative amounts or insufficient resources. `remove(amount)` throws if there is not enough; `removeAnyway(amount)` can take the resource below zero. Pass numbers, not numeric strings, and validate user input first.
 
@@ -49,21 +54,25 @@ Bot.sendMessage("Energy remaining: " + energy.value());
 
 Run this setup once, rather than resetting it whenever the user asks for their balance:
 
+{% code title="Add growth · Example 3" overflow="wrap" %}
 ```javascript
 const energy = ResLib.userRes("energy");
 energy.set(10);
 energy.growth.add({ value: 1, interval: 60, max: 100 });
 ```
+{% endcode %}
 
 Read `energy.value()` to include elapsed growth. Growth is calculated when the resource is read; it does not execute your command or send a message every minute. `baseValue()` reads the stored base amount.
 
 For percentages the parameter is **`percent`**, not `value`:
 
+{% code title="Add growth · Example 4" overflow="wrap" %}
 ```javascript
 const score = ResLib.userRes("trainingScore");
 score.set(100);
 score.growth.addPercent({ percent: 5, interval: 3600 });
 ```
+{% endcode %}
 
 `addPercent` uses the growth base value; `addCompoundInterest` uses compounding. Both take `percent` and `interval` in seconds. Optional `max_iterations_count` limits growth periods. Use `growth.info()`, `growth.isEnabled()`, `growth.stop()`, `growth.resume()` and `resetGrowth()` to inspect or manage the configuration.
 

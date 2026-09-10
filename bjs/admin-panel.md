@@ -1,6 +1,8 @@
 ---
-description: Create a Bots.Business Admin Panel with BJS, preserve saved values, read fields with getFieldValue or getPanelValues, and run a command after saving.
+description: Create a Bots.Business Admin Panel with BJS, preserve saved values, read fields with getFieldValue or getPanelValues,
+  and run a command after saving.
 ---
+
 
 # Create an Admin Panel with BJS
 
@@ -10,6 +12,7 @@ An Admin Panel is a form the bot owner can open in the app. Define its fields wi
 
 Create a setup command `/setup-panel` on a bot you control. Run it once from a controlled owner/test context; do not expose configuration-reset commands to every user.
 
+{% code title="Define new Admin Panel · Example 1" overflow="wrap" %}
 ```javascript
 AdminPanel.setPanel({
   panel_name: "welcome",
@@ -37,11 +40,17 @@ AdminPanel.setPanel({
 });
 Bot.sendMessage("Open Admin Panel in the app to edit the welcome settings.");
 ```
+{% endcode %}
 
 Open the bot's Admin Panel in the app, change the text, and save. Then use a separate `/welcome` command to read it.
 
+{% tabs %}
+
+{% tab title="Read one field" %}
+
 ## Getting field value from Panel
 
+{% code title="/welcome" overflow="wrap" %}
 ```javascript
 // Command: /welcome
 var greeting = AdminPanel.getFieldValue({
@@ -50,11 +59,17 @@ var greeting = AdminPanel.getFieldValue({
 });
 Bot.sendMessage(greeting || "Welcome!", { parse_mode: null });
 ```
+{% endcode %}
 
 The method name is **`getFieldValue`**. There is no `AdminPanel.getPanelValue` method. A missing panel or field produces no value, so provide the appropriate fallback for your command.
 
+{% endtab %}
+
+{% tab title="Read all fields" %}
+
 ## Getting all fields values from Panel
 
+{% code title="/welcome-with-help" overflow="wrap" %}
 ```javascript
 // Command: /welcome-with-help
 var values = AdminPanel.getPanelValues("welcome");
@@ -63,8 +78,13 @@ if (values.show_help === true) {
   Bot.sendMessage("Send /help for available commands.");
 }
 ```
+{% endcode %}
 
 `getPanelValues` returns a name-to-value object, for example `{welcome_text: "Welcome!", show_help: true}`. For a missing panel it returns `{}`.
+
+{% endtab %}
+
+{% endtabs %}
 
 ## Panel and field options
 
@@ -91,6 +111,7 @@ Use `force: true` only for an intentional reset. Renaming a field creates a diff
 
 ## Setting field value to Panel
 
+{% code title="Setting field value to Panel · Example 4" overflow="wrap" %}
 ```javascript
 var changed = AdminPanel.setFieldValue({
   panel_name: "welcome",
@@ -99,6 +120,7 @@ var changed = AdminPanel.setFieldValue({
 });
 Bot.sendMessage(changed ? "Updated." : "Create the panel and field first.");
 ```
+{% endcode %}
 
 An existing field returns `true` when its update action is created. This method does not create a missing panel or a missing field. Read the value in a later command when checking durable storage.
 
@@ -108,17 +130,21 @@ An existing field returns `true` when its update action is created. This method 
 
 Add `on_saving` inside `data` when defining the panel:
 
+{% code title="Run a command on saving · Example 5" overflow="wrap" %}
 ```javascript
 on_saving: {
   command: "/refresh-welcome"
 }
 ```
+{% endcode %}
 
 Create `/refresh-welcome`:
 
+{% code title="/refresh-welcome" overflow="wrap" %}
 ```javascript
 Bot.clearCache("/welcome");
 ```
+{% endcode %}
 
 This fragment belongs in the full `data` object above. The save action runs the named command after storing the panel. If the command needs a user, provide that user's **internal** `user_id` in `on_saving`. Do not assume an app save has the same Telegram context as a chat message.
 

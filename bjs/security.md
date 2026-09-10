@@ -1,6 +1,8 @@
 ---
-description: Protect BJS commands and credentials, validate user input, understand sandbox limits, and avoid trusting buttons, web parameters, or unsafe cached actions.
+description: Protect BJS commands and credentials, validate user input, understand sandbox limits, and avoid trusting buttons,
+  web parameters, or unsafe cached actions.
 ---
+
 
 # BJS security and safe command design
 
@@ -12,10 +14,12 @@ Configure the permitted Telegram user ID yourself in the mobile command editor. 
 
 1. Create a temporary `/my-id` command with empty **Answer** and **Keyboard**, and this BJS:
 
+{% code title="Restrict a command to a trusted Telegram user · Example 1" overflow="wrap" %}
 ```javascript
 if (!user || !user.telegramid) { return; }
 Bot.sendMessage(String(user.telegramid));
 ```
+{% endcode %}
 
 2. Send `/my-id` from your own Telegram account in a private conversation with the bot. Copy the returned ID. This command only reports the caller's ID; it does not grant access.
 3. Create `/owner-status` below. In the mobile editor, replace `YOUR_TELEGRAM_USER_ID` with the ID you just obtained, keeping the quotes. Use a Telegram user ID, not an internal BB ID, chat ID, username, or value supplied by another user. The unchanged placeholder denies access to everyone.
@@ -24,6 +28,7 @@ Bot.sendMessage(String(user.telegramid));
 
 The protected command:
 
+{% code title="/owner-status" overflow="wrap" %}
 ```javascript
 // Command: /owner-status
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
@@ -33,6 +38,7 @@ if (!user || !user.telegramid ||
 }
 Bot.sendMessage("Administrator access confirmed.");
 ```
+{% endcode %}
 
 Keep the guard inside each privileged execution path, including commands reachable through buttons. Set the same trusted ID explicitly in each example that uses `ADMIN_TELEGRAM_ID`; never initialize it from the first visitor or chat input. For several administrators, configure [Guard](../libraries/guard.md). If you implement a separate role system, store roles in trusted bot data and validate changes to that role data too. Do not let a user choose the `user_id` that decides their own permissions.
 
@@ -40,6 +46,7 @@ This guard is for Telegram-triggered commands. A web endpoint or app-triggered c
 
 ## Validate input before using it
 
+{% code title="/quantity" overflow="wrap" %}
 ```javascript
 // Command: /quantity
 var raw = String(params || "").trim();
@@ -54,6 +61,7 @@ if (quantity < 1 || quantity > 10) {
 }
 Bot.sendMessage("Selected quantity: " + quantity);
 ```
+{% endcode %}
 
 Validate the full input, not just a numeric prefix. Limit text length, confirm expected options, and reject unknown actions. For untrusted text in ordinary replies, `parse_mode: null` avoids treating it as markup. Escape data for the particular HTML, URL, or JSON context when rendering it elsewhere.
 

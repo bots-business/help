@@ -1,6 +1,8 @@
 ---
-description: Learn JavaScript variables, types, conditions, arrays, objects, loops, and functions with small BJS examples you can run in your Telegram bot.
+description: Learn JavaScript variables, types, conditions, arrays, objects, loops, and functions with small BJS examples
+  you can run in your Telegram bot.
 ---
+
 
 # JavaScript basics for BJS beginners
 
@@ -16,9 +18,11 @@ First, [create a bot that replies](../start/first-bot.md). In the mobile app, op
 - Turn **Wait for answer** off and leave **Allowed only for group** empty.
 - Put the example in the BJS code editor, tap **Save**, and send `/practice` in a private Telegram conversation with the running bot.
 
+{% code title="Set up a practice command · Example 1" overflow="wrap" %}
 ```javascript
 Bot.sendMessage("Hello from BJS!");
 ```
+{% endcode %}
 
 The reply is `Hello from BJS!`. `Bot.sendMessage` is a function supplied by Bots.Business. The parentheses contain what you pass to it; the quotes mark text. The semicolon ends the statement.
 
@@ -28,12 +32,14 @@ For each example below, **replace the previous code completely**. Do not paste a
 
 A variable gives a value a name so you can use it later in the code.
 
+{% code title="Variables: give a value a name · Example 2" overflow="wrap" %}
 ```javascript
 let points = 2;
 points = points + 3;
 const label = "Points: ";
 Bot.sendMessage(label + points);
 ```
+{% endcode %}
 
 The reply is `Points: 5`.
 
@@ -60,11 +66,13 @@ Text after `//` is a comment for the reader; JavaScript does not execute it.
 
 `"4"` is text; `4` is a number. `false` is a Boolean; `"false"` is text.
 
+{% code title="Types: text, numbers, and true or false · Example 3" overflow="wrap" %}
 ```javascript
 const textNumber = "2";
 Bot.sendMessage(textNumber + 1);
 Bot.sendMessage(String(Number(textNumber) + 1));
 ```
+{% endcode %}
 
 The bot sends `21`, then `3`. `Number(...)` converts text to a number, and `String(...)` converts a value to text. Text such as `"apple"` cannot become an ordinary number: `Number("apple")` produces `NaN`, meaning “not a number.” Validate chat input before calculating with it.
 
@@ -72,12 +80,14 @@ Use matching straight quotes, either `"text"` or `'text'`. Inside a string, `\n`
 
 ## Calculations
 
+{% code title="Calculations · Example 4" overflow="wrap" %}
 ```javascript
 const itemPrice = 4;
 const quantity = 3;
 const total = itemPrice * quantity;
 Bot.sendMessage("Total: " + total + " points");
 ```
+{% endcode %}
 
 The reply is `Total: 12 points`. Use `+` to add, `-` to subtract, `*` to multiply, and `/` to divide. Parentheses control order: `(2 + 3) * 4` is `20`.
 
@@ -87,6 +97,7 @@ These examples use whole points. JavaScript decimal arithmetic can have rounding
 
 `if` runs a block only when its condition is true. `else` handles the other case.
 
+{% code title="Conditions: choose what happens · Example 5" overflow="wrap" %}
 ```javascript
 const points = 12;
 const required = 10;
@@ -97,6 +108,7 @@ if (points >= required) {
   Bot.sendMessage("You need more points.");
 }
 ```
+{% endcode %}
 
 The reply is `You have enough points.` Change `points` to `5` and run it again to reach the other branch. Curly braces `{ ... }` group the statements in a block. Use `else if` between the first branch and `else` when you need another condition.
 
@@ -118,6 +130,7 @@ Some values also count as false in a condition: `0`, `""`, `null`, `undefined`, 
 
 An **array** is an ordered list. An **object** holds named fields.
 
+{% code title="Arrays and objects: group related values · Example 6" overflow="wrap" %}
 ```javascript
 const topics = ["Commands", "Buttons", "BJS"];
 const product = { name: "Notebook", price: 4 };
@@ -125,6 +138,7 @@ const product = { name: "Notebook", price: 4 };
 Bot.sendMessage(topics[0]);
 Bot.sendMessage(product.name + ": " + product.price);
 ```
+{% endcode %}
 
 The replies are `Commands` and `Notebook: 4`.
 
@@ -139,6 +153,7 @@ The replies are `Commands` and `Notebook: 4`.
 
 A `for` loop can visit every item in an array. Build one reply and send it after the loop:
 
+{% code title="Loops: repeat a small amount of work · Example 7" overflow="wrap" %}
 ```javascript
 const topics = ["Commands", "Buttons", "BJS"];
 let reply = "Topics:\n";
@@ -149,20 +164,24 @@ for (let i = 0; i < topics.length; i++) {
 
 Bot.sendMessage(reply);
 ```
+{% endcode %}
 
 The reply is:
 
+{% code title="Loops: repeat a small amount of work · Example 8" overflow="wrap" %}
 ```text
 Topics:
 1. Commands
 2. Buttons
 3. BJS
 ```
+{% endcode %}
 
 The three parts of `for` mean: start `i` at zero; keep going while `i` is less than the length; add one to `i` after each pass. `i++` is a short way to increment it. The `i + 1` in the reply makes the visible numbering start at one.
 
 A `while` loop repeats while a condition stays true:
 
+{% code title="Loops: repeat a small amount of work · Example 9" overflow="wrap" %}
 ```javascript
 let count = 1;
 let reply = "";
@@ -174,6 +193,7 @@ while (count <= 3) {
 
 Bot.sendMessage(reply.trim());
 ```
+{% endcode %}
 
 The reply is `1 2 3`. `trim()` removes whitespace from the start and end. Without `count++`, this loop would never reach its stopping condition.
 
@@ -183,6 +203,7 @@ Keep loops bounded. A loop cannot wait for the user's next Telegram message, and
 
 A function groups code you want to call. Its parameters receive the values you pass in; `return` gives a result back to the caller.
 
+{% code title="Functions: name a reusable calculation · Example 10" overflow="wrap" %}
 ```javascript
 function calculateTotal(price, quantity) {
   return price * quantity;
@@ -191,6 +212,7 @@ function calculateTotal(price, quantity) {
 const total = calculateTotal(4, 3);
 Bot.sendMessage("Total: " + total + " points");
 ```
+{% endcode %}
 
 The reply is `Total: 12 points`. Inside the function, `price` is `4` and `quantity` is `3`. A function definition alone does not run its body: `calculateTotal(4, 3)` is the call. A function without a returned value produces `undefined`.
 
@@ -202,6 +224,7 @@ A JavaScript function in this command is different from another Bots.Business co
 
 Create `/quote` with the same empty metadata fields as `/practice`, paste the complete example, and tap **Save**. The user supplies a quantity after the command name, such as `/quote 3`.
 
+{% code title="Put it together: a /quote command · Example 11" overflow="wrap" %}
 ```javascript
 const input = String(params || "").trim();
 if (input === "") {
@@ -229,6 +252,7 @@ const lines = [
 ];
 Bot.sendMessage(lines.join("\n"));
 ```
+{% endcode %}
 
 In BJS, `params` contains the text after the command name. `params || ""` uses an empty string when no value is supplied; here `||` selects a fallback value. `Number.isInteger(...)` checks that conversion produced a whole number, and the remaining conditions check its range. `lines.join("\n")` joins the array into one message with line breaks.
 
@@ -245,7 +269,13 @@ This command only calculates a quote. It does not save an order, deduct points, 
 
 ## What survives the next message?
 
+{% hint style="info" %}
+<img src="../.gitbook/assets/mel-02-help-menu-mobile.webp" alt="" width="64">
+
+**Mel’s tip**
+
 A local variable belongs to one execution. Running `let points = 2` again starts at `2` again; it does not remember the previous run. Other commands do not inherit these local variables or function definitions.
+{% endhint %}
 
 When you need a saved name, balance, or setting, continue with [user and bot properties](user-properties.md). That guide explains what belongs to one user and what is shared by the bot.
 

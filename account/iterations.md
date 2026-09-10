@@ -1,6 +1,8 @@
 ---
-description: Understand Bots.Business iterations, check your quota and extra points, and reduce repeated work that consumes your allowance.
+description: Understand Bots.Business iterations, check your quota and extra points, and reduce repeated work that consumes
+  your allowance.
 ---
+
 
 # Understand and reduce iterations
 
@@ -13,6 +15,8 @@ Open **Iterations** from the app menu. Read **Used iterations / Available**, the
 Use the figures shown for your current account. Plan allowances and availability come from the account service; a copied historical price table or a demonstration screenshot is not your current entitlement.
 
 When the base allowance runs out, available Extra Points can be used. Unused Extra Points carry forward. Renewal and paid-plan continuation depend on the account's plan and paid cycles, so use the displayed date and status when planning a renewal.
+
+<figure><img src="../.gitbook/assets/mobile-iterations.png" alt="Iterations and renewal information for a fictional Demo plan; values are examples"><figcaption>Iterations and renewal information for a fictional Demo plan; values are examples</figcaption></figure>
 
 ## What tends to increase usage
 

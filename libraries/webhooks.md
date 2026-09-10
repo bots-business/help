@@ -2,14 +2,20 @@
 description: Generate a command-specific webhook URL, receive JSON in BJS, and validate the sender before acting.
 ---
 
+
 # Receive an external webhook
 
 Install `Webhooks` when an external service needs to call a BJS command. A webhook URL selects the bot, command and optional user context. It does not prove that a payload came from your intended provider.
 
-## Generate a URL for a callback
+{% stepper %}
+
+{% step %}
+
+### Generate a URL for a callback
 
 Run this from a private setup command for the relevant user:
 
+{% code title="Generate a URL for a callback · Example 1" overflow="wrap" %}
 ```javascript
 const url = Libs.Webhooks.getUrlFor({
   command: "/receive-event",
@@ -17,13 +23,19 @@ const url = Libs.Webhooks.getUrlFor({
 });
 Api.sendMessage({ text: url });
 ```
+{% endcode %}
 
 `user_id` is the internal BB user ID. Omitting it creates a URL without this explicit user selection; do not assume current-user functions will work in that callback. Treat generated URLs as capability links and share them only with the intended service.
 
-## Receive JSON
+{% endstep %}
+
+{% step %}
+
+### Receive JSON
 
 Create `/receive-event`:
 
+{% code title="/receive-event" overflow="wrap" %}
 ```javascript
 if (!options || options.method !== "POST" || typeof content !== "string") {
   return;
@@ -38,12 +50,17 @@ if (!event || typeof event.type !== "string") { return; }
 // A demonstration response only; no privileged action is performed.
 WebApp.render({ content: { received: true }, mime_type: "application/json" });
 ```
+{% endcode %}
 
 Send `{"type":"test"}` as the JSON body to the generated URL from your test client. The callback's raw body is `content`; request information is in `options`, including `headers`, `method`, `params`, `url` and `ip`.
 
 Header names are normalized by the backend, for example `Hmac` and `X-Hub-Signature-256`. `options` existing is not an authentication check: requests arriving at this URL can supply arbitrary bodies.
 
-## Match the sender's protocol
+{% endstep %}
+
+{% step %}
+
+### Match the sender's protocol
 
 Before applying a payment, deployment or account change:
 
@@ -52,7 +69,13 @@ Before applying a payment, deployment or account change:
 3. Make repeated delivery safe using an event or transaction ID and a duplicate-handling design.
 4. Return the exact response required by the provider.
 
+{% hint style="warning" %}
 The default webhook response is a Bots.Business JSON response, not the plain `ok` some providers require. The current backend allows JSON rendering but rejects non-JSON rendering, including the old `text/plain` acknowledgement recipe. Use a verified intermediary when the provider requires a different response. Returning successfully from BJS alone does not establish that a provider accepted the delivery.
+{% endhint %}
+
+{% endstep %}
+
+{% endstepper %}
 
 ## Compatibility notes
 

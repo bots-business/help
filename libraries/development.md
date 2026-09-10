@@ -2,14 +2,20 @@
 description: Write a reusable BJS library, expose functions with publish, and import it from a bot repository.
 ---
 
+
 # Create a BJS library
 
 Create a library when several commands need the same behavior. Your library is a JavaScript file under `libs/` in a [bot repository](../integrations/repository-format.md). The filename determines the `Libs` name when imported.
 
-## Export two functions
+{% stepper %}
+
+{% step %}
+
+### Export two functions
 
 Create `libs/Greetings.js`:
 
+{% code title="libs/Greetings.js" overflow="wrap" %}
 ```javascript
 function sayHello(name) {
   Bot.sendMessage("Hello, " + name + "!");
@@ -24,16 +30,23 @@ publish({
   goodbye: sayGoodbye
 });
 ```
+{% endcode %}
 
 In a command:
 
+{% code title="Export two functions · Example 2" overflow="wrap" %}
 ```javascript
 Libs.Greetings.hello("Alex");
 ```
+{% endcode %}
 
 The key passed to `publish` is the public method name. `sayHello` is private here; `Libs.Greetings.sayHello()` is not exported.
 
-## Import and verify
+{% endstep %}
+
+{% step %}
+
+### Import and verify
 
 1. Put the library beside valid `bot.json` and `commands/` files.
 2. Import into a disposable test bot using [Git import](../integrations/git.md). Git import replaces the destination bot's commands and installed library list.
@@ -42,10 +55,18 @@ The key passed to `publish` is the public method name. `sayHello` is private her
 
 Use a valid identifier as the library filename, such as `Greetings.js`. Avoid punctuation, spaces, and names reserved for core compatibility libraries. The importer creates library records from `libs/*.js`; it does not recursively import nested library folders.
 
+{% endstep %}
+
+{% endstepper %}
+
+<details>
+<summary>Receive an HTTP callback inside a library</summary>
+
 ## Receive an HTTP callback inside a library
 
 The library can register its own command handler with `on(name, function)`:
 
+{% code title="Receive an HTTP callback inside a library · Example 3" overflow="wrap" %}
 ```javascript
 function loadExample() {
   HTTP.get({
@@ -64,12 +85,15 @@ on("Greetings_loaded", loaded);
 on("Greetings_failed", failed);
 publish({ loadExample });
 ```
+{% endcode %}
 
 Here `publish({ loadExample })` is ordinary JavaScript shorthand for `publish({ loadExample: loadExample })`; the exported name is unchanged. Keep the explicit mapping in `hello: sayHello` when you want a different public name.
 
 Call `Libs.Greetings.loadExample()`. Callback handlers execute in a later command context; use persisted state or explicitly passed data where your workflow needs it. Prefix internal handler names to avoid collisions.
 
 `on("*", handler)` can capture incoming command text, but it can interfere with bot routing. Prefer narrowly named handlers unless a wildcard is the purpose of your library.
+
+</details>
 
 ## Names and property helpers
 

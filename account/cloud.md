@@ -2,9 +2,12 @@
 description: Understand Bots.Business Cloud, review the current account offer, and diagnose slow bots before changing resources.
 ---
 
+
 # Understand Bots.Business Cloud
 
+{% hint style="info" %}
 Bots.Business Cloud provides a server instance for your bots. General hosting shares resources with other accounts; Cloud assigns resources to the bots using your Cloud instance.
+{% endhint %}
 
 ## Review the current offer
 
