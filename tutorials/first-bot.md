@@ -23,7 +23,7 @@ layout:
 
 **Your result:** a bot that replies to `/start` and a reply keyboard whose two buttons open the matching commands.
 
-**Before you start:** a Telegram account, access to Bots.Business on your phone, and a bot you can use for learning. No JavaScript is needed for this route.
+**Before you start:** a Telegram account and access to Bots.Business on your phone. You will create a bot for learning during this route. No JavaScript is needed.
 
 {% stepper %}
 {% step %}
@@ -40,7 +40,7 @@ layout:
 {% step %}
 ### Get your first reply
 
-**Prepare:** keep the intended bot's BotFather token available privately.
+**Prepare:** open Telegram. If you do not have a bot yet, the [first step explains how to create one and get its token](../start/first-bot.md#1-create-the-bot-in-telegram). If you already have a bot for learning, keep its current token ready.
 
 **Do:** follow all four steps in [Create your first Telegram bot](../start/first-bot.md): create the bot, add its token, give `/start` an Answer, and launch it.
 
