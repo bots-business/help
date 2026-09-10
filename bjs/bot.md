@@ -39,7 +39,7 @@ For precise Telegram options such as `message_thread_id`, media, reply parameter
 | `Bot.editInlineKeyboard(buttons, message_id, chat_id)` | Replace an inline keyboard; use Telegram message/chat IDs |
 
 {% hint style="info" %}
-Store the Telegram `message_id` together with its chat ID. A message ID is unique **within its chat**, not across every chat of your bot. Telegram also limits which messages a bot can edit. [Telegram Message reference](https://core.telegram.org/bots/api#message).
+Keep the Telegram `message_id` together with its chat ID: pass both in `options` for a next or scheduled handler, and save them in a property when a later independent command needs them. A message ID is unique **within its chat**, not across every chat of your bot. Telegram also limits which messages a bot can edit. [Telegram Message reference](https://core.telegram.org/bots/api#message).
 {% endhint %}
 
 For a complete send-result-edit example, see [Telegram API](telegram-api.md#save-a-message-id-and-edit-the-message).
@@ -98,6 +98,8 @@ This removes a reply keyboard. To change inline buttons attached to a specific m
 | `Bot.run({command, options, ...})` | Command call with explicit scheduling/context options |
 | `Bot.clearRunAfter({label})` | Delete this bot's pending scheduled requests with the label |
 | `Bot.runAll({command, ...})` | Create a task that runs a command for multiple chats |
+
+For a next handler, pass its input in `options`; it does not need an intermediate property. See [structured options](context.md#pass-structured-options) and the [media handoff example](../guides/send-media.md). Leave **Wait for answer** off when the target should process the supplied value immediately.
 
 `Bot.run` supports `run_after` in seconds, `label`, internal `bot_id`, `user_id`, `chat_id`, Telegram `user_telegramid`, and `ignoreMissingCommand`. A custom destination may cause the runtime to schedule a one-second delay even when no delay was supplied. The `background` field is not forwarded by this method; use `run_after` for delayed execution.
 

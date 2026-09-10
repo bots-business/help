@@ -42,4 +42,4 @@ For referral handling and attribution, use the [referral library guide](../libra
 
 ## If params is empty
 
-Check that the link uses `?start=`, that the user completed Telegram's start action, and that you are reading the value in the `/start` execution. A later command does not automatically inherit the original link parameter; store needed state deliberately.
+Check that the link uses `?start=`, that the user completed Telegram's start action, and that you are reading the value in the `/start` execution. A later command does not automatically inherit the original link parameter. Pass it through [options](../bjs/context.md#pass-structured-options) when calling the next handler; save a property only if a future independent message needs the value.

@@ -6,7 +6,7 @@ description: Save and read BJS properties with User.setProp, Bot.setProp, getPro
 
 # User and bot properties
 
-Properties keep data between command executions. Use `User` for the current user's progress and `Bot` for settings shared by the bot. A local JavaScript variable does not persist after the command ends.
+Properties keep data between command executions. Use `User` for the current user's progress and `Bot` for settings shared by the bot. A local JavaScript variable does not persist after the command ends. If a value is needed only by a command you call next, [pass it through `options`](context.md#pass-structured-options) instead of saving a property just to read it back. Use storage when a future independent message or visit needs the value.
 
 ## Save and read a value
 

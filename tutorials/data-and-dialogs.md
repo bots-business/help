@@ -81,7 +81,7 @@ Check existing command names before pasting a recipe. Both dialog examples use `
 
 **Mel’s tip**
 
-A JavaScript variable lasts for the current execution. Use the property saved by the recipe when the next message needs the value. Test a second command or return visit so you check persistence, not just the current reply.
+A JavaScript variable lasts for the current execution. Pass data through [options](../bjs/context.md#pass-structured-options) for a handler you call next. Use the property saved by the recipe when a future independent message needs the value: this route intentionally keeps the name, quantity and checklist progress. Test a second command or return visit so you check persistence, not just the current reply.
 {% endhint %}
 
 ## Finish the route
