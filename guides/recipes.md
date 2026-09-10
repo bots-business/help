@@ -21,7 +21,7 @@ Choose the result you want, then follow the complete guide. Each linked guide ex
 | Put a changing balance on a reply button | [Dynamic balance keyboard](../app/reply-keyboard.md#show-a-changing-balance-on-a-button) |
 | Build a menu in two languages | [SmartBot menu](smartbot-menu.md) |
 | Put buttons under a message or edit a sent message | [Bot methods](../bjs/bot.md) |
-| Save and resend a photo or document, with a button | [Send photos and documents](send-media.md) |
+| Receive and send back a photo or document, with a button | [Send photos and documents](send-media.md) |
 | Call another Telegram method | [Telegram API](../bjs/telegram-api.md) |
 | Put a saved value in an ordinary Answer | [Answer placeholders](../app/commands.md#put-a-saved-property-in-an-answer) |
 | Receive contacts, locations, photos or group events | [Telegram updates](telegram-updates.md) |

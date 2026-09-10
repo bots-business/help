@@ -31,6 +31,19 @@ BJS variables describe the current command execution. Their values depend on how
 
 Names are case-sensitive JavaScript identifiers: `Bot` is an API object; `bot` is context data. `User` provides property methods; `user` is the current record. `HTTP` uses uppercase letters, while Telegram methods belong to `Api`.
 
+## Choose how long data should live
+
+| Needed lifetime | Use |
+| --- | --- |
+| Only inside the current command | A local variable or function parameter |
+| In a command you explicitly call next | `Bot.run({ command, options })` or `Bot.runCommand(command, options)`; the target reads `options` |
+| A simple text argument following a command name | `params`; keep it separate from structured `options` |
+| In a delayed command you schedule | The scheduled call's `options`; no extra user property is needed just to carry its payload |
+| In the next reply to an active question | Pass `options` when starting the waiting command; they are restored for that pending reply |
+| In future independent messages or visits | A [user or bot property](user-properties.md), list or appropriate library state |
+
+For a value used only by the next handler, pass it directly rather than creating a property solely to read it back. [Send photos and documents](../guides/send-media.md) shows a file ID passed this way. Properties remain useful for a saved profile, settings, progress, or correlating an independent service notification with an order.
+
 ## Internal IDs and Telegram IDs
 
 | Value | Identifier |
@@ -86,6 +99,8 @@ Bot.sendMessage("Hello, " + name + "!", { parse_mode: null });
 
 ## Pass structured options
 
+Create `/show-menu` and `/show-section` with empty **Answer** and **Keyboard**, **Wait for answer** off and no Auto Retry interval.
+
 Command `/show-menu`:
 
 {% code title="/show-menu" overflow="wrap" %}
@@ -108,6 +123,10 @@ if (!options || options.section !== "help") {
 Bot.sendMessage("Help: use /hello followed by your name.");
 ```
 {% endcode %}
+
+The same call can be written as `Bot.runCommand("/show-section", { section: "help" })`. The structured value belongs to that explicit call; a later independent `/show-section` message does not automatically receive it.
+
+A target with **Wait for answer** on opens a question instead of running its reply handler immediately. Bots.Business stores the supplied `options` with that pending question and restores them for its reply. A scheduled call similarly carries its own payload. Neither mechanism makes the data available to arbitrary future commands.
 
 Options are a convenient data channel, not proof of authorization. A command that changes privileged data must check the caller or validate a trusted server-side context.
 

@@ -52,7 +52,7 @@ Send `/reply` in a private Telegram chat. The bot's answer should show your comm
 | `result_to_bot_property` | Save the successful response as a JSON bot property |
 | `result_to_user_property` | Save the successful response as a JSON current-user property |
 
-These fields are removed before forwarding the request to Telegram. Use one result-property destination at a time. Result-property saving happens after the result callback, so read the response from `options` inside that callback.
+These fields are removed before forwarding the request to Telegram. Use one result-property destination at a time. Result-property saving happens after the result callback, so read the response from `options` inside that callback. Use `options.result` to process the current response and `options.bb_options` for context supplied through `bb_options`. Use `result_to_*_property` only when a later independent command needs the saved response, not as transport into the current callback.
 
 Command `/send-status`:
 
@@ -66,6 +66,8 @@ Api.sendMessage({
 });
 ```
 {% endcode %}
+
+Command `/sent-status` saves the IDs because the later `/update-status` command below must find that message. An immediate next handler could receive those IDs through `Bot.run` options instead.
 
 Command `/sent-status`:
 
@@ -183,7 +185,7 @@ Keep the bot running with available iterations. `run_after` is in seconds and qu
 
 ## Objects, keyboards, and media
 
-For complete commands that receive a user's photo or document, save its file ID, and send it back, follow [Send photos and documents](../guides/send-media.md). The photo example also adds a URL button.
+For complete commands that receive a user's photo or document, pass its file ID through `options`, and immediately send it back, follow [Send photos and documents](../guides/send-media.md). The photo example also adds a URL button.
 
 Supply objects and arrays directly for fields such as `reply_markup`; the BJS wrapper serializes them:
 

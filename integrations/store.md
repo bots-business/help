@@ -52,7 +52,7 @@ Expand this into deliberate rules; a substring match can accidentally answer unr
 
 ## Keyboard examples: contact and location
 
-Use [Receive contacts, locations, photos and group events](../guides/telegram-updates.md) for a complete `/share` keyboard and `*` receiver. It includes the user's sharing choice, private-chat restriction, contact ownership check, location validation, saved properties and expected test results.
+Use [Receive contacts, locations, photos and group events](../guides/telegram-updates.md) for a complete `/share` keyboard and `*` receiver. It includes the user's sharing choice, private-chat restriction, contact ownership check, location validation, saved contact/location properties and expected test results. Its media branches pass file IDs directly to the sender commands linked in the guide.
 
 This keeps the useful scenario from SRB Demo Keyboard Tools together with the code that receives the resulting updates. A request button alone does not save a contact or location; a receiving command must handle those fields.
 

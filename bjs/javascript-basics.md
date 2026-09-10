@@ -277,7 +277,7 @@ This command only calculates a quote. It does not save an order, deduct points, 
 A local variable belongs to one execution. Running `let points = 2` again starts at `2` again; it does not remember the previous run. Other commands do not inherit these local variables or function definitions.
 {% endhint %}
 
-When you need a saved name, balance, or setting, continue with [user and bot properties](user-properties.md). That guide explains what belongs to one user and what is shared by the bot.
+When you need a saved name, balance, or setting, continue with [user and bot properties](user-properties.md). That guide explains what belongs to one user and what is shared by the bot. For a value needed only by a handler you call next, use [structured options](context.md#pass-structured-options) instead of an intermediate property.
 
 ## Practice and troubleshoot
 
