@@ -1,233 +1,129 @@
-# Admin Panel
+---
+description: Create a Bots.Business Admin Panel with BJS, preserve saved values, read fields with getFieldValue or getPanelValues, and run a command after saving.
+---
 
+# Create an Admin Panel with BJS
 
+An Admin Panel is a form the bot owner can open in the app. Define its fields with BJS, then read the saved settings in your commands. If you only need to fill an existing form, start with [using an Admin Panel](../app/admin-panel.md).
 
-**You can create a custom admin panel.**
+## Define new Admin Panel
 
-* make custom data fields: numeric, text, checkbox, password
-* data fields will be accessible in BJS
-* admin panels can be created via BJS
-* bot run customized command on field saving
-* supports severals panels with titles and differents fields
-
-**Benefits:**
-
-* making options for saving any api keys, secure and unsecure data
-* can run any BJS logic from panel. For example: it will be possible create text field with button "Send this message to all chats" from App.
-* make any quick statistic and information. Bot dashboards and etc
-
-![](<../.gitbook/assets/image (74).png>)
-
-## Methods
-
-### Define new Admin Panel
-
-Admin Panel - this is a combination of several panels. Each panel have title, icon, description and one or more fields:
-
-For adding panel:
-
-`AdminPanel.setPanel({ panel_name: PANEL_NAME, data: PANEL_OPTIONS });`
-
-PANEL\_OPTIONS - it is JSON option for this panel
-
-**Example**
-
-![](<../.gitbook/assets/image (18).png>)
+Create a setup command `/setup-panel` on a bot you control. Run it once from a controlled owner/test context; do not expose configuration-reset commands to every user.
 
 ```javascript
-var panel = {
-  // Panel title
-  title: "Admin Information",
-  description: "Please fill here your admin id",
-  // order index
-  index: 0,
-  icon: "key",
-  // save button title - default "SAVE"
-  button_title: "SAVE",
-  // command called on saving
-  // not necessary
-  /* on_saving:{
-     command: "/on-saving",
-     // if you need user
-     user_id: user_id // Get it via Bot.sendMessage(user.id)
-  },
-  */
-  
-  // Fields for this Panel
-  // here 1 field only
-  fields: [
-    {
-      name: "ADMIN_ID",
-      title: "Admin ID",
-      description: "you can get your admin_id with BJS Bot.sendMessage(user.id)",
-      type: "string",
-      placeholder: "your admin id",
-      // value: 100,   // default value
-      // hidden: true  // if you need hidden field. By default - false
-    }
-    // another fields here
-    // if needed
-    // ...
-  ]
-}
-
 AdminPanel.setPanel({
-  panel_name: "AdminInfo",
-  data: panel
-  // force: true // default false - save fields values
-});
-```
-
-#### Force
-
-Default is false. All old values for the fields are retained.
-
-If true - all old values for fields are reassigned.
-
-#### Fields
-
-It is array of fields. One panel can have several fields. It is also possible panel without any field.
-
-Fields can have name, value, title, description, type, placeholder and icon
-
-#### Field type
-
-| Type     | Description    |
-| -------- | -------------- |
-| checkbox | Text input     |
-| integer  | Text input     |
-| float    | Text input     |
-| string   | Text input     |
-| password | Password input |
-| text     | Text field     |
-
-###
-
-### Getting field value from Panel
-
-{% hint style="success" %}
-Use this method for getting one value from panel
-{% endhint %}
-
-```javascript
-var admin_id = AdminPanel.getFieldValue({
-  panel_name: "AdminInfo", // panel name
-  field_name: "ADMIN_ID" // field name
-})
-
-Bot.sendMessage(admin_id)
-```
-
-
-
-### Setting field value to Panel
-
-{% hint style="success" %}
-Use this method for setting one value to panel
-{% endhint %}
-
-```javascript
-var result = AdminPanel.setFieldValue({
-  panel_name: "AdminInfo", // panel name
-  field_name: "ADMIN_ID", // field name
-  value: 15236125
-})
-
-Bot.sendMessage(result) // true
-```
-
-###
-
-### Getting all fields values from Panel
-
-{% hint style="success" %}
-Use this method for getting several/all values from panel
-{% endhint %}
-
-```javascript
-var values = AdminPanel.getPanelValues("AdminInfo");
-Bot.inspect(values);
-// will be like:
-// { ADMIN_ID: 100 }
-```
-
-### &#x20;
-
-### Getting panel data
-
-```javascript
-var panel = AdminPanel.getPanel("AdminInfo")
-Bot.inspect(panel);
-
-// can modify panel
-// panel.fields[0].value = 1000
-// panel.fields[0].tite = "my admin id"
-// AdminPanel.setPanel("AdminInfo", panel);
-```
-
-###
-
-### Getting panel field data
-
-```javascript
-var panel_field = AdminPanel.getPanelField({
-  panel_name: "AdminInfo", // panel name
-  field_name: "ADMIN_ID" // field name
-})
-
-Bot.inspect(panel_field);
-```
-
-### Icons
-
-You can use all icons from [https://ionicons.com](https://ionicons.com/)
-
-
-
-## Good practices
-
-{% hint style="success" %}
-Use admin panels to create a **configuration**
-{% endhint %}
-
-Define Admin Panels in `/config` command with `AdminPanel.setPanel` method.
-
-Then use `AdminPanel.getPanelValue` method for getting any field's value
-
-
-
-{% hint style="success" %}
-Use admin panels to create a bot **dashboard**
-{% endhint %}
-
-Panel without fields can dispay any informations. Use this.
-
-
-
-{% hint style="success" %}
-Use admin panels to create admin reactions
-{% endhint %}
-
-You can launch any bot command on panel saving. It is good for making any admin command execution. Use `on_saving`:&#x20;
-
-```javascript
-var panel = {
-  // Panel title
-  title: "Call secure command",
-  description: "It is secure command",
-  // order index
-  index: 0,
-  icon: "key",
-  // save button title - default "SAVE"
-  button_title: "RUN",
-  // command called on saving
-  // not necessary
-  on_saving: {
-     command: "/secure-command",
-     // if you need user
-     user_id: user_id // Get it via Bot.sendMessage(user.id)
+  panel_name: "welcome",
+  data: {
+    title: "Welcome settings",
+    description: "Text used by the welcome command.",
+    index: 0,
+    button_title: "Save",
+    fields: [
+      {
+        name: "welcome_text",
+        title: "Welcome message",
+        type: "string",
+        placeholder: "Enter a short greeting",
+        value: "Welcome!"
+      },
+      {
+        name: "show_help",
+        title: "Show the help command",
+        type: "checkbox",
+        value: true
+      }
+    ]
   }
-}
-
-AdminPanel.setPanel("SecureCommand", panel);
+});
+Bot.sendMessage("Open Admin Panel in the app to edit the welcome settings.");
 ```
+
+Open the bot's Admin Panel in the app, change the text, and save. Then use a separate `/welcome` command to read it.
+
+## Getting field value from Panel
+
+```javascript
+// Command: /welcome
+var greeting = AdminPanel.getFieldValue({
+  panel_name: "welcome",
+  field_name: "welcome_text"
+});
+Bot.sendMessage(greeting || "Welcome!", { parse_mode: null });
+```
+
+The method name is **`getFieldValue`**. There is no `AdminPanel.getPanelValue` method. A missing panel or field produces no value, so provide the appropriate fallback for your command.
+
+## Getting all fields values from Panel
+
+```javascript
+// Command: /welcome-with-help
+var values = AdminPanel.getPanelValues("welcome");
+Bot.sendMessage(values.welcome_text || "Welcome!", { parse_mode: null });
+if (values.show_help === true) {
+  Bot.sendMessage("Send /help for available commands.");
+}
+```
+
+`getPanelValues` returns a name-to-value object, for example `{welcome_text: "Welcome!", show_help: true}`. For a missing panel it returns `{}`.
+
+## Panel and field options
+
+| Option | Meaning |
+| --- | --- |
+| `panel_name` | Stable internal panel name used by BJS reads |
+| `data.title`, `data.description` | User-facing title and explanation |
+| `data.index` | Ordering hint for the panel |
+| `data.button_title` | Save/action button label |
+| `data.fields` | Array of field definitions |
+| Field `name` | Stable key used by `getFieldValue` |
+| Field `title`, `description`, `placeholder` | Explain what the owner should enter |
+| Field `value` | Initial value, or replacement value when forced |
+| Field `type` | `string`, `text`, `integer`, `float`, `password`, or `checkbox` |
+| Field `hidden` | Hide the field from the form; not an access-control rule |
+
+A checkbox is an on/off control. Integer/float fields accept numeric input; a password field masks its displayed value. Masking does not make it safe to publish the value in bot messages or share access to the whole bot.
+
+## Force
+
+`AdminPanel.setPanel` preserves existing values for fields with the same name unless you pass `force: true`. This lets you change labels or add a field without resetting the owner's settings.
+
+Use `force: true` only for an intentional reset. Renaming a field creates a different key, so migrate its saved value deliberately. Saving a single field is usually safer than replacing the whole panel.
+
+## Setting field value to Panel
+
+```javascript
+var changed = AdminPanel.setFieldValue({
+  panel_name: "welcome",
+  field_name: "welcome_text",
+  value: "Hello again!"
+});
+Bot.sendMessage(changed ? "Updated." : "Create the panel and field first.");
+```
+
+An existing field returns `true` when its update action is created. This method does not create a missing panel or a missing field. Read the value in a later command when checking durable storage.
+
+`AdminPanel.getPanel("welcome")` returns the full panel definition. `AdminPanel.getPanelField({panel_name: "welcome", field_name: "welcome_text"})` returns a field definition. Do not expose these whole objects when a panel contains secrets.
+
+## Run a command on saving
+
+Add `on_saving` inside `data` when defining the panel:
+
+```javascript
+on_saving: {
+  command: "/refresh-welcome"
+}
+```
+
+Create `/refresh-welcome`:
+
+```javascript
+Bot.clearCache("/welcome");
+```
+
+This fragment belongs in the full `data` object above. The save action runs the named command after storing the panel. If the command needs a user, provide that user's **internal** `user_id` in `on_saving`. Do not assume an app save has the same Telegram context as a chat message.
+
+## Troubleshooting
+
+If the form is missing, verify the setup command ran successfully and the correct bot is open. If a new default did not appear, existing values were probably preserved intentionally. If a read is undefined, compare `panel_name` and field `name`, including case. If save succeeds but follow-up work fails, check the callback command and its required context in [BJS errors](errors.md).
+
+Next: [properties](user-properties.md), [caching](caching.md), or the distinct [BBAdmin API](bb-admin.md).

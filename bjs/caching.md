@@ -1,161 +1,69 @@
-# Caching
+---
+description: Cache stable BJS command actions with Bot.setCache or User.setCache, invalidate changed content, and avoid sharing private or state-changing responses.
+---
 
-Commands must be executed quickly within 100 - 250 ms. If commands take a long time to complete, users have a bad impression of using the bot
+# Caching commands
 
-Some commands cannot be executed quickly:
+Command caching reuses a command's saved actions for a limited time. It can reduce repeated BJS work for a stable response. It is not a general key-value cache and does not make slow external side effects disappear.
 
-* HTTP loading
-* long api requests (for example, [sendVideo](https://core.telegram.org/bots/api#sendvideo), [getChatMember](https://core.telegram.org/bots/api#getchatmember)- all get methods and etc)
-* mass message broadcasting
-* Bot.runAll
+## Cache a shared answer
 
-Some commands can be very large or poorly coded:
-
-* mass properting reading/setting (more then 20 properties in one command
-* big (or infinite!) loops
-* etc
-
-**if your code runs slower than 300ms - necessary:**
-
-* try to make it more quickly
-* or cache it
-* or run command on background and cache it (if needed)
-
-{% hint style="danger" %}
-If your code takes very long time it will be aborted with timeout error
-{% endhint %}
-
-{% hint style="danger" %}
-Slow commands can cause your Cloud to **degrade and even crash.**
-
-For example, let's say your cloud can process 1 request per second.
-
-Thus, 4 requests of 250 ms each will be processed per second
-
-But if you have slow commands (let's say one second), the cloud will process only one command instead of four.
-
-Thus, the response to the first message will only be sent in a second. And the answer to the last is the fourth already in four.
-{% endhint %}
-
-## Caching methods
-
-### setCache
-
-Example set command caching for 1 hour (for all bot users):
+Create `/hours`:
 
 ```javascript
-Bot.sendMessage("Hello!");
-
-Bot.setCache(
-  60*60 // time in seconds 60*60 = 1 hour
-)
+var hours = Bot.getProp("opening_hours", "Monday to Friday, 09:00–17:00");
+Bot.sendMessage(hours, { parse_mode: null });
+Bot.setCache(300);
 ```
 
-Example of command caching for 1 hour (for one user only):
+The command's actions may be reused for five minutes. When changing the underlying value, clear that command's cache:
 
 ```javascript
-User.sendMessage("Hello, " + user.first_name);
-
-User.setCache(
-  60*60 // time in seconds 60*60 = 1 hour
-)
+// Use in your authorized settings-save flow.
+Bot.setProp("opening_hours", "Monday to Saturday, 09:00–17:00");
+Bot.clearCache("/hours");
 ```
 
-### clearCache
+The first command is suitable only when its response is identical for every recipient and its other actions are safe to replay.
 
-you can clear Cache (it can be usefull on changing data)
+## Methods
+
+| Method | Scope |
+| --- | --- |
+| `Bot.setCache(seconds)` | Cache current-command actions for the bot |
+| `User.setCache(seconds)` | Cache current-command actions for the current user |
+| `Bot.clearCache(command_name)` | Remove this bot's active shared cache for the named command |
+| `User.clearCache(command_name)` | Remove the current user's active cache for the named command |
+
+Call `setCache` inside the command being cached. `clearCache` takes the command's saved name, such as `/hours`, not a property name.
+
+## A per-user answer
 
 ```javascript
-Bot.clearCache(
-  "/command" // command Name
-)
+// Command: /profile-summary
+if (!user) { return; }
+var nickname = User.getProp("nickname", user.first_name || "Reader");
+Bot.sendMessage("Hello, " + nickname + ".", { parse_mode: null });
+User.setCache(60);
 ```
 
-clear for user caching
+Clear `/profile-summary` with `User.clearCache("/profile-summary")` when that user updates their nickname. Always require a current user for user-cache operations; otherwise the backend has no user ID to scope the entry.
 
-```javascript
-User.clearCache(
-  "/command" // command Name
-)
-```
+## Choose a safe cache boundary
 
-## What can be cached?
+The cache stores actions associated with a command and optional user. It does not create a separate cache entry for every `params` or `options` value. A command that accepts `/price tea` and `/price coffee` should not use one shared cached answer unless those inputs deliberately produce the same output.
 
-Caching is a powerful method for speeding up a bot. But you can't cache everything.
+Do not cache:
 
-Criteria for caching:
+- Payments, property increments, installations, account recovery, or other actions that must happen once.
+- Personalized text with `Bot.setCache`.
+- Current authorization checks, a changing permission state, or a one-time token.
+- A large HTTP/API workflow on the assumption that caching its actions means its remote result is stored as plain content.
 
-* messages from the bot to this command do not change, or rarely change
-* command accepts no params `(/command any param)` or options `(Bot.run(command: "/cmd", options: options))`, or accepts them, but they rarely change
-* the result of the command is not critical. Even if the old, not updated value is returned, this is not critical
+Instead, separate stable text from state-changing work. Cache the stable command and call it from a small workflow where appropriate. Because cache entries replay actions, a repeated request may still perform an action present in the cache.
 
-If your command does not meet these requirements try to devide it for several commands. One or more of them can be cached. To run them use methods: `Bot.run` or `Bot.runCommand`
+## Troubleshooting
 
-## &#x20;Advanced techniques
+If users see stale content, check its lifetime and invalidation command. If two users see the same name, replace the shared cache with a user-scoped design and clear the old shared entry. If changing parameters does not change the answer, the cache boundary is too broad.
 
-You can PRE run caching in background for long command.
-
-Command `/start`
-
-```javascript
-Bot.sendMessage("Welcome to my bot");
-
-Bot.run({
-  command: "/longBackroundTask",
-  run_after: 1 // will be runned in background after 1 sec
-})
-```
-
-Command `/longBackroundTask`
-
-```javascript
-// make your long task here...
-Bot.getProperty("myJSON_1");
-Bot.getProperty("myJSON_1");
-// ... and etc...
-Bot.getProperty("myJSON_100");
-
-User.setCache(
-  60*60*24*7 // time in seconds - 60*60*24*7 it is week
-)
-```
-
-## Examples
-
-command `/time`:&#x20;
-
-```javascript
-var date = new Date(); 
-
-var time = "Time: " + 
-   + date.getHours() + ":"  
-   + date.getMinutes() + ":" 
-   + date.getSeconds();
-
-Bot.sendMessage(time);
-```
-
-We have such result (without caching) - take 250 ms:
-
-![](<../.gitbook/assets/image (39).png>)
-
-Edit command for caching:
-
-```javascript
-var date = new Date(); 
-
-var time = "Time: " + 
-   + date.getHours() + ":"  
-   + date.getMinutes() + ":" 
-   + date.getSeconds();
-
-Bot.sendMessage(time);
-
-Bot.setCache(120);  // caching for 120 seconds
-```
-
-Now we have such result - take 120 ms (instead 250 ms without caching):
-
-![](<../.gitbook/assets/image (46).png>)
-
-Command result is changed only after 120 seconds. During that 120 seconds answer is same.
+Caching does not fix unbounded loops, recursive command chains, or incorrect API calls. Start with [BJS errors](errors.md) and the relevant [Bot](bot.md), [HTTP](http.md), or [property](user-properties.md) contract.
