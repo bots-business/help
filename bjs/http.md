@@ -32,13 +32,13 @@ Create `/service-response`:
 
 {% code title="/service-response" overflow="wrap" %}
 ```javascript
-if (typeof http_status === "undefined") { return; }
+if (http_status == null) { return; }
 var status = Number(http_status);
 if (status < 200 || status >= 300) {
   Bot.sendMessage("The service returned HTTP " + status + ".");
   return;
 }
-Bot.sendMessage("The service responded. Body length: " + String(content || "").length);
+Bot.sendMessage("The service responded. Body length: " + (content || "").length);
 ```
 {% endcode %}
 
@@ -89,18 +89,24 @@ Create `/order-response`:
 
 {% code title="/order-response" overflow="wrap" %}
 ```javascript
-if (Number(http_status) < 200 || Number(http_status) >= 300) {
-  Bot.sendMessage("Order service returned HTTP " + http_status + ".");
+if (http_status == null) { return; }
+const status = Number(http_status);
+if (status < 200 || status >= 300) {
+  Bot.sendMessage("Order service returned HTTP " + status + ".");
   return;
 }
-var data;
+let data;
 try {
   data = JSON.parse(content);
 } catch (error) {
   Bot.sendMessage("The service returned an unexpected response.");
   return;
 }
-Bot.sendMessage("Order reference: " + String(data.id || "not supplied"), { parse_mode: null });
+if (!data || typeof data !== "object" || Array.isArray(data)) {
+  Bot.sendMessage("The service returned an unexpected response.");
+  return;
+}
+Bot.sendMessage("Order reference: " + (data.id || "not supplied"), { parse_mode: null });
 ```
 {% endcode %}
 

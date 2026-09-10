@@ -31,12 +31,12 @@ Put this in the BJS editor and save:
 
 {% code title="Ask for a name · Example 1" overflow="wrap" %}
 ```javascript
-if (!message || !message.trim()) {
+const displayName = (message || "").trim();
+if (!displayName) {
   Bot.sendMessage("Please send /name again and reply with text.");
   return;
 }
 
-var displayName = message.trim();
 User.setProp("display_name", displayName);
 Bot.sendMessage({
   text: "Thanks, " + displayName + ". Your name is saved.",

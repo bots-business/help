@@ -49,7 +49,7 @@ This guard is for Telegram-triggered commands. A web endpoint or app-triggered c
 {% code title="/quantity" overflow="wrap" %}
 ```javascript
 // Command: /quantity
-var raw = String(params || "").trim();
+var raw = (params || "").trim();
 if (!/^\d+$/.test(raw)) {
   Bot.sendMessage("Enter a whole quantity from 1 to 10.");
   return;

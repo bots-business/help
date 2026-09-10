@@ -26,7 +26,7 @@ Use the app guide for [finding an error and its command](../troubleshooting/erro
 Bot.inspect({
   has_user: !!user,
   has_chat: !!chat,
-  parameters: String(params || "").slice(0, 100),
+  parameters: (params || "").slice(0, 100),
   option_keys: options ? Object.keys(options) : []
 });
 ```
@@ -72,6 +72,6 @@ This response is for the private-chat error-notification flow. It is not a globa
 
 ## Make examples easier to maintain
 
-Use named variables, small functions, clear guards, and one purpose per command. Avoid copying the same complex validation into several slightly different snippets; use a shared helper only when its execution context and return behavior are understood. Keep callback names and their handlers together in the article or project.
+Use named variables, [small functions](javascript-basics.md#functions-name-a-reusable-calculation), clear guards, and one purpose per command. Keep a local function in the command that calls it. To reuse complex validation across commands, see [custom libraries](../libraries/development.md); check the helper's execution context and return behavior before sharing it. Keep callback names and their handlers together in the article or project.
 
 For a bot that never reaches the command at all, use [Bot not responding](../troubleshooting/bot-not-responding.md). For an execution problem, start with [BJS context](context.md) and the relevant method reference.

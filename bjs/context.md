@@ -20,7 +20,7 @@ BJS variables describe the current command execution. Their values depend on how
 | `chat` | Current chat record, when available |
 | `bot` | Current bot; useful fields include its internal `id` and name |
 | `request` | Telegram request object relevant to this update; its structure changes with the update type |
-| `tgUpdate` | Original Telegram update data, when supplied by the Telegram trigger |
+| `tgUpdate` | Original Telegram update data, when supplied by the Telegram trigger; see [contacts, locations and other non-text updates](../guides/telegram-updates.md) |
 | `content` | Decoded HTTP response body in an HTTP success command |
 | `http_status` | HTTP response status in the HTTP callback; convert with `Number(...)` when comparing numerically |
 | `http_headers`, `cookies` | Decoded HTTP response metadata |
@@ -57,8 +57,8 @@ For a small diagnostic command, create `/visit-info` with empty Answer and **Wai
 // Command: /visit-info
 if (!user || !chat || chat.chat_type !== "private") { return; }
 Api.sendMessage({
-  text: "New user record: " + Boolean(user.just_created) +
-    "\nNew chat for this bot: " + Boolean(chat.just_created)
+  text: "New user record: " + user.just_created +
+    "\nNew chat for this bot: " + chat.just_created
 });
 ```
 {% endcode %}
@@ -73,7 +73,7 @@ Create `/hello` with this BJS and send `/hello Alex`:
 
 {% code title="Read command parameters · Example 2" overflow="wrap" %}
 ```javascript
-var name = String(params || "").trim();
+var name = (params || "").trim();
 if (!name) {
   Bot.sendMessage("Use /hello followed by your name.");
   return;

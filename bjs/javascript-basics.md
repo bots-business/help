@@ -226,7 +226,7 @@ Create `/quote` with the same empty metadata fields as `/practice`, paste the co
 
 {% code title="Put it together: a /quote command · Example 11" overflow="wrap" %}
 ```javascript
-const input = String(params || "").trim();
+const input = (params || "").trim();
 if (input === "") {
   Bot.sendMessage("Send /quote followed by a quantity from 1 to 5.");
   return;
@@ -280,6 +280,8 @@ A local variable belongs to one execution. Running `let points = 2` again starts
 When you need a saved name, balance, or setting, continue with [user and bot properties](user-properties.md). That guide explains what belongs to one user and what is shared by the bot.
 
 ## Practice and troubleshoot
+
+To apply these basics across several commands, follow [Data and dialogs](../tutorials/data-and-dialogs.md): collect a name, validate a quantity and save checklist progress.
 
 Try changing the product name and price, adding an item to the topics array, or making `/quote` accept quantities up to `10`. Update its validation and help messages together, then test a valid value, an invalid value, and missing input.
 

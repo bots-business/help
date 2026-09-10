@@ -84,7 +84,7 @@ Use a test bot and a destination where you intend to receive recurring messages.
 {% code title="Send an hourly reminder to a fixed chat · Example 4" overflow="wrap" %}
 ```javascript
 if (!chat || !chat.chatid) { return; }
-Bot.sendMessage(String(chat.chatid));
+Bot.sendMessage(chat.chatid);
 ```
 {% endcode %}
 

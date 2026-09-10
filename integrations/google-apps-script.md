@@ -19,10 +19,6 @@ Add this Apps Script code:
 {% code title="Create a small spreadsheet endpoint · Example 1" overflow="wrap" %}
 ```javascript
 function doPost(e) {
-  function reply(value) {
-    return ContentService.createTextOutput(JSON.stringify(value))
-      .setMimeType(ContentService.MimeType.JSON);
-  }
   let body;
   try { body = JSON.parse(e.postData.contents); }
   catch (error) { return reply({ ok: false, error: "invalid_json" }); }
@@ -34,15 +30,10 @@ function doPost(e) {
   if (!secret || body.secret !== secret) {
     return reply({ ok: false, error: "unauthorized" });
   }
-  if (!["read", "save"].includes(body.action) ||
-      typeof body.id !== "string" || !body.id ||
-      body.id.length > 100) {
-    return reply({ ok: false, error: "invalid_request" });
-  }
+  if (!isValidRequest(body)) { return reply({ ok: false, error: "invalid_request" }); }
+
   const lock = LockService.getScriptLock();
-  if (!lock.tryLock(1000)) {
-    return reply({ ok: false, error: "busy" });
-  }
+  if (!lock.tryLock(1000)) { return reply({ ok: false, error: "busy" }); }
   try {
     const sheet = SpreadsheetApp.openById(config.getProperty("BB_SHEET_ID"))
       .getSheetByName("Records");
@@ -52,22 +43,40 @@ function doPost(e) {
     const index = rows.findIndex(function (row, i) {
       return i > 0 && row[0] === body.id;
     });
-    if (body.action === "read") {
-      return reply({ ok: true, record: index < 0 ? null : {
-        id: rows[index][0], name: rows[index][1]
-      } });
-    }
-    if (typeof body.name !== "string" || body.name.length > 100 ||
-        /^[=+@-]/.test(body.name) || /^[=+@-]/.test(body.id)) {
-      return reply({ ok: false, error: "invalid_name_or_id" });
-    }
-    const rowNumber = index < 0 ? sheet.getLastRow() + 1 : index + 1;
-    sheet.getRange(rowNumber, 1, 1, 2).setNumberFormat("@");
-    sheet.getRange(rowNumber, 1, 1, 2).setValues([[body.id, body.name]]);
-    return reply({ ok: true, id: body.id });
+    const result = body.action === "read"
+      ? readRecord(rows, index)
+      : saveRecord(sheet, index, body);
+    return reply(result);
   } finally {
     lock.releaseLock();
   }
+}
+
+function reply(value) {
+  return ContentService.createTextOutput(JSON.stringify(value))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function isValidRequest(body) {
+  return ["read", "save"].includes(body.action) &&
+    typeof body.id === "string" && body.id.length > 0 && body.id.length <= 100;
+}
+
+function readRecord(rows, index) {
+  const record = index < 0 ? null : { id: rows[index][0], name: rows[index][1] };
+  return { ok: true, record: record };
+}
+
+function saveRecord(sheet, index, body) {
+  if (typeof body.name !== "string" || body.name.length > 100 ||
+      /^[=+@-]/.test(body.name) || /^[=+@-]/.test(body.id)) {
+    return { ok: false, error: "invalid_name_or_id" };
+  }
+  const rowNumber = index < 0 ? sheet.getLastRow() + 1 : index + 1;
+  const cells = sheet.getRange(rowNumber, 1, 1, 2);
+  cells.setNumberFormat("@");
+  cells.setValues([[body.id, body.name]]);
+  return { ok: true, id: body.id };
 }
 ```
 {% endcode %}
@@ -107,7 +116,9 @@ The BJS parameter is spelled **`folow_redirects`** in the current HTTP contract.
 let result;
 try { result = JSON.parse(content); }
 catch (error) { Bot.sendMessage("The sheet returned an unexpected response."); return; }
-Bot.sendMessage(result.ok ? "Spreadsheet request completed." : "Spreadsheet request failed.");
+Bot.sendMessage(result && result.ok === true
+  ? "Spreadsheet request completed."
+  : "Spreadsheet request failed.");
 ```
 {% endcode %}
 
@@ -159,7 +170,7 @@ If your actual rows include price, quantity, booleans or other fields, extend th
 ```javascript
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
 if (!user || String(user.telegramid) !== ADMIN_TELEGRAM_ID ||
-    !chat || String(chat.chatid) !== ADMIN_TELEGRAM_ID) { return; }
+    !chat || chat.chatid !== ADMIN_TELEGRAM_ID) { return; }
 const endpoint = Bot.getProp("sheetEndpoint");
 const secret = Bot.getProp("sheetSecret");
 if (!endpoint || !secret) {
@@ -170,7 +181,7 @@ const oldRecord = { orderId: "order-demo-1", customerName: "Example" };
 HTTP.post({
   url: endpoint,
   headers: { "Content-Type": "application/json" },
-  body: { secret: secret, action: "save", id: String(oldRecord.orderId), name: oldRecord.customerName },
+  body: { secret: secret, action: "save", id: oldRecord.orderId, name: oldRecord.customerName },
   folow_redirects: true,
   success: "/sheet-migrate-saved",
   error: "/sheet-migrate-error"
@@ -204,7 +215,7 @@ Bot.sendMessage("Save acknowledged. Send /sheet-migrate-read to verify the store
 ```javascript
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
 if (!user || String(user.telegramid) !== ADMIN_TELEGRAM_ID ||
-    !chat || String(chat.chatid) !== ADMIN_TELEGRAM_ID) { return; }
+    !chat || chat.chatid !== ADMIN_TELEGRAM_ID) { return; }
 const endpoint = Bot.getProp("sheetEndpoint");
 const secret = Bot.getProp("sheetSecret");
 if (!endpoint || !secret) {

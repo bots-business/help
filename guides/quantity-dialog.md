@@ -47,9 +47,9 @@ var dialog = new SmartAmountDialog({
     big: "Choose no more than 10 items."
   }
 });
-var result = dialog.accept(String(message || "").trim());
+var result = dialog.accept((message || "").trim());
 if (result !== true) {
-  Api.sendMessage({ text: String(result) });
+  Api.sendMessage({ text: result });
   Bot.runCommand("/quantity");
   return;
 }
