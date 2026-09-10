@@ -1,62 +1,35 @@
-# Welcome
+---
+description: Create and manage Telegram bots with Bots.Business. Start with your first reply, add buttons, write BJS, and troubleshoot your bot.
+---
 
-## Bots.Business Help
+# Bots.Business help
 
-Download from [Play Market](https://play.google.com/store/apps/details?id=bb\_app.com.bots.business)
+Build a Telegram bot, manage it from your phone, and add JavaScript behavior with BJS. These guides describe the current Bots.Business app.
 
-## Create your own bot for Telegram from new app Bots.Business.
+## What would you like to do?
 
-### How to create bot
+- **[Create your first bot](start/first-bot.md)** — connect Telegram and make `/start` reply. No code is required for the first answer.
+- **[Add commands and buttons](app/commands.md)** — create a menu, add aliases, and collect user input.
+- **[Manage an existing bot](app/workspace.md)** — find its settings, Admin panel, properties, chats, and broadcasts.
+- **[Write BJS](bjs/README.md)** — learn the execution model and find the correct methods and complete examples.
+- **[Import commands](integrations/google-table-import.md)** — use a spreadsheet or [Git repository](integrations/git.md).
+- **[Connect a service or library](libraries/README.md)** — add reusable features with their setup requirements and limitations.
+- **[Fix a bot that does not reply](troubleshooting/bot-not-responding.md)** — follow a short diagnostic sequence.
 
-1. Create bot with @BotFather
-2. Now create bot in app: add secret token
-3. Create commands&#x20;
+## New to Bots.Business?
 
-See [more](https://help.bots.business/getting-started)
+Follow this path: [first reply](start/first-bot.md) → [reply keyboard](app/reply-keyboard.md) → [ask a question](app/collect-input.md) → [JavaScript basics](bjs/javascript-basics.md) → [BJS commands and APIs](bjs/README.md).
 
-### Install bots from the Store
+Your Telegram bot, your Bots.Business account, and the people chatting with your bot are different things. Connect your bot with its BotFather token; sign in to Bots.Business with your own account.
 
-{% hint style="info" %}
-In the store are available various bots. Do you need referal tracking? Or chat with yours users via bot? This and the other is in the Bots Store!
-{% endhint %}
+## Already writing code?
 
-In the store are available various bots. Do you need referal tracking? Or chat with yours users via bot? This and the other is in the Bots Store!
+Start with the [BJS context](bjs/context.md). Then use the references for [Bot](bjs/bot.md), [Telegram API](bjs/telegram-api.md), [HTTP](bjs/http.md), [properties](bjs/user-properties.md), [Lists](bjs/lists.md), and [AdminPanel](bjs/admin-panel.md).
 
-### Commands
+BJS has its own runtime and command callbacks. An example written for Node.js or a different bot builder may need changes. See [using help with an AI assistant](guides/ai-assistants.md) when generating code.
 
-Command can have: `name`, `help`, `aliases` (second names), `answer`, `keyboard`, `scnarios` (for simple logic) and other options.
+## Account and help
 
-####
+[Reset your password](account/password.md), [link your Telegram account](account/linked-accounts.md), or [understand iterations](account/iterations.md).
 
-#### CSV import with Google Table
-
-Do you have much commands? Use Google Table and make import! Generate commands with formulas and do more with Google Table.
-
-**Template table** [http://bit.ly/bb\_table\_template](http://bit.ly/bb\_table\_template)
-
-**Demo bot @DemoFromTableBot from this table** [http://bit.ly/DemoFromTableBot](http://bit.ly/DemoFromTableBot)
-
-#### How to import CSV file
-
-1. Create Google Table with commands for bot (You can use template)
-2. Do publich this Table in CSV format via File menu
-3. Paste CSV url in application and do upload command
-
-Now you can talk with yours new Telegram Bot
-
-See [more](https://help.bots.business/create-bot-from-google-table)
-
-## BJS for command
-
-Use Bot Java Script for logic in command.
-
-See [more](https://help.bots.business/scenarios-and-bjs)
-
-## FAQ
-
-[https://help.bots.business/howto](https://help.bots.business/howto)
-
-## API
-
-[appapi.bots.business/docs](https://appapi.bots.business/docs)
-
+For a problem you cannot resolve, collect the details listed in [Errors and debugging](troubleshooting/errors.md) before opening **Settings → Support chat** in the app. Keep bot tokens, passwords, and API keys out of screenshots and messages.
