@@ -8,7 +8,7 @@ description: Ask for a contact or location in Telegram, receive photos and files
 
 Telegram sends more than text. A shared contact, location, photo or new-member event has its own fields. This guide creates a reply keyboard and a complete receiving command for a [working test bot](../start/first-bot.md).
 
-The example saves contact, location and file references as **user properties in private chats**. It acknowledges receipt without repeating private details into the conversation. Group events only produce a welcome message.
+The example keeps a contact and location as **user properties in private chats**, so a later command can read that profile data. It passes photo and document IDs directly to sender commands through `options`; those IDs are not saved as properties. Group events only produce a welcome message.
 
 {% stepper %}
 
@@ -23,7 +23,7 @@ In the mobile app, open **Commands** and create `/share`. Leave **Answer** and *
 // Command: /share
 if (!user || !chat || chat.chat_type !== "private") { return; }
 Api.sendMessage({
-  text: "Choose what to share. This test bot saves it in your user properties. Sharing is optional.",
+  text: "Choose what to share. This test bot saves your contact or location in your user properties. Sharing is optional.",
   reply_markup: {
     keyboard: [
       [{ text: "Share my contact", request_contact: true }],
@@ -48,7 +48,9 @@ Photos and files use Telegram's attachment control; no special request button is
 
 Create a command named exactly `*`, with the same empty metadata and **Wait for answer** off. If the bot already has `*`, merge the branches below with its existing handling; replacing the whole command would remove its previous behavior.
 
-The routing at the top chooses an action; the named functions below validate and save its data. Copy the complete block, including those functions, into the same command. See [JavaScript functions](../bjs/javascript-basics.md#functions-name-a-reusable-calculation) for the syntax.
+First create the `/photo` and `/document` sender commands from [Send photos and documents](send-media.md), with empty Answer and Keyboard, Wait for answer off and no Auto Retry interval. This receiver calls them directly; its media branches do not use that guide's `/send-media` question.
+
+The routing at the top chooses an action; the named functions below validate the data, then save profile fields or pass a file to a sender. Copy the complete block, including those functions, into the same command. See [JavaScript functions](../bjs/javascript-basics.md#functions-name-a-reusable-calculation) for the syntax.
 
 {% code title="*" overflow="wrap" %}
 ```javascript
@@ -68,11 +70,11 @@ if (incoming.contact) { saveContact(incoming.contact); return; }
 if (incoming.location) { saveLocation(incoming.location); return; }
 if (Array.isArray(incoming.photo) && incoming.photo.length) {
   const photo = incoming.photo[incoming.photo.length - 1];
-  saveFile("last_photo_file_id", photo, "Your photo reference was saved.");
+  sendMedia(photo, "/photo");
   return;
 }
 if (incoming.document) {
-  saveFile("last_document_file_id", incoming.document, "Your file reference was saved.");
+  sendMedia(incoming.document, "/document");
   return;
 }
 
@@ -111,10 +113,12 @@ function isCoordinate(value, limit) {
   return Number.isFinite(value) && Math.abs(value) <= limit;
 }
 
-function saveFile(property, file, confirmation) {
-  if (!file || !file.file_id) { return; }
-  User.setProp(property, file.file_id);
-  Bot.sendMessage(confirmation);
+function sendMedia(file, targetCommand) {
+  if (!file || typeof file.file_id !== "string" || !file.file_id) { return; }
+  Bot.run({
+    command: targetCommand,
+    options: { file_id: file.file_id }
+  });
 }
 ```
 {% endcode %}
@@ -123,7 +127,7 @@ A contact may describe somebody else. This example compares its Telegram user ID
 
 A photo contains several sizes; the example retains the last size's `file_id`. A file sent as a document uses `document.file_id`. These are Telegram file references, not downloaded bytes or public URLs. Do not construct a download URL containing your bot token. See [Telegram Message fields](https://core.telegram.org/bots/api#message).
 
-For complete sending commands, see [Send photos and documents](send-media.md). To reuse files saved by this receiver, use that guide's `/photo` and `/document` commands, replacing `demo_photo_id` with `last_photo_file_id` and `demo_document_id` with `last_document_file_id`. Use the same bot and user.
+The `sendMedia` helper passes `file_id` to the matching sender in the same bot and user context. The sender reads `options.file_id` and immediately sends the file back. For reuse after a future independent message, deliberately [save a property](../bjs/user-properties.md); passing `options` does not create a lasting file library. Older versions of this example saved `last_photo_file_id` and `last_document_file_id`; these values are no longer read or updated. Remove them through Properties only when no other commands need them.
 
 {% endstep %}
 
@@ -133,8 +137,8 @@ For complete sending commands, see [Send photos and documents](send-media.md). T
 
 1. Send `/share`, tap **Share my contact**, and accept Telegram's prompt. Expect `Your contact was saved.`
 2. Send `/share` again and choose **Share my location**. Expect `Your location was saved.`
-3. Send a photo through Telegram's attachment control. Expect `Your photo reference was saved.` Send a file as a document and expect the file confirmation.
-4. Open your bot's **Chats**, find your private chat and [open **Properties**](../app/properties.md#find-a-property). Check `shared_contact`, `shared_location`, `last_photo_file_id` and `last_document_file_id` after the sending commands have finished. Remove the test data when finished.
+3. Send a photo through Telegram's attachment control. Expect the photo back with its caption and help button. Send a file as a document and expect that file back with a caption. No separate `/photo` or `/document` message is needed.
+4. Open your bot's **Chats**, find your private chat and [open **Properties**](../app/properties.md#find-a-property). Check `shared_contact` and `shared_location` after their commands have finished. Receiving media must not create or update `last_photo_file_id` or `last_document_file_id`. Remove test profile data when finished.
 5. Forward somebody else's contact. The bot should request your own contact and preserve the previously saved value. Send ordinary text or a sticker; this example should ignore it without a BJS error.
 
 Use a test group to check the welcome branch: add the bot, allow it to send messages, then have another account join. The trigger is the incoming `message.new_chat_members` service message, which reaches `*`; typing `/welcome` does not create that event. A new member does not need a Telegram username. Group visibility rules are described below.
