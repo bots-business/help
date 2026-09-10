@@ -1,6 +1,8 @@
 ---
-description: Build a fixed-operation Apps Script endpoint for test data, understand current BJS transport limits, and review legacy GoogleApp and GoogleTableSync behavior.
+description: Build a fixed-operation Apps Script endpoint for test data, understand current BJS transport limits, and review
+  legacy GoogleApp and GoogleTableSync behavior.
 ---
+
 
 # Connect a bot to a Google Sheet
 
@@ -14,6 +16,7 @@ Create a test spreadsheet with a sheet named `Records`. In its Apps Script proje
 
 Add this Apps Script code:
 
+{% code title="Create a small spreadsheet endpoint · Example 1" overflow="wrap" %}
 ```javascript
 function doPost(e) {
   function reply(value) {
@@ -67,6 +70,7 @@ function doPost(e) {
   }
 }
 ```
+{% endcode %}
 
 Deploy it as a web app whose execution account has access to this test sheet. Bots.Business must be able to call the deployment without an interactive Google sign-in; access options depend on your Google account. This endpoint authenticates the body with the shared secret and accepts only its two fixed actions. Use the deployed `/exec` URL, not the editor or a development-only URL. [Apps Script web apps](https://developers.google.com/apps-script/guides/web).
 
@@ -78,6 +82,7 @@ The HTTP transport also does not validate HTTPS certificates. A production conne
 
 For an experiment with disposable data, store the deployed URL and test secret as bot properties `sheetEndpoint` and `sheetSecret` through an owner-only setup flow:
 
+{% code title="Evaluate a BJS request with test data · Example 2" overflow="wrap" %}
 ```javascript
 HTTP.post({
   url: Bot.getProp("sheetEndpoint"),
@@ -93,15 +98,18 @@ HTTP.post({
   error: "/sheet-error"
 });
 ```
+{% endcode %}
 
 The BJS parameter is spelled **`folow_redirects`** in the current HTTP contract. If the endpoint result is retrieved, handle it in `/sheet-result`:
 
+{% code title="Evaluate a BJS request with test data · Example 3" overflow="wrap" %}
 ```javascript
 let result;
 try { result = JSON.parse(content); }
 catch (error) { Bot.sendMessage("The sheet returned an unexpected response."); return; }
 Bot.sendMessage(result.ok ? "Spreadsheet request completed." : "Spreadsheet request failed.");
 ```
+{% endcode %}
 
 In `/sheet-error`, send a short retry message. To read, send the same request with `action: "read"`, the same `id`, and no `name`. The reply contains `record` or `null`. Saving the same ID updates its row; use your own record IDs for separate orders or records.
 
@@ -147,6 +155,7 @@ If your actual rows include price, quantity, booleans or other fields, extend th
 2. Obtain your own Telegram user ID through [trusted-user setup](../bjs/security.md#restrict-a-command-to-a-trusted-telegram-user). Set it in all five commands below. Keep **Answer** and **Keyboard** empty and **Wait for answer** off. Run this small migration test from your private chat.
 3. Create `/sheet-migrate-save`:
 
+{% code title="Save one mapped record, then read it back · Example 4" overflow="wrap" %}
 ```javascript
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
 if (!user || String(user.telegramid) !== ADMIN_TELEGRAM_ID ||
@@ -167,9 +176,11 @@ HTTP.post({
   error: "/sheet-migrate-error"
 });
 ```
+{% endcode %}
 
 4. Create `/sheet-migrate-saved`. This receives an HTTP response in `content`, unlike the old `/onSync` webhook command's `options`:
 
+{% code title="Save one mapped record, then read it back · Example 5" overflow="wrap" %}
 ```javascript
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
 if (!user || String(user.telegramid) !== ADMIN_TELEGRAM_ID) { return; }
@@ -185,9 +196,11 @@ if (!result || result.ok !== true || result.id !== "order-demo-1") {
 }
 Bot.sendMessage("Save acknowledged. Send /sheet-migrate-read to verify the stored record.");
 ```
+{% endcode %}
 
 5. Create `/sheet-migrate-read`:
 
+{% code title="Save one mapped record, then read it back · Example 6" overflow="wrap" %}
 ```javascript
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
 if (!user || String(user.telegramid) !== ADMIN_TELEGRAM_ID ||
@@ -207,9 +220,11 @@ HTTP.post({
   error: "/sheet-migrate-error"
 });
 ```
+{% endcode %}
 
 6. Create `/sheet-migrate-read-result`:
 
+{% code title="Save one mapped record, then read it back · Example 7" overflow="wrap" %}
 ```javascript
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
 if (!user || String(user.telegramid) !== ADMIN_TELEGRAM_ID) { return; }
@@ -227,14 +242,17 @@ if (!result.record || result.record.id !== "order-demo-1" || result.record.name 
 }
 Bot.sendMessage("Verified order-demo-1: Example.");
 ```
+{% endcode %}
 
 7. Create `/sheet-migrate-error`:
 
+{% code title="Save one mapped record, then read it back · Example 8" overflow="wrap" %}
 ```javascript
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
 if (!user || String(user.telegramid) !== ADMIN_TELEGRAM_ID) { return; }
 Bot.sendMessage("Spreadsheet transport failed. A write may still have happened; inspect the test sheet before retrying.");
 ```
+{% endcode %}
 
 Send `/sheet-migrate-save`, then `/sheet-migrate-read`. If the request and response paths work, expect a save acknowledgement and then `Verified order-demo-1: Example.` Independently check that the sheet has headers `id`, `name` and exactly one matching row. Save the same ID again and confirm it updates that row instead of appending another. Test a different name in both the save fixture and expected read-back, then test a missing ID by changing only the read request's ID: the endpoint should return `record: null`.
 

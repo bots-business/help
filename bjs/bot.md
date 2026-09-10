@@ -1,6 +1,8 @@
 ---
-description: Reference for BJS Bot methods including sending and editing messages, keyboards, command calls, scheduling, properties, caching, chat blocking, and Git operations.
+description: Reference for BJS Bot methods including sending and editing messages, keyboards, command calls, scheduling, properties,
+  caching, chat blocking, and Git operations.
 ---
+
 
 # Bot methods
 
@@ -8,11 +10,13 @@ Use `Bot` for Bots.Business actions such as sending a reply, running a command, 
 
 ## Send and inspect messages
 
+{% code title="/hello" overflow="wrap" %}
 ```javascript
 // Command: /hello
 Bot.sendMessage("Hello!");
 Bot.sendMessage("Literal *characters*", { parse_mode: null });
 ```
+{% endcode %}
 
 | Method | Parameters and behavior |
 | --- | --- |
@@ -34,7 +38,9 @@ For precise Telegram options such as `message_thread_id`, media, reply parameter
 | `Bot.editMessageInChat(chat_id, text, message_id)` | Edit a bot message in another known chat; `chat_id` is the Telegram chat ID |
 | `Bot.editInlineKeyboard(buttons, message_id, chat_id)` | Replace an inline keyboard; use Telegram message/chat IDs |
 
+{% hint style="info" %}
 Store the Telegram `message_id` together with its chat ID. A message ID is unique **within its chat**, not across every chat of your bot. Telegram also limits which messages a bot can edit. [Telegram Message reference](https://core.telegram.org/bots/api#message).
+{% endhint %}
 
 For a complete send-result-edit example, see [Telegram API](telegram-api.md#save-a-message-id-and-edit-the-message).
 
@@ -42,18 +48,22 @@ For a complete send-result-edit example, see [Telegram API](telegram-api.md#save
 
 Command `/menu`:
 
+{% code title="/menu" overflow="wrap" %}
 ```javascript
 Bot.sendInlineKeyboard([
   { title: "Help", command: "/help" },
   { title: "Website", url: "https://bots.business/" }
 ], "Choose an option:");
 ```
+{% endcode %}
 
 Create `/help` separately:
 
+{% code title="Keyboards · Example 3" overflow="wrap" %}
 ```javascript
 Bot.sendMessage("Send /menu to see your options.");
 ```
+{% endcode %}
 
 | Method | Use |
 | --- | --- |
@@ -67,6 +77,7 @@ Nested arrays group inline buttons into rows. `Api.sendMessage` uses Telegram's 
 
 Send a message with Telegram's keyboard-removal markup from an incoming-chat command:
 
+{% code title="Remove a reply keyboard · Example 4" overflow="wrap" %}
 ```javascript
 if (!chat) { return; }
 Api.sendMessage({
@@ -75,6 +86,7 @@ Api.sendMessage({
   reply_markup: { remove_keyboard: true }
 });
 ```
+{% endcode %}
 
 This removes a reply keyboard. To change inline buttons attached to a specific message, use the inline editing methods instead.
 
@@ -89,7 +101,9 @@ This removes a reply keyboard. To change inline buttons attached to a specific m
 
 `Bot.run` supports `run_after` in seconds, `label`, internal `bot_id`, `user_id`, `chat_id`, Telegram `user_telegramid`, and `ignoreMissingCommand`. A custom destination may cause the runtime to schedule a one-second delay even when no delay was supplied. The `background` field is not forwarded by this method; use `run_after` for delayed execution.
 
+{% hint style="warning" %}
 `Bot.clearRunAfter()` without a label clears pending requests for the whole bot. Use a specific label for a user's reminder. See [scheduling and hooks](background.md) and [broadcasts](broadcasts.md).
+{% endhint %}
 
 ## Data and cached commands
 

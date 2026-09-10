@@ -1,6 +1,8 @@
 ---
-description: Read bot execution errors, jump to the failing command and line, and distinguish syntax checks from runtime and Telegram failures.
+description: Read bot execution errors, jump to the failing command and line, and distinguish syntax checks from runtime and
+  Telegram failures.
 ---
+
 
 # Read errors and fix the failing command
 
@@ -16,9 +18,9 @@ Open your bot → **Errors**, then reproduce the problem once. Use the latest re
 
 An error may refer to a command that has been deleted or is no longer accessible. If **Go to command** cannot resolve it, use the command name and message to investigate the current implementation. Protected bots may require the developer's help.
 
-![The current Errors tab with grouped demonstration execution errors](../.gitbook/assets/mobile-errors.png)
+<figure><img src="../.gitbook/assets/mobile-errors.png" alt="The current Errors tab with grouped demonstration execution errors"><figcaption>The current Errors tab with grouped demonstration execution errors</figcaption></figure>
 
-![An expanded error log with its stack and Go to command action](../.gitbook/assets/mobile-error-details.png)
+<figure><img src="../.gitbook/assets/mobile-error-details.png" alt="An expanded error log with its stack and Go to command action"><figcaption>An expanded error log with its stack and Go to command action</figcaption></figure>
 
 ## Match the error to the right check
 

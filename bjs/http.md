@@ -1,15 +1,24 @@
 ---
-description: Make BJS HTTP GET and POST requests, process success and error commands, parse JSON safely, and understand supported methods and redirects.
+description: Make BJS HTTP GET and POST requests, process success and error commands, parse JSON safely, and understand supported
+  methods and redirects.
 ---
+
 
 # HTTP requests
 
+{% hint style="info" %}
+<img src="../.gitbook/assets/mel-02-help-menu-mobile.webp" alt="" width="64">
+
+**Mel’s tip**
+
 Use the uppercase `HTTP` object to call an external web service. The result is processed by a separate callback command. `HTTP.get(...)` and `HTTP.post(...)` do not return a downloaded response to the next line.
+{% endhint %}
 
 ## A complete GET flow
 
 Create `/check-service`:
 
+{% code title="/check-service" overflow="wrap" %}
 ```javascript
 HTTP.get({
   url: "https://example.com/",
@@ -17,9 +26,11 @@ HTTP.get({
   error: "/service-error"
 });
 ```
+{% endcode %}
 
 Create `/service-response`:
 
+{% code title="/service-response" overflow="wrap" %}
 ```javascript
 if (typeof http_status === "undefined") { return; }
 var status = Number(http_status);
@@ -29,14 +40,19 @@ if (status < 200 || status >= 300) {
 }
 Bot.sendMessage("The service responded. Body length: " + String(content || "").length);
 ```
+{% endcode %}
 
 Create `/service-error`:
 
+{% code title="/service-error" overflow="wrap" %}
 ```javascript
 Bot.sendMessage("The service could not be reached. Please try again later.");
 ```
+{% endcode %}
 
+{% hint style="info" %}
 The error callback is for request/transport failures. A completed response with an HTTP error status can still reach `success`; always check `http_status` there. The HTTP error callback does not promise an `options.error` payload like `Api.on_error`.
+{% endhint %}
 
 ## Parameters
 
@@ -56,6 +72,7 @@ Implemented methods are `HTTP.get`, `HTTP.post`, `HTTP.put`, `HTTP.delete`, and 
 
 Replace the example URL with an endpoint you control before running this command:
 
+{% code title="/send-order" overflow="wrap" %}
 ```javascript
 // Command: /send-order
 HTTP.post({
@@ -66,9 +83,11 @@ HTTP.post({
   error: "/service-error"
 });
 ```
+{% endcode %}
 
 Create `/order-response`:
 
+{% code title="/order-response" overflow="wrap" %}
 ```javascript
 if (Number(http_status) < 200 || Number(http_status) >= 300) {
   Bot.sendMessage("Order service returned HTTP " + http_status + ".");
@@ -83,6 +102,7 @@ try {
 }
 Bot.sendMessage("Order reference: " + String(data.id || "not supplied"), { parse_mode: null });
 ```
+{% endcode %}
 
 `content` is already decoded text. Use `JSON.parse` only when JSON is expected. `http_headers` contains decoded response headers; `cookies` is the decoded Set-Cookie information when present. The HTTP client defaults to a JSON content type, but you can override the header and provide a correctly encoded string body for another format.
 

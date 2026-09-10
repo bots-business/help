@@ -2,11 +2,16 @@
 description: Edit Bots.Business command files in VS Code and understand when saving changes the remote bot.
 ---
 
+
 # Edit bot commands in VS Code
 
 The official Bots.Business extension uploads linked command files when you save them. Use a test bot while setting up the workspace: saving is a remote change, not just a local draft.
 
-## Connect a workspace
+{% stepper %}
+
+{% step %}
+
+### Connect a workspace
 
 1. Install [Bots.Business from Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=bots-business.bots-business).
 2. Open a dedicated folder in VS Code.
@@ -16,11 +21,19 @@ The official Bots.Business extension uploads linked command files when you save 
 
 The current extension uses files under `commands/**/*.js` and stores remote command IDs in CMD metadata. Preserve those IDs when editing an existing command. Do not reuse a linked workspace for another bot by manually copying its IDs.
 
-## Make one change
+{% endstep %}
+
+{% step %}
+
+### Make one change
 
 Open an existing command file, change one reply, save, and test that command in Telegram. Check the extension's output for API failures. A file saved on disk can still have failed to upload.
 
 If the result is correct, commit the local change to Git. Choose one active editor for the same commands so an older mobile or desktop edit does not overwrite a newer version.
+
+{% endstep %}
+
+{% endstepper %}
 
 ## Import, deletion and unlinking
 

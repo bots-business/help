@@ -1,6 +1,8 @@
 ---
-description: Build BJS inline keyboards, handle callback-query data, and answer Telegram inline searches through the special /inlineQuery command.
+description: Build BJS inline keyboards, handle callback-query data, and answer Telegram inline searches through the special
+  /inlineQuery command.
 ---
+
 
 # Inline buttons and inline mode
 
@@ -10,6 +12,7 @@ Inline buttons belong to a bot message. Telegram inline mode lets someone type a
 
 Create `/menu`:
 
+{% code title="/menu" overflow="wrap" %}
 ```javascript
 Api.sendMessage({
   text: "Choose a section:",
@@ -21,9 +24,11 @@ Api.sendMessage({
   }
 });
 ```
+{% endcode %}
 
 Create `/section`:
 
+{% code title="/section" overflow="wrap" %}
 ```javascript
 if (!request || !request.id || !request.data) { return; }
 Api.answerCallbackQuery({ callback_query_id: request.id });
@@ -33,6 +38,7 @@ if (params !== "help") {
 }
 Bot.sendMessage("Send /menu to return to the menu.");
 ```
+{% endcode %}
 
 Bots.Business uses the callback data as command text, so `/section help` selects `/section` with `params` equal to `help`. Keep callback values small; Telegram limits `callback_data` to 1–64 bytes. Store larger state in properties and pass a short reference. [Telegram inline keyboard reference](https://core.telegram.org/bots/api#inlinekeyboardbutton).
 
@@ -56,6 +62,7 @@ Callback data is input, not authorization. A button labelled “Admin” does no
 
 Enable inline mode for the bot in BotFather, then create the exact special command `/inlineQuery`.
 
+{% code title="/inlineQuery" overflow="wrap" %}
 ```javascript
 // Command: /inlineQuery
 if (!request || !request.id) { return; }
@@ -73,6 +80,7 @@ Api.answerInlineQuery({
   is_personal: true
 });
 ```
+{% endcode %}
 
 Type `@YourBotUsername hello` in a Telegram message field, then choose the result. `request.query` is the inline search text; `request.id` identifies that search. Answer with `Api.answerInlineQuery`, not an ordinary chat reply. Choose sensible caching only after verifying the result is safe to reuse.
 

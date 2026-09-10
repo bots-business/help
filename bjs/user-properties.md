@@ -1,6 +1,8 @@
 ---
-description: Save and read BJS properties with User.setProp, Bot.setProp, getProp, and deleteProp; understand automatic types, scope, and persistence.
+description: Save and read BJS properties with User.setProp, Bot.setProp, getProp, and deleteProp; understand automatic types,
+  scope, and persistence.
 ---
+
 
 # User and bot properties
 
@@ -10,6 +12,7 @@ Properties keep data between command executions. Use `User` for the current user
 
 Command `/save-color`:
 
+{% code title="/save-color" overflow="wrap" %}
 ```javascript
 if (!user) { return; }
 var color = String(params || "").trim();
@@ -20,14 +23,17 @@ if (!color) {
 User.setProp("favorite_color", color);
 Bot.sendMessage("Saved. Send /color to read it.");
 ```
+{% endcode %}
 
 Command `/color`:
 
+{% code title="/color" overflow="wrap" %}
 ```javascript
 if (!user) { return; }
 var color = User.getProp("favorite_color", "not set");
 Bot.sendMessage("Your color: " + color, { parse_mode: null });
 ```
+{% endcode %}
 
 Use `Bot.setProp("welcome_text", "Welcome!")` and `Bot.getProp("welcome_text", "Hello!")` for a value shared by the bot.
 
@@ -35,11 +41,13 @@ Use `Bot.setProp("welcome_text", "Welcome!")` and `Bot.getProp("welcome_text", "
 
 Create `/forget-color`:
 
+{% code title="/forget-color" overflow="wrap" %}
 ```javascript
 if (!user) { return; }
 User.deleteProp("favorite_color");
 Bot.sendMessage("Color removed. Send /color to check it.");
 ```
+{% endcode %}
 
 Send `/forget-color`, then `/color` in a separate message. The reply should be `Your color: not set`. `Bot.deleteProp(name)` is the equivalent for a shared bot property.
 
@@ -78,16 +86,20 @@ The current property reader uses a truthy fallback for stored scalar values. A s
 
 When this distinction matters, wrap the value in a JSON object:
 
+{% code title="Default values and zero/false · Example 4" overflow="wrap" %}
 ```javascript
 // Save in one command.
 Bot.setProp("feature", { enabled: false, count: 0 }, "json");
 ```
+{% endcode %}
 
+{% code title="Default values and zero/false · Example 5" overflow="wrap" %}
 ```javascript
 // Read in a later command.
 var feature = Bot.getProp("feature", { enabled: false, count: 0 });
 Bot.sendMessage(feature.enabled ? "Feature enabled" : "Feature disabled");
 ```
+{% endcode %}
 
 The object is truthy while its `enabled` and `count` fields keep their original values. Do not infer durable behavior only from reading a property immediately after writing it in the same execution; that read may use a temporary in-memory value.
 
@@ -95,6 +107,7 @@ The object is truthy while its `enabled` and `count` fields keep their original 
 
 An explicit lookup is useful when a command already knows the intended internal user ID:
 
+{% code title="Object form and another user · Example 6" overflow="wrap" %}
 ```javascript
 // Read your own score with the same explicit form used for another known user.
 if (!user) { return; }
@@ -105,6 +118,7 @@ var score = Bot.getProp({
 });
 Bot.sendMessage("Score: " + score);
 ```
+{% endcode %}
 
 The write form accepts `name`, `value`, `type`, `user_id`, `user_telegramid`, `bot_id`, and `list`. `user_id` is a Bots.Business ID; `user_telegramid` is a Telegram ID. Writes for another bot are subject to backend access checks. Memory-database writes do not support `user_telegramid`; use a known internal user ID for that mode.
 
@@ -116,16 +130,19 @@ Use a test bot and a user who has already opened it in Telegram. These commands 
 
 To obtain the IDs without guessing, temporarily create `/scope-ids`:
 
+{% code title="/scope-ids" overflow="wrap" %}
 ```javascript
 // Command: /scope-ids
 if (!user) { return; }
 Bot.sendMessage("Bot ID: " + bot.id + "\nUser ID: " + user.id);
 ```
+{% endcode %}
 
 Ask the intended test user to send `/scope-ids` in a private conversation with this bot and give you their **User ID**. Replace `TARGET_BB_USER_ID` in both commands below, keeping the quotes. This is the internal `user.id`, not `user.telegramid`. Configure the destination in the editor; do not accept an arbitrary user ID from visitors.
 
 Create `/set-user-note`:
 
+{% code title="/set-user-note" overflow="wrap" %}
 ```javascript
 // Command: /set-user-note
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
@@ -142,9 +159,11 @@ Bot.setProp({
 });
 Bot.sendMessage("Note saved. Send /read-user-note to check it.");
 ```
+{% endcode %}
 
 Create `/read-user-note`, then run it in a **separate message** after saving:
 
+{% code title="/read-user-note" overflow="wrap" %}
 ```javascript
 // Command: /read-user-note
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
@@ -161,6 +180,7 @@ const note = Bot.getProp({
 });
 Bot.sendMessage("Support note: " + note, { parse_mode: null });
 ```
+{% endcode %}
 
 Expect `Support note: Follow up tomorrow.` The `user_id` gives the property its user scope even though the call uses `Bot`. The name also includes that ID to keep different users' notes distinct in the current reader. Ordinary-database writes to another user require that user to be known to the calling bot. This does not grant that user administrator access.
 
@@ -170,6 +190,7 @@ Use two test bots owned by the **same Bots.Business account**. The first bot run
 
 Create `/set-other-bot-notice` in the first bot:
 
+{% code title="/set-other-bot-notice" overflow="wrap" %}
 ```javascript
 // Command: /set-other-bot-notice
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
@@ -186,9 +207,11 @@ Bot.setProp({
 });
 Bot.sendMessage("Notice saved. Send /read-other-bot-notice to check it.");
 ```
+{% endcode %}
 
 Create `/read-other-bot-notice` in the first bot, and run it after the write has finished:
 
+{% code title="/read-other-bot-notice" overflow="wrap" %}
 ```javascript
 // Command: /read-other-bot-notice
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
@@ -205,6 +228,7 @@ const notice = Bot.getProp({
 });
 Bot.sendMessage("Shared notice: " + notice, { parse_mode: null });
 ```
+{% endcode %}
 
 Expect `Shared notice: Service opens at 09:00.` The read object also accepts `other_bot_id`, but use `bot_id` consistently for these reads and writes. The backend checks the calling bot owner's access to the destination; knowing another bot's ID does not grant access. The Telegram administrator check protects the command from visitors and is separate from this account-level check.
 
@@ -216,6 +240,7 @@ The current runtime can return one user's value for several different `user_id` 
 
 For data already saved in the ordinary database, explicit `user_telegramid` reads avoid this particular internal-ID lookup cache. Read after the saving execution has finished, and use a Telegram ID that your command is authorized to inspect. This example reads the current user's saved value through that form:
 
+{% code title="Reading several users in one execution · Example 12" overflow="wrap" %}
 ```javascript
 if (!user) { return; }
 var score = Bot.getProp({
@@ -225,6 +250,7 @@ var score = Bot.getProp({
 });
 Bot.sendMessage("Saved score: " + score);
 ```
+{% endcode %}
 
 For new cross-user data, another option is to include the internal user ID in the name, such as `"user:" + targetUserId + ":score"`, and still specify the intended `user_id`. This keeps the names different within one execution. Use a separate `bot:` prefix for shared settings. A naming change requires migrating existing data; it does not rename old properties automatically. These workarounds do not turn read-modify-write operations into atomic transactions, and the Telegram-ID read workaround is not a promise about memory-database mode.
 
@@ -237,3 +263,5 @@ For new cross-user data, another option is to include the internal user ID in th
 An undefined value usually means a wrong name/scope, no saved property, or a false-like scalar value. An error mentioning `User.getProperty` can still come from `User.getProp`, because the short name calls the same implementation. “User is not defined” means the trigger lacks a user; supply an appropriate context or use an explicit supported lookup. Avoid using ordinary read-modify-write properties as an atomic balance system: simultaneous executions can read the same old value.
 
 Use the [Properties screen](../app/properties.md) to inspect test data, and [Admin Panel](admin-panel.md) for settings an owner should edit through a form.
+
+To insert a simple saved value into an ordinary command Answer, use [Answer property placeholders](../app/commands.md#put-a-saved-property-in-an-answer). You do not need BJS in the receiving command for that substitution.

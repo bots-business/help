@@ -1,6 +1,8 @@
 ---
-description: Cache stable BJS command actions with Bot.setCache or User.setCache, invalidate changed content, and avoid sharing private or state-changing responses.
+description: Cache stable BJS command actions with Bot.setCache or User.setCache, invalidate changed content, and avoid sharing
+  private or state-changing responses.
 ---
+
 
 # Caching commands
 
@@ -10,19 +12,23 @@ Command caching reuses a command's saved actions for a limited time. It can redu
 
 Create `/hours`:
 
+{% code title="/hours" overflow="wrap" %}
 ```javascript
 var hours = Bot.getProp("opening_hours", "Monday to Friday, 09:00–17:00");
 Bot.sendMessage(hours, { parse_mode: null });
 Bot.setCache(300);
 ```
+{% endcode %}
 
 The command's actions may be reused for five minutes. When changing the underlying value, clear that command's cache:
 
+{% code title="Cache a shared answer · Example 2" overflow="wrap" %}
 ```javascript
 // Use in your authorized settings-save flow.
 Bot.setProp("opening_hours", "Monday to Saturday, 09:00–17:00");
 Bot.clearCache("/hours");
 ```
+{% endcode %}
 
 The first command is suitable only when its response is identical for every recipient and its other actions are safe to replay.
 
@@ -39,6 +45,7 @@ Call `setCache` inside the command being cached. `clearCache` takes the command'
 
 ## A per-user answer
 
+{% code title="/profile-summary" overflow="wrap" %}
 ```javascript
 // Command: /profile-summary
 if (!user) { return; }
@@ -46,6 +53,7 @@ var nickname = User.getProp("nickname", user.first_name || "Reader");
 Bot.sendMessage("Hello, " + nickname + ".", { parse_mode: null });
 User.setCache(60);
 ```
+{% endcode %}
 
 Clear `/profile-summary` with `User.clearCache("/profile-summary")` when that user updates their nickname. Always require a current user for user-cache operations; otherwise the backend has no user ID to scope the entry.
 

@@ -2,9 +2,12 @@
 description: Review an old payment-library integration before reusing its keys, callbacks, or payout examples.
 ---
 
+
 # Review an old payment integration
 
+{% hint style="info" %}
 Older bots may contain `QiwiPayment`, `CoinPayments`, `OxaPayLib`, or provider-specific webhook code. Keep the bot's business records, but verify the service and API generation before reusing the integration in a new bot.
+{% endhint %}
 
 ## QiwiPayment
 

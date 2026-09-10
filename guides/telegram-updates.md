@@ -1,6 +1,8 @@
 ---
-description: Ask for a contact or location in Telegram, receive photos and files in BJS, and welcome new group members through the wildcard command.
+description: Ask for a contact or location in Telegram, receive photos and files in BJS, and welcome new group members through
+  the wildcard command.
 ---
+
 
 # Receive contacts, locations, photos and group events
 
@@ -8,10 +10,15 @@ Telegram sends more than text. A shared contact, location, photo or new-member e
 
 The example saves contact, location and file references as **user properties in private chats**. It acknowledges receipt without repeating private details into the conversation. Group events only produce a welcome message.
 
-## 1. Ask for contact or location
+{% stepper %}
+
+{% step %}
+
+### Ask for contact or location <a href="#1-ask-for-contact-or-location" id="1-ask-for-contact-or-location"></a>
 
 In the mobile app, open **Commands** and create `/share`. Leave **Answer** and **Keyboard** empty, **Wait for answer** off and **Auto retry time in seconds** empty. Paste this BJS and tap **Save**:
 
+{% code title="/share" overflow="wrap" %}
 ```javascript
 // Command: /share
 if (!user || !chat || chat.chat_type !== "private") { return; }
@@ -27,15 +34,21 @@ Api.sendMessage({
   }
 });
 ```
+{% endcode %}
 
 Send `/share` in your private chat with the bot. These request buttons appear below the message input and work only in private chats. They send a contact or location after the user agrees; they do not send their button label as an ordinary text command. [Telegram KeyboardButton](https://core.telegram.org/bots/api#keyboardbutton).
 
 Photos and files use Telegram's attachment control; no special request button is needed.
 
-## 2. Receive the update in `*`
+{% endstep %}
+
+{% step %}
+
+### Receive the update in `*` <a href="#2-receive-the-update-in" id="2-receive-the-update-in"></a>
 
 Create a command named exactly `*`, with the same empty metadata and **Wait for answer** off. If the bot already has `*`, merge the branches below with its existing handling; replacing the whole command would remove its previous behavior.
 
+{% code title="*" overflow="wrap" %}
 ```javascript
 // Command: *
 const incoming = tgUpdate && tgUpdate.message;
@@ -98,12 +111,17 @@ if (incoming.document && incoming.document.file_id) {
 
 // Other updates are ignored by this example. Keep your existing text handling here.
 ```
+{% endcode %}
 
 A contact may describe somebody else. This example compares its Telegram user ID with `user.telegramid` before saving it as the sender's contact. Use `user.id` for APIs that need an internal Bots.Business user ID, not for this comparison. A submitted location does not prove where a person is physically located.
 
 A photo contains several sizes; the example retains the last size's `file_id`. A file sent as a document uses `document.file_id`. These are Telegram file references, not downloaded bytes or public URLs. Reuse a saved `file_id` with the same bot's `Api.sendPhoto` or `Api.sendDocument`; do not construct a download URL containing your bot token. See [Telegram Message fields](https://core.telegram.org/bots/api#message).
 
-## 3. Test each branch
+{% endstep %}
+
+{% step %}
+
+### Test each branch <a href="#3-test-each-branch" id="3-test-each-branch"></a>
 
 1. Send `/share`, tap **Share my contact**, and accept Telegram's prompt. Expect `Your contact was saved.`
 2. Send `/share` again and choose **Share my location**. Expect `Your location was saved.`
@@ -112,6 +130,10 @@ A photo contains several sizes; the example retains the last size's `file_id`. A
 5. Forward somebody else's contact. The bot should request your own contact and preserve the previously saved value. Send ordinary text or a sticker; this example should ignore it without a BJS error.
 
 Use a test group to check the welcome branch: add the bot, allow it to send messages, then have another account join. The trigger is the incoming `message.new_chat_members` service message, which reaches `*`; typing `/welcome` does not create that event. A new member does not need a Telegram username. Group visibility rules are described below.
+
+{% endstep %}
+
+{% endstepper %}
 
 ## `request`, `tgUpdate` and message text
 

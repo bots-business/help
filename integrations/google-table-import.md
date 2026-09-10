@@ -2,27 +2,38 @@
 description: Import BJS commands from a published Google Sheets CSV and understand what repeat imports update or remove.
 ---
 
+
 # Import commands from Google Sheets or CSV
 
 Use a CSV when you want to maintain command names, replies and code in a table. Bots.Business downloads the CSV; it does not use your signed-in Google session.
 
 This imports **bot commands**. To read or write business data in a spreadsheet while the bot runs, use [Google Apps Script](google-apps-script.md).
 
-## Prepare a small table
+{% stepper %}
+
+{% step %}
+
+### Prepare a small table
 
 Use exact lowercase column names. A minimal file is:
 
+{% code title="Prepare a small table · Example 1" overflow="wrap" %}
 ```csv
 command,answer,aliases,help,keyboard,need_reply,scenarios
 /start,Welcome!,/hello,Start the bot,/help,false,
 /help,Send /start to begin.,,Help,,false,
 ```
+{% endcode %}
 
 `command` identifies the command. Optional columns include `answer`, `aliases`, `help`, `keyboard`, `need_reply`, `scenarios`, `group` and `runtime_mode`. BJS code goes in `scenarios`. Use `true` or `false` for `need_reply`; escape commas, newlines and double quotes according to CSV rules. Blank command rows are skipped.
 
 Start with two simple replies. Add BJS and more complex keyboards after the first import works. Keep bot tokens, API keys and private user records out of a publicly downloadable table.
 
-## Publish the correct CSV
+{% endstep %}
+
+{% step %}
+
+### Publish the correct CSV
 
 In the Google Sheets browser interface, use **File → Share → Publish to web**, choose the specific sheet and CSV format, then copy the published URL. Some account administrators disable publishing; publishing changes can also take time to appear. [Google publishing instructions](https://support.google.com/docs/answer/183965?hl=en).
 
@@ -30,7 +41,11 @@ Open the URL without signing in. It must return CSV, not the spreadsheet editor,
 
 <a id="how-to-do-import-from-table"></a>
 
-## Upload from the mobile app
+{% endstep %}
+
+{% step %}
+
+### Upload from the mobile app
 
 1. Open the destination bot and **Tools**.
 2. Open **Upload Commands**.
@@ -40,7 +55,11 @@ Open the URL without signing in. It must return CSV, not the spreadsheet editor,
 
 Use a test bot for the first import and keep a backup before re-importing an important bot.
 
-![Upload Commands screen with the CSV URL field and upload action](../.gitbook/assets/mobile-csv-import.png)
+<figure><img src="../.gitbook/assets/mobile-csv-import.png" alt="Upload Commands screen with the CSV URL field and upload action"><figcaption>Upload Commands screen with the CSV URL field and upload action</figcaption></figure>
+
+{% endstep %}
+
+{% endstepper %}
 
 ## What a repeat import changes
 

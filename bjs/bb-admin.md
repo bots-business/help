@@ -1,6 +1,8 @@
 ---
-description: Understand BBAdmin account and bot-installation methods, their access restrictions, and how they differ from editable Admin Panels.
+description: Understand BBAdmin account and bot-installation methods, their access restrictions, and how they differ from
+  editable Admin Panels.
 ---
+
 
 # BBAdmin account operations
 
@@ -24,6 +26,7 @@ Installation options include `bot_id`, `email`, `token`, `bot_properties`, `as_p
 
 This command starts a real account operation. Run it only for an intended recipient and a source bot you are allowed to distribute. Replace the sample email with that recipient before using it. Follow [trusted administrator setup](security.md#restrict-a-command-to-a-trusted-telegram-user) and replace `YOUR_TELEGRAM_USER_ID` with your own Telegram user ID in the mobile editor. Leave **Answer** and **Keyboard** empty, and **Wait for answer** off; the guard controls BJS only.
 
+{% code title="/install-demo" overflow="wrap" %}
 ```javascript
 // Command: /install-demo
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
@@ -38,6 +41,7 @@ BBAdmin.installBot({
   bot_properties: { welcome_text: "Welcome to your new bot" }
 });
 ```
+{% endcode %}
 
 The call schedules or performs an installation flow; it does not return an installed bot object to the next line. Check the intended account and the bot error log for the outcome. Validate all recipient/source input before invoking it.
 

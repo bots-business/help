@@ -1,6 +1,14 @@
 ---
-description: Write Bots.Business commands with BJS, understand execution and callbacks, and choose the right API for messages, data, and integrations.
+description: Write Bots.Business commands with BJS, understand execution and callbacks, and choose the right API for messages,
+  data, and integrations.
+cover: ../.gitbook/assets/cover-bjs.webp
+coverY: 0
+layout:
+  cover:
+    visible: true
+    size: hero
 ---
+
 
 # Coding with BJS
 
@@ -14,10 +22,12 @@ New to programming? Start with [JavaScript basics for BJS beginners](javascript-
 
 Create a command named `/hello`, open its BJS editor, save this code, then send `/hello` to your bot:
 
+{% code title="Your first BJS command · Example 1" overflow="wrap" %}
 ```javascript
 var name = user && user.first_name ? user.first_name : "there";
 Bot.sendMessage("Hello, " + name + "!", { parse_mode: null });
 ```
+{% endcode %}
 
 The bot replies in the current chat. `user` describes the person in this execution; `Bot.sendMessage` requests an outgoing message. Plain-text mode prevents a name containing formatting characters from changing the message.
 

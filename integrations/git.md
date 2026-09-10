@@ -1,6 +1,8 @@
 ---
-description: Export a bot to Git, import a reviewed repository into a test bot, and understand replacement and webhook deployment behavior.
+description: Export a bot to Git, import a reviewed repository into a test bot, and understand replacement and webhook deployment
+  behavior.
 ---
+
 
 # Import and export a bot with Git
 
@@ -19,7 +21,7 @@ Without an explicitly selected branch, the backend creates a branch named `BB_Ex
 
 Protected bots cannot be exported through this flow. See [Protected bots](../account/protected-bots.md).
 
-![Git Sync screen with repository settings and import and export actions](../.gitbook/assets/mobile-git-sync.png)
+<figure><img src="../.gitbook/assets/mobile-git-sync.png" alt="Git Sync screen with repository settings and import and export actions"><figcaption>Git Sync screen with repository settings and import and export actions</figcaption></figure>
 
 ## Import a reviewed repository
 
@@ -43,6 +45,7 @@ This is optional and needs a verified GitHub webhook. The old recipe that import
 4. Set a webhook **Secret** and store that same value as the bot property `githubWebhookSecret` through the owner's app settings or a protected setup command. Do not put it in the URL or repository.
 5. Select **Just the push event**, keep the webhook active, and save it. Use the callback below to verify the raw JSON body before requesting import:
 
+{% code title="Deploy after a GitHub push · Example 1" overflow="wrap" %}
 ```javascript
 if (!options || options.method !== "POST" || typeof content !== "string") { return; }
 const headers = options.headers || {};
@@ -67,6 +70,7 @@ if (event.ref !== "refs/heads/main" ||
 Bot.importGit({ branch: "main", success: "/import-done" });
 WebApp.render({ content: { accepted: true }, mime_type: "application/json" });
 ```
+{% endcode %}
 
 Replace the repository and branch with your actual values. In GitHub **Recent Deliveries**, check that a push delivery has `Content-Type: application/json` and a raw JSON body. A form body starting with `payload=` will be ignored even if its signature is valid; correct the webhook content type before testing again. Do not re-encode the body before signature verification. Keep the callback and `/import-done` commands in the imported repository, because import replaces the command set. A webhook acknowledgement means the request was accepted, not that deployment has finished. Review delivery IDs and serialize deployments in your automation if duplicate/concurrent pushes can trigger overlapping imports. GitHub describes its signature format in [webhook validation](https://docs.github.com/en/webhooks/using-webhooks/validating-webhook-deliveries).
 
@@ -75,3 +79,5 @@ Replace the repository and branch with your actual values. In GitHub **Recent De
 Check repository URL, branch, deploy-key permissions and notification email. A missing or invalid `bot.json` prevents import. A non-GitHub SSH URL should not be assumed to support the same URL conversion/fallback behavior. After a failed import, inspect the destination immediately and restore from your reviewed backup if necessary.
 
 For automatic upload when saving a local command file, see [VS Code](vscode.md). That is a different workflow from importing a complete Git snapshot.
+
+To create a separate project inside Bots.Business for experiments, use [Make Bot Copy](../app/copy-bot.md). Review which configuration and data it copies before treating it as a backup.

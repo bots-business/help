@@ -2,27 +2,39 @@
 description: Create referral links, track a user's first entry, and read referral counts with RefLib.
 ---
 
+
 # Track referral links
 
 `RefLib` creates Telegram start links and records who invited a new bot user. It is included in the runtime. The compatibility name is `Libs.ReferralLib`.
 
 Referral tracking identifies an invitation; it does not prove that the invited person paid, completed a task, or is a distinct human. Decide those conditions separately before giving rewards.
 
-## Create the invitation link
+{% stepper %}
+
+{% step %}
+
+### Create the invitation link
 
 In `/invite`, use your bot's Telegram username **without `@`**:
 
+{% code title="Create the invitation link · Example 1" overflow="wrap" %}
 ```javascript
 const link = RefLib.getLink("YOUR_BOT_USERNAME", "invite");
 Api.sendMessage({ text: "Invite a friend:\n" + link });
 ```
+{% endcode %}
 
 `getLink` also records the inviting user's details for later attribution. The payload contains the user's internal BB ID; do not replace it with `user.telegramid`. If you choose a prefix such as `invite`, use the same prefix when tracking.
 
-## Track the first start
+{% endstep %}
+
+{% step %}
+
+### Track the first start
 
 Put this in `/start` before your ordinary welcome message:
 
+{% code title="Track the first start · Example 2" overflow="wrap" %}
 ```javascript
 RefLib.track({
   linkPrefix: "invite",
@@ -37,15 +49,21 @@ RefLib.track({
   }
 });
 ```
+{% endcode %}
 
 The callbacks are JavaScript functions, not command names. `onAttracted` receives the recorded referrer object. Its `id` is an internal BB ID and `telegramid` is a Telegram user ID.
 
 Tracking marks an ordinary first start without a referral as an existing user too. A later invitation therefore does not overwrite the first-entry decision. Do not call `track()` from an unrelated setup command and expect that user still to count as new.
 
-## Read the result
+{% endstep %}
+
+{% step %}
+
+### Read the result
 
 In `/referrals`:
 
+{% code title="Read the result · Example 3" overflow="wrap" %}
 ```javascript
 Bot.sendMessage("People you invited: " + RefLib.getRefCount());
 const referrer = RefLib.getAttractedBy();
@@ -53,10 +71,18 @@ if (referrer) {
   Bot.sendMessage("You were invited by BB user " + referrer.id);
 }
 ```
+{% endcode %}
 
 `getRefCount(otherBbUserId)` reads another referrer's count. Avoid calling it for several different users in one execution: these counts share a property name and are affected by the current [cross-user property lookup limitation](../bjs/user-properties.md#reading-several-users-in-one-execution).
 
 `getRefList()` returns the current user's referral List; `getRefList(otherBbUserId)` selects another referrer's List. By default, `getTopList().get()` returns the bounded, score-sorted TopBoard entries reshaped as `{ user, value }`; it is not a paginated List of every referrer. Legacy `useList` mode has different storage and inherits the current [List ordering limits](../bjs/lists.md). Keep the default for a small leaderboard, and do not switch an existing bot's storage mode without migrating its counts.
+
+{% endstep %}
+
+{% endstepper %}
+
+<details>
+<summary>Older referral examples</summary>
 
 ## Older referral examples
 
@@ -70,6 +96,8 @@ Use the direct methods for new code:
 | `RefLib.currentUser.attractedByUser()` | `RefLib.getAttractedBy()` |
 
 The same replacements apply when older code uses `Libs.ReferralLib` as the prefix. These are compatibility wrappers around the direct methods; changing the spelling alone does not reset referrals or change the storage mode.
+
+</details>
 
 ## Reward a verified action
 

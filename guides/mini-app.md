@@ -1,6 +1,8 @@
 ---
-description: Build a Telegram Mini App form on an external HTTPS host, open it with a reply keyboard, and receive validated form data in a Bots.Business BJS command.
+description: Build a Telegram Mini App form on an external HTTPS host, open it with a reply keyboard, and receive validated
+  form data in a Bots.Business BJS command.
 ---
+
 
 # Build a Telegram Mini App form
 
@@ -8,10 +10,15 @@ This example opens a small form inside Telegram. The user chooses a help topic, 
 
 **Host the HTML outside Bots.Business.** The current [BJS Web App renderer](../bjs/web-app.md) serves JSON; HTML responses are disabled and return 404. `WebApp.render` cannot host this form.
 
-## 1. Publish the form
+{% stepper %}
+
+{% step %}
+
+### Publish the form <a href="#1-publish-the-form" id="1-publish-the-form"></a>
 
 Save the following as `form.html` on your HTTPS host. Replace the example URL in the next step with its public address. The page contains no bot token and needs no separate application backend.
 
+{% code title="1. Publish the form · Example 1" overflow="wrap" %}
 ```html
 <!doctype html>
 <html lang="en">
@@ -78,13 +85,19 @@ Save the following as `form.html` on your HTTPS host. Replace the example URL in
 </body>
 </html>
 ```
+{% endcode %}
 
 The official SDK connects the page to Telegram. `sendData` sends a string to the bot and closes the Mini App; its payload limit is 4,096 bytes. This small object fits comfortably. [Telegram's keyboard-button Mini Apps](https://core.telegram.org/bots/webapps#keyboard-button-mini-apps).
 
-## 2. Create `/open-form`
+{% endstep %}
+
+{% step %}
+
+### Create `/open-form` <a href="#2-create-open-form" id="2-create-open-form"></a>
 
 In **Commands**, create `/open-form`, leave **Answer** and **Keyboard** empty, and leave **Wait for answer** off. Paste this BJS into the code editor and tap **Save**:
 
+{% code title="2. Create /open-form · Example 2" overflow="wrap" %}
 ```javascript
 Api.sendMessage({
   text: "Choose a topic in the form below.",
@@ -97,15 +110,21 @@ Api.sendMessage({
   }
 });
 ```
+{% endcode %}
 
 Replace the entire URL with your working HTTPS address. `Api.sendMessage` uses the current Telegram chat when `chat_id` is omitted.
 
 Use the **reply keyboard below the message input**, in a private chat with the bot. This `web_app` button is private-chat only. An inline button, menu button, or ordinary browser tab does not use this example's `sendData` return path. [Telegram KeyboardButton](https://core.telegram.org/bots/api#keyboardbutton).
 
-## 3. Receive the selection in `*`
+{% endstep %}
+
+{% step %}
+
+### Receive the selection in `*` <a href="#3-receive-the-selection-in" id="3-receive-the-selection-in"></a>
 
 Create a command whose name is exactly `*`. Leave **Answer** and **Keyboard** empty and **Wait for answer** off, then save this BJS:
 
+{% code title="3. Receive the selection in * · Example 3" overflow="wrap" %}
 ```javascript
 if (!request || !request.web_app_data) return;
 
@@ -128,6 +147,7 @@ try {
 var topicName = data.topic === "commands" ? "Commands" : "Properties";
 Bot.sendMessage("You selected: " + topicName + ".");
 ```
+{% endcode %}
 
 Telegram delivers the submission as a service message. In BJS, its data is `request.web_app_data.data`; the `message` text may be empty. The `*` command handles that update.
 
@@ -135,7 +155,11 @@ If your bot already has `*`, integrate this handling into it and preserve its ot
 
 Validate in BJS even though the form has a fixed dropdown. A modified client can send arbitrary `data` and `button_text`. This example accepts two topic identifiers and constructs its reply from fixed labels. Do not use submitted fields as evidence of payment, identity, or permission. [Telegram WebAppData](https://core.telegram.org/bots/api#webappdata).
 
-## 4. Test the complete flow
+{% endstep %}
+
+{% step %}
+
+### Test the complete flow <a href="#4-test-the-complete-flow" id="4-test-the-complete-flow"></a>
 
 Launch the bot, send `/open-form` in your private Telegram chat, tap **Open form**, choose **Commands**, and tap **Send to bot**. The form should close and the bot should reply `You selected: Commands.` Repeat with **Properties**.
 
@@ -144,3 +168,7 @@ For this test, use a bot that is not waiting for an answer to another command. A
 If the form opens but no reply arrives, check the launch button type, saved `*` code, waiting state, bot status, and [Errors](../troubleshooting/errors.md). If the page does not open, check its HTTPS address and SDK loading.
 
 This form returns data through Telegram and does not authenticate requests to an external backend. If you later add such a backend, implement Telegram's signed `initData` validation there before relying on user identity; `initDataUnsafe` alone is insufficient. [Telegram validation guide](https://core.telegram.org/bots/webapps#validating-data-received-via-the-mini-app).
+
+{% endstep %}
+
+{% endstepper %}

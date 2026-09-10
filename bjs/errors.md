@@ -1,6 +1,8 @@
 ---
-description: Diagnose BJS errors by command and context, fix common callback and method mistakes, and customize the private-chat error response with the ! command.
+description: Diagnose BJS errors by command and context, fix common callback and method mistakes, and customize the private-chat
+  error response with the ! command.
 ---
+
 
 # BJS errors and debugging
 
@@ -18,6 +20,7 @@ Use the app guide for [finding an error and its command](../troubleshooting/erro
 
 ## Inspect only the values you need
 
+{% code title="Inspect only the values you need · Example 1" overflow="wrap" %}
 ```javascript
 // Temporary diagnostic command on a test bot.
 Bot.inspect({
@@ -27,6 +30,7 @@ Bot.inspect({
   option_keys: options ? Object.keys(options) : []
 });
 ```
+{% endcode %}
 
 Do not print the entire `bot`, `owner`, request headers, account response, or credential-bearing panel. Remove temporary diagnostics when the issue is understood.
 
@@ -46,18 +50,25 @@ Do not print the entire `bot`, `owner`, request headers, account response, or cr
 
 A JavaScript `try/catch` handles errors thrown while that BJS code runs. It does not turn a queued remote request into a synchronous operation. Use [HTTP success/error commands](http.md) or [Api result/error commands](telegram-api.md) for remote outcomes.
 
+<details>
+<summary>Customize the error command: !</summary>
+
 ## Customize the error command: !
 
 Create a command named exactly `!` to customize the ordinary private-chat error response:
 
+{% code title="!" overflow="wrap" %}
 ```javascript
 // Command: !
 Bot.sendMessage("Something went wrong. Please try again or use /help.");
 ```
+{% endcode %}
 
 Keep it short and dependable. Do not put the original risky request inside this command. The backend avoids recursively showing another error response when `!` itself fails, so a broken error command may produce no useful chat message.
 
 This response is for the private-chat error-notification flow. It is not a global replacement for every API callback, web response, group failure, or background-task error. Continue checking the error log even when a friendly message is shown.
+
+</details>
 
 ## Make examples easier to maintain
 

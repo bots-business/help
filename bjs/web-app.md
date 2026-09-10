@@ -1,6 +1,8 @@
 ---
-description: Return JSON from BJS with WebApp, generate endpoint URLs, understand the current HTML restriction, and validate public request data.
+description: Return JSON from BJS with WebApp, generate endpoint URLs, understand the current HTML restriction, and validate
+  public request data.
 ---
+
 
 # Web App
 
@@ -14,19 +16,23 @@ For a complete HTML form, launch button, and BJS submission handler, follow [Bui
 
 Create a command named `web-home` with this BJS:
 
+{% code title="Return a JSON response · Example 1" overflow="wrap" %}
 ```javascript
 WebApp.render({
   content: JSON.stringify({ message: "Hello!", status: "ok" }),
   mime_type: "application/json"
 });
 ```
+{% endcode %}
 
 Create `/open-web`:
 
+{% code title="/open-web" overflow="wrap" %}
 ```javascript
 var url = WebApp.getUrl({ command: "web-home" });
 Bot.sendMessage(url, { parse_mode: null });
 ```
+{% endcode %}
 
 Send `/open-web` to the bot and open the link. The response should be a JSON object containing `message` and `status`. The rendering command must contain `WebApp.render`, the bot must be running, and its account must have available quota.
 
@@ -46,6 +52,7 @@ A web request's data is available in `options`. A GET request uses query paramet
 
 Create `web-status`:
 
+{% code title="web-status" overflow="wrap" %}
 ```javascript
 var topic = options && typeof options.topic === "string" ? options.topic : "general";
 WebApp.render({
@@ -53,23 +60,31 @@ WebApp.render({
   mime_type: "application/json"
 });
 ```
+{% endcode %}
 
 Generate its URL in a chat command:
 
+{% code title="Query data and JSON responses · Example 4" overflow="wrap" %}
 ```javascript
 Bot.sendMessage(WebApp.getUrl({
   command: "web-status",
   options: { topic: "help" }
 }), { parse_mode: null });
 ```
+{% endcode %}
 
 Use small text values in URL options; keep private data and credentials out of URLs.
+
+<details>
+<summary>Templates and existing HTML projects</summary>
 
 ## Templates and existing HTML projects
 
 `template` names another command whose code is used as template text. `<% ... %>` evaluates an expression and inserts its result; `options` supplies the template's values. This template mechanism does not bypass the public renderer's restrictions. An old `page.html` template can still be found and evaluated yet produce a 404 when the server refuses its HTML response.
 
 For JSON responses, `JSON.stringify` is simpler and safer than hand-building JSON with template interpolation. Move an existing HTML interface to an appropriate external host if you need to keep using it, and validate the data flow separately. A payment provider that requires a literal plain-text acknowledgement such as `ok` cannot be assumed compatible with this JSON-only endpoint; confirm its documented acknowledgement contract before enabling live callbacks.
+
+</details>
 
 ## Authentication and important changes
 

@@ -1,6 +1,8 @@
 ---
-description: Give an AI assistant the Bots.Business documentation and ask for BJS examples with the correct runtime, command context, and callbacks.
+description: Give an AI assistant the Bots.Business documentation and ask for BJS examples with the correct runtime, command
+  context, and callbacks.
 ---
+
 
 # Use this help with an AI assistant
 
@@ -12,14 +14,17 @@ The published help offers a [documentation index](https://help.bots.business/llm
 
 For clients that support a remote documentation MCP server, the help endpoint is:
 
+{% code title="Read the documentation · Example 1" overflow="wrap" %}
 ```text
 https://help.bots.business/~gitbook/mcp
 ```
+{% endcode %}
 
 Its role is to search and read published documentation. It is different from [Bots.Business MCP](../integrations/mcp.md), which connects to an account and can expose product operations. Reading help does not require giving an assistant your bot token or account API key.
 
 ## Start with a specific request
 
+{% code title="Start with a specific request · Example 2" overflow="wrap" %}
 ```text
 Use the current Bots.Business help to create a /name command.
 It should ask for a name, wait for a text reply, and save that name
@@ -27,6 +32,7 @@ as a user property. Include the command fields, complete BJS,
 a separate /cancel command, expected results, and source links.
 Use Bots.Business BJS, including its actual runtime limitations.
 ```
+{% endcode %}
 
 For other tasks, state whether the command runs from a user message, Auto Retry, HTTP callback, webhook, or delayed job. That determines which values and methods are available.
 

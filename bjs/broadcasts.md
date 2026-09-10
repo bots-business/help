@@ -1,6 +1,8 @@
 ---
-description: Create BJS broadcasts with Bot.runAll, choose eligible chat types, handle task creation, and avoid recursive or unsupported broadcast actions.
+description: Create BJS broadcasts with Bot.runAll, choose eligible chat types, handle task creation, and avoid recursive
+  or unsupported broadcast actions.
 ---
+
 
 # BJS broadcasts with Bot.runAll
 
@@ -10,6 +12,7 @@ description: Create BJS broadcasts with Bot.runAll, choose eligible chat types, 
 
 Create `/send-announcement` with empty **Answer** and **Keyboard**, and **Wait for answer** off. Follow [trusted administrator setup](security.md#restrict-a-command-to-a-trusted-telegram-user) to obtain your own Telegram user ID, then replace `YOUR_TELEGRAM_USER_ID` below in the mobile editor. This check must pass before a real task is created:
 
+{% code title="A complete broadcast flow · Example 1" overflow="wrap" %}
 ```javascript
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
 if (!user || !user.telegramid ||
@@ -23,20 +26,25 @@ Bot.runAll({
   on_create: "/announcement-created"
 });
 ```
+{% endcode %}
 
 The unchanged placeholder refuses every caller. Account linking is not required for this explicit ID check. Create `/announcement-item`:
 
+{% code title="A complete broadcast flow · Example 2" overflow="wrap" %}
 ```javascript
 if (!options || !options.task || typeof options.text !== "string") { return; }
 Bot.sendMessage(options.text, { parse_mode: null });
 ```
+{% endcode %}
 
 Create `/announcement-created`:
 
+{% code title="/announcement-created" overflow="wrap" %}
 ```javascript
 if (!options || !options.run_all_task) { return; }
 Bot.sendMessage("Broadcast task created: " + options.run_all_task.id);
 ```
+{% endcode %}
 
 Run the campaign only after checking it on a test bot with a small intended audience. Task creation is not a delivery confirmation.
 

@@ -2,14 +2,20 @@
 description: Configure message dictionaries and let each bot user choose a language with the Lang library.
 ---
 
+
 # Translate bot messages with Lang
 
 Install `Lang` to store message dictionaries and a language choice for each bot user. It does not translate text automatically. Supply the translations you want the bot to send.
 
-## Configure two languages
+{% stepper %}
+
+{% step %}
+
+### Configure two languages
 
 Run this once from an owner-only setup command:
 
+{% code title="Configure two languages · Example 1" overflow="wrap" %}
 ```javascript
 Libs.Lang.setup("en", {
   greeting: "Hello!",
@@ -21,28 +27,41 @@ Libs.Lang.setup("es", {
 });
 Libs.Lang.default.setLang("en");
 ```
+{% endcode %}
 
 The first configured language becomes the default unless you explicitly change it. Re-running setup replaces the dictionary stored under that language name, so include all its keys.
 
 In `/hello`:
 
+{% code title="Configure two languages · Example 2" overflow="wrap" %}
 ```javascript
 Bot.sendMessage(Libs.Lang.t("greeting"));
 Bot.sendMessage(Libs.Lang.t("account.empty"));
 ```
+{% endcode %}
 
 Keys such as `account.empty` are paths in your own dictionary. Keep them fixed in your code; do not pass arbitrary user text as a translation expression.
 
-## Let a user choose
+{% endstep %}
+
+{% step %}
+
+### Let a user choose
 
 In `/english`:
 
+{% code title="Let a user choose · Example 3" overflow="wrap" %}
 ```javascript
 Libs.Lang.user.setLang("en");
 Bot.sendMessage(Libs.Lang.t("greeting"));
 ```
+{% endcode %}
 
 In `/spanish`, use `Libs.Lang.user.setLang("es")`. Configure the dictionary before letting users select it. A selected language with no configured dictionary raises an error.
+
+{% endstep %}
+
+{% endstepper %}
 
 ## Reference
 
@@ -58,12 +77,14 @@ In `/spanish`, use `Libs.Lang.user.setLang("es")`. Configure the dictionary befo
 
 An aliases dictionary can map visible labels to commands:
 
+{% code title="Reference · Example 4" overflow="wrap" %}
 ```javascript
 Libs.Lang.setup("en", {
   greeting: "Hello!",
   aliases: { "Help, Support": "/help" }
 });
 ```
+{% endcode %}
 
 `getCommandByAlias` performs a case insensitive lookup. It returns a name; your code decides whether to run it. Translation keys and BJS method names stay unchanged across languages.
 

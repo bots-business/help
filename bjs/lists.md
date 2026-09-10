@@ -1,6 +1,8 @@
 ---
-description: Create BJS lists of properties or users, read pages of results, recount totals, and understand removal, membership, and migration behavior.
+description: Create BJS lists of properties or users, read pages of results, recount totals, and understand removal, membership,
+  and migration behavior.
 ---
+
 
 # Lists
 
@@ -10,6 +12,7 @@ A `List` groups stored properties or users so a command can load a page of resul
 
 Create `/setup-catalog` and run it once on your test bot:
 
+{% code title="Create and fill a property list · Example 1" overflow="wrap" %}
 ```javascript
 var catalog = new List({ name: "catalog" });
 if (!catalog.exist) { catalog.create(); }
@@ -27,9 +30,11 @@ Bot.setProp({
 });
 Bot.sendMessage("Catalog prepared. Send /catalog to read it.");
 ```
+{% endcode %}
 
 Create `/catalog` as a separate command:
 
+{% code title="Create and fill a property list · Example 2" overflow="wrap" %}
 ```javascript
 var catalog = new List({ name: "catalog" });
 if (!catalog.exist) {
@@ -44,6 +49,7 @@ var lines = items.map(function (item) {
 });
 Bot.sendMessage(lines.length ? lines.join("\n") : "The catalog is empty.", { parse_mode: null });
 ```
+{% endcode %}
 
 Creation and writes are actions. Do not create a list and expect a new `get()` in the same execution to act as a committed reload. Read it in the next command.
 
@@ -71,6 +77,7 @@ The current property-list query returns records by internal property ID in ascen
 
 Totals can lag behind changes. Recount deliberately, rather than before every read:
 
+{% code title="/refresh-catalog" overflow="wrap" %}
 ```javascript
 // Command: /refresh-catalog
 var catalog = new List({ name: "catalog" });
@@ -81,6 +88,7 @@ if (catalog.isRecountNeeded()) {
   Bot.runCommand("/catalog");
 }
 ```
+{% endcode %}
 
 `isRecountNeeded()` considers the last recount and its cost. `recount` may complete through background work; `onComplete` names the next command. Do not expect the JavaScript object's totals to refresh immediately after queuing a recount.
 
@@ -88,6 +96,7 @@ if (catalog.isRecountNeeded()) {
 
 Use an existing list and a known user record:
 
+{% code title="/join-news" overflow="wrap" %}
 ```javascript
 // Command: /join-news
 if (!user) { return; }
@@ -96,6 +105,7 @@ if (!readers.exist) { readers.create(); }
 readers.addUser(user);
 Bot.sendMessage("Added to the reader list.");
 ```
+{% endcode %}
 
 `getUsers()` returns paginated user records. `haveUser({id})` / `getUser({id})` returns the matching user record when present; it is not a strict boolean method. `rejectUser({id})` removes that membership, and `rejectAllUsers()` removes memberships from the list. These IDs are internal user IDs, not Telegram IDs.
 
@@ -123,6 +133,7 @@ Create the three commands below with empty **Answer** and **Keyboard**, **Wait f
 
 Create `/seed-legacy-catalog`. Run it only to create the demonstration source; for your own migration, use your existing source property and adapt the validated schema first.
 
+{% code title="/seed-legacy-catalog" overflow="wrap" %}
 ```javascript
 // Command: /seed-legacy-catalog
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
@@ -137,6 +148,7 @@ Bot.setProp("legacy_catalog", [
 ], "json");
 Bot.sendMessage("Source prepared. Send /migrate-catalog next.");
 ```
+{% endcode %}
 
 Each product has a stable unique `id`. Keep that ID when changing a title; do not use an array index, a timestamp, or a translated title as the destination key.
 
@@ -144,6 +156,7 @@ Each product has a stable unique `id`. Keep that ID when changing a title; do no
 
 Create `/migrate-catalog`:
 
+{% code title="/migrate-catalog" overflow="wrap" %}
 ```javascript
 // Command: /migrate-catalog
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
@@ -182,6 +195,7 @@ for (const item of source) {
 }
 Bot.sendMessage("Migration writes queued. Send /verify-catalog separately.");
 ```
+{% endcode %}
 
 The explicit `json` preserves each record's fields, including a price of zero. The first loop validates **every** record before the second loop queues writes. This bounded example accepts at most 20 products; it does not silently truncate a larger source.
 
@@ -191,6 +205,7 @@ Run it once at a time against an unchanged source. Repeating the same migration 
 
 Create `/verify-catalog`:
 
+{% code title="/verify-catalog" overflow="wrap" %}
 ```javascript
 // Command: /verify-catalog
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
@@ -223,6 +238,7 @@ if (!matches) {
 }
 Bot.sendMessage("Verified " + records.length + " products. Original legacy_catalog kept.");
 ```
+{% endcode %}
 
 With the demonstration source, expect `Verified 2 products. Original legacy_catalog kept.` Run `/migrate-catalog` and `/verify-catalog` again: the result should still be two products. The check fetches up to 21 records because the source limit is 20, so an extra destination entry is detected. It counts the fetched records rather than trusting a possibly stale list `count`.
 

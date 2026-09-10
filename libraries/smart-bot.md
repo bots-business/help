@@ -2,6 +2,7 @@
 description: Define reusable SmartBot reply templates, validate numeric input, and understand SmartTasker boundaries.
 ---
 
+
 # Build reply templates with SmartBot
 
 `SmartBot`, `SmartAmountDialog` and `SmartTasker` are runtime classes. SmartBot separates reply text and layouts from the commands that supply data. It does not create your product rules or verify that a user earned a reward.
@@ -12,6 +13,7 @@ For a complete menu with English and Spanish, shared layouts, and a language swi
 
 In an owner-only `/setup` command:
 
+{% code title="Configure a language template · Example 1" overflow="wrap" %}
 ```javascript
 const smart = new SmartBot();
 smart.setupLng("en", {
@@ -23,13 +25,16 @@ smart.setupLng("en", {
 });
 Bot.sendMessage("Templates saved.");
 ```
+{% endcode %}
 
 Then create `/hello`:
 
+{% code title="Configure a language template · Example 2" overflow="wrap" %}
 ```javascript
 const smart = new SmartBot({ params: { displayName: "friend" } });
 smart.handle();
 ```
+{% endcode %}
 
 Expected result: `Hello, friend!`. The first configured language becomes the default. `setupLng` stores the supplied dictionary; re-run your setup after editing it. `setUserLang("en")` selects an already configured language for the current user.
 
@@ -39,6 +44,7 @@ For user-supplied names in HTML templates, escape `<`, `>` and `&`, or choose a 
 
 `commands` maps command names to layouts. A layout can use `text`, `keyboard`, `inline_buttons`, `photo`, `parse_mode`, `chat_id`, `alias`/`aliases`, and editing options. Keep one primary output type per layout rather than combining a photo and several competing output types.
 
+{% code title="Organize templates · Example 3" overflow="wrap" %}
 ```javascript
 const language = {
   commands: {
@@ -55,6 +61,7 @@ const language = {
   titles: {}
 };
 ```
+{% endcode %}
 
 Store it with `setupLng` and call `handle()` in the commands that use it. `add(object)` merges template parameters, `set(object)` replaces them, and `fill(textOrObject)` resolves placeholders. Keep `{placeholder}` names and command keys unchanged in translations. Reusable `types` can be referenced with `#/path/to/type`; `titles` adds common parameters.
 
@@ -64,8 +71,11 @@ Store it with `setupLng` and call `handle()` in the commands that use it. `add(o
 
 ## Validate an amount
 
+For a complete conversation with a question, invalid-input retry, cancellation, and saved quantity, use [Ask for a quantity](../guides/quantity-dialog.md).
+
 `SmartAmountDialog` validates input but does not transfer or reserve a resource. Without a SmartBot instance it returns **`true` on success or the configured error value on failure**. Compare strictly with `true`:
 
+{% code title="Validate an amount · Example 4" overflow="wrap" %}
 ```javascript
 const dialog = new SmartAmountDialog({
   min: 1, max: 20, curValue: 12, onlyInteger: true,
@@ -85,13 +95,17 @@ if (result !== true) {
 }
 Bot.sendMessage("Accepted: " + dialog.amount);
 ```
+{% endcode %}
 
 With `smartBot: smart` supplied, failure returns `false` and the formatted message is in `dialog.errMsg`. The option is `smartBot`, not `smart_bot`. Inputs use digits with an optional decimal point; negative numbers and comma decimals are not accepted. `skipZero` skips the zero **available balance** check, not all numeric limits.
 
 ## SmartTasker for task progress
 
+For two complete commands with progress that survives return visits, follow [Save progress in a learning checklist](../guides/task-checklist.md). It is a self-reported learning exercise with no wallet or reward transfers.
+
 Create it with a name, an array of `{ id, amount }` task definitions and your SmartBot instance:
 
+{% code title="SmartTasker for task progress · Example 5" overflow="wrap" %}
 ```javascript
 const smart = new SmartBot();
 const tasker = new SmartTasker({
@@ -101,6 +115,7 @@ const tasker = new SmartTasker({
 const remaining = tasker.getTasksForWork();
 Bot.sendMessage("Tasks remaining: " + remaining.length);
 ```
+{% endcode %}
 
 Use `defineWork(taskId)` and `completeExecution(taskId)` only after your own trusted verification. Completion stores user progress and changes the instance's balance; it does not automatically persist a separate ResourcesLib balance. `manyTimes` permits repeated completion. Task IDs must be strings without spaces or colons.
 

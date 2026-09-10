@@ -1,10 +1,14 @@
 ---
-description: Diagnose slow commands and timeouts by separating BJS work, external requests, scheduled tasks, broadcasts, and quota limits.
+description: Diagnose slow commands and timeouts by separating BJS work, external requests, scheduled tasks, broadcasts, and
+  quota limits.
 ---
+
 
 # Fix slow commands and timeouts
 
+{% hint style="info" %}
 A slow reply can come from the command itself, an external service, repeated background work, or unavailable resources. Begin by comparing a plain Answer command with the slow scenario in the same bot.
+{% endhint %}
 
 ## Narrow down the delay
 
