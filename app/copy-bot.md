@@ -36,7 +36,7 @@ The text of a command can still contain IDs, URLs or credentials copied from the
 
 ## Configure a test bot
 
-Create a separate Telegram bot with **@BotFather**, then add that token through **Dashboard → Edit bot** in the copy. Reusing the working bot's token can make two projects compete for the same Telegram bot.
+[Create a separate Telegram bot and get its token from @BotFather](../start/first-bot.md#1-create-the-bot-in-telegram), then add that token through **Dashboard → Edit bot** in the copy. Reusing the working bot's token can make two projects compete for the same Telegram bot.
 
 Set up the copy's properties and Admin Panel, check external integrations and scheduled commands, and test with your own small set of example data. Then launch the copy and send its commands in Telegram.
 

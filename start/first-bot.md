@@ -14,7 +14,17 @@ By the end of this guide, your bot will reply to `/start` in Telegram. You need 
 
 ### Create the bot in Telegram <a href="#1-create-the-bot-in-telegram" id="1-create-the-bot-in-telegram"></a>
 
-Open [@BotFather](https://t.me/BotFather) in Telegram, send `/newbot`, and follow its prompts for a name and username. Copy the token it gives you. Telegram describes this process in its [bot creation guide](https://core.telegram.org/bots/features#creating-a-new-bot).
+1. Open the official [@BotFather](https://t.me/BotFather) in Telegram and tap **Start** if shown. Send the following messages to BotFather, not to your new bot.
+2. Send `/newbot` to begin creating a bot.
+3. When asked for a **name**, send a display name, such as `My first bot`. This is the name people see in Telegram.
+4. When asked for a **username**, choose a unique one ending in `bot`, such as `alex_practice_2026_bot`. Use 5–32 characters: Latin letters, digits or underscores, with no spaces. If BotFather says it is taken, choose another and send it again.
+5. After BotFather confirms creation, copy the complete **bot token** from its reply. The token has digits before a colon (`:`) and a long string after it. Copy only that value, without surrounding text or spaces. The bot's `@username` and `t.me/...` link are not its token.
+
+<figure><img src="../.gitbook/assets/telegram-botfather-create-en.png" alt="English BotFather chat showing /newbot, a display name, a username ending in bot, and the token location with the token hidden" width="430"><figcaption>Creating a bot in Telegram (English). The token is hidden. Choose your own name and username. Screenshot: <a href="https://jozefcipa.com/blog/watching-github-repo-stars-via-telegram/">Jozef Cipa</a>.</figcaption></figure>
+
+**Check:** you now have a bot username and its token. Keep the token ready for the **Token** field in the next step. The new bot will start replying after you connect it and add a command below.
+
+These steps follow Telegram's [bot creation guide](https://core.telegram.org/bots/features#creating-a-new-bot).
 
 {% hint style="info" %}
 <img src="../.gitbook/assets/mel-02-help-menu-mobile.webp" alt="" width="64">
@@ -23,6 +33,24 @@ Open [@BotFather](https://t.me/BotFather) in Telegram, send `/newbot`, and follo
 
 The token belongs to the bot. It is different from your Bots.Business password and account API key. Paste it only into the bot configuration; someone who has it can control the Telegram bot.
 {% endhint %}
+
+<details>
+<summary>BotFather says the username is already taken</summary>
+
+Choose another username and send it in the same BotFather conversation. For example, add a distinctive prefix or digits before the final `bot`. You do not need to start `/newbot` again.
+
+<figure><img src="../.gitbook/assets/telegram-botfather-username-taken-en.jpg" alt="English BotFather chat rejecting an occupied username and accepting a different one" width="430"><figcaption>When a username is taken, send a different one that still ends in bot. The names shown are examples. Screenshot: <a href="https://www.turtle-techies.com/how-to-create-a-telegram-bot-with-python/">Turtle Techies</a>.</figcaption></figure>
+
+</details>
+
+<details>
+<summary>Already have a bot, or cannot find its token?</summary>
+
+If you already created the bot, use the token from its BotFather creation message and continue to the next step. You do not need to send `/newbot` again. A token that was later replaced will no longer work.
+
+If you lost the token or need to replace an exposed one, Telegram documents the [`/token` command](https://core.telegram.org/bots/features#generating-an-authentication-token). Send it to BotFather and follow its prompts for your bot. Put the replacement token into Bots.Business too: **Dashboard → Edit bot → Token** for a bot you already added.
+
+</details>
 
 {% endstep %}
 
