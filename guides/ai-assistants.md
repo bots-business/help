@@ -8,6 +8,14 @@ description: Give an AI assistant the Bots.Business documentation and ask for BJ
 
 Give your assistant the relevant Bots.Business pages before asking it to write BJS. Include the command's trigger, the expected result, and the libraries installed in your bot.
 
+{% hint style="info" %}
+**Want your AI assistant to work with your bots?**
+
+[Connect Bots.Business MCP](../integrations/mcp.md) to let a compatible AI client inspect your bots and work on commands through an authorized account connection. The setup guide explains OAuth sign-in, read and write access, and how to check that the correct account is connected.
+
+Use the documentation below to give the assistant the BJS reference and examples it needs for the task.
+{% endhint %}
+
 ## Read the documentation
 
 The published help offers a [documentation index](https://help.bots.business/llms.txt), a [full-text version](https://help.bots.business/llms-full.txt), and Markdown pages. Use the page actions when your reader exposes a Markdown or AI-copy option.

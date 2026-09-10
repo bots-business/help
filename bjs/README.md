@@ -16,6 +16,8 @@ BJS is the JavaScript environment used by Bots.Business commands. Use it when a 
 
 You write the body of a command in the mobile [command editor](../app/commands.md). Bots.Business supplies objects such as `Bot`, `User`, `Api`, and `HTTP`; you do not import them.
 
+For editing local command files, see [VS Code](../integrations/vscode.md). To let an AI client inspect or edit commands through your account, [connect Bots.Business MCP](../integrations/mcp.md). Each guide explains how its changes reach the bot.
+
 New to programming? Start with [JavaScript basics for BJS beginners](javascript-basics.md): variables, conditions, loops, functions, and a small command you can build yourself.
 
 ## Your first BJS command

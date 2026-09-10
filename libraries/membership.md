@@ -17,7 +17,7 @@ Before checking someone else with `getChatMember`, make the bot an administrator
 ### Configure the panel
 
 1. Run `Libs.MembershipChecker.setup()` from an owner-only setup command.
-2. Open **Admin Panel → Membership checker options** in the mobile app.
+2. Open [**Admin Panel**](../app/admin-panel.md#open-and-save-a-panel) → **Membership checker options** in the mobile app.
 3. Enter target chats, separated by commas, for example `@example_channel`.
 4. Choose the automatic checking delay in minutes.
 5. Set `onNeedJoining` to `/join-required`, `onJoining` to `/membership-updated`, `onAllJoining` to `/all-joined`, and `onError` to `/membership-error`.

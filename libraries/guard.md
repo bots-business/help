@@ -16,7 +16,7 @@ description: Restrict a command folder to approved internal BB user IDs with the
 1. Follow [trusted administrator setup](../bjs/security.md#restrict-a-command-to-a-trusted-telegram-user) to get your own Telegram user ID. Create a temporary setup command with that explicit ID check, followed by `Libs.Guard.setup()`. Leave **Answer** and **Keyboard** empty and **Wait for answer** off. Run it from your own account in a private test conversation.
 2. Open the bot's **Admin Panel** in the mobile app and open **Guard**.
 3. Set **Admin IDs** to the approved users' internal BB IDs, separated by commas. These are `user.id`, not Telegram IDs.
-4. Set **Commands folder** to a folder such as `admins` and move restricted commands into it.
+4. Set **Commands folder** to a folder such as `admins` and [move restricted commands into it](../app/commands.md#create-and-use-a-folder).
 5. Optionally set the unauthorized-access command to `/access-denied`. Keep that response command outside the protected folder to avoid a denial loop.
 6. For every protected command, clear **Answer** and **Keyboard**, and turn off **Wait for answer**. Move restricted replies into BJS after the permission check.
 7. Save the panel and commands, then remove or independently protect the temporary setup command.

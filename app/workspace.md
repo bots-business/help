@@ -38,13 +38,13 @@ To reorder pinned bots, stay in selection mode and use their up/down controls. C
 | Tab | Use it to |
 | --- | --- |
 | **Dashboard** | Check status, launch or stop, edit name/token, and open the bot in Telegram. |
-| **Commands** | Create answers and BJS, find commands, and organize folders. |
-| **Libraries** | Inspect and manage the libraries installed in this bot. |
-| **Admin panel** | Fill the management forms provided by the bot developer. |
-| **Properties** | Inspect and edit stored bot or user data. |
-| **Chats** | Find known chats, block/unblock them, and open user properties. |
-| **Broadcast** | Inspect broadcast tasks, audiences, delivery, and progress. |
-| **Errors** | Read execution errors and jump to the related command. |
+| [**Commands**](commands.md) | Create answers and BJS, find commands, and organize folders. |
+| [**Libraries**](../libraries/README.md) | Inspect and manage the libraries installed in this bot. |
+| [**Admin panel**](admin-panel.md) | Fill the management forms provided by the bot developer. |
+| [**Properties**](properties.md) | Inspect and edit stored bot or user data. |
+| [**Chats**](chats.md) | Find known chats, block/unblock them, and open user properties. |
+| [**Broadcast**](broadcasts.md) | Inspect broadcast tasks, audiences, delivery, and progress. |
+| [**Errors**](../troubleshooting/errors.md) | Read execution errors and jump to the related command. |
 | **Tools** | Import commands, work with Git, and [make an implementation copy](copy-bot.md). |
 
 On a narrow screen, some tab names can be outside the visible part of the tab strip. Scroll the strip to find the remaining tabs. Selecting a tab keeps you within the current bot.
