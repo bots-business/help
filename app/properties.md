@@ -1,6 +1,8 @@
 ---
-description: Inspect, create, edit, and delete bot or user properties in the mobile app, with the correct scope and value type.
+description: Inspect, create, edit, and delete bot or user properties in the mobile app, with the correct scope and value
+  type.
 ---
+
 
 # Inspect and edit stored properties
 
@@ -12,7 +14,7 @@ Open the bot → **Properties**. Use the available scope controls, name search, 
 
 To inspect one known user, open **Chats**, find the user's chat, and tap **Properties**. This provides the user context instead of making you guess an internal ID.
 
-![The mobile Properties screen with demonstration bot values](../.gitbook/assets/mobile-properties.png)
+<figure><img src="../.gitbook/assets/mobile-properties.png" alt="The mobile Properties screen with demonstration bot values"><figcaption>The mobile Properties screen with demonstration bot values</figcaption></figure>
 
 ## Create or edit a value
 
@@ -25,6 +27,10 @@ To inspect one known user, open **Chats**, find the user's chat, and tap **Prope
 Use **String** for text such as a display name, **Integer** for a whole-number counter, and **Boolean** for a true/false setting. Use **JSON** for structured data only when the consuming code expects it. The form rejects values that do not match its selected type.
 
 For example, the [name question](collect-input.md) writes a user property named `display_name` with type `string`. Look for it under the user who answered, not under bot-wide properties.
+
+<figure><img src="../.gitbook/assets/mobile-property-json.png" alt="The JSON property form with a demonstration structured value and Save"><figcaption>The JSON property form with a demonstration structured value and Save</figcaption></figure>
+
+<figure><img src="../.gitbook/assets/mobile-property-boolean.png" alt="The Boolean property form with its value switch and Save"><figcaption>The Boolean property form with its value switch and Save</figcaption></figure>
 
 ## Choose the scope deliberately
 

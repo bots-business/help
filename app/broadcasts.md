@@ -1,6 +1,8 @@
 ---
-description: Inspect broadcast tasks, distinguish processed from delivered messages, and manage paused or failed broadcasts in Bots.Business.
+description: Inspect broadcast tasks, distinguish processed from delivered messages, and manage paused or failed broadcasts
+  in Bots.Business.
 ---
+
 
 # Monitor a broadcast
 
@@ -15,6 +17,8 @@ Before a real broadcast, test the sending command in a controlled chat. Check th
 3. Read **Audience** and **Delivery**, then check progress and recent updates.
 4. Refresh before deciding whether the task has stopped progressing.
 
+<figure><img src="../.gitbook/assets/mobile-broadcast-details.png" alt="Audience and Delivery for a demonstration broadcast: 30 available recipients, 10 delivered, 2 failed and 18 pending"><figcaption>Audience and Delivery for a demonstration broadcast: 30 available recipients, 10 delivered, 2 failed and 18 pending</figcaption></figure>
+
 ## Understand the counters
 
 | Counter | What to look for |
@@ -28,7 +32,7 @@ Before a real broadcast, test the sending command in a controlled chat. Check th
 
 While the audience is being counted, the screen can show **Counting recipients**. Wait for the count before interpreting its totals. A completed task can still have failed deliveries: completion describes the task's progress, not universal delivery.
 
-![A demonstration broadcast task showing progress and delivery information](../.gitbook/assets/mobile-broadcast.png)
+<figure><img src="../.gitbook/assets/mobile-broadcast.png" alt="A demonstration broadcast task showing progress and delivery information"><figcaption>A demonstration broadcast task showing progress and delivery information</figcaption></figure>
 
 ## Pause, resume, or remove a task
 

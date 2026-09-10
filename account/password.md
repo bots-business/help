@@ -2,9 +2,14 @@
 description: Reset a forgotten Bots.Business password, change it from Profile, and manage sessions and account API access.
 ---
 
+
 # Reset or change your password
 
 Use the sign-in reset form when you cannot sign in. Use **Profile → Update password** when you know your current password and want to change it.
+
+{% tabs %}
+
+{% tab title="Reset by email" %}
 
 ## Reset a forgotten password
 
@@ -14,7 +19,11 @@ Use the sign-in reset form when you cannot sign in. Use **Profile → Update pas
 4. Wait for the result, then check your inbox and spam folder. The current reset flow sends a new password by email.
 5. Sign in with that password and change it from **Profile** if needed.
 
-Check for a typing error if the account is not found. A failed reset can require support; repeated requests do not resolve an account restriction. If you cannot access the registered email, check the Telegram recovery option below. Contact support if you do not meet its requirements.
+Check for a typing error if the account is not found. A failed reset can require support; repeated requests do not resolve an account restriction. If you cannot access the registered email, open the [Recover with linked Telegram](#recover-access-without-your-email) tab. Contact support if you do not meet its requirements.
+
+{% endtab %}
+
+{% tab title="Recover with linked Telegram" %}
 
 ## Recover access without your email
 
@@ -30,11 +39,17 @@ The official [@BotsBusinessAdminBot](https://t.me/BotsBusinessAdminBot) provides
 4. After a successful check, use the new password to sign in to the account shown by the recovery flow. Change the password from Profile if needed.
 5. Reconnect integrations that used the old Bots.Business API key.
 
-Successful Telegram recovery **logs out existing app sessions and replaces the account API key**. This differs from simply editing a known password below. Do not assume an existing MCP or VS Code connection still has valid credentials afterward.
+{% hint style="warning" %}
+Successful Telegram recovery **logs out existing app sessions and replaces the account API key**. This differs from [changing a known password](#change-a-known-password). Do not assume an existing MCP or VS Code connection still has valid credentials afterward.
+{% endhint %}
 
 If the bot cannot find the token, confirm that it belongs to the intended bot and has not been replaced. If Telegram is unlinked or linked to a different account, use email recovery or support; repeating the token will not establish ownership. If **Password Recovery** is unavailable in the official bot's current menu, contact support through the app's support links.
 
 See [linking your Telegram account](linked-accounts.md) while you still have access to your account.
+
+{% endtab %}
+
+{% tab title="Change a known password" %}
 
 ## Change a known password
 
@@ -45,6 +60,10 @@ See [linking your Telegram account](linked-accounts.md) while you still have acc
 
 The current-password check and matching confirmation must succeed. If the form fails, read its error rather than assuming the password changed.
 
+{% endtab %}
+
+{% endtabs %}
+
 ## Sessions and API keys
 
 Profile also has **Log out of all devices** and **Reset Api Key**. These are separate actions from editing your password.
@@ -54,3 +73,5 @@ Logging out of all devices removes active app sessions. Resetting the account AP
 Never send a password, API key, or bot token in a public support message. You can describe the failed step, show its error, and identify the account through the support process without publishing credentials.
 
 See also [linked Telegram accounts](linked-accounts.md) and [Bots.Business MCP](../integrations/mcp.md).
+
+For changing the account email or finding account access controls, see [Manage your profile and email](profile.md).
