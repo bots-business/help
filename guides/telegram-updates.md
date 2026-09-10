@@ -48,74 +48,82 @@ Photos and files use Telegram's attachment control; no special request button is
 
 Create a command named exactly `*`, with the same empty metadata and **Wait for answer** off. If the bot already has `*`, merge the branches below with its existing handling; replacing the whole command would remove its previous behavior.
 
+The routing at the top chooses an action; the named functions below validate and save its data. Copy the complete block, including those functions, into the same command. See [JavaScript functions](../bjs/javascript-basics.md#functions-name-a-reusable-calculation) for the syntax.
+
 {% code title="*" overflow="wrap" %}
 ```javascript
 // Command: *
 const incoming = tgUpdate && tgUpdate.message;
 if (!incoming || !chat) { return; }
 
-// A Telegram service message, rather than a /welcome command.
-if ((chat.chat_type === "group" || chat.chat_type === "supergroup") &&
-    Array.isArray(incoming.new_chat_members) && incoming.new_chat_members.length) {
-  const names = incoming.new_chat_members.map(function (member) {
-    return member.first_name || member.username || "new member";
-  });
-  Api.sendMessage({ text: "Welcome, " + names.join(", ") + "!" });
+const isGroup = chat.chat_type === "group" || chat.chat_type === "supergroup";
+if (isGroup && Array.isArray(incoming.new_chat_members) && incoming.new_chat_members.length) {
+  welcomeMembers(incoming.new_chat_members);
   return;
 }
 
-// Keep the personal-data examples in the sender's private chat.
+// Save personal data only in the sender's private chat.
 if (!user || chat.chat_type !== "private") { return; }
+if (incoming.contact) { saveContact(incoming.contact); return; }
+if (incoming.location) { saveLocation(incoming.location); return; }
+if (Array.isArray(incoming.photo) && incoming.photo.length) {
+  const photo = incoming.photo[incoming.photo.length - 1];
+  saveFile("last_photo_file_id", photo, "Your photo reference was saved.");
+  return;
+}
+if (incoming.document) {
+  saveFile("last_document_file_id", incoming.document, "Your file reference was saved.");
+  return;
+}
 
-if (incoming.contact) {
-  const contact = incoming.contact;
-  if (!contact.user_id || String(contact.user_id) !== String(user.telegramid) ||
+// Other updates are ignored. Keep your existing text handling here.
+
+function welcomeMembers(members) {
+  const names = members.map(function (member) {
+    return member.first_name || member.username || "new member";
+  });
+  Api.sendMessage({ text: "Welcome, " + names.join(", ") + "!" });
+}
+
+function saveContact(contact) {
+  if (!contact.user_id || contact.user_id !== user.telegramid ||
       typeof contact.phone_number !== "string" || !contact.phone_number) {
     Bot.sendMessage("Use /share and Share my contact to send your own contact.");
     return;
   }
   User.setProp("shared_contact", {
     phone_number: contact.phone_number,
-    telegram_id: String(contact.user_id)
+    telegram_id: contact.user_id
   }, "json");
   Bot.sendMessage("Your contact was saved.");
-  return;
 }
 
-if (incoming.location) {
-  const location = incoming.location;
-  if (!Number.isFinite(location.latitude) || !Number.isFinite(location.longitude) ||
-      location.latitude < -90 || location.latitude > 90 ||
-      location.longitude < -180 || location.longitude > 180) { return; }
+function saveLocation(location) {
+  if (!isCoordinate(location.latitude, 90) || !isCoordinate(location.longitude, 180)) { return; }
   User.setProp("shared_location", {
     latitude: location.latitude,
     longitude: location.longitude
   }, "json");
   Bot.sendMessage("Your location was saved.");
-  return;
 }
 
-if (Array.isArray(incoming.photo) && incoming.photo.length) {
-  const photo = incoming.photo[incoming.photo.length - 1];
-  if (!photo.file_id) { return; }
-  User.setProp("last_photo_file_id", photo.file_id);
-  Bot.sendMessage("Your photo reference was saved.");
-  return;
+function isCoordinate(value, limit) {
+  return Number.isFinite(value) && Math.abs(value) <= limit;
 }
 
-if (incoming.document && incoming.document.file_id) {
-  User.setProp("last_document_file_id", incoming.document.file_id);
-  Bot.sendMessage("Your file reference was saved.");
-  return;
+function saveFile(property, file, confirmation) {
+  if (!file || !file.file_id) { return; }
+  User.setProp(property, file.file_id);
+  Bot.sendMessage(confirmation);
 }
-
-// Other updates are ignored by this example. Keep your existing text handling here.
 ```
 {% endcode %}
 
-A contact may describe somebody else. This example compares its Telegram user ID with `user.telegramid` before saving it as the sender's contact. Use `user.id` for APIs that need an internal Bots.Business user ID, not for this comparison. A submitted location does not prove where a person is physically located.
+A contact may describe somebody else. This example compares its Telegram user ID with `user.telegramid` before saving it as the sender's contact. Both IDs are numbers in this Telegram context, so no `String(...)` conversion is needed; `shared_contact.telegram_id` also stays a number. The explicit `"json"` type keeps the saved object readable with the memory database too. Use `user.id` for APIs that need an internal Bots.Business user ID, not for this comparison. A submitted location does not prove where a person is physically located.
 
-A photo contains several sizes; the example retains the last size's `file_id`. A file sent as a document uses `document.file_id`. These are Telegram file references, not downloaded bytes or public URLs. Reuse a saved `file_id` with the same bot's `Api.sendPhoto` or `Api.sendDocument`; do not construct a download URL containing your bot token. See [Telegram Message fields](https://core.telegram.org/bots/api#message).
+A photo contains several sizes; the example retains the last size's `file_id`. A file sent as a document uses `document.file_id`. These are Telegram file references, not downloaded bytes or public URLs. Do not construct a download URL containing your bot token. See [Telegram Message fields](https://core.telegram.org/bots/api#message).
+
+For complete sending commands, see [Send photos and documents](send-media.md). To reuse files saved by this receiver, use that guide's `/photo` and `/document` commands, replacing `demo_photo_id` with `last_photo_file_id` and `demo_document_id` with `last_document_file_id`. Use the same bot and user.
 
 {% endstep %}
 
@@ -126,7 +134,7 @@ A photo contains several sizes; the example retains the last size's `file_id`. A
 1. Send `/share`, tap **Share my contact**, and accept Telegram's prompt. Expect `Your contact was saved.`
 2. Send `/share` again and choose **Share my location**. Expect `Your location was saved.`
 3. Send a photo through Telegram's attachment control. Expect `Your photo reference was saved.` Send a file as a document and expect the file confirmation.
-4. Open your bot's **Chats**, find your private chat and open **Properties**. Check `shared_contact`, `shared_location`, `last_photo_file_id` and `last_document_file_id` after the sending commands have finished. Remove the test data when finished.
+4. Open your bot's **Chats**, find your private chat and [open **Properties**](../app/properties.md#find-a-property). Check `shared_contact`, `shared_location`, `last_photo_file_id` and `last_document_file_id` after the sending commands have finished. Remove the test data when finished.
 5. Forward somebody else's contact. The bot should request your own contact and preserve the previously saved value. Send ordinary text or a sticker; this example should ignore it without a BJS error.
 
 Use a test group to check the welcome branch: add the bot, allow it to send messages, then have another account join. The trigger is the incoming `message.new_chat_members` service message, which reaches `*`; typing `/welcome` does not create that event. A new member does not need a Telegram username. Group visibility rules are described below.

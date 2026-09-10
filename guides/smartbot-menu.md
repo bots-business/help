@@ -53,39 +53,33 @@ const keyboards = {
   ]
 };
 const smart = new SmartBot();
-smart.setupLng("en", {
-  commands: commands,
-  titles: {
-    appTitle: "Tea shop", helpButton: "Help", aboutButton: "About",
-    languageButton: "Language", menuButton: "Menu"
-  },
-  types: {
-    keyboards: keyboards,
-    texts: {
-      menu: "{appTitle}\nChoose an option.",
-      help: "Choose a button below to return to {appTitle}.",
-      about: "{appTitle} is a demonstration menu.",
-      language: "Choose a language."
-    }
-  }
+saveLanguage("en", {
+  appTitle: "Tea shop", helpButton: "Help", aboutButton: "About",
+  languageButton: "Language", menuButton: "Menu"
+}, {
+  menu: "{appTitle}\nChoose an option.",
+  help: "Choose a button below to return to {appTitle}.",
+  about: "{appTitle} is a demonstration menu.",
+  language: "Choose a language."
 });
-smart.setupLng("es", {
-  commands: commands,
-  titles: {
-    appTitle: "Tienda de té", helpButton: "Ayuda", aboutButton: "Acerca de",
-    languageButton: "Idioma", menuButton: "Menú"
-  },
-  types: {
-    keyboards: keyboards,
-    texts: {
-      menu: "{appTitle}\nElige una opción.",
-      help: "Pulsa el botón para volver a {appTitle}.",
-      about: "{appTitle} es un menú de demostración.",
-      language: "Elige un idioma."
-    }
-  }
+saveLanguage("es", {
+  appTitle: "Tienda de té", helpButton: "Ayuda", aboutButton: "Acerca de",
+  languageButton: "Idioma", menuButton: "Menú"
+}, {
+  menu: "{appTitle}\nElige una opción.",
+  help: "Pulsa el botón para volver a {appTitle}.",
+  about: "{appTitle} es un menú de demostración.",
+  language: "Elige un idioma."
 });
 Bot.sendMessage("SmartBot languages saved. Send /smart-menu.");
+
+function saveLanguage(language, titles, texts) {
+  smart.setupLng(language, {
+    commands: commands,
+    titles: titles,
+    types: { keyboards: keyboards, texts: texts }
+  });
+}
 ```
 {% endcode %}
 
@@ -126,7 +120,7 @@ Put this in `/smart-lang`:
 ```javascript
 // Command: /smart-lang
 if (!user || !chat) { return; }
-const language = String(params || "").trim();
+const language = (params || "").trim();
 if (language !== "en" && language !== "es") {
   Bot.sendMessage("Use /smart-lang en or /smart-lang es.");
   return;

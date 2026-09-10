@@ -27,10 +27,10 @@ An error may refer to a command that has been deleted or is no longer accessible
 | Symptom | Next check |
 | --- | --- |
 | Syntax error or an unexpected token | Check quotes, brackets, commas, and the surrounding lines; use the editor's **Check** action. |
-| A method is undefined | Verify object spelling, method name, and library installation against the reference. |
-| `user` or `chat` is unavailable | Check whether execution came from an incoming message, Auto Retry, a webhook, or a background callback. |
-| Telegram rejects text or markup | Inspect parse mode and formatting; try plain text before restoring formatting. |
-| A callback does not run | Verify its command name, required parameters, and the response/error path. |
+| A method is undefined | Verify object spelling, method name, and [library installation](../libraries/README.md#install-and-use-a-library) against the reference. |
+| `user` or `chat` is unavailable | Check the [execution context](../bjs/context.md#handle-missing-context): an incoming message, Auto Retry, a webhook, or a background callback. |
+| Telegram rejects text or markup | Inspect [Telegram parse mode and formatting](../bjs/telegram-api.md); try plain text before restoring formatting. |
+| A callback does not run | Verify its command name, required parameters, and the response/error path for [HTTP](../bjs/http.md) or [Telegram API](../bjs/telegram-api.md#receive-success-and-failure-callbacks). |
 | Timeout or growing delay | Inspect external requests, loops, repeated scheduling, and [performance](performance.md). |
 
 ## What Check proves

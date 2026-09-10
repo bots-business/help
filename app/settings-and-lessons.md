@@ -28,6 +28,8 @@ The keyboard-shortcut settings available on desktop are not part of the phone's 
 
 Practice editing lessons in a test bot. A lesson that asks you to create or save something uses the app's real controls.
 
+For written walkthroughs with checkpoints, open [Tutorials](../tutorials/README.md). These pages complement the interactive app lessons; they do not record progress in the app.
+
 <figure><img src="../.gitbook/assets/mobile-lessons.png" alt="Lessons on Android, with First bot available and other lessons requiring context"><figcaption>Lessons on Android, with First bot available and other lessons requiring context</figcaption></figure>
 
 <details>

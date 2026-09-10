@@ -27,7 +27,7 @@ function trackPrivateActivity() {
   if (completed_commands_count !== 0) { return; }
   const incoming = tgUpdate && (tgUpdate.message || tgUpdate.callback_query);
   if (!incoming || !incoming.from || incoming.from.is_bot) { return; }
-  if (String(incoming.from.id) !== String(user.telegramid)) { return; }
+  if (incoming.from.id !== user.telegramid) { return; }
 
   const state = User.getProp("inactivityReminder");
   if (!state || state.enabled !== true) { return; }
@@ -35,7 +35,7 @@ function trackPrivateActivity() {
   const delaySeconds = 60;
   const now = Date.now();
   const interactionId = incoming.message_id || incoming.id;
-  const token = String(interactionId) + ":" + now;
+  const token = interactionId + ":" + now;
   User.setProp("inactivityReminder", {
     enabled: true,
     token: token,

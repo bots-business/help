@@ -92,7 +92,7 @@ Treat this rendering endpoint as public. A generated URL contains a `secret` par
 
 Do not credit balances, approve payments, reset credentials, or grant roles based on web query data. For a Mini App, validate Telegram's signed `initData` on a trusted server and apply your own permission and replay checks before making important changes. `initDataUnsafe` is not verified identity. [Telegram Mini App validation](https://core.telegram.org/bots/webapps#validating-data-received-via-the-mini-app).
 
-A separate webhook also needs a checked secret and appropriate event validation; changing the route's name does not make a request trustworthy.
+A separate webhook also needs [a checked secret and appropriate event validation](../libraries/webhooks.md#match-the-senders-protocol); changing the route's name does not make a request trustworthy.
 
 ## Troubleshooting
 

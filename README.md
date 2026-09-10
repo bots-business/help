@@ -63,7 +63,7 @@ Follow a route from preparation to a result you can check in your own bot.
 | Manage an existing bot | [App tools](app/workspace.md) · [Import from a spreadsheet](integrations/google-table-import.md) · [Git](integrations/git.md) |
 | Add a reusable feature | [Libraries](libraries/README.md) |
 | Find a failure | [Bot does not reply](troubleshooting/bot-not-responding.md) · [Errors](troubleshooting/errors.md) |
-| Work with an AI assistant | [Use this help with AI](guides/ai-assistants.md) |
+| Work with an AI assistant | [Use this help with AI](guides/ai-assistants.md) · [Connect Bots.Business MCP](integrations/mcp.md) |
 
 ## Account and help
 

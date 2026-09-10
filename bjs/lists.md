@@ -169,13 +169,7 @@ if (!Array.isArray(source) || source.length < 1 || source.length > MAX_ITEMS) {
 }
 const ids = new Set();
 for (const item of source) {
-  const valid = item && typeof item === "object" && !Array.isArray(item) &&
-    Object.keys(item).sort().join(",") === "id,price,title" &&
-    typeof item.id === "string" && /^[a-z][a-z0-9_-]{0,31}$/.test(item.id) &&
-    typeof item.title === "string" && item.title.trim().length > 0 && item.title.length <= 80 &&
-    typeof item.price === "number" && Number.isFinite(item.price) &&
-    item.price >= 0 && item.price <= 1000000;
-  if (!valid || ids.has(item.id)) {
+  if (!isValidProduct(item) || ids.has(item.id)) {
     Bot.sendMessage("Invalid product or duplicate ID; nothing written.");
     return;
   }
@@ -194,6 +188,16 @@ for (const item of source) {
   });
 }
 Bot.sendMessage("Migration writes queued. Send /verify-catalog separately.");
+
+function isValidProduct(item) {
+  if (!item || typeof item !== "object" || Array.isArray(item)) { return false; }
+  const hasFields = Object.keys(item).sort().join(",") === "id,price,title";
+  const validId = typeof item.id === "string" && /^[a-z][a-z0-9_-]{0,31}$/.test(item.id);
+  const validTitle = typeof item.title === "string" &&
+    item.title.trim().length > 0 && item.title.length <= 80;
+  const validPrice = Number.isFinite(item.price) && item.price >= 0 && item.price <= 1000000;
+  return hasFields && validId && validTitle && validPrice;
+}
 ```
 {% endcode %}
 
@@ -225,18 +229,20 @@ destination.per_page = 21;
 const records = destination.get();
 const sourceIds = source.map(function (item) { return item && item.id; });
 const matches = new Set(sourceIds).size === source.length &&
-  records.length === source.length && source.every(function (item) {
-  if (!item || typeof item.id !== "string") { return false; }
-  const record = records.find(function (row) { return row.name === "catalog-v2:" + item.id; });
-  return record && record.user === null && record.value &&
-    record.value.id === item.id && record.value.title === item.title &&
-    record.value.price === item.price;
-});
+  records.length === source.length && source.every(matchesProduct);
 if (!matches) {
   Bot.sendMessage("Verification failed. Keep the source and inspect the destination.");
   return;
 }
 Bot.sendMessage("Verified " + records.length + " products. Original legacy_catalog kept.");
+
+function matchesProduct(item) {
+  if (!item || typeof item.id !== "string") { return false; }
+  const record = records.find(function (row) { return row.name === "catalog-v2:" + item.id; });
+  return record && record.user === null && record.value &&
+    record.value.id === item.id && record.value.title === item.title &&
+    record.value.price === item.price;
+}
 ```
 {% endcode %}
 

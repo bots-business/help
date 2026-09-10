@@ -28,6 +28,8 @@ The AI client receives OAuth tokens; it does not need your Bots.Business passwor
 
 ## Working with account tools
 
+Give the client [the relevant help pages](../guides/ai-assistants.md) as well, so it can use the BJS contracts and examples when working with your bots.
+
 The server derives its tool catalogue from the supported Bots.Business API operations. Let the client discover the tools for the current server version instead of hardcoding a stale list.
 
 When requesting a change, name the intended bot and command and explain the result you want. Read the existing command first, then review the proposed change before authorizing actions that affect a working bot. Running a bot command can have side effects even when its name sounds like a diagnostic.

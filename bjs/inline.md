@@ -66,7 +66,7 @@ Enable inline mode for the bot in BotFather, then create the exact special comma
 ```javascript
 // Command: /inlineQuery
 if (!request || !request.id) { return; }
-var query = String(request.query || "").trim();
+var query = (request.query || "").trim();
 var text = query ? "You searched for: " + query : "Hello from this bot!";
 Api.answerInlineQuery({
   inline_query_id: request.id,

@@ -24,8 +24,7 @@ if (!fiat || !crypto ||
 const fiatAge = fiat.getCachingTime();
 const cryptoAge = crypto.getCachingTime();
 const maxAge = 3600; // Your application's freshness limit, in seconds.
-if (!Number.isFinite(fiatAge) || !Number.isFinite(cryptoAge) ||
-    fiatAge < 0 || cryptoAge < 0 || fiatAge > maxAge || cryptoAge > maxAge) {
+if (!isFresh(fiatAge, maxAge) || !isFresh(cryptoAge, maxAge)) {
   Bot.sendMessage("Quotes are too old for this estimate.");
   return;
 }
@@ -35,6 +34,10 @@ if (!fiat.EUR || !crypto.BTC) {
 }
 const amount = CurrencyQuote.convert({ amount: 15, from: "EUR", to: "BTC" });
 Bot.sendMessage("Estimated BTC for 15 EUR: " + amount);
+
+function isFresh(age, limit) {
+  return Number.isFinite(age) && age >= 0 && age <= limit;
+}
 ```
 {% endcode %}
 

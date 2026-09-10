@@ -81,4 +81,4 @@ The default webhook response is a Bots.Business JSON response, not the plain `ok
 
 Use `getUrlFor`. The older `getUrl()` throws a deprecation error. The checked public `getGlobalUrl` implementation has an `api_key`/`apiKey` mismatch; do not use that old recipe as a working replacement.
 
-An HTTP redirect to a page is not proof that a payment completed. For a specific signed payment example, see [OxaPay](../integrations/oxapay.md). For sending a request from BJS, see [HTTP](../bjs/http.md).
+An HTTP redirect to a page is not proof that a payment completed. For a specific signed payment example, see [OxaPay](../integrations/oxapay.md). For a signed deployment event, see [deploy after a verified GitHub push](../integrations/git.md#deploy-after-a-github-push). For sending a request from BJS, see [HTTP](../bjs/http.md).

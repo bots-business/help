@@ -126,32 +126,35 @@ Create a command whose name is exactly `*`. Leave **Answer** and **Keyboard** em
 
 {% code title="3. Receive the selection in * · Example 3" overflow="wrap" %}
 ```javascript
-if (!request || !request.web_app_data) return;
+if (!request || !request.web_app_data) { return; }
 
-var raw = request.web_app_data.data;
-var data;
-try {
-  // This example's schema needs far less than 512 characters.
-  if (typeof raw !== "string" || raw.length > 512) throw new Error("size");
-  data = JSON.parse(raw);
-  if (!data || Array.isArray(data) ||
-      data.type !== "help-topic" || data.version !== 1 ||
-      (data.topic !== "commands" && data.topic !== "properties")) {
-    throw new Error("schema");
-  }
-} catch (error) {
+const topic = readTopic(request.web_app_data.data);
+if (!topic) {
   Bot.sendMessage("Please open the form and choose a listed topic.");
   return;
 }
-
-var topicName = data.topic === "commands" ? "Commands" : "Properties";
+const topicName = topic === "commands" ? "Commands" : "Properties";
 Bot.sendMessage("You selected: " + topicName + ".");
+
+function readTopic(raw) {
+  // This example's schema needs far less than 512 characters.
+  if (typeof raw !== "string" || raw.length > 512) { return null; }
+  let data;
+  try { data = JSON.parse(raw); }
+  catch (error) { return null; }
+  if (!data || Array.isArray(data) ||
+      data.type !== "help-topic" || data.version !== 1 ||
+      (data.topic !== "commands" && data.topic !== "properties")) {
+    return null;
+  }
+  return data.topic;
+}
 ```
 {% endcode %}
 
 Telegram delivers the submission as a service message. In BJS, its data is `request.web_app_data.data`; the `message` text may be empty. The `*` command handles that update.
 
-If your bot already has `*`, integrate this handling into it and preserve its other branches. The first line above intentionally ignores other updates; replacing an existing wildcard with this entire example would remove its previous behavior.
+If your bot already has `*`, integrate this handling into it and preserve its other branches, such as [contact, location and media handling](telegram-updates.md). Keep `readTopic` in the same command as its caller. The first line above intentionally ignores other updates; replacing an existing wildcard with this entire example would remove its previous behavior.
 
 Validate in BJS even though the form has a fixed dropdown. A modified client can send arbitrary `data` and `button_text`. This example accepts two topic identifiers and constructs its reply from fixed labels. Do not use submitted fields as evidence of payment, identity, or permission. [Telegram WebAppData](https://core.telegram.org/bots/api#webappdata).
 

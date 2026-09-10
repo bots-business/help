@@ -90,7 +90,7 @@ const dialog = new SmartAmountDialog({
 });
 const result = dialog.accept("5");
 if (result !== true) {
-  Bot.sendMessage(String(result));
+  Bot.sendMessage(result);
   return;
 }
 Bot.sendMessage("Accepted: " + dialog.amount);

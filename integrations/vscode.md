@@ -15,7 +15,7 @@ The official Bots.Business extension uploads linked command files when you save 
 
 1. Install [Bots.Business from Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=bots-business.bots-business).
 2. Open a dedicated folder in VS Code.
-3. Run **Bots.Business: Login** from the Command Palette and authenticate with your BB account's API access.
+3. Run **Bots.Business: Login** from the Command Palette and authenticate with your [BB account's API access](../account/profile.md#find-the-right-access-control).
 4. Run **Bots.Business: Set Bot ID** and select the intended bot.
 5. Use the extension's bot/file actions to populate the workspace, then inspect the selected bot ID before editing.
 

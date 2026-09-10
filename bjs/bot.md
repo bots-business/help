@@ -116,7 +116,7 @@ This removes a reply keyboard. To change inline buttons attached to a specific m
 
 `Bot.blockChat(chat.id)` marks an internal chat as blocked by the administrator. `Bot.unblockChat(chat.id)` removes that administrator block; it cannot make a Telegram user unblock the bot. These methods use **internal chat IDs**, unlike the send-to-chat helpers above.
 
-`Bot.importCSV()` starts an import using the bot's configured CSV source. `Bot.importGit({branch, success})` and `Bot.exportGit({branch, success})` use its Git configuration; `success` names a callback command. Export is refused for protected bots. Imports can change bot commands, so run them deliberately after configuring and checking the source in the app.
+`Bot.importCSV()` starts an import using the bot's configured [CSV source](../integrations/google-table-import.md). `Bot.importGit({branch, success})` and `Bot.exportGit({branch, success})` use its [Git configuration](../integrations/git.md); `success` names a callback command. Export is refused for protected bots. Imports can change bot commands, so run them deliberately after configuring and checking the source in the app.
 
 ## Troubleshooting
 

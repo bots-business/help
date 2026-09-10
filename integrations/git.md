@@ -51,24 +51,28 @@ if (!options || options.method !== "POST" || typeof content !== "string") { retu
 const headers = options.headers || {};
 if (headers["X-Github-Event"] !== "push") { return; }
 const secret = Bot.getProp("githubWebhookSecret");
-if (!secret) { return; }
-const expected = "sha256=" + CryptoJS.HmacSHA256(content, secret)
-  .toString(CryptoJS.enc.Hex);
-const received = headers["X-Hub-Signature-256"];
-if (typeof received !== "string" || received.length !== expected.length) { return; }
-let difference = 0;
-for (let i = 0; i < expected.length; i++) {
-  difference |= expected.charCodeAt(i) ^ received.charCodeAt(i);
-}
-if (difference !== 0) { return; }
+if (!secret || !hasValidSignature(content, headers["X-Hub-Signature-256"], secret)) { return; }
+
 let event;
 try { event = JSON.parse(content); } catch (error) { return; }
-if (event.ref !== "refs/heads/main" ||
-    !event.repository || event.repository.full_name !== "YOUR_OWNER/YOUR_REPOSITORY") {
-  return;
-}
+if (!isExpectedPush(event)) { return; }
 Bot.importGit({ branch: "main", success: "/import-done" });
 WebApp.render({ content: { accepted: true }, mime_type: "application/json" });
+
+function hasValidSignature(body, received, secret) {
+  const expected = "sha256=" + CryptoJS.HmacSHA256(body, secret).toString(CryptoJS.enc.Hex);
+  if (typeof received !== "string" || received.length !== expected.length) { return false; }
+  let difference = 0;
+  for (let i = 0; i < expected.length; i++) {
+    difference |= expected.charCodeAt(i) ^ received.charCodeAt(i);
+  }
+  return difference === 0;
+}
+
+function isExpectedPush(event) {
+  return event && event.ref === "refs/heads/main" &&
+    event.repository && event.repository.full_name === "YOUR_OWNER/YOUR_REPOSITORY";
+}
 ```
 {% endcode %}
 

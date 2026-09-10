@@ -73,7 +73,7 @@ var tasks = [
   { id: "intro", title: "Read the introduction", amount: 1 },
   { id: "first-bot", title: "Create a test bot", amount: 1 }
 ];
-var taskId = String(params || "").trim();
+var taskId = (params || "").trim();
 if (!tasks.some(function (task) { return task.id === taskId; })) {
   Api.sendMessage({ text: "Unknown learning step. Open /learn." });
   return;

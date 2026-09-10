@@ -51,35 +51,19 @@ Create `/oxa-operation`:
 ```javascript
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
 if (!user || String(user.telegramid) !== ADMIN_TELEGRAM_ID ||
-    !chat || String(chat.chatid) !== ADMIN_TELEGRAM_ID) { return; }
+    !chat || chat.chatid !== ADMIN_TELEGRAM_ID) { return; }
 
 const SEND_REQUEST = false;
 const ATTEMPT_ID = "REPLACE_WITH_UNIQUE_ATTEMPT_ID";
-const input = /^(white-label|payout|swap)(?: (CONFIRM))?$/.exec(String(params || "").trim());
+const input = /^(white-label|payout|swap)(?: (CONFIRM))?$/.exec((params || "").trim());
 if (!input) {
   Bot.sendMessage("Use /oxa-operation white-label, payout or swap.");
   return;
 }
 const kind = input[1];
-let path;
-let fields;
-if (kind === "white-label") {
-  path = "/payment/white-label";
-  fields = {
-    amount: 10, currency: "USD", pay_currency: "TRX", network: "Tron",
-    lifetime: 60, order_id: "bb-" + ATTEMPT_ID
-  };
-} else if (kind === "payout") {
-  path = "/payout";
-  fields = {
-    address: "YOUR_VERIFIED_RECIPIENT_ADDRESS",
-    amount: 10, currency: "TRX", network: "Tron",
-    description: "BB example " + ATTEMPT_ID
-  };
-} else {
-  path = "/general/swap";
-  fields = { from_currency: "BTC", to_currency: "USDT", amount: 0.0001 };
-}
+const operation = buildOperation(kind, ATTEMPT_ID);
+const path = operation.path;
+const fields = operation.fields;
 if (!SEND_REQUEST || input[2] !== "CONFIRM") {
   Api.sendMessage({
     text: "Preview only. No request sent.\n" + path + "\n" + JSON.stringify(fields),
@@ -109,6 +93,32 @@ Libs.OxaPayLibV1.apiCall({
   fields: fields,
   on_success: "/oxa-result " + ATTEMPT_ID
 });
+
+function buildOperation(kind, attemptId) {
+  if (kind === "white-label") {
+    return {
+      path: "/payment/white-label",
+      fields: {
+        amount: 10, currency: "USD", pay_currency: "TRX", network: "Tron",
+        lifetime: 60, order_id: "bb-" + attemptId
+      }
+    };
+  }
+  if (kind === "payout") {
+    return {
+      path: "/payout",
+      fields: {
+        address: "YOUR_VERIFIED_RECIPIENT_ADDRESS",
+        amount: 10, currency: "TRX", network: "Tron",
+        description: "BB example " + attemptId
+      }
+    };
+  }
+  return {
+    path: "/general/swap",
+    fields: { from_currency: "BTC", to_currency: "USDT", amount: 0.0001 }
+  };
+}
 ```
 {% endcode %}
 
@@ -130,7 +140,7 @@ Create `/oxa-result`. `params` is the attempt ID appended to `on_success`; `opti
 ```javascript
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
 if (!user || String(user.telegramid) !== ADMIN_TELEGRAM_ID) { return; }
-const attemptId = String(params || "").trim();
+const attemptId = (params || "").trim();
 if (!/^[A-Za-z0-9_-]{1,60}$/.test(attemptId)) { return; }
 const property = "oxaDemo:" + attemptId;
 const saved = User.getProp(property);
@@ -141,14 +151,24 @@ if (!options || options.status !== 200 || !data ||
   Bot.sendMessage("No confirmed API result. Check the provider account before retrying.");
   return;
 }
-function positive(value) {
-  return typeof value === "number" && Number.isFinite(value) && value > 0;
+const text = describeResult(saved, data);
+if (!text) { return; }
+saved.state = "response_received";
+saved.trackId = data.track_id;
+saved.result = data;
+User.setProp(property, saved, "json");
+Api.sendMessage({
+  text: text + "\nTrack ID: " + data.track_id + "\nAttempt: " + attemptId,
+  parse_mode: null
+});
+
+function describeResult(saved, data) {
+  if (saved.kind === "white-label") { return describePayment(saved, data); }
+  if (saved.kind === "payout") { return describePayout(data); }
+  if (saved.kind === "swap") { return describeSwap(saved, data); }
 }
-function sameCurrency(a, b) {
-  return typeof a === "string" && a.toUpperCase() === b.toUpperCase();
-}
-let text;
-if (saved.kind === "white-label") {
+
+function describePayment(saved, data) {
   if (data.order_id !== saved.fields.order_id ||
       data.amount !== saved.fields.amount || !sameCurrency(data.currency, saved.fields.currency) ||
       !positive(data.pay_amount) || !sameCurrency(data.pay_currency, saved.fields.pay_currency) ||
@@ -158,18 +178,22 @@ if (saved.kind === "white-label") {
     Bot.sendMessage("Payment details are incomplete, expired or inconsistent. Inspect the provider record.");
     return;
   }
-  text = "Payment details created; payment is not confirmed.\n" +
+  return "Payment details created; payment is not confirmed.\n" +
     "Amount: " + data.pay_amount + " " + data.pay_currency +
     "\nNetwork: " + data.network + "\nAddress: " + data.address +
     (data.memo ? "\nRequired memo/tag: " + data.memo : "") +
     "\nExpires: " + new Date(data.expired_at * 1000).toISOString();
-} else if (saved.kind === "payout") {
+}
+
+function describePayout(data) {
   if (typeof data.status !== "string" || !data.status) {
     Bot.sendMessage("Payout response has no status. Inspect the provider record.");
     return;
   }
-  text = "Payout request accepted. Provider status: " + data.status;
-} else if (saved.kind === "swap") {
+  return "Payout request accepted. Provider status: " + data.status;
+}
+
+function describeSwap(saved, data) {
   if (!sameCurrency(data.from_currency, saved.fields.from_currency) ||
       !sameCurrency(data.to_currency, saved.fields.to_currency) ||
       data.from_amount !== saved.fields.amount ||
@@ -177,17 +201,16 @@ if (saved.kind === "white-label") {
     Bot.sendMessage("Swap result is incomplete or inconsistent. Inspect the provider history.");
     return;
   }
-  text = "Swap result: " + data.from_amount + " " + data.from_currency +
+  return "Swap result: " + data.from_amount + " " + data.from_currency +
     " → " + data.to_amount + " " + data.to_currency + "\nRate: " + data.rate;
-} else { return; }
-saved.state = "response_received";
-saved.trackId = data.track_id;
-saved.result = data;
-User.setProp(property, saved, "json");
-Api.sendMessage({
-  text: text + "\nTrack ID: " + data.track_id + "\nAttempt: " + attemptId,
-  parse_mode: null
-});
+}
+
+function positive(value) {
+  return Number.isFinite(value) && value > 0;
+}
+function sameCurrency(a, b) {
+  return typeof a === "string" && a.toUpperCase() === b.toUpperCase();
+}
 ```
 {% endcode %}
 
@@ -205,8 +228,8 @@ Create `/oxa-check` and send `/oxa-check YOUR_ATTEMPT_ID` after receiving its tr
 ```javascript
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
 if (!user || String(user.telegramid) !== ADMIN_TELEGRAM_ID ||
-    !chat || String(chat.chatid) !== ADMIN_TELEGRAM_ID) { return; }
-const attemptId = String(params || "").trim();
+    !chat || chat.chatid !== ADMIN_TELEGRAM_ID) { return; }
+const attemptId = (params || "").trim();
 if (!/^[A-Za-z0-9_-]{1,60}$/.test(attemptId)) { return; }
 const saved = User.getProp("oxaDemo:" + attemptId);
 if (!saved || !saved.trackId) {
@@ -231,7 +254,7 @@ Create `/oxa-checked`:
 ```javascript
 const ADMIN_TELEGRAM_ID = "YOUR_TELEGRAM_USER_ID";
 if (!user || String(user.telegramid) !== ADMIN_TELEGRAM_ID) { return; }
-const attemptId = String(params || "").trim();
+const attemptId = (params || "").trim();
 if (!/^[A-Za-z0-9_-]{1,60}$/.test(attemptId)) { return; }
 const saved = User.getProp("oxaDemo:" + attemptId);
 const data = options && options.data;

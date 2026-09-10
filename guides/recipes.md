@@ -6,6 +6,8 @@ description: Find Bots.Business recipes for buttons, user input, properties, ref
 
 # Find a recipe for your bot
 
+For a guided sequence with checkpoints, choose a [Tutorial](../tutorials/README.md). Use the recipes below when you need one specific task.
+
 {% hint style="info" %}
 Choose the result you want, then follow the complete guide. Each linked guide explains its required commands, context, and limitations.
 {% endhint %}

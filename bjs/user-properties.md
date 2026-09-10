@@ -15,7 +15,7 @@ Command `/save-color`:
 {% code title="/save-color" overflow="wrap" %}
 ```javascript
 if (!user) { return; }
-var color = String(params || "").trim();
+var color = (params || "").trim();
 if (!color) {
   Bot.sendMessage("Use /save-color followed by a color.");
   return;
